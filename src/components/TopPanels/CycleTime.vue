@@ -1,5 +1,6 @@
 <template>
-<div class="CycleTime"  v-on:mousemove="someMethod" v-on:mouseout="CTOut" v-on:mouseover="CTOver">
+<div class="CycleTime"  v-on:mousemove="positionSet" v-on:mouseout="CTOut" v-on:mouseover="CTOver">
+>>>>>>> sprint1
     <p id = "cycleTimeTitle">평균 CT </p>
     <p id="cycleTimeval" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
     <div id="avgCT" :style="{display:avgCTView , left:avgCTLeft +'px', top:avgCTTop+'px' }">
@@ -43,7 +44,7 @@ export default {
     }
   },
   methods: {
-    someMethod(event) {
+    positionSet(event) {
         // clientX/Y gives the coordinates relative to the viewport in CSS pixels.
         console.log(event.clientX); // x coordinate
         console.log(event.clientY); // y coordinate
