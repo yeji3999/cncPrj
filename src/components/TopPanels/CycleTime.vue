@@ -1,8 +1,8 @@
 <template>
-<div class="CycleTime">
+<div class="CycleTime"  v-on:mousemove="someMethod" v-on:mouseout="CTOut" v-on:mouseover="CTOver">
     <p id = "cycleTimeTitle">평균 CT </p>
     <p id="cycleTimeval" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
-    <div id="avgCT">
+    <div id="avgCT" :style="{display:avgCTView , left:avgCTLeft +'px', top:avgCTTop+'px' }">
       <p id="avgCTtitle">Cycle Time</p>
       <p id="avgCTVal">{{ctAvgVal}}</p>
     </div>
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'CycleTime',
   created() { 
@@ -34,9 +35,38 @@ export default {
       return {
       cycleTimeVal:"-",
       cycleTimeValColor:"#C0D8FF",
-      ctAvgVal : "hello"
+      ctAvgVal : "hello",
+      avgCTView: "none",
+      avgCTLeft: "0",
+      avgCTTop: "0"
+      
     }
-  }
+  },
+  methods: {
+    someMethod(event) {
+        // clientX/Y gives the coordinates relative to the viewport in CSS pixels.
+        console.log(event.clientX); // x coordinate
+        console.log(event.clientY); // y coordinate
+        this.avgCTLeft = event.clientX - 1600
+        this.avgCTTop = event.clientY -200
+        // his.avgCTView = "inline-block"t
+
+        // pageX/Y gives the coordinates relative to the <html> element in CSS pixels.
+        // console.log(event.pageX); 
+        // console.log(event.pagey); 
+        
+
+        // screenX/Y gives the coordinates relative to the screen in device pixels.
+        // console.log(event.screenX);
+        // console.log(event.screenY);
+    },
+    CTOut(){
+      this.avgCTView = "none"
+    },
+    CTOver(){
+      this.avgCTView = "inline-block"
+    }
+}
 }
 </script>
 <style>
@@ -68,9 +98,9 @@ export default {
   color:white;
   font-weight: bold;
 }
-#cycleTimeval:hover + #avgCT{
+/* #cycleTimeval:hover + #avgCT{
   display: inline-block;
-}
+} */
 #avgCTVal{
   margin-top: 5px;
 }
