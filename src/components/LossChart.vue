@@ -1,7 +1,9 @@
 <template>
   <div class="lossChart">
-    <div id="alertBg"></div>
+    <div id="alertBg" :style="{display:alertView}"></div>
+    <p id="anomalyTxt">{{anomalyData}}</p>
     <iframe id="losschart" v-bind:src="iframeSource" width="100%" frameborder="0"></iframe>
+    <button v-on:click="alarmBtn" >ss</button>
   </div>
 </template>
 
@@ -18,12 +20,12 @@ export default {
       this.stateMessage = false;
       var today = new Date();
       aTime = today.getTime();
-      document.getElementById("alertBg").style.display = "block";
-      this.anomalyData = "이상 데이터";
+      this.alertView = "block";
+      this.anomalyData = "이상 데이터 감지";
       this.stateColor = "#E02F44";
 
       setTimeout(() => {
-        document.getElementById("alertBg").style.display = "none";
+        this.alertView = "none";
       }, 300);
       setTimeout(() => {
         var today = new Date();
@@ -45,7 +47,8 @@ export default {
       anomalyData:"",
       anomalyColor:"#E02F44",
       alertBgH : "304",
-      aletBgT: "320"
+      aletBgT: "320",
+      alertView : "none"
     }
   }
 }
@@ -79,17 +82,17 @@ h2{
 }
   #alertBg{
   width: 100%;
+  height: 100%;
   position:absolute;
-  /* top: 0px;
-  left: 0px; */
   background: #E02F44;
   opacity: 0.5;
   z-index: 999999999999;
-  display: none;
   right: 0px;
   bottom: 0px;
-  /* margin-bottom: -380; */
-  /* height: 480px; */
-
+  }
+  #anomalyTxt{
+    font-weight: bold;
+    color: #E02F44;
+    font-size: 20px
   }
 </style>
