@@ -11,18 +11,17 @@ export default {
   name: 'Product',
   created() { 
     this.$socket.emit('setCount');
-    this.$socket.emit('setCountStart');
   },
   sockets: {
     count: function(cnt) {
       this.productVal = cnt;
+      this.$socket.emit('setCountStart');
     },
     start: function(s) {
-      this.uptime = this.$moment(Date(s/1000)).format('YYYY/MM/DD HH:mm:ss');
-      this.$socket.emit('setCountEnd');
+      this.uptime = this.$moment(s).format('YYYY/MM/DD HH:mm:ss');
     },
     end: function(last) {
-      this.uptime = this.uptime + ' ~ ' + this.$moment(Date(last/1000)).format('YYYY/MM/DD HH:mm:ss');
+      this.uptime = this.uptime + ' ~ ' + this.$moment(last).format('YYYY/MM/DD HH:mm:ss');
     },
   },
     data(){

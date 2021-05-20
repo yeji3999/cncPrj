@@ -15,9 +15,10 @@ export default {
   name: 'CycleTime',
   created() { 
     this.$socket.emit('setMeanProcessTime');
+    this.$socket.emit('setLast5ProcessTime');
   },
   sockets: {
- processMeanTime: function(miliTime) {
+    processMeanTime: function(miliTime) {
       let sec = miliTime/1000;
       let min = sec // 60;
       sec = sec % 60;
