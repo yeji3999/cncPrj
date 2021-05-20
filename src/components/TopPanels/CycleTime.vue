@@ -12,11 +12,21 @@
 export default {
   name: 'CycleTime',
   created() { 
-    this.$socket.emit('setProcessTime')
+    this.$socket.emit('setMeanProcessTime');
   },
   sockets: {
-    processTime: function(processTime) {
-      this.cycleTimeVal = processTime
+    processMeanTime: function(miliTime) {
+      let sec = miliTime/1000;
+      let min = sec // 60;
+      sec = sec % 60;
+      let avgTime = '';
+      if (min > 0) {
+        avgTime = min + '분';
+      }
+      if (sec > 0 ) {
+        avgTime = ' ' + sec + '초';
+      }
+      this.cycleTimeVal = avgTime;
     }
   },
   data(){
