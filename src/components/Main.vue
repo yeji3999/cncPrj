@@ -27,7 +27,6 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
 
-      <v-expansion-panel>
       <v-expansion-panel> 
         <v-expansion-panel-header>예측 그래프</v-expansion-panel-header>
         <v-expansion-panel-content>
