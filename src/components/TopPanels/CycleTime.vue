@@ -19,6 +19,22 @@ export default {
   },
   sockets: {
     processMeanTime: function(miliTime) {
+      let avgTime = this.numToMS(miliTime);
+      this.cycleTimeVal = avgTime;
+    },
+    CTHistory: function(history) {
+      this.ctAvgVal = history
+    }
+  },
+  data(){
+      return {
+      cycleTimeVal:"-",
+      cycleTimeValColor:"#C0D8FF",
+      ctAvgVal : "-"  
+    }
+  },
+  methods:{
+    numToMS: function(miliTime) {
       let sec = miliTime/1000;
       let min = sec // 60;
       sec = sec % 60;
@@ -27,18 +43,11 @@ export default {
         avgTime = min + '분';
       }
       if (sec > 0 ) {
-        avgTime = ' ' + sec + '초';
+        avgTime = ' ' + parseInt(sec) + '초';
       }
-      this.cycleTimeVal = avgTime;
+      return avgTime;
     }
-  },
-  data(){
-      return {
-      cycleTimeVal:"-",
-      cycleTimeValColor:"#C0D8FF",
-      ctAvgVal : "hello"  
-    }
-  } 
+  }
 }
 </script>
 <style>
@@ -75,6 +84,7 @@ export default {
 }
 #avgCTVal{
   margin-top: 5px;
+  white-space: pre-line;
 }
 
 </style>

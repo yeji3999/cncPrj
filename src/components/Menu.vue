@@ -115,10 +115,7 @@ export default {
         ],
     }
   },
-    methods:{
-    // firstData:function(){
-    //   console.log(this.items[i].title)
-    // },
+  methods:{
     closeNav: function(){
       if(this.navPosition == "0px"){
       this.navPosition = "-200px";
