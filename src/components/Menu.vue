@@ -15,7 +15,7 @@
               <v-icon>{{item.icon}}</v-icon>
             </v-list-item-icon>
 
-            <v-list-item-title >{{item.title}}</v-list-item-title>
+            <v-list-item-title>{{item.title}}</v-list-item-title>
           </v-list-item>
         </div>
         <v-list-group
@@ -25,7 +25,7 @@
         >
         <!-- factory 1depth-->
           <template v-slot:activator >
-            <v-list-item-title >{{item.title}}</v-list-item-title>  
+            <v-list-item-title>{{item.title}}</v-list-item-title>  
           </template>
 
           <div 
@@ -40,7 +40,7 @@
             <!-- line 2depth-->
               <template v-slot:activator> 
                 <v-list-item-content>
-                  <v-list-item-title>{{item.title}}</v-list-item-title >
+                  <v-list-item-title >{{item.title}}</v-list-item-title >
                 </v-list-item-content>
               </template>
               
@@ -73,6 +73,7 @@
       </v-list>
 
   <div :style="{left: closePosition }" id="closeNav" @click="closeNav"></div>
+  
 
 </div>
 </template>
@@ -89,13 +90,15 @@ export default {
             items:[
               { title: '1 라인',
                 items:[
-                  { icon: 'mdi-factory',  title: '공정 1', route: '/3depth1' },
+                  { icon: 'mdi-factory',  title: '공정 1', route: '/op1' },
+                  { icon: 'mdi-factory',  title: '공정 2', route: '/op2' }
+
                 ]
               },
               { title: '2 라인',
                 items:[
-                  { icon: 'mdi-factory',  title: '공정 2', route: '/3depth1' },
-                  { icon: 'mdi-factory',  title: '공정 3', route: '/3depth2' }
+                  { icon: 'mdi-factory',  title: '공정 3', route: '/op3' },
+                  { icon: 'mdi-factory',  title: '공정 4', route: '/op4' }
                 ]
               },
             ]
@@ -104,8 +107,7 @@ export default {
             items:[
               { title: '3 라인',
                 items:[
-                  { icon: 'mdi-factory',  title: '공정 4', route: '/3depth1' },
-                  { icon: 'mdi-factory',  title: '공정 5', route: '/3depth2' }
+                  { icon: 'mdi-factory',  title: '공정 5', route: '/op5' }
                 ]
               }
             ]
@@ -114,18 +116,26 @@ export default {
     }
   },
     methods:{
+    // firstData:function(){
+    //   console.log(this.items[i].title)
+    // },
     closeNav: function(){
       if(this.navPosition == "0px"){
       this.navPosition = "-200px";
       this.closePosition = "0px";
       this.$emit('closeNav', 'true');
+      console.log()
+      console.log(this.items[0].title)
+      console.log(this.items[0].items[0].title)
+      console.log(this.items[0].items[0].items[0].title)
+
       }
       else{
       this.navPosition = "0px";
       this.closePosition = "200px";
       this.$emit('closeNav', 'false');
       }
-    },
+    }
   }
 }
 </script>

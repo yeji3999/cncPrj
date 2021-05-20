@@ -4,13 +4,9 @@ import Vuex from 'vuex'
 import VueSocketIO from "vue-socket.io";
 import vuetify from './plugins/vuetify'
 import VueMoment from 'vue-moment'
+import router from "./components/router/router"
+
 Vue.use(VueMoment)
-// import BootstrapVue from 'bootstrap-vue'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-// Vue.use(BootstrapVue)
-
 Vue.prototype.$socket = new VueSocketIO({
   debug: true,
   connection: 'http://9.8.100.153:1234',
@@ -38,6 +34,7 @@ var store = new Vuex.Store({
 
 Vue.config.productionTip = false
 new Vue({
+  router,
   store,
   vuetify,
   render: h => h(App),

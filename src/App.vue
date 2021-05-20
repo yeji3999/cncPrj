@@ -2,27 +2,28 @@
   <div :style="{padding: mainPpadding}" id="wrap">
     <Header></Header>
     <Menu @closeNav="closeNavEvt" ></Menu>
-    <Breadcrumbs></Breadcrumbs>
+    <!-- <Breadcrumbs></Breadcrumbs> -->
     <!-- <TopPanel></TopPanel> -->
-    <Main></Main>
+    <!-- <Main></Main> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import Menu from './components/Menu.vue'
-import Main from './components/Main.vue'
+// import Main from './components/Main.vue'
 // import TopPanel from './components/TopPanel.vue'
-import Breadcrumbs from './components/Breadcrumbs.vue'
+// import Breadcrumbs from './components/Breadcrumbs.vue'
 
 export default {
   name: 'App',
   components: {
    Header,
    Menu,
-   Main,
+  //  Main,
   //  TopPanel,
-  Breadcrumbs
+  // Breadcrumbs
   },
   
   data(){

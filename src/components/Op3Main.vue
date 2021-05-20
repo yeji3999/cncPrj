@@ -1,26 +1,21 @@
 <template>
-  <div class="Breadcrumbs">
+  <div>
+    <div class="Breadcrumbs">
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
+  </div>
+
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Breadcrumbs',
-    data(){
-    return {
-     headerFac:"제 1 공장",
-     headerLine: "1 라인",
-     headerOP: "공정 1"
-    }
-    },
-    method:{
-      headerFac: function(message){
-        console.log(message)
-      }
-    }
-  }
 
+export default {
+  data: () => ({
+    headerFac:"제 1 공장",
+     headerLine: "2 라인",
+     headerOP: "공정 3"
+    })
+  }
 </script>
 
 <style scoped>
@@ -38,5 +33,4 @@ export default {
     padding-right: 10px;
     border-right: 1px dashed rgba(255,255,255,0.3);
     }
-
 </style>
