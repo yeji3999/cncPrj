@@ -3,7 +3,7 @@
     <Header></Header>
     <Menu @closeNav="closeNavEvt" ></Menu>
     <Breadcrumbs></Breadcrumbs>
-    <TopPanel></TopPanel>
+    <!-- <TopPanel></TopPanel> -->
     <Main></Main>
   </div>
 </template>
@@ -12,7 +12,7 @@
 import Header from './components/Header.vue'
 import Menu from './components/Menu.vue'
 import Main from './components/Main.vue'
-import TopPanel from './components/TopPanel.vue'
+// import TopPanel from './components/TopPanel.vue'
 import Breadcrumbs from './components/Breadcrumbs.vue'
 
 export default {
@@ -21,7 +21,7 @@ export default {
    Header,
    Menu,
    Main,
-   TopPanel,
+  //  TopPanel,
   Breadcrumbs
   },
   
@@ -52,7 +52,7 @@ export default {
   box-sizing: border-box;
   transition: "padding".5s;
   background-color: #262D35;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
   }
 

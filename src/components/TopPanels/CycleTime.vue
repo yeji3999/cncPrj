@@ -4,6 +4,7 @@
     <p id="cycleTimeval" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
     <div id="avgCT">
       <p id="avgCTtitle">Cycle Time</p>
+      <p id="avgCTVal">{{ctAvgVal}}</p>
     </div>
 </div>
 </template>
@@ -15,7 +16,7 @@ export default {
     this.$socket.emit('setMeanProcessTime');
   },
   sockets: {
-    processMeanTime: function(miliTime) {
+ processMeanTime: function(miliTime) {
       let sec = miliTime/1000;
       let min = sec // 60;
       sec = sec % 60;
@@ -32,11 +33,9 @@ export default {
   data(){
       return {
       cycleTimeVal:"-",
-      cycleTimeValColor:"#C0D8FF"
+      cycleTimeValColor:"#C0D8FF",
+      ctAvgVal : "hello"
     }
-  },
-  methods:{
-
   }
 }
 </script>
@@ -71,6 +70,9 @@ export default {
 }
 #cycleTimeval:hover + #avgCT{
   display: inline-block;
+}
+#avgCTVal{
+  margin-top: 5px;
 }
 
 </style>

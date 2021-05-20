@@ -1,6 +1,6 @@
 <template>
 <div class="Loss1m">
-    <p id = "loss1mTitle">오차율 / 1분<!-- <button @click="productEvt" id="productEvt">Click</button> --></p>
+    <p id = "loss1mTitle">오차율 / 1분</p>
     <p id="loss1mVal" :style="{color:loss1mValColor}">{{loss1mVal}}</p>
     </div>
 </template>

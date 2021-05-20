@@ -1,12 +1,7 @@
 <template>
   <div class="lossChart">
-    <div id="alertBg" :style="{height:alertBgH + 'px', top: aletBgT+'px'}"></div>
-    <h2 :style=" { marginBottom: marginBottom + 'px'}">오차율 그래프
-      <p id="anomaly" :style="{color:anomalyColor}">{{anomalyData}}</p>
-    <button id="losschartclose" @click="losschartclose" :style="{display:closeBtn}"><i class="fa fa-minus"></i></button>
-    <button id="losschartopen" @click="losschartopen" :style="{display:openBtn}"><i class="fa fa-plus"></i></button></h2>
-    <!-- <button @click="alarmBtn" class="alramBtn">Click</button> -->
-        <iframe id="losschart" :style="{display:losschartView}" v-bind:src="iframeSource" width="100%" frameborder="0"></iframe>
+    <div id="alertBg"></div>
+    <iframe id="losschart" v-bind:src="iframeSource" width="100%" frameborder="0"></iframe>
   </div>
 </template>
 
@@ -19,24 +14,6 @@ export default {
 
   },
   methods:{
-    losschartclose(){
-      this.losschartView = "none";
-      this.closeBtn = "none";
-      this.openBtn = "block";
-      this.marginBottom = "0";
-      this.alertBgH = "63";
-      this.aletBgT = "80";
-      document.getElementById("realchart").style.height = "440px";
-    },
-    losschartopen(){
-      this.losschartView = "block";
-      this.closeBtn = "block";
-      this.openBtn = "none";
-      this.marginBottom = "20";
-      this.alertBgH = "524";
-      this.aletBgT = "80";
-      document.getElementById("realchart").style.height = "220px";
-    },
     alarmBtn () {
       this.stateMessage = false;
       var today = new Date();
@@ -64,8 +41,6 @@ export default {
     return {
       iframeSource:"http://9.8.100.156:3000/d-solo/jMxlJhrGz/cnc?orgId=1&from=now-1m&to=now&panelId=8",
       losschartView: "block",
-      closeBtn: "block",
-      openBtn: "none",
       marginBottom: "20",
       anomalyData:"",
       anomalyColor:"#E02F44",
@@ -78,7 +53,7 @@ export default {
 
 <style scoped>
 #losschart{
-  height: 220px;
+  height: 180px;
 }
 h2{
   margin-top: 0px;
@@ -86,7 +61,7 @@ h2{
 .lossChart{
   background: #141619;
   padding: 15px 20px 15px 20px;
-  margin-top:18px
+  margin-top: 0px;
 }
 #losschartclose, #losschartopen{
   color: white;
