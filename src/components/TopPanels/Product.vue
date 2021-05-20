@@ -17,19 +17,25 @@ export default {
   },
   sockets: {
     count: function(cnt) {
+      this.uptime = ""
       this.productVal = cnt;
-      this.$socket.emit('setCountStart');
+      this.$socket.emit('countStartList')
     },
     start: function(s) {
-      this.uptime = this.$moment(s).format('YYYY/MM/DD HH:mm:ss');
+      this.startlist = s
+      this.$socket.emit('countEndList')
     },
     end: function(last) {
-      this.uptime = this.uptime + ' ~ ' + this.$moment(last).format('YYYY/MM/DD HH:mm:ss');
+      this.endlist = last
+      this.setUptime()
+      console.log(last)
     },
   },
-    data(){
+  data(){
     return {
       productVal:"",
+      startlist:"",
+      endlist:"",
       uptime:"",
       productValColor:"#C0D8FF"
     }
@@ -37,6 +43,11 @@ export default {
   methods:{
     productEvt(){
       this.productVal = 'result'
+    },
+    setUptime() {
+      for (var i =0; i<this.endlist.length; i++) {
+        this.uptime = this.uptime + this.startlist[i] + " ~ " + this.endlist[i] + "\n"
+      }
     }
   }
 }
@@ -78,6 +89,7 @@ export default {
 }
 #uptimeVal{
   margin-top: 5px;
+  white-space: pre-line;
 }
 
 </style>
