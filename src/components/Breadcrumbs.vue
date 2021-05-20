@@ -13,8 +13,15 @@ export default {
      headerLine: "2 라인",
      headerOP: "공정 1"
     }
+    },
+    method:{
+      headerFac: function(message){
+        console.log(message)
+
+      }
+    }
   }
-}
+
 </script>
 
 <style scoped>

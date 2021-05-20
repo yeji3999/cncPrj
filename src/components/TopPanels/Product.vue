@@ -2,7 +2,10 @@
   <div class="Product">
     <p id = "productTitle">총 생산량 <!-- <button @click="productEvt" id="productEvt">Click</button> --> </p>
     <p id="productVal" :style="{color:productValColor}">{{productVal}}</p>
-    <p id="productDate" :style="{color:productValColor}">{{uptime}}</p>
+      <div id="ProductTime">
+      <p id="totalProductTitle">최신 생산 리스트</p>
+      <p id="uptimeVal">{{uptime}}</p>
+    </div>
   </div>
 </template>
 
@@ -55,6 +58,26 @@ export default {
 }
 #productDate{
   font-size: 14px
+}
+#ProductTime{
+  z-index: 999;
+  background: #343B43;
+  height: 150px;
+  width: 100%;
+  position: relative;
+  /* bottom: 5px; */
+  opacity: 0.8;
+  display: none;
+}
+#totalProductTitle{
+  color:white;
+  font-weight: bold;
+}
+#productVal:hover + #ProductTime{
+  display: inline-block;
+}
+#uptimeVal{
+  margin-top: 5px;
 }
 
 </style>

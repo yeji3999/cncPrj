@@ -1,11 +1,11 @@
 <template>
   <div :style="{left: navPosition}" class="navigation" >
-
       <v-list 
         v-for="item in items" 
         :key="item.title"
         class="py-0"
         dark
+        v-model="item.active"
        >
         <div v-if="!item.items">
           <v-list-item 
@@ -18,15 +18,14 @@
             <v-list-item-title >{{item.title}}</v-list-item-title>
           </v-list-item>
         </div>
-
         <v-list-group
           v-else
           no-action
           
         >
         <!-- factory 1depth-->
-          <template v-slot:activator>
-            <v-list-item-title>{{item.title}}</v-list-item-title>  
+          <template v-slot:activator >
+            <v-list-item-title >{{item.title}}</v-list-item-title>  
           </template>
 
           <div 
@@ -41,7 +40,7 @@
             <!-- line 2depth-->
               <template v-slot:activator> 
                 <v-list-item-content>
-                  <v-list-item-title>{{item.title}}</v-list-item-title>
+                  <v-list-item-title>{{item.title}}</v-list-item-title >
                 </v-list-item-content>
               </template>
               
@@ -126,7 +125,7 @@ export default {
       this.closePosition = "200px";
       this.$emit('closeNav', 'false');
       }
-    }
+    },
   }
 }
 </script>
