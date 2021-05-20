@@ -1,26 +1,34 @@
 <template>
-<div class="Product">
+  <div class="Product">
     <p id = "productTitle">총 생산량 <!-- <button @click="productEvt" id="productEvt">Click</button> --> </p>
     <p id="productVal" :style="{color:productValColor}">{{productVal}}</p>
-    <p id="productDate" :style="{color:productValColor}">{{date}}</p>
-    </div>
+    <p id="productDate" :style="{color:productValColor}">{{uptime}}</p>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'Product',
   created() { 
-    this.$socket.emit('setCount')
+    this.$socket.emit('setCount');
+    this.$socket.emit('setCountStart');
   },
   sockets: {
-    count: function(count) {
-      this.productVal = count
-    }
+    count: function(cnt) {
+      this.productVal = cnt;
+    },
+    start: function(s) {
+      this.uptime = this.$moment(Date(s/1000)).format('YYYY/MM/DD HH:mm:ss');
+      this.$socket.emit('setCountEnd');
+    },
+    end: function(last) {
+      this.uptime = this.uptime + ' ~ ' + this.$moment(Date(last/1000)).format('YYYY/MM/DD HH:mm:ss');
+    },
   },
     data(){
     return {
       productVal:"",
-      date:"hello",
+      uptime:"",
       productValColor:"#C0D8FF"
     }
   },

@@ -3,6 +3,8 @@ import App from './App.vue'
 import Vuex from 'vuex'
 import VueSocketIO from "vue-socket.io";
 import vuetify from './plugins/vuetify'
+import VueMoment from 'vue-moment'
+Vue.use(VueMoment)
 // import BootstrapVue from 'bootstrap-vue'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 // import 'bootstrap-vue/dist/bootstrap-vue.css'
