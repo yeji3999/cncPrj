@@ -1,6 +1,5 @@
 <template>
 <div class="CycleTime"  v-on:mousemove="positionSet" v-on:mouseout="CTOut" v-on:mouseover="CTOver">
->>>>>>> sprint1
     <p id = "cycleTimeTitle">평균 CT </p>
     <p id="cycleTimeval" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
     <div id="avgCT" :style="{display:avgCTView , left:avgCTLeft +'px', top:avgCTTop+'px' }">
