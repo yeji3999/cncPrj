@@ -3,9 +3,9 @@
     <p id = "loss10sTitle">오차율 / 1초</p>
     <p id="loss10sVal" :style="{color:loss10sValColor}">{{loss}}</p>
     <div id="upLoss10s">
-      <p id="upLoss10sTitle">최신 오차율 리스트</p>
+      <p id="upLoss10sTitle">최근 오차율 리스트</p>
       <p id="uplossVal">{{lossList}}</p>
-  </div>
+    </div>
 </div>
 </template>
 

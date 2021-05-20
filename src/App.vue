@@ -2,9 +2,6 @@
   <div :style="{padding: mainPpadding}" id="wrap">
     <Header></Header>
     <Menu @closeNav="closeNavEvt" ></Menu>
-    <!-- <Breadcrumbs></Breadcrumbs> -->
-    <!-- <TopPanel></TopPanel> -->
-    <!-- <Main></Main> -->
     <router-view></router-view>
   </div>
 </template>
@@ -12,18 +9,12 @@
 <script>
 import Header from './components/Header.vue'
 import Menu from './components/Menu.vue'
-// import Main from './components/Main.vue'
-// import TopPanel from './components/TopPanel.vue'
-// import Breadcrumbs from './components/Breadcrumbs.vue'
 
 export default {
   name: 'App',
   components: {
    Header,
-   Menu,
-  //  Main,
-  //  TopPanel,
-  // Breadcrumbs
+   Menu
   },
   
   data(){
@@ -48,14 +39,9 @@ export default {
 <style>
   #wrap{
   position: relative;
-  height: 100%;
   width: 100%;
   box-sizing: border-box;
   transition: "padding".5s;
-  background-color: #262D35;
-  overflow-y: auto;
-  overflow-x: hidden;
+  background-color: #2b2d30;
   }
-
-
 </style>

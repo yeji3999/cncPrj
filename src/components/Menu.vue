@@ -3,7 +3,6 @@
       <v-list 
         v-for="item in items" 
         :key="item.title"
-        class="py-0"
         dark
         v-model="item.active"
        >
@@ -21,7 +20,6 @@
         <v-list-group
           v-else
           no-action
-          
         >
         <!-- factory 1depth-->
           <template v-slot:activator >
@@ -36,6 +34,7 @@
               v-if="item.items"
               no-action
               sub-group
+              
             >
             <!-- line 2depth-->
               <template v-slot:activator> 
@@ -153,6 +152,7 @@ export default {
 .navigation {
       /* background-color: #343B43; */
       background: #1E1E1E;
+      /* background: white;; */
       width: 200px;
       height: calc(100% - 60px);
       bottom: 0px;

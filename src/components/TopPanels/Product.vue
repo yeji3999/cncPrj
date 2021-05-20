@@ -1,9 +1,9 @@
 <template>
   <div class="Product">
     <p id = "productTitle">총 생산량 <!-- <button @click="productEvt" id="productEvt">Click</button> --> </p>
-    <p id="productVal" :style="{color:productValColor}">{{productVal}}</p>
+    <p id="totalproductVal" :style="{color:productValColor}">{{productVal}}</p>
       <div id="ProductTime">
-      <p id="totalProductTitle">최신 생산 리스트</p>
+      <p id="totalProductTitle">최근 생산 리스트</p>
       <p id="uptimeVal">{{uptime}}</p>
     </div>
   </div>
@@ -61,9 +61,8 @@ export default {
     margin:0px;
     line-height: 28px;
 }
-#productVal{
+#totalproductVal{
     font-size: 33px;
-    /* margin-top: 5px; */
     font-weight: bold;
     color: #C0D8FF;
 }
@@ -76,7 +75,6 @@ export default {
   height: 150px;
   width: 100%;
   position: relative;
-  /* bottom: 5px; */
   opacity: 0.8;
   display: none;
 }
@@ -84,7 +82,7 @@ export default {
   color:white;
   font-weight: bold;
 }
-#productVal:hover + #ProductTime{
+#totalproductVal:hover + #ProductTime{
   display: inline-block;
 }
 #uptimeVal{

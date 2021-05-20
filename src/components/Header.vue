@@ -1,7 +1,9 @@
 <template>
   <div class="Header">
-        <img alt="logo" src="../assets/logo.png">
-        <div id="headerTitle">{{ headerTitle }}</div>    
+    <router-link to="/">
+      <img alt="logo" src="../assets/logo.png">
+    </router-link>
+    <div id="headerTitle">{{ headerTitle }}</div>    
   </div>
 </template>
 
@@ -18,7 +20,7 @@ export default {
 
 <style scoped>
   .Header {
-      background-color: #343B43;
+      background-color: #2c384a;
       min-width: 1280px;
       width: 100%;
       line-height: 80px;
@@ -40,11 +42,6 @@ export default {
       margin-left:75px; 
       font-size: 25px;
       font-weight: bold;
+      color:white;
     }
-    /* .headerTitleTxt{
-    padding-left: 18px;
-    padding-right: 18px;
-    border-right: 1px solid rgba(255,255,255,0.3);
-    } */
-
 </style>

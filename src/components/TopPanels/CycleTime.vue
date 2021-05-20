@@ -1,9 +1,9 @@
 <template>
 <div class="CycleTime">
     <p id = "cycleTimeTitle">평균 CT </p>
-    <p id="cycleTimeval" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
+    <p id="cycleVal" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
     <div id="avgCT">
-      <p id="avgCTtitle">최신 CT 리스트</p>
+      <p id="avgCTtitle">최근 CT 리스트</p>
       <p id="avgCTVal">{{ctAvgVal}}</p>
     </div>
 </div>
@@ -59,7 +59,7 @@ export default {
     margin:0px;
     line-height: 28px;
 }
-#cycleTimeval{
+#cycleVal{
     font-size: 33px;
     margin-top: 5px;
     font-weight: bold;
@@ -79,7 +79,7 @@ export default {
   color:white;
   font-weight: bold;
 }
-#cycleTimeval:hover + #avgCT{
+#cycleVal:hover + #avgCT{
   display: inline-block;
 }
 #avgCTVal{

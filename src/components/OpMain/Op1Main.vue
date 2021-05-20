@@ -42,10 +42,10 @@
 </template>
 
 <script>
-import RealtimeChart from './RealtimeChart.vue'//컴포넌트를 임포트
-import LossChart from './LossChart.vue'//컴포넌트를 임포트
-import PredicChart from './PredicChart.vue'//컴포넌트를 임포트
-import TopPanel from './TopPanel.vue'
+import RealtimeChart from '../RealtimeChart.vue'//컴포넌트를 임포트
+import LossChart from '../LossChart.vue'//컴포넌트를 임포트
+import PredicChart from '../PredicChart.vue'//컴포넌트를 임포트
+import TopPanel from '../TopPanel.vue'
 
 export default {
   components: {

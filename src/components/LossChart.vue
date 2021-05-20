@@ -3,7 +3,7 @@
     <div id="alertBg" :style="{display:alertView}"></div>
     <p id="anomalyTxt">{{anomalyData}}</p>
     <iframe id="losschart" v-bind:src="iframeSource" width="100%" frameborder="0"></iframe>
-    <button v-on:click="alarmBtn" >ss</button>
+    <!-- <button v-on:click="alarmBtn" >ss</button> -->
   </div>
 </template>
 
@@ -11,9 +11,7 @@
 var aTime = 0;
 export default {
   name: 'LossChart',
-  // props:['newMsg'],
     sockets: {
-
   },
   methods:{
     alarmBtn () {
