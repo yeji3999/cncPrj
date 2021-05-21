@@ -15,12 +15,14 @@ export default {
   name: 'CycleTime',
   created() { 
     this.$socket.emit('setMeanProcessTime');
-    this.$socket.emit('setLast5ProcessTime');
+    // this.$socket.emit('setLast5ProcessTime');
   },
   sockets: {
     processMeanTime: function(miliTime) {
       let avgTime = this.numToMS(miliTime);
       this.cycleTimeVal = avgTime;
+
+      // this.$socket.emit('setLast5ProcessTime');
     },
     CTHistory: function(history) {
       this.ctAvgVal = history
