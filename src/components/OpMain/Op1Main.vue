@@ -24,7 +24,7 @@
       </v-expansion-panel>
 
       <v-expansion-panel>
-        <v-expansion-panel-header>오차율 그래프</v-expansion-panel-header>
+        <v-expansion-panel-header>AI 판정 오차율 그래프</v-expansion-panel-header>
         <v-expansion-panel-content>
           <LossChart></LossChart>
         </v-expansion-panel-content>

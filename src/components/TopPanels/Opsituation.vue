@@ -37,6 +37,7 @@ export default {
 #opsituationTitle{
     margin:0px;
     line-height: 28px;
+    font-weight: bold;
 }
 #opsituationState{
     font-size: 33px;

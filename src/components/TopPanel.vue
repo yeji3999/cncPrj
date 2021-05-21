@@ -1,16 +1,8 @@
 <template>
 <div class="TopPanel">
-    <!-- <div id="top">
-        <sapn id="topPanelTitle">모니터링 대시보드</sapn>
-        <div id="topPanelBtn">
-        <button id="topPanelclose" @click="topPanelclose" :style="{display:closeBtn}"><i class="fa fa-minus"></i></button>
-        <button id="topPanelopen" @click="topPanelopen" :style="{display:openBtn}"><i class="fa fa-plus"></i></button>
-        </div>
-    </div> -->
     <div id="panel" :style="{display:panelView}">
     <div id="opsituation"><Opsituation></Opsituation></div>
-    <div id="loss10s"><Loss10s></Loss10s></div>
-    <!-- <div id="loss1m"><Loss1m></Loss1m></div> -->
+    <div id="loss1s"><Loss1s></Loss1s></div>
     <div id="product"><Product></Product></div>
     <div id="cycleTime"><CycleTime></CycleTime></div> 
     </div>
@@ -18,8 +10,7 @@
 </template>
 
 <script>
-// import Loss1m from './TopPanels/Loss1m.vue'
-import Loss10s from './TopPanels/Loss10s.vue'
+import Loss1s from './TopPanels/Loss1s.vue'
 import Opsituation from './TopPanels/Opsituation.vue'
 import Product from './TopPanels/Product.vue'
 import CycleTime from './TopPanels/CycleTime.vue'
@@ -27,8 +18,7 @@ import CycleTime from './TopPanels/CycleTime.vue'
 export default {
   name: 'TopPanel',
     components: {
-        // Loss1m,
-        Loss10s,
+        Loss1s,
         Opsituation,
         Product,
         CycleTime
@@ -43,18 +33,15 @@ export default {
 }
 </script>
 
-
 <style scope>
-
-#loss10s, #opsituation, #product, #cycleTime{
+#loss1s, #opsituation, #product, #cycleTime{
     display: inline-block;
     width:25%;
     text-align: center;
     height: 100%;
     background: #141619;
     margin: 5px 0px;
-    margin-left: 15px;  
-    
+    margin-left: 15px;   
 }
 #opsituation{
     margin-left: 0px;

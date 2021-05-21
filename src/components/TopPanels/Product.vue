@@ -3,7 +3,7 @@
     <p id = "productTitle">총 생산량 <!-- <button @click="productEvt" id="productEvt">Click</button> --> </p>
     <p id="totalproductVal" :style="{color:productValColor}">{{productVal}}</p>
       <div id="ProductTime">
-      <p id="totalProductTitle">최근 생산 리스트</p>
+      <p id="totalProductTitle">최근 5개 생산 리스트</p>
       <p id="uptimeVal">{{uptime}}</p>
     </div>
   </div>
@@ -56,6 +56,7 @@ export default {
 #productTitle{
     margin:0px;
     line-height: 28px;
+    font-weight: bold;
 }
 #totalproductVal{
     font-size: 33px;
@@ -67,7 +68,7 @@ export default {
 }
 #ProductTime{
   z-index: 999;
-  background: #343B43;
+  background: black;
   height: 150px;
   width: 100%;
   position: relative;
@@ -75,6 +76,7 @@ export default {
   display: none;
 }
 #totalProductTitle{
+  margin-top: 5px;
   color:white;
   font-weight: bold;
 }
@@ -84,6 +86,7 @@ export default {
 #uptimeVal{
   margin-top: 5px;
   white-space: pre-line;
+  font-weight: bold;
 }
 
 </style>

@@ -54,7 +54,7 @@ export default {
 
 <style scoped>
 #losschart{
-  height: 180px;
+  height: 200px;
 }
 h2{
   margin-top: 0px;

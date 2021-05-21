@@ -1,5 +1,6 @@
 <template>
-  <div class="RealTimeChart">  
+  <div class="RealTimeChart">
+    <button @click="refreshBtn" id="refreshBtn" :style="{display:refresh}"><i class="fa fa-lg fa-refresh"></i></button>
     <select id="realTimeSel" v-model="selected" v-on:input="updateSelect">
       <option value="5s">5초</option>
       <option value="10s">10초</option>
@@ -39,10 +40,9 @@ export default {
 }
 
 </script>
-
 <style scoped>
 #realchart{
-  height: 180px;
+  height: 200px;
 }
 h2{
   margin-bottom: 10px;
@@ -71,7 +71,6 @@ h2{
   cursor: pointer;
   margin-left: 15px;
   text-align-last:center;
-  float: right;
 }
 #refreshBtn{
   padding: 0px 6px;
@@ -82,15 +81,6 @@ h2{
   position: relative;
   bottom: 4px;
   cursor: pointer;
-}
-#realchartclose, #realchartopen{
-  color: white;
-  opacity: 0.8;
-  background:transparent;
-  cursor: pointer;
-  border:none;
-  line-height: 30px;
-  position: relative;
   float: right;
 }
 

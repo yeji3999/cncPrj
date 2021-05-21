@@ -3,8 +3,8 @@
     <p id = "cycleTimeTitle">평균 CT </p>
     <p id="cycleVal" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
     <div id="avgCT">
-      <p id="avgCTtitle">최근 CT 리스트</p>
-      <p id="avgCTVal">{{ctAvgVal}}</p>
+      <p id="avgCTtitle">최근 5개 CT 리스트</p>
+      <p class="avgCTVal">{{ctAvgVal}}</p>
     </div>
 </div>
 </template>
@@ -26,6 +26,14 @@ export default {
     },
     CTHistory: function(history) {
       this.ctAvgVal = history
+      console.log("history")
+
+      // console.log(history.slice(0, 20))
+      // console.log(history.slice(40, 60))
+      // console.log(history.slice(80, 100))
+      // console.log(history.slice(120, 140))
+      // console.log(history.slice(160, 180))
+
     }
   },
   data(){
@@ -60,6 +68,7 @@ export default {
 #cycleTimeTitle{
     margin:0px;
     line-height: 28px;
+    font-weight: bold;
 }
 #cycleVal{
     font-size: 33px;
@@ -69,24 +78,25 @@ export default {
 }
 #avgCT{
   z-index: 999;
-  background: #343B43;
+  background: black;
   height: 150px;
   width: 100%;
   position: relative;
-  /* bottom: 5px; */
   opacity: 0.8;
   display: none;
 }
 #avgCTtitle{
+  margin-top: 5px;
   color:white;
   font-weight: bold;
 }
 #cycleVal:hover + #avgCT{
   display: inline-block;
 }
-#avgCTVal{
+.avgCTVal{
   margin-top: 5px;
   white-space: pre-line;
+  font-weight: bold;
 }
 
 </style>
