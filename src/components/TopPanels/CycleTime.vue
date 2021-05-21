@@ -26,7 +26,6 @@ export default {
     },
     CTHistory: function(history) {
       this.ctAvgVal = history
-      console.log("history")
 
       // console.log(history.slice(0, 20))
       // console.log(history.slice(40, 60))
@@ -79,11 +78,14 @@ export default {
 #avgCT{
   z-index: 999;
   background: black;
-  height: 150px;
+  height: auto;
+  min-height: 150px;
   width: 100%;
   position: relative;
   opacity: 0.8;
   display: none;
+  padding-bottom:5px;
+
 }
 #avgCTtitle{
   margin-top: 5px;

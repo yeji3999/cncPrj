@@ -1,6 +1,6 @@
 <template>
 <div class="opsituation">  
-<p id = "opsituationTitle">가동 현황</p>
+<p id = "opsituationTitle">가동 상태</p>
 <p id="opsituationState" :style="{color:stateColor}">{{op}}</p>
 </div>
 </template>

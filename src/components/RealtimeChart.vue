@@ -28,6 +28,7 @@ export default {
     updateSelect:function(event) {
       this.selected = event.target.value;
       this.iframeSource = this.iframeSource1 + this.selected + this.iframeSource2;
+      this.$store.dispatch('callInterval', { selInterval: this.selected })
     },
     refreshBtn:function(){
       this.selected = "5s"

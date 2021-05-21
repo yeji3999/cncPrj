@@ -2,6 +2,7 @@
   <div class="lossChart">
     <div id="alertBg" :style="{display:alertView}"></div>
     <p id="anomalyTxt">{{anomalyData}}</p>
+    <p class="setChartInterval">{{sel}}초</p>
     <iframe id="losschart" v-bind:src="iframeSource" width="100%" frameborder="0"></iframe>
     <!-- <button v-on:click="alarmBtn" >ss</button> -->
   </div>
@@ -12,6 +13,19 @@ var aTime = 0;
 export default {
   name: 'LossChart',
     sockets: {
+  },
+  created(){
+    this.iframeSource = this.iframeSource + this.$store.state.interval
+  },
+  updated(){
+    this.iframeSource = this.iframeSource.slice(0,91) + this.$store.state.interval
+  },
+  computed:{
+    sel(){
+      var selData = this.$store.state.interval
+      selData = selData.slice(0,-1)
+      return selData
+    },
   },
   methods:{
     alarmBtn () {
@@ -39,7 +53,7 @@ export default {
   },
     data(){
     return {
-      iframeSource:"http://9.8.100.156:3000/d-solo/jMxlJhrGz/cnc?orgId=1&from=now-1m&to=now&panelId=8",
+      iframeSource:"http://9.8.100.156:3000/d-solo/jMxlJhrGz/cnc?orgId=1&from=now-1m&to=now&panelId=8&refresh=",
       losschartView: "block",
       marginBottom: "20",
       anomalyData:"",
@@ -53,6 +67,13 @@ export default {
 </script>
 
 <style scoped>
+.setChartInterval{
+  font-size: 18px;
+  margin-left: 15px;
+  margin-bottom:15px;
+  color: rgba(255,255,255,0.7);
+  font-weight: bold;
+}
 #losschart{
   height: 200px;
 }

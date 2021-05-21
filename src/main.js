@@ -18,16 +18,24 @@ Vue.use(Vuex)
 var store = new Vuex.Store({
   state: {
     message: true,
+    interval: "5s"
   },
   mutations: {
     changeMessage(state, newMsg) {
       state.message = newMsg;
       console.log(state.message)
+    },
+    changeInterval(state, selInterval) {
+      state.interval = selInterval;
+      console.log(state.interval)
     }
   },
   actions: {
     callMutation({ commit }, { newMsg }) {
       commit('changeMessage', newMsg);
+    },
+    callInterval({ commit }, { selInterval }) {
+      commit('changeInterval', selInterval);
     }
   },
 })

@@ -10,7 +10,7 @@
     >
 
       <v-expansion-panel>
-        <v-expansion-panel-header>모니터링 대시보드</v-expansion-panel-header>
+        <v-expansion-panel-header>가동 현황</v-expansion-panel-header>
         <v-expansion-panel-content>
           <TopPanel></TopPanel>
         </v-expansion-panel-content>
@@ -23,19 +23,19 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
 
-      <v-expansion-panel>
-        <v-expansion-panel-header>AI 판정 오차율 그래프</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <LossChart></LossChart>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-
       <v-expansion-panel> 
         <v-expansion-panel-header>예측 그래프</v-expansion-panel-header>
         <v-expansion-panel-content>
           <PredicChart></PredicChart>
         </v-expansion-panel-content>
       </v-expansion-panel>
+
+      <v-expansion-panel>
+        <v-expansion-panel-header>AI 판정 오차율 그래프</v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <LossChart></LossChart>
+        </v-expansion-panel-content>
+      </v-expansion-panel>      
 
     </v-expansion-panels>
   </div>
