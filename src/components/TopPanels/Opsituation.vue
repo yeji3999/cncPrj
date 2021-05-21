@@ -9,7 +9,7 @@
 export default {
   name: 'opsituation',
   sockets: {
-    work: function(work) {
+    isWork: function(work) {
       if (work == "start") {
         this.op = "가동";
         this.stateColor = "#C0D8FF";
