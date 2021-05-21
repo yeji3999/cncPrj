@@ -45,14 +45,14 @@ export default {
   methods:{
     numToMS: function(miliTime) {
       let sec = miliTime/1000;
-      let min = sec // 60;
+      let min = sec / 60;
       sec = sec % 60;
       let avgTime = '';
       if (min > 0) {
-        avgTime = min + '분';
+        avgTime = parseInt(min) + '분';
       }
       if (sec > 0 ) {
-        avgTime = ' ' + parseInt(sec) + '초';
+        avgTime = avgTime + ' ' + parseInt(sec) + '초';
       }
       return avgTime;
     }
