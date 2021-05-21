@@ -14,26 +14,22 @@ export default {
   name: 'Product',
   created() { 
     this.$socket.emit('setCount');
+    this.$socket.emit('setLast5ProcessTime');
   },
   sockets: {
     count: function(cnt) {
       this.uptime = ""
       this.productVal = cnt;
-      this.$socket.emit('countStartList')
+
+      this.$socket.emit('setLast5ProcessTime');
     },
-    start: function(s) {
-      this.startlist = s
-      this.$socket.emit('countEndList')
-    },
-    end: function(last) {
-      this.endlist = last
-      this.setUptime()
-      console.log(last)
+    processHistory: function(history) {
+      this.uptime = history
     },
   },
   data(){
     return {
-      productVal:"",
+      productVal:"-",
       startlist:"",
       endlist:"",
       uptime:"",

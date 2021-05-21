@@ -25,7 +25,7 @@ export default {
         this.loss = '-'
       }
     },
-    lossList: function(res) {
+    last5Loss: function(res) {
       this.lossList = res
     }
   },
