@@ -2,23 +2,21 @@
 <div class="Loss1s">
     <p id = "loss1sTitle">loss(s)</p>
     <p id="loss1sVal" :style="{color:loss1sValColor}">{{loss}}</p>
-    <div id="upLoss1s">
+    <!-- <div id="upLoss1s">
       <p id="upLoss1sTitle">최근 5개 오차율 리스트</p>
       <p id="uplossVal">{{lossList}}</p>
       <line-chart></line-chart>
-    </div>
+    </div> -->
 </div>
 </template>
 
 <script>
-var lossArr = []
 
 export default {
   name: 'Loss1s',
-  created() { 
-    
+  created() {  
     this.$socket.emit('setLoss')
-    this.$socket.emit('setLast5Loss');
+    // this.$socket.emit('setLast5Loss');
   },
   sockets: {
     loss: function(res) {
@@ -29,37 +27,23 @@ export default {
         this.loss = '-'
       }
     },
-    last5Loss: function(res) {
-      this.lossList = res
-      const n = res.length
-      for(var i=0; i<n; i++){
-        lossArr.push(res[i].toFixed(4))
-        this.lossList = lossArr
-        this.data = lossArr
-      }
-      console.log(lossArr)
-    }
+    // last5Loss: function(res) {
+    //   this.lossList = res
+    //   const n = res.length
+    //   for(var i=0; i<n; i++){
+    //     lossArr.push(res[i].toFixed(4))
+    //     this.lossList = lossArr
+    //     this.data = lossArr
+    //   }
+    //   console.log(lossArr)
+    // }
   },
     data(){
     return {
       loss: "-",
       loss1sValColor:"#C0D8FF",
-      lossList:"-" 
+      // lossList:"-" 
     }
-  },
-  mounted () {
-    this.renderChart({
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-        {
-          label: 'Data One',
-          backgroundColor: '#f87979',
-          data: [40, 39, 10, 40, 39, 80, 40]
-        }
-      ]
-    }, {responsive: true, maintainAspectRatio: false})
-  },
-  methods:{
   }
 }
 </script>

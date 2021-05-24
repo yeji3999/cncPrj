@@ -8,17 +8,10 @@
       multiple
       dark
     >
-      <v-expansion-panel style="max-width:60%; padding:5px">
+      <v-expansion-panel>
         <v-expansion-panel-header>가동 현황</v-expansion-panel-header>
         <v-expansion-panel-content>
-          <StatusPanel></StatusPanel>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-
-        <v-expansion-panel style="max-width:40%; padding:5px">
-        <v-expansion-panel-header>AI 판정</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <AIPanel></AIPanel>
+          <TopPanel></TopPanel>
         </v-expansion-panel-content>
       </v-expansion-panel>
 
@@ -33,18 +26,16 @@
 </template>
 
 <script>
-import StatusPanel from '../StatusPanel.vue'
-import AIPanel from '../AIPanel.vue'
+import TopPanel from '../TopPanel.vue'
 import ChartArea from '../ChartArea.vue'
 
 export default {
   components: {
-    StatusPanel,
-    ChartArea,
-    AIPanel
+    TopPanel,
+    ChartArea
   },
   data: () => ({
-    panel: [0,1,2],
+    panel: [0,1],
     disabled: false,
     readonly: false,
     headerFac:"제 1 공장",

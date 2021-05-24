@@ -2,29 +2,23 @@
 <div class="TopPanel">
     <div id="panel" :style="{display:panelView}">
     <div id="opsituation"><Opsituation></Opsituation></div>
-    <div id="anomalyData"><AnomalyData></AnomalyData></div> 
-    <div id="loss1s"><Loss1s></Loss1s></div>
     <div id="product"><Product></Product></div>
-    <div id="cycleTime"><CycleTime></CycleTime></div>
+    <div id="cycleTime"><CycleTime></CycleTime></div> 
     </div>
 </div>    
 </template>
 
 <script>
-import Loss1s from './TopPanels/Loss1s.vue'
 import Opsituation from './TopPanels/Opsituation.vue'
 import Product from './TopPanels/Product.vue'
 import CycleTime from './TopPanels/CycleTime.vue'
-import AnomalyData from './TopPanels/AnomalyData.vue'
 
 export default {
   name: 'TopPanel',
     components: {
-        Loss1s,
         Opsituation,
         Product,
-        CycleTime,
-        AnomalyData
+        CycleTime
   },
   data(){
       return{
@@ -37,9 +31,9 @@ export default {
 </script>
 
 <style scope>
-#loss1s, #opsituation, #product, #cycleTime, #anomalyData{
+#opsituation, #product, #cycleTime{
     display: inline-block;
-    width:20%;
+    width:30%;
     text-align: center;
     height: 100%;
     background: #141619;

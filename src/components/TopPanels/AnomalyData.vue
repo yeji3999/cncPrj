@@ -1,8 +1,8 @@
 <template>
 <div class="anomalyData">  
-<div id="alertBg" :style="{display:alertView}"></div>
 <p id = "anomalyTitle">데이터</p>
 <p id="anomalyState" :style="{color:stateColor}">{{anomalyState}}</p>
+<div id="alertBg" :style="{display:alertView}"></div>
 </div>
 </template>
 
@@ -54,19 +54,26 @@ export default {
 
 <style>
 .anomalyData{
-    height: 94px;
-    color : #c7d0d9;
+  height: 94px;
+  color : #c7d0d9;
 }
 #anomalyTitle{
-    margin:0px;
-    line-height: 28px;
-    font-weight: bold;
+  margin:0px;
+  line-height: 28px;
+  font-weight: bold;
 }
 #anomalyState{
-    font-size: 33px;
-    margin-top: 5px;
-    font-weight: bold;
-    color: #C0D8FF;
+  font-size: 33px;
+  margin-top: 5px;
+  font-weight: bold;
+  color: #C0D8FF;
+}
+#alertBg{
+  height: 92px;
+  position: relative;
+  top: -76px;
+  background: #E02F44;
+  opacity: 0.6;
 }
 
 </style>
