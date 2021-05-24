@@ -12,7 +12,7 @@
           <p>ss</p>
           <v-data-table
           :headers="headers"
-          :items="desserts"
+          :items="ctAvgVal"
           class="elevation-1"
           ></v-data-table>
 
@@ -31,6 +31,7 @@ export default {
   name: 'CycleTime',
   created() { 
     this.$socket.emit('setMeanCycleTime');
+    this.$socket.emit('setCycleTimeList');
   },
   sockets: {
     cycleTimeMean: function(miliTime) {
@@ -38,6 +39,7 @@ export default {
       this.cycleTimeVal = avgTime;
     },
     cycleTimeHistory: function(history) {
+      console.log('hhhhhhhhhhhhhhhh', history)
       this.ctAvgVal = history
     }
   },
@@ -48,44 +50,17 @@ export default {
       ctAvgVal : "-",
 doItem: "",
       showModal: false,
-              headers: [
+      headers: [
           {
-            text: 'Dessert',
+            text: 'Start Time',
             align: 'start',
             sortable: false,
-            value: 'name',
+            value: 'start',
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
+          { text: 'End Time', value: 'end' },
+          { text: 'Cycle Time', value: 'ct' },
         ],
-        desserts: [
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-          },
-          {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-          },
-          {
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-          },
-          {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-          }
-        ],
-      }  
+      }
   },
   methods:{
     numToMS: function(miliTime) {
