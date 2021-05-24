@@ -5,11 +5,7 @@
 
           <Modal v-if="showModal" @close="showModal = false">
         <h3 slot="header">
-<<<<<<< Updated upstream
           생산 시간 리스트
-=======
-          Cycle Time
->>>>>>> Stashed changes
           <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right"></i>
         </h3>
         <div slot="body">
