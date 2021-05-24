@@ -14,10 +14,6 @@
 
 export default {
   name: 'Loss1s',
-  created() {  
-    this.$socket.emit('setLoss')
-    // this.$socket.emit('setLast5Loss');
-  },
   sockets: {
     loss: function(res) {
       if (typeof(res) == 'number') {
@@ -26,17 +22,7 @@ export default {
       else {
         this.loss = '-'
       }
-    },
-    // last5Loss: function(res) {
-    //   this.lossList = res
-    //   const n = res.length
-    //   for(var i=0; i<n; i++){
-    //     lossArr.push(res[i].toFixed(4))
-    //     this.lossList = lossArr
-    //     this.data = lossArr
-    //   }
-    //   console.log(lossArr)
-    // }
+    }
   },
     data(){
     return {
