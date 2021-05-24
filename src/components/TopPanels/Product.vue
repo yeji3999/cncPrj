@@ -1,20 +1,14 @@
 <template>
   <div>
-    <div class="md-layout" style="margin: 0.5rem; color: #fff !important">
-      <div class="md-layout-item md-size-90">
-        <md-field>
-          <label>Things To Do</label>
-          <md-input v-model="doItem" @keyup.enter="addTodo"></md-input>
-        </md-field>
-      </div>
-      <div class="md-layout-item md-size-10" @click="addTodo">
-        <i class="fas fa-plus-circle addBtn"></i>
-      </div>
+    <div class="Product">
+    <p id = "productTitle">총 생산량 <button @click="addTodo" id="productEvt">Click</button> </p>
+    <p id="totalproductVal" :style="{color:productValColor}">{{productVal}}</p>
+  </div>
 
       <Modal v-if="showModal" @close="showModal = false">
-        <h3 slot="header">
-          알림!
-          <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
+        <h3 slot="header" >
+          생산 현황
+          <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right"></i>
         </h3>
         <div slot="body">
           <p>ss</p>
@@ -31,7 +25,6 @@
           class="elevation-2"
           ></v-data-table>
 
-          <p>sfewfwe</p>
           <v-data-table
           :headers="headers"
           :items="monthly"
@@ -41,7 +34,6 @@
         </div>
       </Modal>
     </div>
-  </div>
 </template>
 
 <script>
@@ -49,6 +41,9 @@ import Modal from "./Modal";
 export default {
   components: {
     Modal,
+  },
+  created(){
+    this.$socket.emit('counts')
   },
   sockets: {
     count: function(cnt) {
@@ -70,6 +65,11 @@ export default {
   },
   data: function () {
     return {
+      productVal:"-",
+      startlist:"",
+      endlist:"",
+      uptime:"",
+      productValColor:"#C0D8FF",
       doItem: "",
       showModal: false,
       headers: [
@@ -88,13 +88,20 @@ export default {
     
   },
   methods: {
+    productEvt(){
+      this.productVal = 'result'
+    },
+    setUptime() {
+      for (var i =0; i<this.endlist.length; i++) {
+        this.uptime = this.uptime + this.startlist[i] + " ~ " + this.endlist[i] + "\n"
+      }
+    },
     addTodo() {
       if (this.doItem) {
         // this.$emit('이벤트이름', 인자1, 인자2);
         this.$emit("addOne", this.doItem);
         this.clearInput();
       } else {
-        this.$socket.emit('counts');
         this.showModal = !this.showModal;
       }
     },
@@ -130,5 +137,47 @@ label {
 .v-data-table__wrapper{
   height:150px;
   margin: 15px;
+}
+.Product{
+    height: 94px;
+    color : #c7d0d9;
+}
+#productTitle{
+    margin:0px;
+    line-height: 28px;
+    font-weight: bold;
+}
+#totalproductVal{
+    font-size: 33px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #C0D8FF;
+}
+#productDate{
+  font-size: 14px
+}
+#ProductTime{
+  z-index: 999;
+  background: black;
+  height: auto;
+  min-height: 150px;
+  width: 100%;
+  position: relative;
+  opacity: 0.8;
+  display: none;
+  padding-bottom:5px;
+}
+#totalProductTitle{
+  margin-top: 5px;
+  color:white;
+  font-weight: bold;
+}
+.Product:hover  #ProductTime{
+  display: inline-block;
+}
+#uptimeVal{
+  margin-top: 5px;
+  white-space: pre-line;
+  font-weight: bold;
 }
 </style>

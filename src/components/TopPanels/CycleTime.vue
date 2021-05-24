@@ -1,17 +1,33 @@
 <template>
 <div class="CycleTime">
-    <p id = "cycleTimeTitle">평균 CT </p>
+    <p id = "cycleTimeTitle">평균 CT <button @click="addTodo" id="productEvt">Click</button></p>
     <p id="cycleVal" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
-    <div id="avgCT">
-      <p id="avgCTtitle">최근 5개 CT 리스트</p>
-      <p class="avgCTVal">{{ctAvgVal}}</p>
-    </div>
+
+          <Modal v-if="showModal" @close="showModal = false">
+        <h3 slot="header">
+          알림!
+          <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
+        </h3>
+        <div slot="body">
+          <p>ss</p>
+          <v-data-table
+          :headers="headers"
+          :items="desserts"
+          class="elevation-1"
+          ></v-data-table>
+
+        </div>
+      </Modal>
 </div>
 </template>
 
 <script>
 
+import Modal from "./Modal";
 export default {
+  components: {
+    Modal,
+  },
   name: 'CycleTime',
   created() { 
     this.$socket.emit('setMeanCycleTime');
@@ -29,8 +45,47 @@ export default {
       return {
       cycleTimeVal:"-",
       cycleTimeValColor:"#C0D8FF",
-      ctAvgVal : "-"  
-    }
+      ctAvgVal : "-",
+doItem: "",
+      showModal: false,
+              headers: [
+          {
+            text: 'Dessert',
+            align: 'start',
+            sortable: false,
+            value: 'name',
+          },
+          { text: 'Calories', value: 'calories' },
+          { text: 'Fat (g)', value: 'fat' },
+        ],
+        desserts: [
+          {
+            name: 'Frozen Yogurt',
+            calories: 159,
+            fat: 6.0,
+          },
+          {
+            name: 'Ice cream sandwich',
+            calories: 237,
+            fat: 9.0,
+          },
+          {
+            name: 'Eclair',
+            calories: 262,
+            fat: 16.0,
+          },
+          {
+            name: 'Cupcake',
+            calories: 305,
+            fat: 3.7,
+          },
+          {
+            name: 'Gingerbread',
+            calories: 356,
+            fat: 16.0,
+          }
+        ],
+      }  
   },
   methods:{
     numToMS: function(miliTime) {
@@ -45,7 +100,19 @@ export default {
         avgTime = avgTime + ' ' + parseInt(sec) + '초';
       }
       return avgTime;
-    }
+    },
+    addTodo() {
+      if (this.doItem) {
+        // this.$emit('이벤트이름', 인자1, 인자2);
+        this.$emit("addOne", this.doItem);
+        this.clearInput();
+      } else {
+        this.showModal = !this.showModal;
+      }
+    },
+    clearInput() {
+      this.doItem = "";
+    },
   }
 }
 </script>
