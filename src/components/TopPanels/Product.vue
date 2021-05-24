@@ -198,4 +198,8 @@ label {
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }
+p{
+  margin-top: 5px;
+  color: fff;
+}
 </style>

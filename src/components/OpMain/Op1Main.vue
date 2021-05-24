@@ -5,11 +5,11 @@
   </div>
   <div id="topPanel">
     <div id="statusArea">
-      <div id="statusPTitle" style="color:white"><p>가동 현황</p></div>
+      <div id="statusPTitle" style="color:white"><p class="topPanelTitle">가동 현황</p></div>
       <StatusPanel></StatusPanel>
     </div>
     <div id="aipanelArea">
-      <div id="aiPTitle" style="color:white"><p>AI 판정</p></div>
+      <div id="aiPTitle" style="color:white"><p class="topPanelTitle">AI 판정</p></div>
       <AIPanel></AIPanel>
     </div>
   </div>
@@ -83,4 +83,10 @@ export default {
   padding-right: 10px;
   border-right: 1px dashed rgba(255,255,255,0.3);
 }
+.topPanelTitle{
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 </style>

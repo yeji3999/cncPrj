@@ -3,7 +3,7 @@
     <p id = "cycleTimeTitle">평균 CT <button @click="addTodo" id="productEvt">Click</button></p>
     <p id="cycleVal" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
 
-          <Modal v-if="showModal" @close="showModal = false">
+        <Modal v-if="showModal" @close="showModal = false">
         <h3 slot="header">
           생산 시간 리스트
           <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right"></i>
@@ -145,8 +145,8 @@ export default {
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }
-.v-data-table{
+/* .v-data-table{
   background-color: #111217;
-}
+} */
 
 </style>
