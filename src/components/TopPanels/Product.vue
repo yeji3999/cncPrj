@@ -16,18 +16,21 @@
           :headers="headers"
           :items="day"
           class="elevation-1"
+          :items-per-page="2"
           ></v-data-table>
 
           <p>sdfsds</p>
           <v-data-table
           :headers="headers"
           :items="weekly"
+          :items-per-page="2"
           class="elevation-2"
           ></v-data-table>
 
           <v-data-table
           :headers="headers"
           :items="monthly"
+          :items-per-page="2"
           class="elevation-3"
           ></v-data-table>
 
@@ -181,5 +184,15 @@ label {
   margin-top: 5px;
   white-space: pre-line;
   font-weight: bold;
+}
+.modal-container{
+  width: 800px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
 }
 </style>

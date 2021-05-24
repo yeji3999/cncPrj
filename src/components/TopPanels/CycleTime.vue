@@ -6,16 +6,17 @@
           <Modal v-if="showModal" @close="showModal = false">
         <h3 slot="header">
           알림!
-          <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
+          <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right"></i>
         </h3>
         <div slot="body">
+          <iframe src="http://9.8.100.156:3000/d-solo/8N32Mb3Gz/new-dashboard-copy?orgId=1&panelId=2" width="100%" height="200" frameborder="0"></iframe>
           <p>ss</p>
           <v-data-table
           :headers="headers"
           :items="ctAvgVal"
+          :items-per-page="2"
           class="elevation-1"
           ></v-data-table>
-
         </div>
       </Modal>
 </div>
@@ -24,9 +25,12 @@
 <script>
 
 import Modal from "./Modal";
+// import {Line} from 'vue-chartjs'
+
 export default {
   components: {
     Modal,
+    // Line
   },
   name: 'CycleTime',
   created() { 
@@ -48,7 +52,7 @@ export default {
       cycleTimeVal:"-",
       cycleTimeValColor:"#C0D8FF",
       ctAvgVal : "-",
-doItem: "",
+      doItem: "",
       showModal: false,
       headers: [
           {
@@ -131,6 +135,16 @@ doItem: "",
   margin-top: 5px;
   white-space: pre-line;
   font-weight: bold;
+}
+.modal-container{
+  width: 800px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 </style>
