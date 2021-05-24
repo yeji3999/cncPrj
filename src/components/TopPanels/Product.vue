@@ -17,6 +17,7 @@
           :items="day"
           class="elevation-1"
           :items-per-page="2"
+          dark
           ></v-data-table>
 
           <p>주간 누적 생산량</p>
@@ -25,6 +26,7 @@
           :items="weekly"
           :items-per-page="2"
           class="elevation-2"
+          dark
           ></v-data-table>
 
           <p>월간 누적 생산량</p>
@@ -33,6 +35,7 @@
           :items="monthly"
           :items-per-page="2"
           class="elevation-3"
+          dark
           ></v-data-table>
 
         </div>
@@ -189,7 +192,7 @@ label {
   width: 800px;
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: #fff;
+  background-color: #111217;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;

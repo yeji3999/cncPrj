@@ -64,7 +64,7 @@ export default {
   padding: 10px;
 }
 #aipanelArea{
-  width:39%; 
+  width:40%; 
   display:inline-block; 
   background:black; 
   float:right;

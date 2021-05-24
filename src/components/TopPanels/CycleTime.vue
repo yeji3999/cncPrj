@@ -5,7 +5,11 @@
 
           <Modal v-if="showModal" @close="showModal = false">
         <h3 slot="header">
+<<<<<<< Updated upstream
           생산 시간 리스트
+=======
+          Cycle Time
+>>>>>>> Stashed changes
           <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right"></i>
         </h3>
         <div slot="body">
@@ -15,6 +19,7 @@
           :items="ctAvgVal"
           :items-per-page="2"
           class="elevation-1"
+          dark
           ></v-data-table>
         </div>
       </Modal>
@@ -138,11 +143,14 @@ export default {
   width: 800px;
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: #fff;
+  background-color: #111217;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
+}
+.v-data-table{
+  background-color: #111217;
 }
 
 </style>
