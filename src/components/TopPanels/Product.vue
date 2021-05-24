@@ -1,94 +1,138 @@
 <template>
-  <div class="Product">
-    <p id = "productTitle">총 생산량 <!-- <button @click="productEvt" id="productEvt">Click</button> --> </p>
-    <p id="totalproductVal" :style="{color:productValColor}">{{productVal}}</p>
-      <div id="ProductTime">
-      <p id="totalProductTitle">최근 5개 생산 리스트</p>
-      <p id="uptimeVal">{{uptime}}</p>
+  <div>
+    <div class="md-layout" style="margin: 0.5rem; color: #fff !important">
+      <div class="md-layout-item md-size-90">
+        <md-field>
+          <label>Things To Do</label>
+          <md-input v-model="doItem" @keyup.enter="addTodo"></md-input>
+        </md-field>
+      </div>
+      <div class="md-layout-item md-size-10" @click="addTodo">
+        <i class="fas fa-plus-circle addBtn"></i>
+      </div>
+
+      <Modal v-if="showModal" @close="showModal = false">
+        <h3 slot="header">
+          알림!
+          <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
+        </h3>
+        <div slot="body">
+          <p>ss</p>
+          <v-data-table
+          :headers="headers"
+          :items="desserts"
+          class="elevation-1"
+          ></v-data-table>
+          <p>sdfsds</p>
+          <v-data-table
+          :headers="headers"
+          :items="desserts"
+          class="elevation-2"
+          ></v-data-table>
+          <p>sfewfwe</p>
+          <v-data-table
+          :headers="headers"
+          :items="desserts"
+          class="elevation-3"
+          ></v-data-table>
+
+        </div>
+      </Modal>
     </div>
   </div>
 </template>
 
 <script>
+import Modal from "./Modal";
 export default {
-  name: 'Product',
-  created() { 
-    this.$socket.emit('setCount');
-    this.$socket.emit('setLast5History');
+  components: {
+    Modal,
   },
-  sockets: {
-    count: function(cnt) {
-      this.uptime = ""
-      this.productVal = cnt;
-      this.$socket.emit('setLast5History');
-    },
-    processHistory: function(history) {
-      this.uptime = history
-    },
-  },
-  data(){
+  data: function () {
     return {
-      productVal:"-",
-      startlist:"",
-      endlist:"",
-      uptime:"",
-      productValColor:"#C0D8FF"
-    }
-  },
-  methods:{
-    productEvt(){
-      this.productVal = 'result'
-    },
-    setUptime() {
-      for (var i =0; i<this.endlist.length; i++) {
-        this.uptime = this.uptime + this.startlist[i] + " ~ " + this.endlist[i] + "\n"
+      doItem: "",
+      showModal: false,
+              headers: [
+          {
+            text: 'Dessert',
+            align: 'start',
+            sortable: false,
+            value: 'name',
+          },
+          { text: 'Calories', value: 'calories' },
+          { text: 'Fat (g)', value: 'fat' },
+        ],
+        desserts: [
+          {
+            name: 'Frozen Yogurt',
+            calories: 159,
+            fat: 6.0,
+          },
+          {
+            name: 'Ice cream sandwich',
+            calories: 237,
+            fat: 9.0,
+          },
+          {
+            name: 'Eclair',
+            calories: 262,
+            fat: 16.0,
+          },
+          {
+            name: 'Cupcake',
+            calories: 305,
+            fat: 3.7,
+          },
+          {
+            name: 'Gingerbread',
+            calories: 356,
+            fat: 16.0,
+          }
+        ],
       }
-    }
-  }
-}
+    
+  },
+  methods: {
+    addTodo() {
+      if (this.doItem) {
+        // this.$emit('이벤트이름', 인자1, 인자2);
+        this.$emit("addOne", this.doItem);
+        this.clearInput();
+      } else {
+        this.showModal = !this.showModal;
+      }
+    },
+    clearInput() {
+      this.doItem = "";
+    },
+  },
+};
 </script>
-<style>
-.Product{
-    height: 94px;
-    color : #c7d0d9;
-}
-#productTitle{
-    margin:0px;
-    line-height: 28px;
-    font-weight: bold;
-}
-#totalproductVal{
-    font-size: 33px;
-    margin-top: 5px;
-    font-weight: bold;
-    color: #C0D8FF;
-}
-#productDate{
-  font-size: 14px
-}
-#ProductTime{
-  z-index: 999;
-  background: black;
-  height: auto;
-  min-height: 150px;
-  width: 100%;
-  position: relative;
-  opacity: 0.8;
-  display: none;
-  padding-bottom:5px;
-}
-#totalProductTitle{
-  margin-top: 5px;
-  color:white;
-  font-weight: bold;
-}
-.Product:hover  #ProductTime{
-  display: inline-block;
-}
-#uptimeVal{
-  margin-top: 5px;
-  white-space: pre-line;
-  font-weight: bold;
-}
 
+<style>
+.md-field,
+.md-focused,
+.md-input,
+.md-textarea,
+label {
+  background: #365fd9 !important;
+  border-style: none;
+  border-radius: 5px;
+  margin: 0 0 5px 0 !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #ddd !important;
+}
+.addBtn {
+  vertical-align: middle;
+  margin-top: 12px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.closeModalBtn {
+  color: #42b983;
+}
+.v-data-table__wrapper{
+  height:150px;
+  margin: 15px;
+}
 </style>

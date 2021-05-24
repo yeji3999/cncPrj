@@ -3,32 +3,17 @@
     <div class="Breadcrumbs">
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
-    <v-expansion-panels
-      v-model="panel"
-      multiple
-      dark
-    >
-      <v-expansion-panel style="max-width:60%; padding:5px">
-        <v-expansion-panel-header>가동 현황</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <StatusPanel></StatusPanel>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-
-        <v-expansion-panel style="max-width:40%; padding:5px">
-        <v-expansion-panel-header>AI 판정</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <AIPanel></AIPanel>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-
-      <v-expansion-panel>
-        <v-expansion-panel-content>
-          <ChartArea></ChartArea>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-
-    </v-expansion-panels>
+  <div id="topPanel">
+    <div id="statusArea">
+      <div id="statusPTitle" style="color:white"><p>가동 현황</p></div>
+      <StatusPanel></StatusPanel>
+    </div>
+    <div id="aipanelArea">
+      <div id="aiPTitle" style="color:white"><p>AI 판정</p></div>
+      <AIPanel></AIPanel>
+    </div>
+  </div>
+    <ChartArea></ChartArea>
   </div>
 </template>
 
@@ -42,6 +27,11 @@ export default {
     StatusPanel,
     ChartArea,
     AIPanel
+  },
+  sockets: {
+      alert: function(){
+      this.Aibackground = "red"
+    }
   },
   data: () => ({
     panel: [0,1,2],
@@ -66,6 +56,19 @@ export default {
 }
 .v-expansion-panel{
   margin: 10px 0px
+}
+#statusArea{
+  width:59%; 
+  display:inline-block; 
+  background:black;
+  padding: 10px;
+}
+#aipanelArea{
+  width:39%; 
+  display:inline-block; 
+  background:black; 
+  float:right;
+  padding: 10px;
 }
 #headerTitle{
   display:inline; 

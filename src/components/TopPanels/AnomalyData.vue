@@ -68,12 +68,12 @@ export default {
   font-weight: bold;
   color: #C0D8FF;
 }
-#alertBg{
+/* #alertBg{
   height: 92px;
   position: relative;
   top: -76px;
-  background: #E02F44;
-  opacity: 0.6;
-}
+  background: red;
+  opacity: 0.8;
+} */
 
 </style>
