@@ -7,7 +7,7 @@
       <option value="15s">15초</option>
       <option value="30s">30초</option>
     </select>
-    <iframe id="realchart" :style="{display:realchartView}" v-bind:src="iframeSource" width="100%" frameborder="0"></iframe>
+    <iframe id="realchart" v-bind:src="iframeSource" width="100%" frameborder="0"></iframe>
  </div>
 </template>
 

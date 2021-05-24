@@ -8,7 +8,6 @@
       multiple
       dark
     >
-
       <v-expansion-panel>
         <v-expansion-panel-header>가동 현황</v-expansion-panel-header>
         <v-expansion-panel-content>
@@ -17,6 +16,13 @@
       </v-expansion-panel>
 
       <v-expansion-panel>
+        <v-expansion-panel-header>가동 현황</v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <ChartArea></ChartArea>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+
+      <!-- <v-expansion-panel>
         <v-expansion-panel-header>실시간 그래프 </v-expansion-panel-header>
         <v-expansion-panel-content>
           <RealtimeChart></RealtimeChart>
@@ -35,32 +41,34 @@
         <v-expansion-panel-content>
           <LossChart></LossChart>
         </v-expansion-panel-content>
-      </v-expansion-panel>      
+      </v-expansion-panel>       -->
 
     </v-expansion-panels>
   </div>
 </template>
 
 <script>
-import RealtimeChart from '../RealtimeChart.vue'//컴포넌트를 임포트
-import LossChart from '../LossChart.vue'//컴포넌트를 임포트
-import PredicChart from '../PredicChart.vue'//컴포넌트를 임포트
+// import RealtimeChart from '../RealtimeChart.vue'//컴포넌트를 임포트
+// import LossChart from '../LossChart.vue'//컴포넌트를 임포트
+// import PredicChart from '../PredicChart.vue'//컴포넌트를 임포트
 import TopPanel from '../TopPanel.vue'
+import ChartArea from '../ChartArea.vue'
 
 export default {
   components: {
     TopPanel,
-    RealtimeChart,
-    LossChart,
-    PredicChart
+    ChartArea
+    // RealtimeChart,
+    // LossChart,
+    // PredicChart
   },
   data: () => ({
-    panel: [0,1,2,3,4],
+    panel: [0,1],
     disabled: false,
     readonly: false,
     headerFac:"제 1 공장",
-     headerLine: "1 라인",
-     headerOP: "공정 1"
+    headerLine: "1 라인",
+    headerOP: "공정 1"
     })
   }
 </script>

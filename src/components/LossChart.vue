@@ -4,7 +4,6 @@
     <p id="anomalyTxt">{{anomalyData}}</p>
     <p class="setChartInterval">{{sel}}초</p>
     <iframe id="losschart" v-bind:src="iframeSource" width="100%" frameborder="0"></iframe>
-    <!-- <button v-on:click="alarmBtn" >ss</button> -->
   </div>
 </template>
 
@@ -12,7 +11,10 @@
 var aTime = 0;
 export default {
   name: 'LossChart',
-    sockets: {
+  sockets: {
+    alert: function(){
+      this.alarmBtn();
+    }
   },
   created(){
     this.iframeSource = this.iframeSource + this.$store.state.interval
@@ -35,7 +37,7 @@ export default {
       this.alertView = "block";
       this.anomalyData = "이상 데이터 감지";
       this.stateColor = "#E02F44";
-
+      // predic.change method()
       setTimeout(() => {
         this.alertView = "none";
       }, 300);
@@ -58,8 +60,6 @@ export default {
       marginBottom: "20",
       anomalyData:"",
       anomalyColor:"#E02F44",
-      alertBgH : "304",
-      aletBgT: "320",
       alertView : "none"
     }
   }
@@ -99,7 +99,7 @@ h2{
   display: inline-block;
   font-size: 30px
 }
-  #alertBg{
+#alertBg{
   width: 100%;
   height: 100%;
   position:absolute;
@@ -108,10 +108,10 @@ h2{
   z-index: 999999999999;
   right: 0px;
   bottom: 0px;
-  }
-  #anomalyTxt{
-    font-weight: bold;
-    color: #E02F44;
-    font-size: 20px
-  }
+}
+#anomalyTxt{
+  font-weight: bold;
+  color: #E02F44;
+  font-size: 20px
+}
 </style>

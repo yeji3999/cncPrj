@@ -20,7 +20,6 @@ export default {
     count: function(cnt) {
       this.uptime = ""
       this.productVal = cnt;
-
       this.$socket.emit('setLast5History');
     },
     processHistory: function(history) {

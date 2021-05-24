@@ -18,7 +18,8 @@ Vue.use(Vuex)
 var store = new Vuex.Store({
   state: {
     message: true,
-    interval: "5s"
+    interval: "5s",
+    refresh: false
   },
   mutations: {
     changeMessage(state, newMsg) {
