@@ -21,35 +21,11 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
 
-      <!-- <v-expansion-panel>
-        <v-expansion-panel-header>실시간 그래프 </v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <RealtimeChart></RealtimeChart>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-
-      <v-expansion-panel> 
-        <v-expansion-panel-header>예측 그래프</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <PredicChart></PredicChart>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-
-      <v-expansion-panel>
-        <v-expansion-panel-header>AI 판정 오차율 그래프</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <LossChart></LossChart>
-        </v-expansion-panel-content>
-      </v-expansion-panel>       -->
-
     </v-expansion-panels>
   </div>
 </template>
 
 <script>
-// import RealtimeChart from '../RealtimeChart.vue'//컴포넌트를 임포트
-// import LossChart from '../LossChart.vue'//컴포넌트를 임포트
-// import PredicChart from '../PredicChart.vue'//컴포넌트를 임포트
 import TopPanel from '../TopPanel.vue'
 import ChartArea from '../ChartArea.vue'
 
@@ -57,9 +33,6 @@ export default {
   components: {
     TopPanel,
     ChartArea
-    // RealtimeChart,
-    // LossChart,
-    // PredicChart
   },
   data: () => ({
     panel: [0,1],
@@ -82,18 +55,20 @@ export default {
 .v-expansion-panel-content__wrap{
   padding-bottom: 8px;
 }
-    #headerTitle{
-      display:inline; 
-      position:relative; 
-      top:-10px; 
-      /* margin-left:75px;  */
-      font-size: 14px;
-      font-weight: normal;
-      color: rgba(255,255,255,0.7);
-    }
-    .headerTitleTxt{
-    padding-left: 10px;
-    padding-right: 10px;
-    border-right: 1px dashed rgba(255,255,255,0.3);
-    }
+.v-expansion-panel{
+  margin:20px 0px
+}
+#headerTitle{
+  display:inline; 
+  position:relative; 
+  top:-10px; 
+  font-size: 14px;
+  font-weight: normal;
+  color: rgba(255,255,255,0.7);
+}
+.headerTitleTxt{
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px dashed rgba(255,255,255,0.3);
+}
 </style>

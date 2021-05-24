@@ -82,7 +82,7 @@ export default {
   color:white;
   font-weight: bold;
 }
-#cycleVal:hover + #avgCT{
+.CycleTime:hover  #avgCT{
   display: inline-block;
 }
 .avgCTVal{

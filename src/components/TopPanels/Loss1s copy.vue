@@ -5,15 +5,22 @@
     <div id="upLoss1s">
       <p id="upLoss1sTitle">최근 5개 오차율 리스트</p>
       <p id="uplossVal">{{lossList}}</p>
-      <line-chart></line-chart>
+      <vue-bar-graph
+ :points=data
+ :show-values="true"
+ :show-y-axis="true"
+/>
     </div>
 </div>
 </template>
 
 <script>
 var lossArr = []
-
+import VueBarGraph from 'vue-bar-graph';
 export default {
+  components: {
+    VueBarGraph,
+},
   name: 'Loss1s',
   created() { 
     
@@ -48,16 +55,7 @@ export default {
     }
   },
   mounted () {
-    this.renderChart({
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-        {
-          label: 'Data One',
-          backgroundColor: '#f87979',
-          data: [40, 39, 10, 40, 39, 80, 40]
-        }
-      ]
-    }, {responsive: true, maintainAspectRatio: false})
+    this.renderChart(this.chartdata, this.options)
   },
   methods:{
   }

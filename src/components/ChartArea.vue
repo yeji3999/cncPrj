@@ -24,6 +24,6 @@ h2{
 .ChartArea{
   background: #141619;
   padding: 15px 20px 15px 20px;
-  margin-top: 0px;
+  margin-top: 20px;
 }
 </style>

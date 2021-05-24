@@ -59,6 +59,7 @@ export default {
 }
 #totalproductVal{
     font-size: 33px;
+    margin-top: 5px;
     font-weight: bold;
     color: #C0D8FF;
 }
@@ -81,7 +82,7 @@ export default {
   color:white;
   font-weight: bold;
 }
-#totalproductVal:hover + #ProductTime{
+.Product:hover  #ProductTime{
   display: inline-block;
 }
 #uptimeVal{
