@@ -65,7 +65,7 @@ doItem: "",
   methods:{
     numToMS: function(miliTime) {
       let sec = miliTime/1000;
-      let min = sec / 60;
+      let min = parseInt(sec / 60);
       sec = sec % 60;
       let avgTime = '';
       if (min > 0) {
