@@ -1,6 +1,6 @@
 <template>
   <div class="ChartArea">
-    <iframe  v-bind:src="iframeSource" width="100%"  height="500px" frameborder="0"></iframe>
+    <iframe  v-bind:src="iframeSource" width="100%"  height="565px" frameborder="0"></iframe>
  </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   name: 'ChartArea',
     data(){
     return {
-      iframeSource: "http://9.8.100.156:3000/d/1Jr7f0qGz/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-2m&to=now&kiosk=tv&refresh=5s",
+      iframeSource: "http://9.8.100.156:3000/d/-Vt3X0qGk/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-2m&to=now&refresh=5s&kiosk=tv",
     }
   }
 }

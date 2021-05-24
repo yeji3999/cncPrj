@@ -16,7 +16,6 @@
       </v-expansion-panel>
 
       <v-expansion-panel>
-        <v-expansion-panel-header>가동 현황</v-expansion-panel-header>
         <v-expansion-panel-content>
           <ChartArea></ChartArea>
         </v-expansion-panel-content>
