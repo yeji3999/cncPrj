@@ -49,7 +49,7 @@ export default {
   data(){
       return {
       cycleTimeVal:"-",
-      cycleTimeValColor:"#C0D8FF",
+      cycleTimeValColor:"#7acacd",
       ctAvgVal : "-",
       doItem: "",
       showModal: false,

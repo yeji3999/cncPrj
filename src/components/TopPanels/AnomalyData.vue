@@ -20,7 +20,7 @@ export default {
   data(){
     return {
       anomalyState:"정상",
-      stateColor:"#C0D8FF",
+      stateColor:"#7acacd",
       alertView:"none"
     }
   },
@@ -41,7 +41,7 @@ export default {
         let bTime = today.getTime();
         if (bTime - aTime > 3000) {
           this.anomalyState = "정상";
-          this.stateColor = "#C0D8FF";
+          this.stateColor = "#7acacd";
           this.stateMessage = true;
           this.$store.dispatch('callMutation', { newMsg: this.stateMessage })
           }

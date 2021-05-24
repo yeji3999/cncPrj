@@ -27,7 +27,7 @@ export default {
     data(){
     return {
       loss: "-",
-      loss1sValColor:"#C0D8FF",
+      loss1sValColor:"#7acacd",
       // lossList:"-" 
     }
   }

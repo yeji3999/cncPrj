@@ -77,7 +77,7 @@ export default {
       startlist:"",
       endlist:"",
       uptime:"",
-      productValColor:"#C0D8FF",
+      productValColor:"#7acacd",
       doItem: "",
       showModal: false,
       headers: [
