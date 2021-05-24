@@ -11,7 +11,7 @@
           <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right"></i>
         </h3>
         <div slot="body">
-          <p>ss</p>
+          <p>일 누적 생산량</p>
           <v-data-table
           :headers="headers"
           :items="day"
@@ -19,7 +19,7 @@
           :items-per-page="2"
           ></v-data-table>
 
-          <p>sdfsds</p>
+          <p>주간 누적 생산량</p>
           <v-data-table
           :headers="headers"
           :items="weekly"
@@ -27,6 +27,7 @@
           class="elevation-2"
           ></v-data-table>
 
+          <p>월간 누적 생산량</p>
           <v-data-table
           :headers="headers"
           :items="monthly"
@@ -51,7 +52,6 @@ export default {
   },
   sockets: {
     count: function(cnt) {
-      console.log('ccccccccccccccccccccccccnt', cnt)
       this.uptime = ""
       this.productVal = cnt;
     },

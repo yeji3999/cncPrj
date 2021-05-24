@@ -5,12 +5,11 @@
 
           <Modal v-if="showModal" @close="showModal = false">
         <h3 slot="header">
-          알림!
+          생산 시간 리스트
           <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right"></i>
         </h3>
         <div slot="body">
           <iframe src="http://9.8.100.156:3000/d-solo/8N32Mb3Gz/new-dashboard-copy?orgId=1&panelId=2" width="100%" height="200" frameborder="0"></iframe>
-          <p>ss</p>
           <v-data-table
           :headers="headers"
           :items="ctAvgVal"
@@ -43,7 +42,6 @@ export default {
       this.cycleTimeVal = avgTime;
     },
     cycleTimeHistory: function(history) {
-      console.log('hhhhhhhhhhhhhhhh', history)
       this.ctAvgVal = history
     }
   },
