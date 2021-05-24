@@ -20,19 +20,21 @@
           <p>ss</p>
           <v-data-table
           :headers="headers"
-          :items="desserts"
+          :items="day"
           class="elevation-1"
           ></v-data-table>
+
           <p>sdfsds</p>
           <v-data-table
           :headers="headers"
-          :items="desserts"
+          :items="weekly"
           class="elevation-2"
           ></v-data-table>
+
           <p>sfewfwe</p>
           <v-data-table
           :headers="headers"
-          :items="desserts"
+          :items="monthly"
           class="elevation-3"
           ></v-data-table>
 
@@ -48,48 +50,41 @@ export default {
   components: {
     Modal,
   },
+  sockets: {
+    count: function(cnt) {
+      this.uptime = ""
+      this.productVal = cnt;
+    },
+    days: function(d) {
+      console.log(d)
+      this.day = d;
+    },
+    weeklys: function(w) {
+      console.log(w)
+      this.weekly = w;
+    },
+    monthlys: function(m) {
+      console.log(m)
+      this.monthly = m;
+    }
+  },
   data: function () {
     return {
       doItem: "",
       showModal: false,
-              headers: [
+      headers: [
           {
-            text: 'Dessert',
+            text: 'Date',
             align: 'start',
             sortable: false,
-            value: 'name',
+            value: 'date',
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-        ],
-        desserts: [
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-          },
-          {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-          },
-          {
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-          },
-          {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-          }
-        ],
-      }
+          { text: 'Count', value: 'count' },
+      ],
+      day: '',
+      weekly: '',
+      monthly: ''
+    }
     
   },
   methods: {
@@ -99,6 +94,7 @@ export default {
         this.$emit("addOne", this.doItem);
         this.clearInput();
       } else {
+        this.$socket.emit('counts');
         this.showModal = !this.showModal;
       }
     },
