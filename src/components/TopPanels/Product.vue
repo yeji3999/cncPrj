@@ -44,9 +44,11 @@ export default {
   },
   created(){
     this.$socket.emit('counts')
+    this.$socket.emit('setCount')
   },
   sockets: {
     count: function(cnt) {
+      console.log('ccccccccccccccccccccccccnt', cnt)
       this.uptime = ""
       this.productVal = cnt;
     },
