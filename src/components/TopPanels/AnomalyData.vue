@@ -19,7 +19,7 @@ export default {
   },
   data(){
     return {
-      anomalyState:"정상",
+      anomalyState:"-",
       stateColor:"#3F6164",
       // alertView:"none"
     }

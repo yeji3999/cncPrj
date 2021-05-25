@@ -37,7 +37,7 @@ export default {
     margin: 5px 0px;
     margin-left: 10px; 
     border-radius: 4px;  
-    border: 1px solid rgba(201, 209, 217, 0.08);
+    border: 2px solid rgba(201, 209, 217, 0.08);
     overflow: hidden;
     min-width: 200px;
 }

@@ -34,7 +34,7 @@ export default {
     margin: 5px 0px;
     margin-left: 15px;  
     border-radius: 4px; 
-    border: 1px solid rgba(201, 209, 217, 0.08);
+    border: 2px solid rgba(201, 209, 217, 0.08);
 }
 #opsituation{
     margin-left: 0px;

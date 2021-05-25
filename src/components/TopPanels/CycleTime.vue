@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import PlanetChart from './LineChart.vue'
+import PlanetChart from './BarChart.vue'
 import Modal from "./Modal";
 
 export default {

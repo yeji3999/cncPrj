@@ -49,7 +49,9 @@ export default {};
 
 .modal-header h3 {
   margin-top: 0;
-  color: #7acacd;
+  color: #38e09a;
+  font-size: 25px;
+  line-height: 25px;
 }
 
 .modal-body {

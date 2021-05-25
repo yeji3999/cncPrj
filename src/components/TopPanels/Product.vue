@@ -115,10 +115,7 @@ export default {
 </script>
 
 <style>
-.closeModalBtn {
-  /* color: #42b983; */
-  color: #7acacd;
-}
+
 .Product{
   height: 100px;
   color : #c7d0d9;
