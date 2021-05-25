@@ -20,7 +20,7 @@ export default {
 
 <style scoped>
   .Header {
-      background-color: #2c384a;
+      background-color: #424e59;
       min-width: 1280px;
       width: 100%;
       line-height: 80px;

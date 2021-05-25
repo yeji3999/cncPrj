@@ -1,5 +1,5 @@
 <template>
-<div class="CycleTime">
+<div class="CycleTime"  @keyup.esc="showModal = false">
     <a id = "cycleTimeTitle">평균 CT </a>
     <div style="float: right; margin-right: 10px; margin-top: 3.5px;">
       <button @click="addTodo" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
@@ -82,17 +82,8 @@ export default {
       return avgTime;
     },
     addTodo() {
-      if (this.doItem) {
-        // this.$emit('이벤트이름', 인자1, 인자2);
-        this.$emit("addOne", this.doItem);
-        this.clearInput();
-      } else {
-        this.showModal = !this.showModal;
-      }
-    },
-    clearInput() {
-      this.doItem = "";
-    },
+      this.showModal = true
+    }
   }
 }
 </script>
@@ -113,11 +104,4 @@ export default {
   font-weight: bold;
   color: white;
 }
-.modal-container{
-
-}
-/* .v-data-table{
-  background-color: #111217;
-} */
-
 </style>

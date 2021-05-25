@@ -28,15 +28,7 @@ export default {
     ChartArea,
     AIPanel
   },
-  sockets: {
-      alert: function(){
-      this.Aibackground = "red"
-    }
-  },
   data: () => ({
-    panel: [0,1,2],
-    disabled: false,
-    readonly: false,
     headerFac:"제 1 공장",
     headerLine: "1 라인",
     headerOP: "공정 1"
@@ -58,13 +50,13 @@ export default {
   margin: 10px 0px
 }
 #statusArea{
-  width:59%; 
+  width:62%; 
   display:inline-block; 
   background:#111217;
   padding: 10px;
 }
 #aipanelArea{
-  width:40%; 
+  width:37.5%; 
   display:inline-block; 
   background:#111217; 
   float:right;

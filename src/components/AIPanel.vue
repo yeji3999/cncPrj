@@ -30,14 +30,17 @@ export default {
 <style scope>
 #loss1s, #anomalyData{
     display: inline-block;
-    width:45%;
+    width:50%;
     text-align: center;
     height: 100%;
     background: #181b1f;
     margin: 5px 0px;
-    margin-left: 15px; 
-    border-radius: 3px;  
+    margin-left: 10px; 
+    border-radius: 4px;  
     border: 1px solid rgba(201, 209, 217, 0.08);
+}
+#anomalyData{
+    margin-right: 5px;
 }
 #panel{
     justify-content: center;

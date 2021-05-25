@@ -1,6 +1,6 @@
 <template>
 <div class="TopPanel">
-    <div id="panel" :style="{display:panelView}">
+    <div id="panel">
     <div id="opsituation"><Opsituation></Opsituation></div>
     <div id="product"><Product></Product></div>
     <div id="cycleTime"><CycleTime></CycleTime></div> 
@@ -19,13 +19,6 @@ export default {
         Opsituation,
         Product,
         CycleTime
-  },
-  data(){
-      return{
-          panelView:"flex",
-          openBtn:"none",
-          closeBtn:"display"
-      }
   }
 }
 </script>
@@ -33,13 +26,13 @@ export default {
 <style scope>
 #opsituation, #product, #cycleTime{
     display: inline-block;
-    width:30%;
+    width:32%;
     text-align: center;
     height: 100%;
     background: #181b1f;
     margin: 5px 0px;
     margin-left: 15px;  
-    border-radius: 3px; 
+    border-radius: 4px; 
     border: 1px solid rgba(201, 209, 217, 0.08);
 }
 #opsituation{

@@ -1,7 +1,7 @@
 <template>
-<div class="opsituation">  
+<div class="opsituation" :style="{background:stateColor}">
 <p id = "opsituationTitle">Running Status</p>
-<p id="opsituationState" :style="{color:stateColor}">{{op}}</p>
+<p id="opsituationState">{{op}}</p>
 </div>
 </template>
 
@@ -12,18 +12,22 @@ export default {
     isWork: function(work) {
       if (work == "start") {
         this.op = "가동";
-        this.stateColor = "#C0D8FF";
+        // this.stateColor = "#C0D8FF";
+        this.stateColor = "#3F6164";
+
       }
       else {
         this.op = "비가동";
-        this.stateColor = "#E02F44";
+        // this.stateColor = "#E02F44";
+        this.stateColor = "#C4162A";
+
       }
     }
   },
   data(){
     return {
-      op:"비가동",
-      stateColor:"#E02F44"
+      op:"-",
+      stateColor:"#3F6164"
     }
   }
 }
@@ -31,7 +35,7 @@ export default {
 
 <style>
 .opsituation{
-    height: 94px;
+    height: 100px;
     color : #c7d0d9;
 }
 #opsituationTitle{
@@ -40,10 +44,10 @@ export default {
     font-weight: bold;
 }
 #opsituationState{
-    font-size: 33px;
-    margin-top: 5px;
+    font-size: 38px;
+    margin-top: 10px;
     font-weight: bold;
-    color: #C0D8FF;
+    color: white;
 }
 
 </style>

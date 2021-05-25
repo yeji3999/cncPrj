@@ -1,20 +1,20 @@
 <template>
   <div>
-    <div class="Product">
-    <a id = "productTitle">Total Production </a>
+    <div class="Product"  @keyup.esc="showModal = false">
+    <span id = "productTitle">Total Production </span>
     <div style="float: right; margin-right: 10px; margin-top: 3.5px;">
       <button @click="addTodo" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
     </div>
-    <p id="totalproductVal" :style="{color:productValColor}">{{productVal}}</p>
+    <p id="totalproductVal">{{productVal}}</p>
   </div>
 
       <Modal v-if="showModal" @close="showModal = false">
-        <h3 slot="header" >
+        <h3 slot="header">
           생산 현황
-          <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right"></i>
+          <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px"></i>
         </h3>
         <div slot="body">
-          <p>일 누적 생산량</p>
+          <p class="productMdTitle">일 누적 생산량</p>
           <v-data-table
           :headers="headers"
           :items="day"
@@ -23,7 +23,7 @@
           dark
           ></v-data-table>
 
-          <p>주간 누적 생산량</p>
+          <p class="productMdTitle">주간 누적 생산량</p>
           <v-data-table
           :headers="headers"
           :items="weekly"
@@ -32,7 +32,7 @@
           dark
           ></v-data-table>
 
-          <p>월간 누적 생산량</p>
+          <p class="productMdTitle">월간 누적 생산량</p>
           <v-data-table
           :headers="headers"
           :items="monthly"
@@ -80,7 +80,6 @@ export default {
       startlist:"",
       endlist:"",
       uptime:"",
-      productValColor:"#7acacd",
       doItem: "",
       showModal: false,
       headers: [
@@ -108,13 +107,7 @@ export default {
       }
     },
     addTodo() {
-      if (this.doItem) {
-        // this.$emit('이벤트이름', 인자1, 인자2);
-        this.$emit("addOne", this.doItem);
-        this.clearInput();
-      } else {
-        this.showModal = !this.showModal;
-      }
+      this.showModal = true;
     },
     clearInput() {
       this.doItem = "";
@@ -124,85 +117,28 @@ export default {
 </script>
 
 <style>
-.md-field,
-.md-focused,
-.md-input,
-.md-textarea,
-label {
-  background: #365fd9 !important;
-  border-style: none;
-  border-radius: 5px;
-  margin: 0 0 5px 0 !important;
-  color: #fff !important;
-  -webkit-text-fill-color: #ddd !important;
-}
-.addBtn {
-  vertical-align: middle;
-  margin-top: 12px;
-  font-size: 24px;
-  cursor: pointer;
-}
 .closeModalBtn {
   color: #42b983;
 }
-.v-data-table__wrapper{
-  height:150px;
-  margin: 15px;
-}
 .Product{
-    height: 94px;
-    color : #c7d0d9;
+  height: 100px;
+  color : #c7d0d9;
+  background: #465942;
 }
 #productTitle{
-    margin:0px;
-    line-height: 28px;
-    font-weight: bold;
+  margin-left:20px;
+  line-height: 28px;
+  font-weight: bold;
 }
 #totalproductVal{
-    font-size: 33px;
-    margin-top: 5px;
-    font-weight: bold;
-    color: #C0D8FF;
-}
-#productDate{
-  font-size: 14px
-}
-#ProductTime{
-  z-index: 999;
-  background: black;
-  height: auto;
-  min-height: 150px;
-  width: 100%;
-  position: relative;
-  opacity: 0.8;
-  display: none;
-  padding-bottom:5px;
-}
-#totalProductTitle{
-  margin-top: 5px;
-  color:white;
+  font-size: 38px;
+  margin-top: 10px;
   font-weight: bold;
+  color: white;
 }
-.Product:hover  #ProductTime{
-  display: inline-block;
-}
-#uptimeVal{
-  margin-top: 5px;
-  white-space: pre-line;
+.productMdTitle{
+  margin-top: 10px;
+  color: white;
   font-weight: bold;
-}
-.modal-container{
-  width: 800px;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #111217;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
-}
-p{
-  margin-top: 5px;
-  color: fff;
 }
 </style>
