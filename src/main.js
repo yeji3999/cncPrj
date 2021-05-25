@@ -19,9 +19,11 @@ var store = new Vuex.Store({
   state: {
     message: true,
     interval: "5s",
-    refresh: false
+    refresh: false,
+    ctLineData: {type: "bar",data: {labels: [], datasets: [{label: "Cycle Time",data:[], borderColor: "#7acacd", borderWidth: 3}]}, options: { responsive: true, lineTension: 1, scales: { yAxes: [{ ticks: { beginAtZero: true, padding: 25}}]}}},
+
   },
-  mutations: {
+  mutations: { 
     changeMessage(state, newMsg) {
       state.message = newMsg;
       console.log(state.message)
@@ -29,7 +31,11 @@ var store = new Vuex.Store({
     changeInterval(state, selInterval) {
       state.interval = selInterval;
       console.log(state.interval)
-    }
+    },
+    changeCTHistory(state, ctHistory) {
+      state.ctLineData = ctHistory;
+      console.log("fwefwefefwffefwfwf",state.ctLineData)
+    },
   },
   actions: {
     callMutation({ commit }, { newMsg }) {
@@ -37,7 +43,10 @@ var store = new Vuex.Store({
     },
     callInterval({ commit }, { selInterval }) {
       commit('changeInterval', selInterval);
-    }
+    },
+    callCTHistory({ commit }, { ctHistory }) {
+      commit('changeCTHistory', ctHistory);
+    },
   },
 })
 

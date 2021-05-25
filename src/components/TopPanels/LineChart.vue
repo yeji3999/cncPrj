@@ -21,13 +21,13 @@ export default {
   },
   data() {
     return {
-      ctLineData: {type: "bar",data: {labels: [], datasets: [{label: "Cycle Time",data:[], borderColor: "#7acacd", borderWidth: 3}]}, options: { responsive: true, lineTension: 1, scales: { yAxes: [{ ticks: { beginAtZero: true, padding: 25}}]}}},
+      ctLineData2: {type: "bar",data: {labels: [], datasets: [{label: "Cycle Time",data:[], borderColor: "#7acacd", borderWidth: 3}]}, options: { responsive: true, lineTension: 1, scales: { yAxes: [{ ticks: { beginAtZero: true, padding: 25}}]}}},
     }
   },
   mounted() {
     const ctx = document.getElementById('planet-chart');
     console.log('when?')
-    new Chart(ctx, this.ctLineData);
+    new Chart(ctx, this.$store.state.ctLineData);
   }
 }
 </script>
