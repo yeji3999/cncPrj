@@ -60,13 +60,13 @@ export default {
 #statusArea{
   width:59%; 
   display:inline-block; 
-  background:black;
+  background:#111217;
   padding: 10px;
 }
 #aipanelArea{
   width:40%; 
   display:inline-block; 
-  background:black; 
+  background:#111217; 
   float:right;
   padding: 10px;
 }

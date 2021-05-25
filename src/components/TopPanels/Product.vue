@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="Product">
-    <p id = "productTitle">총 생산량 <button @click="addTodo" id="productEvt">Click</button> </p>
+    <a id = "productTitle">총 생산량 </a>
+    <div style="float: right; margin-right: 10px; margin-top: 3.5px;">
+      <button @click="addTodo" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
+    </div>
     <p id="totalproductVal" :style="{color:productValColor}">{{productVal}}</p>
   </div>
 

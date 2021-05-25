@@ -1,6 +1,6 @@
 <template>
   <div class="ChartArea">
-    <iframe  v-bind:src="iframeSource" width="100%"  height="565px" frameborder="0"></iframe>
+    <iframe  v-bind:src="iframeSource" width="100%"  height="680px" frameborder="0"></iframe>
  </div>
 </template>
 
@@ -22,8 +22,6 @@ h2{
   margin-top: 0px;
 }
 .ChartArea{
-  background: #141619;
-  padding: 15px 20px 15px 20px;
   margin-top: 20px;
 }
 </style>

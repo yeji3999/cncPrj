@@ -33,9 +33,11 @@ export default {
     width:45%;
     text-align: center;
     height: 100%;
-    background: #141619;
+    background: #181b1f;
     margin: 5px 0px;
-    margin-left: 15px;   
+    margin-left: 15px; 
+    border-radius: 3px;  
+    border: 1px solid rgba(201, 209, 217, 0.08);
 }
 #panel{
     justify-content: center;

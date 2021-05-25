@@ -1,6 +1,9 @@
 <template>
 <div class="CycleTime">
-    <p id = "cycleTimeTitle">평균 CT <button @click="addTodo" id="productEvt">Click</button></p>
+    <a id = "cycleTimeTitle">평균 CT </a>
+    <div style="float: right; margin-right: 10px; margin-top: 3.5px;">
+      <button @click="addTodo" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
+    </div>
     <p id="cycleVal" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
 
         <Modal v-if="showModal" @close="showModal = false">
