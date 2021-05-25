@@ -13,7 +13,7 @@ export default {
       if (work == "start") {
         this.op = "가동";
         // this.stateColor = "#C0D8FF";
-        this.stateColor = "#3F6164";
+        this.stateColor = "#465942";
 
       }
       else {
@@ -26,8 +26,8 @@ export default {
   },
   data(){
     return {
-      op:"-",
-      stateColor:"#3F6164"
+      op:"비가동",
+      stateColor:"#C4162A"
     }
   }
 }
