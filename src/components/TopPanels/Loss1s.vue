@@ -11,12 +11,17 @@ export default {
   name: 'Loss1s',
   sockets: {
     loss: function(res) {
-      if (typeof(res) == 'number') {
-        this.loss = res.toFixed(4)
-      }
-      else {
+      if (res.includes('n')) {
         this.loss = '-'
+      } else {
+        this.loss = parseFloat(res).toFixed(4)
       }
+      //if (typeof(res) == 'string') {
+      //  this.loss = res.toFixed(4)
+     // }
+     // else {
+     //   this.loss = '-'
+     // }
     },
     alert: function(){
       this.anomalyAlarm();
