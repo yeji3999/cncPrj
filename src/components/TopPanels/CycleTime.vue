@@ -12,7 +12,8 @@
           <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right"></i>
         </h3>
         <div slot="body">
-          <iframe src="http://9.8.100.156:3000/d-solo/8N32Mb3Gz/new-dashboard-copy?orgId=1&panelId=2" width="100%" height="200" frameborder="0"></iframe>
+          <!-- <iframe src="http://9.8.100.156:3000/d-solo/8N32Mb3Gz/new-dashboard-copy?orgId=1&panelId=2" width="100%" height="200" frameborder="0"></iframe> -->
+          <PlanetChart></PlanetChart>
           <v-data-table
           :headers="headers"
           :items="ctAvgVal"
@@ -26,13 +27,14 @@
 </template>
 
 <script>
-
+import PlanetChart from './LineChart.vue'
 import Modal from "./Modal";
 // import {Line} from 'vue-chartjs'
 
 export default {
   components: {
     Modal,
+    PlanetChart
     // Line
   },
   name: 'CycleTime',
