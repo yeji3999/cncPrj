@@ -38,6 +38,8 @@ export default {
     margin-left: 10px; 
     border-radius: 4px;  
     border: 1px solid rgba(201, 209, 217, 0.08);
+    overflow: hidden;
+    min-width: 200px;
 }
 #anomalyData{
     margin-right: 5px;
@@ -45,5 +47,6 @@ export default {
 #panel{
     justify-content: center;
     display: flex;
+    overflow: hidden;
 }
 </style>

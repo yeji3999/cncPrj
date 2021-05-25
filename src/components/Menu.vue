@@ -33,8 +33,7 @@
             <v-list-group
               v-if="item.items"
               no-action
-              sub-group
-              
+              sub-group 
             >
             <!-- line 2depth-->
               <template v-slot:activator> 

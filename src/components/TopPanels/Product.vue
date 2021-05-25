@@ -10,7 +10,7 @@
 
       <Modal v-if="showModal" @close="showModal = false">
         <h3 slot="header">
-          생산 현황
+          <span style="margin-left:15px">생산 현황</span>
           <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px"></i>
         </h3>
         <div slot="body">
@@ -116,7 +116,8 @@ export default {
 
 <style>
 .closeModalBtn {
-  color: #42b983;
+  /* color: #42b983; */
+  color: #7acacd;
 }
 .Product{
   height: 100px;

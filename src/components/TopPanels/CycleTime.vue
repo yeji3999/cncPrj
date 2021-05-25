@@ -8,11 +8,10 @@
 
         <Modal v-if="showModal" @close="showModal = false">
         <h3 slot="header" style="margin-top:20px">
-          생산 시간 리스트
+         <span style="margin-left:15px">생산 시간 리스트</span>
           <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px"></i>
         </h3>
         <div slot="body">
-          <!-- <iframe src="http://9.8.100.156:3000/d-solo/8N32Mb3Gz/new-dashboard-copy?orgId=1&panelId=2" width="100%" height="200" frameborder="0"></iframe> -->
           <PlanetChart></PlanetChart>
           <v-data-table
           :sort-by="['start', 'end', 'ct']"

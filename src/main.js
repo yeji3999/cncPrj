@@ -34,7 +34,7 @@ var store = new Vuex.Store({
     },
     changeCTHistory(state, ctHistory) {
       state.ctLineData = ctHistory;
-      console.log("fwefwefefwffefwfwf",state.ctLineData)
+      console.log(state.ctLineData)
     },
   },
   actions: {

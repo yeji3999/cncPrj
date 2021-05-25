@@ -27,6 +27,7 @@ export default {
 #opsituation, #product, #cycleTime{
     display: inline-block;
     width:32%;
+    min-width: 200px;
     text-align: center;
     height: 100%;
     background: #181b1f;
@@ -44,29 +45,13 @@ export default {
 #panel{
     justify-content: center;
     display: flex;
+    overflow: hidden;
 }
-#topPanelBtn{
-    padding: 12px;
-    display: flex;
-    background: #141619;
-    justify-content: flex-end;
-    cursor: pointer;
-}
-
 #topPanelTitle{
     position: relative;
     top: 38px;
     left: 20px;
     font-size: 23px;
     font-weight: bold;
-}
-#topPanelclose,#topPanelopen{
-    padding-right: 10px;
-    border:none;
-    color: white;
-    opacity: 0.8;
-    background:transparent;
-    position: relative;
-    cursor: pointer;
 }
 </style>

@@ -50,13 +50,13 @@ export default {
   margin: 10px 0px
 }
 #statusArea{
-  width:62%; 
+  width:62.1%; 
   display:inline-block; 
   background:#111217;
   padding: 10px;
 }
 #aipanelArea{
-  width:37.5%; 
+  width:37.6%; 
   display:inline-block; 
   background:#111217; 
   float:right;
