@@ -1,6 +1,6 @@
 <template>
 <div class="Loss1s">
-    <p id = "loss1sTitle">loss(s)</p>
+    <p id = "loss1sTitle">MASE(s)</p>
     <p id="loss1sVal" :style="{color:loss1sValColor}">{{loss}}</p>
     <div id="upLoss1s">
       <p id="upLoss1sTitle">최근 5개 오차율 리스트</p>

@@ -1,6 +1,6 @@
 <template>
 <div class="anomalyData">  
-<p id = "anomalyTitle">데이터</p>
+<p id = "anomalyTitle">Anomaly Detection</p>
 <p id="anomalyState" :style="{color:stateColor}">{{anomalyState}}</p>
 <div id="alertBg" :style="{display:alertView}"></div>
 </div>

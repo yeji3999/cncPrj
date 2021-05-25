@@ -4,12 +4,12 @@
     <div style="float: right; margin-right: 10px; margin-top: 3.5px;">
       <button @click="addTodo" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
     </div>
-    <p id="cycleVal" :style="{color:cycleTimeValColor}">{{cycleTimeVal}}</p>
+    <p id="cycleVal">{{cycleTimeVal}}</p>
 
         <Modal v-if="showModal" @close="showModal = false">
-        <h3 slot="header">
+        <h3 slot="header" style="margin-top:20px">
           생산 시간 리스트
-          <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right"></i>
+          <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px"></i>
         </h3>
         <div slot="body">
           <!-- <iframe src="http://9.8.100.156:3000/d-solo/8N32Mb3Gz/new-dashboard-copy?orgId=1&panelId=2" width="100%" height="200" frameborder="0"></iframe> -->
@@ -29,13 +29,11 @@
 <script>
 import PlanetChart from './LineChart.vue'
 import Modal from "./Modal";
-// import {Line} from 'vue-chartjs'
 
 export default {
   components: {
     Modal,
     PlanetChart
-    // Line
   },
   name: 'CycleTime',
   created() { 
@@ -54,7 +52,6 @@ export default {
   data(){
       return {
       cycleTimeVal:"-",
-      cycleTimeValColor:"#7acacd",
       ctAvgVal : "-",
       doItem: "",
       showModal: false,
@@ -101,54 +98,23 @@ export default {
 </script>
 <style>
 .CycleTime{
-    height: 94px;
-    color : #c7d0d9;
+  height: 100px;
+  color : #c7d0d9;
+  background: #465942;
 }
 #cycleTimeTitle{
-    margin:0px;
-    line-height: 28px;
-    font-weight: bold;
+  margin-left:20px;
+  line-height: 28px;
+  font-weight: bold;
 }
 #cycleVal{
-    font-size: 33px;
-    margin-top: 5px;
-    font-weight: bold;
-    color: #C0D8FF;
-}
-#avgCT{
-  z-index: 999;
-  background: black;
-  height: auto;
-  min-height: 150px;
-  width: 100%;
-  position: relative;
-  opacity: 0.8;
-  display: none;
-  padding-bottom:5px;
-
-}
-#avgCTtitle{
-  margin-top: 5px;
-  color:white;
+  font-size: 38px;
+  margin-top: 10px;
   font-weight: bold;
-}
-.CycleTime:hover  #avgCT{
-  display: inline-block;
-}
-.avgCTVal{
-  margin-top: 5px;
-  white-space: pre-line;
-  font-weight: bold;
+  color: white;
 }
 .modal-container{
-  width: 800px;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #111217;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
+
 }
 /* .v-data-table{
   background-color: #111217;

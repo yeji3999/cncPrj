@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="Product">
-    <a id = "productTitle">총 생산량 </a>
+    <a id = "productTitle">Total Production </a>
     <div style="float: right; margin-right: 10px; margin-top: 3.5px;">
       <button @click="addTodo" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
     </div>
