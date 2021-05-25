@@ -1,6 +1,6 @@
 <template>
 <div class="CycleTime"  @keyup.esc="showModal = false">
-    <a id = "cycleTimeTitle">평균 CT </a>
+    <a id = "cycleTimeTitle">Cycle Time(last 5)</a>
     <div style="float: right; margin-right: 10px; margin-top: 3.5px;">
       <button @click="addTodo" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
     </div>
@@ -15,6 +15,8 @@
           <!-- <iframe src="http://9.8.100.156:3000/d-solo/8N32Mb3Gz/new-dashboard-copy?orgId=1&panelId=2" width="100%" height="200" frameborder="0"></iframe> -->
           <PlanetChart></PlanetChart>
           <v-data-table
+          :sort-by="['start', 'end', 'ct']"
+          :sort-desc="['true', 'false', 'false']"
           :headers="headers"
           :items="ctAvgVal"
           :items-per-page="2"
@@ -37,7 +39,6 @@ export default {
   },
   name: 'CycleTime',
   created() { 
-    // console.log(';;;;;;;;;;;;;;;;;;;;;;;;;;;;;',)
     this.$socket.emit('setMeanCycleTime');
     this.$socket.emit('setCycleTimeList');
   },
@@ -56,7 +57,6 @@ export default {
       let tmp = this.$store.state.ctLineData
       tmp.data.labels = history[0];
       tmp.data.datasets[0].data = history[1];
-      console.log("11111111111111111111111111111111111111",tmp)
       this.$store.dispatch('callCTHistory', { ctHistory: tmp }) 
     }
 
@@ -77,7 +77,6 @@ export default {
           { text: 'End Time', value: 'end' },
           { text: 'Cycle Time', value: 'ct' },
         ],
-      //ctLineData: {type: "bar",data: {labels: [], datasets: [{label: "Cycle Time",data:[], borderColor: "#7acacd", borderWidth: 3}]}, options: { responsive: true, lineTension: 1, scales: { yAxes: [{ ticks: { beginAtZero: true, padding: 25}}]}}},
       }
   },
   methods:{

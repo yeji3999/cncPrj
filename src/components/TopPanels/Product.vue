@@ -66,11 +66,9 @@ export default {
       this.day = d;
     },
     weeklys: function(w) {
-      console.log(w)
       this.weekly = w;
     },
     monthlys: function(m) {
-      console.log(m)
       this.monthly = m;
     }
   },
