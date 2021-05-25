@@ -59,7 +59,6 @@ export default {
       console.log("11111111111111111111111111111111111111",tmp)
       this.$store.dispatch('callCTHistory', { ctHistory: tmp }) 
     }
-          // 
 
   },
   data(){
