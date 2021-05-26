@@ -6,7 +6,6 @@
 
 <script>
 import Chart from 'chart.js'
-//import planetChartData from '../../plugins/chart'
 
 export default {
   name: 'PlanetChart',

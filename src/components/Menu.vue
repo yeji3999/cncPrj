@@ -121,11 +121,6 @@ export default {
       this.navPosition = "-200px";
       this.closePosition = "0px";
       this.$emit('closeNav', 'true');
-      console.log()
-      console.log(this.items[0].title)
-      console.log(this.items[0].items[0].title)
-      console.log(this.items[0].items[0].items[0].title)
-
       }
       else{
       this.navPosition = "0px";

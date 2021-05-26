@@ -11,7 +11,6 @@ export default {
   name: 'Loss1s',
   sockets: {
     loss: function(res) {
-      console.log(res, res.includes('n'))
       if (res.includes('n')) {
         this.loss = "-"
       } else {

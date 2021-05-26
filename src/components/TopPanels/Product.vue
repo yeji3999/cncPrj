@@ -79,12 +79,16 @@ export default {
   },
   sockets: {
     count: function(cnt) {
-      this.uptime = ""
       this.productVal = cnt;
     },
     days: function(d) {
-      console.log(d)
-      this.day = d;
+      if (typeof(d) == 'number') {
+        this.day[this.day.length-1].count = d;
+      } else {
+        this.day = d;
+      }
+      this.$socket.emit('setMeanCycleTime');
+      this.$socket.emit('setCycleTimeList');
     },
     weeklys: function(w) {
       this.weekly = w;
@@ -98,7 +102,6 @@ export default {
       productVal:"-",
       startlist:"",
       endlist:"",
-      uptime:"",
       doItem: "",
       showModal: false,
       headers: [
@@ -119,11 +122,6 @@ export default {
   methods: {
     productEvt(){
       this.productVal = 'result'
-    },
-    setUptime() {
-      for (var i =0; i<this.endlist.length; i++) {
-        this.uptime = this.uptime + this.startlist[i] + " ~ " + this.endlist[i] + "\n"
-      }
     },
     addTodo() {
       this.showModal = true;
