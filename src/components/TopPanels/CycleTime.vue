@@ -9,7 +9,7 @@
         <Modal v-if="showModal" @close="showModal = false">
         <h3 slot="header" style="margin-top:20px">
          <span style="margin-left:15px">생산 시간 리스트</span>
-          <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px"></i>
+          <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px cursor:pointer"></i>
         </h3>
         <div slot="body">
           <PlanetChart></PlanetChart>

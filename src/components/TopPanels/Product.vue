@@ -11,13 +11,13 @@
   <Modal v-if="showModal" @close="showModal = false">
     <h3 slot="header">
       <span style="margin-left:15px">생산 현황</span>
-      <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px"></i>
+      <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px; cursor:point"></i>
     </h3>
     <div slot="body">
-      <v-card dark>
-        <v-tabs>
+      <v-card dark >
+        <v-tabs fixed-tabs>
           <v-tab>
-            일 누적 생산량
+            일간 누적 생산량
           </v-tab>
           <v-tab>
             주간 누적 생산량
@@ -151,13 +151,23 @@ export default {
   font-weight: bold;
   color: white;
 }
-.productMdTitle{
-  margin-top: 10px;
+/* .productMdTitle{
   color: white;
   font-weight: bold;
-}
+  font-size: 15px
+} */
 .theme--light.v-tabs-items{
   background: #1E1E1E;
   height: 300px;
+}
+.v-tab{
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 17px;
+  background: #4C4C4C;
+}
+.v-tab--active{
+  background: #1f5f3b;
+  color: white;
 }
 </style>
