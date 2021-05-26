@@ -151,23 +151,36 @@ export default {
   font-weight: bold;
   color: white;
 }
-/* .productMdTitle{
-  color: white;
-  font-weight: bold;
-  font-size: 15px
-} */
 .theme--light.v-tabs-items{
   background: #1E1E1E;
-  height: 300px;
+  /* height: 350px; */
+  /* overflow-y: auto; */
 }
+.v-tabs-items{
+   height: 350px; 
+}
+/* .v-tabs-items::-webkit-scrollbar {
+  background-color: #1E1E1E;
+  width: 8px;
+}
+.v-tabs-items::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+}
+.v-tabs-items::-webkit-scrollbar-track {
+  background-color: #1E1E1E;
+} */
 .v-tab{
-  border-radius: 5px;
+  border-top-right-radius: 200px 300px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   font-weight: bold;
-  font-size: 17px;
-  background: #4C4C4C;
+  font-size: 15px;
+  background:#282c2a;
 }
 .v-tab--active{
-  background: #1f5f3b;
+  background: #2E8B57;
   color: white;
 }
 </style>
