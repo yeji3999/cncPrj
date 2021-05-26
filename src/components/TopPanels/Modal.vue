@@ -92,10 +92,8 @@ export default {};
   display:none
 }
 .v-data-table__wrapper {
-  height: 250px;
+  height: 300px;
   margin: 10px;
-}
-.v-data-table__wrapper{
   overflow-x: hidden;
   overflow-y: scroll;
 }
