@@ -13,8 +13,11 @@ export default {
 
   name: 'anomalyData',
   sockets: {
-      alert: function(){
+    alert: function(){
       this.anomalyAlarm();
+    },
+    AD: function(res) {
+      this.anomalyState = res;
     }
   },
   data(){
@@ -31,7 +34,7 @@ export default {
       var today = new Date();
       aTime = today.getTime();
       // this.alertView = "block";
-      this.anomalyState = "이상";
+      //this.anomalyState = "이상";
       this.stateColor = "#C4162A";
       // setTimeout(() => {
       //   this.alertView = "none";
@@ -40,7 +43,7 @@ export default {
         var today = new Date();
         let bTime = today.getTime();
         if (bTime - aTime > 3000) {
-          this.anomalyState = "정상";
+          //this.anomalyState = "정상";
           this.stateColor = "#3F6164";
           this.stateMessage = true;
           this.$store.dispatch('callMutation', { newMsg: this.stateMessage })
