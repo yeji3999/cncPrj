@@ -17,15 +17,15 @@ Vue.use(Vuex)
 
 var store = new Vuex.Store({
   state: {
-    message: true,
+    anomaly: true,
     interval: "5s",
     refresh: false,
     ctLineData: {type: "bar",data: {labels: [], datasets: [{label: "Cycle Time(last 10)",data:[], backgroundColor: "#465942",borderColor: "#465942", borderWidth: 1}]}, options: { responsive: true, lineTension: 1, scales: { yAxes: [{ scaleLabel: {display: true, labelString: 'sec'}, ticks: { beginAtZero: true, padding: 25}}]}}},
 
   },
   mutations: { 
-    changeMessage(state, newMsg) {
-      state.message = newMsg;
+    changeAnomalyState(state, anomalyState) {
+      state.anomaly = anomalyState;
     },
     changeInterval(state, selInterval) {
       state.interval = selInterval;
@@ -35,8 +35,8 @@ var store = new Vuex.Store({
     },
   },
   actions: {
-    callMutation({ commit }, { newMsg }) {
-      commit('changeMessage', newMsg);
+    callAnomaly({ commit }, { anomalyState }) {
+      commit('changeAnomalyState', anomalyState);
     },
     callInterval({ commit }, { selInterval }) {
       commit('changeInterval', selInterval);

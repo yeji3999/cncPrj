@@ -1,7 +1,7 @@
 <template>
 <div class="anomalyData" :style="{background:stateColor}">  
 <p id = "anomalyTitle">Anomaly Detection</p>
-<p id="anomalyState">{{anomalyState}}</p>
+<p id="anomalyState" :style="{color:stateTxt}">{{anomalyState}}</p>
 <!-- <div id="alertBg" :style="{display:alertView}"></div> -->
 </div>
 </template>
@@ -24,6 +24,7 @@ export default {
     return {
       anomalyState:"-",
       stateColor:"#3F6164",
+      stateTxt: "#ffffff"
       // alertView:"none"
     }
   },
@@ -36,20 +37,23 @@ export default {
       // this.alertView = "block";
       //this.anomalyState = "이상";
       this.stateColor = "#C4162A";
-      // setTimeout(() => {
-      //   this.alertView = "none";
-      // }, 300);
+      this.stateTxt = "#ffffff"
+      setTimeout(() => {
+        this.stateColor = "#ffffff";
+        this.stateTxt = "#C4162A"
+      }, 300);
       setTimeout(() => {
         var today = new Date();
         let bTime = today.getTime();
-        if (bTime - aTime > 3000) {
+        if (bTime - aTime > 2000) {
           //this.anomalyState = "정상";
           this.stateColor = "#3F6164";
+          this.stateTxt = "#ffffff"
           this.stateMessage = true;
-          this.$store.dispatch('callMutation', { newMsg: this.stateMessage })
+          this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage })
           }
-      }, 3000);
-      this.$store.dispatch('callMutation', { newMsg: this.stateMessage }) 
+      }, 2000);
+      this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage }) 
     }
   },
 }

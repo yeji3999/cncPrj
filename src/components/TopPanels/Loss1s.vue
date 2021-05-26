@@ -1,7 +1,7 @@
 <template>
 <div class="Loss1s" :style="{background:lossStateColor}">
     <p id = "loss1sTitle">MAE(s)</p>
-  <p id="loss1sVal">{{loss}}</p>
+  <p id="loss1sVal" :style="{color:lossTxtColor}">{{loss}}</p>
 </div>
 </template>
 
@@ -32,29 +32,35 @@ export default {
       loss: "-",
       // loss1sValColor:"#7acacd",
       lossStateColor:"#3F6164",
+      lossTxtColor:"#ffffff"
       // lossList:"-" 
     }
   },
     methods:{
-    anomalyAlarm () {
+     anomalyAlarm () {
       this.stateMessage = false;
       var today = new Date();
       aTime = today.getTime();
       // this.alertView = "block";
+      //this.anomalyState = "이상";
       this.lossStateColor = "#C4162A";
-      // setTimeout(() => {
-      //   this.alertView = "none";
-      // }, 300);
+      this.lossTxtColor = "#ffffff"
+      setTimeout(() => {
+        this.lossStateColor = "#ffffff";
+        this.lossTxtColor = "#C4162A"
+      }, 300);
       setTimeout(() => {
         var today = new Date();
         let bTime = today.getTime();
-        if (bTime - aTime > 3000) {
+        if (bTime - aTime > 2000) {
+          //this.anomalyState = "정상";
           this.lossStateColor = "#3F6164";
+          this.lossTxtColor = "#ffffff"
           this.stateMessage = true;
-          this.$store.dispatch('callMutation', { newMsg: this.stateMessage })
+          this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage })
           }
-      }, 3000);
-      this.$store.dispatch('callMutation', { newMsg: this.stateMessage }) 
+      }, 2000);
+      this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage }) 
     }
   },
 }
