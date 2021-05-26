@@ -74,7 +74,9 @@ export default {
     Modal,
   },
   created(){
-    this.$socket.emit('counts')
+    this.$socket.emit('setCount1Day')
+    this.$socket.emit('setCount1Week')
+    this.$socket.emit('setCount1Month')
     this.$socket.emit('setCount')
   },
   sockets: {

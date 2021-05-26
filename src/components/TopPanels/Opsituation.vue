@@ -8,6 +8,9 @@
 <script>
 export default {
   name: 'opsituation',
+  created() {
+    this.$socket.emit('setWork');
+  },
   sockets: {
     isWork: function(work) {
       if (work == "start") {

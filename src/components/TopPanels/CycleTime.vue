@@ -57,6 +57,9 @@ export default {
       let tmp = this.$store.state.ctLineData
       tmp.data.labels = history[0].slice(-10);
       tmp.data.datasets[0].data = history[1].slice(-10);
+      for (var i = 0 ; i < tmp.data.labels.length; i++) {
+        tmp.data.labels[i] = tmp.data.labels[i].split(' ')[1];
+      }
       this.$store.dispatch('callCTHistory', { ctHistory: tmp }) 
     }
 
