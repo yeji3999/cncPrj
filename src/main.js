@@ -8,7 +8,7 @@ import router from "./components/router/router"
 
 Vue.use(VueMoment)
 Vue.prototype.$socket = new VueSocketIO({
-  debug: true,
+  debug: false,
   connection: 'http://9.8.100.153:1234',
   options: {'transports': ['websocket']}
 });
@@ -26,15 +26,12 @@ var store = new Vuex.Store({
   mutations: { 
     changeMessage(state, newMsg) {
       state.message = newMsg;
-      console.log(state.message)
     },
     changeInterval(state, selInterval) {
       state.interval = selInterval;
-      console.log(state.interval)
     },
     changeCTHistory(state, ctHistory) {
       state.ctLineData = ctHistory;
-      console.log(state.ctLineData)
     },
   },
   actions: {
@@ -50,7 +47,7 @@ var store = new Vuex.Store({
   },
 });
 
-setInterval(() => console.clear(), 300000);
+// setInterval(() => console.clear(), 300000);
 
 Vue.config.productionTip = false
 new Vue({
