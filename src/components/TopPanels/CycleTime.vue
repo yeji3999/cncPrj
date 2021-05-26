@@ -55,8 +55,8 @@ export default {
     },
     ctChart: function(history) {
       let tmp = this.$store.state.ctLineData
-      tmp.data.labels = history[0];
-      tmp.data.datasets[0].data = history[1];
+      tmp.data.labels = history[0].slice(-10);
+      tmp.data.datasets[0].data = history[1].slice(-10);
       this.$store.dispatch('callCTHistory', { ctHistory: tmp }) 
     }
 
