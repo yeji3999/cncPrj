@@ -7,43 +7,64 @@
     </div>
     <p id="totalproductVal">{{productVal}}</p>
   </div>
+  
+  <Modal v-if="showModal" @close="showModal = false">
+    <h3 slot="header">
+      <span style="margin-left:15px">생산 현황</span>
+      <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px"></i>
+    </h3>
+    <div slot="body">
+      <v-card dark>
+        <v-tabs>
+          <v-tab>
+            일 누적 생산량
+          </v-tab>
+          <v-tab>
+            주간 누적 생산량
+          </v-tab>
+          <v-tab>
+            월간 누적 생산량
+          </v-tab>
+          
+          <v-tab-item>
+            <v-card flat>
+              <v-data-table
+                :headers="headers"
+                :items="day"
+                class="elevation-1"
+                dark
+              ></v-data-table>
+            </v-card>
+          </v-tab-item>
 
-      <Modal v-if="showModal" @close="showModal = false">
-        <h3 slot="header">
-          <span style="margin-left:15px">생산 현황</span>
-          <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px"></i>
-        </h3>
-        <div slot="body">
-          <p class="productMdTitle">일 누적 생산량</p>
-          <v-data-table
-          :headers="headers"
-          :items="day"
-          class="elevation-1"
-          :items-per-page="2"
-          dark
-          ></v-data-table>
+          <v-tab-item>
+            <v-card flat>
+              <v-data-table
+                :headers="headers"
+                :items="weekly"
+                class="elevation-2"
+                dark
+              ></v-data-table>
+            </v-card>
+          </v-tab-item>
 
-          <p class="productMdTitle">주간 누적 생산량</p>
-          <v-data-table
-          :headers="headers"
-          :items="weekly"
-          :items-per-page="2"
-          class="elevation-2"
-          dark
-          ></v-data-table>
+          <v-tab-item>
+            <v-card flat>
+              <v-data-table
+                :headers="headers"
+                :items="monthly"
+                class="elevation-3"
+                dark
+              ></v-data-table>
+            </v-card>
+          </v-tab-item>
 
-          <p class="productMdTitle">월간 누적 생산량</p>
-          <v-data-table
-          :headers="headers"
-          :items="monthly"
-          :items-per-page="2"
-          class="elevation-3"
-          dark
-          ></v-data-table>
+      </v-tabs>
+    </v-card>
 
-        </div>
-      </Modal>
-    </div>
+  </div>
+</Modal>
+</div>
 </template>
 
 <script>
@@ -136,5 +157,9 @@ export default {
   margin-top: 10px;
   color: white;
   font-weight: bold;
+}
+.theme--light.v-tabs-items{
+  background: #1E1E1E;
+  height: 300px;
 }
 </style>

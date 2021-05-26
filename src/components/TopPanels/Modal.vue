@@ -92,7 +92,25 @@ export default {};
   display:none
 }
 .v-data-table__wrapper {
-    height: 130px;
-    margin: 10px;
+  height: 250px;
+  margin: 10px;
+}
+.v-data-table__wrapper{
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.v-data-table__wrapper::-webkit-scrollbar {
+  background-color: #1E1E1E;
+  width: 8px;
+}
+.v-data-table__wrapper::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+}
+.v-data-table__wrapper::-webkit-scrollbar-track {
+  background-color: #1E1E1E;
+}
+.v-data-footer{
+  display: none;
 }
 </style>

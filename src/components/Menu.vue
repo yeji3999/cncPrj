@@ -19,8 +19,10 @@
         </div>
         <v-list-group
           v-else
-          no-action
+          no-action 
         >
+        <!--no-action: 왼쪽 패딩을 제거 -->
+
         <!-- factory 1depth-->
           <template v-slot:activator >
             <v-list-item-title>{{item.title}}</v-list-item-title>  

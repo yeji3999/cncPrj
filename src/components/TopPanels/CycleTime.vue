@@ -18,12 +18,13 @@
           :sort-desc="['true', 'false', 'false']"
           :headers="headers"
           :items="ctAvgVal"
-          :items-per-page="2"
           class="elevation-1"
           dark
           ></v-data-table>
         </div>
       </Modal>
+                <!-- :items-per-page="2" -->
+
 </div>
 </template>
 
