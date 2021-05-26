@@ -48,7 +48,9 @@ var store = new Vuex.Store({
       commit('changeCTHistory', ctHistory);
     },
   },
-})
+});
+
+setInterval(() => console.clear(), 300000);
 
 Vue.config.productionTip = false
 new Vue({
