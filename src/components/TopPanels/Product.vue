@@ -36,7 +36,7 @@
                 hide-default-footer
                 disable-pagination
                 :sort-by="['date', 'count']"
-                :sort-desc="['false', 'false']"
+                :sort-desc="['true', 'false']"
               ></v-data-table>
             </v-card>
           </v-tab-item>
@@ -120,7 +120,7 @@ export default {
           {
             text: 'Date',
             align: 'start',
-            sortable: true,
+            sortable: false,
             value: 'date',
           },
           { text: 'Count', value: 'count' },
