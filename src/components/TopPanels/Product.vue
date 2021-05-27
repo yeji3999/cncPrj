@@ -33,6 +33,10 @@
                 :items="day"
                 class="elevation-1"
                 dark
+                hide-default-footer
+                disable-pagination
+                :sort-by="['date', 'count']"
+                :sort-desc="['false', 'false']"
               ></v-data-table>
             </v-card>
           </v-tab-item>
@@ -44,6 +48,8 @@
                 :items="weekly"
                 class="elevation-2"
                 dark
+                hide-default-footer
+                disable-pagination
               ></v-data-table>
             </v-card>
           </v-tab-item>
@@ -55,6 +61,8 @@
                 :items="monthly"
                 class="elevation-3"
                 dark
+                hide-default-footer
+                disable-pagination
               ></v-data-table>
             </v-card>
           </v-tab-item>
@@ -112,7 +120,7 @@ export default {
           {
             text: 'Date',
             align: 'start',
-            sortable: false,
+            sortable: true,
             value: 'date',
           },
           { text: 'Count', value: 'count' },
@@ -151,17 +159,25 @@ export default {
 }
 #totalproductVal{
   font-size: 38px;
-  margin-top: 10px;
+  margin-top: 16px;
   font-weight: bold;
   color: white;
 }
 .theme--light.v-tabs-items{
   background: #1E1E1E;
-  /* height: 350px; */
-  /* overflow-y: auto; */
+}
+.v-data-table{
+  margin-top: 0px
 }
 .v-tabs-items{
-   height: 350px; 
+  /* height: 300px;  */
+  /* overflow-y: auto; */
+    height: 300px;
+}
+.v-window__container{
+  position: relative;
+  bottom: 50px;
+
 }
 /* .v-tabs-items::-webkit-scrollbar {
   background-color: #1E1E1E;

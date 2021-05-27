@@ -43,18 +43,18 @@ export default {
       aTime = today.getTime();
       // this.alertView = "block";
       //this.anomalyState = "이상";
-      this.lossStateColor = "#C4162A";
+      // this.lossStateColor = "#C4162A";
       this.lossTxtColor = "#ffffff"
       setTimeout(() => {
-        this.lossStateColor = "#ffffff";
-        this.lossTxtColor = "#C4162A"
+        // this.lossStateColor = "#ffffff";
+        this.lossTxtColor = "#ff0500"
       }, 300);
       setTimeout(() => {
         var today = new Date();
         let bTime = today.getTime();
-        if (bTime - aTime > 2000) {
+        if (bTime - aTime >= 2000) {
           //this.anomalyState = "정상";
-          this.lossStateColor = "#3F6164";
+          // this.lossStateColor = "#3F6164";
           this.lossTxtColor = "#ffffff"
           this.stateMessage = true;
           this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage })

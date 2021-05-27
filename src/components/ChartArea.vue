@@ -1,6 +1,6 @@
 <template>
   <div class="ChartArea">
-    <iframe  v-bind:src="iframeSource" width="100%"  height="680px" frameborder="0"></iframe>
+    <iframe  v-bind:src="iframeSource" width="100%"  height="700" frameborder="0"></iframe>
  </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   name: 'ChartArea',
     data(){
     return {
-      iframeSource: "http://9.8.100.156:3000/d/-Vt3X0qGk/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-2m&to=now&refresh=5s&kiosk=tv",
+      iframeSource: "http://9.8.100.156:3000/d/NrAaHQqGk/infludb1-8?orgId=1&from=now-2m&to=now&refresh=5s&kiosk=tv",
     }
   }
 }
@@ -22,6 +22,6 @@ h2{
   margin-top: 0px;
 }
 .ChartArea{
-  margin-top: 20px;
+  margin-top: 35px;
 }
 </style>

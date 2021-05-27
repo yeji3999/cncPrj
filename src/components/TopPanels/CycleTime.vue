@@ -1,6 +1,6 @@
 <template>
 <div class="CycleTime"  @keyup.esc="showModal = false">
-    <a id = "cycleTimeTitle">Cycle Time(last 5)</a>
+    <a id = "cycleTimeTitle">Cycle Time(Latest 5)</a>
     <div style="float: right; margin-right: 10px; margin-top: 3.5px;">
       <button @click="addTodo" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
     </div>
@@ -8,11 +8,12 @@
 
         <Modal v-if="showModal" @close="showModal = false">
         <h3 slot="header" style="margin-top:20px">
-         <span style="margin-left:15px">생산 시간 리스트</span>
+         <span style="margin-left:15px">Cycle Time History</span>
           <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px cursor:pointer"></i>
         </h3>
         <div slot="body">
-          <PlanetChart></PlanetChart>
+          <PlanetChart style="margin-bottom:15px"></PlanetChart>
+          <p id="ct100">Cycle Time(Latest 100)</p>
           <v-data-table
           :sort-by="['start', 'end', 'ct']"
           :sort-desc="['true', 'false', 'false']"
@@ -20,11 +21,11 @@
           :items="ctAvgVal"
           class="elevation-1"
           dark
+          hide-default-footer
+          disable-pagination
           ></v-data-table>
         </div>
       </Modal>
-                <!-- :items-per-page="2" -->
-
 </div>
 </template>
 
@@ -119,4 +120,14 @@ export default {
   font-weight: bold;
   color: white;
 }
+#ct100{
+  float: right;
+  font-size: 12px;
+  line-height: 30px;
+  color: #d3d3d3;
+}
+.v-data-table{
+  margin-top: 50px
+}
+
 </style>

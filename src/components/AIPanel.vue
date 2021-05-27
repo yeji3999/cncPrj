@@ -1,6 +1,6 @@
 <template>
 <div class="AIPanel">
-    <div id="panel" :style="{display:panelView}">
+    <div id="panel">
     <div id="loss1s"><Loss1s></Loss1s></div>
     <div id="anomalyData"><AnomalyData></AnomalyData></div> 
 </div>
@@ -16,13 +16,6 @@ export default {
     components: {
         Loss1s,
         AnomalyData
-  },
-  data(){
-      return{
-          panelView:"flex",
-          openBtn:"none",
-          closeBtn:"display"
-      }
   }
 }
 </script>
@@ -39,7 +32,7 @@ export default {
     border-radius: 4px;  
     border: 2px solid rgba(201, 209, 217, 0.08);
     overflow: hidden;
-    min-width: 200px;
+    min-width: 220px;
 }
 #anomalyData{
     margin-right: 5px;

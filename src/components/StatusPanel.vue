@@ -27,7 +27,7 @@ export default {
 #opsituation, #product, #cycleTime{
     display: inline-block;
     width:32%;
-    min-width: 200px;
+    min-width: 220px;
     text-align: center;
     height: 100%;
     background: #181b1f;

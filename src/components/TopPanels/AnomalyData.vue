@@ -1,6 +1,8 @@
 <template>
 <div class="anomalyData" :style="{background:stateColor}">  
 <p id = "anomalyTitle">Anomaly Detection</p>
+<!-- <div id="circle"></div> -->
+<!-- <span id="anomalyState" :style="{color:stateTxt}">{{anomalyState}}</span> -->
 <p id="anomalyState" :style="{color:stateTxt}">{{anomalyState}}</p>
 <!-- <div id="alertBg" :style="{display:alertView}"></div> -->
 </div>
@@ -36,18 +38,18 @@ export default {
       aTime = today.getTime();
       // this.alertView = "block";
       //this.anomalyState = "이상";
-      this.stateColor = "#C4162A";
+      // this.stateColor = "#C4162A";
       this.stateTxt = "#ffffff"
       setTimeout(() => {
-        this.stateColor = "#ffffff";
-        this.stateTxt = "#C4162A"
+        // this.stateColor = "#ffffff";
+        this.stateTxt = "#ff0500"
       }, 300);
       setTimeout(() => {
         var today = new Date();
         let bTime = today.getTime();
-        if (bTime - aTime > 2000) {
+        if (bTime - aTime >= 2000) {
           //this.anomalyState = "정상";
-          this.stateColor = "#3F6164";
+          // this.stateColor = "#3F6164";
           this.stateTxt = "#ffffff"
           this.stateMessage = true;
           this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage })
@@ -74,6 +76,7 @@ export default {
   margin-top: 10px;
   font-weight: bold;
   color: white;
+
 }
 /* #alertBg{
   height: 92px;
@@ -82,5 +85,15 @@ export default {
   background: red;
   opacity: 0.8;
 } */
-
+#circle{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #2E8B57;
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  right: 10px;
+  box-shadow: 1px 1px 3px 1px #0e4e2b;
+}
 </style>

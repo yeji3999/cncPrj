@@ -80,5 +80,8 @@ export default {
   font-weight: bold;
   font-size: 18px;
 }
+.Breadcrumbs{
+  margin-bottom:15px;
+}
 
 </style>

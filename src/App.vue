@@ -40,6 +40,7 @@ export default {
   #wrap{
   position: relative;
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
   transition: "padding".5s;
   background-color: #2b2d30;

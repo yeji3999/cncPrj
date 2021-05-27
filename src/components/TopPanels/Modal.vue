@@ -53,7 +53,6 @@ export default {};
   font-size: 25px;
   line-height: 25px;
 }
-
 .modal-body {
   margin: 15px 0;
 }
@@ -63,15 +62,13 @@ export default {};
 .modal-enter {
   opacity: 0;
 }
-
 .modal-leave-active {
   opacity: 0;
 }
-
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  /* -webkit-transform: scale(1.1);
+  transform: scale(1.1); */
 }
 .modal-body,
 .modal {
@@ -108,7 +105,7 @@ export default {};
 .v-data-table__wrapper::-webkit-scrollbar-track {
   background-color: #1E1E1E;
 }
-.v-data-footer{
+/* .v-data-footer{
   display: none;
-}
+} */
 </style>
