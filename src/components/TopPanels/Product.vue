@@ -86,6 +86,8 @@ export default {
     days: function(d) {
       if (typeof(d) == 'number') {
         this.day[this.day.length-1].count = d;
+        this.weekly[this.weekly.length-1].count++;
+        this.monthly[this.monthly.length-1].count++;
       } else {
         this.day = d;
       }
