@@ -107,7 +107,9 @@ export default {
     },
     monthlys: function(m) {
       if (m.length > 1){
-        m.shift();
+        for(let i=0; i<m.length; i++) {
+          m.shift();
+        }
       }
       this.monthly = m;
     }
