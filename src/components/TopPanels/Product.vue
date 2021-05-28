@@ -106,6 +106,9 @@ export default {
       this.weekly = w;
     },
     monthlys: function(m) {
+      if (m.length > 1){
+        m.shift();
+      }
       this.monthly = m;
     }
   },
