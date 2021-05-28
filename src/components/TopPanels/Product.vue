@@ -10,7 +10,7 @@
   
   <Modal v-if="showModal" @close="showModal = false">
     <h3 slot="header">
-      <span style="margin-left:15px">생산 현황</span>
+      <span style="margin-left:15px">Production History</span>
       <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px; cursor:point"></i>
     </h3>
     <div slot="body">
