@@ -20,7 +20,7 @@ var store = new Vuex.Store({
     anomaly: true,
     interval: "5s",
     refresh: false,
-    ctLineData: { type: "bar", data: { labels: [], datasets: [{ label: "Cycle Time(Latest 10)", data: [],backgroundColor: "#465942", borderColor: "#465942", borderWidth: 1 }] }, options: { legend: {display:true, position:'top',align:'end'}, responsive: true, lineTension: 1, scales: { yAxes: [{ scaleLabel: { display: true, labelString: 'sec' },ticks: { beginAtZero: true, padding: 25}}]}}},
+    ctLineData: { type: "bar", data: { labels: [], datasets: [{ label: "Cycle Time(Latest 10)", data: [], backgroundColor: "#465942", borderColor: "#465942", borderWidth: 1}] }, options: { legend: {display:true, position:'top',align:'end'}, responsive: true, lineTension: 1, scales: { yAxes: [{ scaleLabel: { display: true, labelString: 'sec' },ticks: { beginAtZero: true, padding: 25}}]}}},
 
   },
   mutations: { 
