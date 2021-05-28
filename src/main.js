@@ -32,7 +32,7 @@ var store = new Vuex.Store({
     },
     changeCTHistory(state, ctHistory) {
       state.ctLineData = ctHistory;
-    },
+    }
   },
   actions: {
     callAnomaly({ commit }, { anomalyState }) {
@@ -43,8 +43,8 @@ var store = new Vuex.Store({
     },
     callCTHistory({ commit }, { ctHistory }) {
       commit('changeCTHistory', ctHistory);
-    },
-  },
+    }
+  }
 });
 
 Vue.config.productionTip = false

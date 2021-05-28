@@ -3,7 +3,7 @@
     <div class="Product"  @keyup.esc="showModal = false">
     <span id = "productTitle">Total Production </span>
     <div style="float: right; margin-right: 10px; margin-top: 3.5px;">
-      <button @click="addTodo" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
+      <button @click="modalShow" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
     </div>
     <p id="totalproductVal">{{productVal}}</p>
   </div>
@@ -135,7 +135,7 @@ export default {
     productEvt(){
       this.productVal = 'result'
     },
-    addTodo() {
+    modalShow() {
       this.showModal = true;
     },
     clearInput() {
