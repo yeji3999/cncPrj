@@ -4,8 +4,8 @@
 ## 전체 화면
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120173653-2f772e00-c23f-11eb-94e2-788926cca7f9.PNG">
 
-## 화면 구성
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/120169746-3ac85a80-c23b-11eb-8740-20a7d34eaccf.png">
+## 레이아웃 구성
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/120174561-2f2b6280-c240-11eb-92e6-27b5d535601d.png">
 
 1. **헤더**
 2. **메뉴**
@@ -43,13 +43,10 @@
 2. **Anomaly Detection** <br> 이상 데이터 감지
 ### 부하량 및 로스율 차트
 + #### Chart Interval Setting
-<img width="400" src="https://user-images.githubusercontent.com/37472764/120172520-1a4dcf80-c23e-11eb-8693-4b594e01e33c.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/120174285-e2478c00-c23f-11eb-8da9-ef9e540aae1b.png">
 
 1. **데이터를 확인할 time range 설정**
 2. **time range 기준으로 시간 줌 아웃**
-
-<img width="400" src="https://user-images.githubusercontent.com/37472764/120172558-246fce00-c23e-11eb-9361-4f4ee4cfb2e7.png">
-
 3. **대시보드 리프레시**
 4. **리프레시 간격 설정**
 + #### Chart
