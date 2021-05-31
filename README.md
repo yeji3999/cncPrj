@@ -1,4 +1,6 @@
 # 가공설비(CNC) 툴 모니터링 시스템
+## Project description
+**AI기반의 가공설비 품질예측, 예지보전 솔루션 개발**
 
 ## 화면 구성
 **타이틀, 메뉴, 가동 현황 및 AI 판정 값, 부하량 및 오차율 차트**
@@ -7,13 +9,12 @@
 1. **메뉴 구조: 공장->라인->공정**
 <img width="600" src="https://user-images.githubusercontent.com/37472764/120144184-77388e00-c21c-11eb-889f-f5a56e3a44cd.png">
 
-2. **메뉴 닫힘, 펼침**
-<img width="600" src="https://user-images.githubusercontent.com/37472764/120144184-77388e00-c21c-11eb-889f-f5a56e3a44cd.png">
-
-3. **공정 별 가동 현황 및 AI를 활용한 부하량 예측 (추후 개발 예정)**
+2. **공정 별 가동 현황 및 AI를 활용한 부하량 예측 (추후 개발 예정)**
+3. **특정 공정에 접근 시, 선택한 공정의 위치 표시**
 <img width="600" src="https://user-images.githubusercontent.com/37472764/120143571-4ad04200-c21b-11eb-9784-2cd3dc610694.png">
 
-4. **특정 공정에 접근 시, 선택한 공정의 위치 표시**
+4. **메뉴 닫힘, 펼침**
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120144184-77388e00-c21c-11eb-889f-f5a56e3a44cd.png">
 
 ### 공정의 가동 현황 및 AI 판정 값
 #### 공정의 가동 현황
