@@ -1,9 +1,5 @@
 # 가공설비(CNC)툴모니터링 시스템
 
-## Project description
-
-**AI기반의 가공설비 품질예측, 예지보전 솔루션 개발**
-
 ### dependencies
 
     "vue": "^2.6.12"
