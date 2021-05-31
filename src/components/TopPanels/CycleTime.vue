@@ -52,7 +52,15 @@ export default {
       this.cycleTimeVal = avgTime;
     },
     cycleTimeHistory: function(history) {
-      this.ctAvgVal = history
+      // console.log(history)
+      //this.ctAvgVal = history
+      let tmp = []
+      for (let i =0; i<history.length; i++) {
+        if(typeof(history[i]) != 'undefined') {
+          tmp.push(history[i])
+        }
+      }
+      this.ctAvgVal = tmp
     },
     ctChart: function(history) {
       let tmp = this.$store.state.ctLineData

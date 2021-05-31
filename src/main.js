@@ -10,7 +10,8 @@ Vue.use(VueMoment)
 Vue.prototype.$socket = new VueSocketIO({
   debug: false,
   connection: 'http://9.8.100.153:1234',
-  options: {'transports': ['websocket']}
+  options: {'transports': ['websocket']},
+  upgrade: false
 });
 Vue.use(Vue.prototype.$socket);
 Vue.use(Vuex)
