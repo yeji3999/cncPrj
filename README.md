@@ -12,9 +12,16 @@
 #### 공정의 가동 현황
 1. **Running status** <br> 공정의 가동 상태 여부
 2. **Total production** <br> 실시간 데이터를 이용해 산출한 공정의 제품 총 생산량
-<br> **- Production history** <br> 일간, 주간, 월간 누적 생산량 확인
+**- Production history** 
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120142989-46eff000-c21a-11eb-979c-9a90bfd99b5c.PNG">
+일간, 주간, 월간 누적 생산량 확인
+
 3. **Cycle Time** <br> 최근 5개의 cycle time 평균
-<br> **- Cycle time history** <br> 최근 10개의 cycle time 그래프, 최근 100개의 cycle time 값
+<br> 
+
+**- Cycle time history**  
+
+최근 10개의 cycle time 그래프, 최근 100개의 cycle time 값
 #### AI를 통한 판정 값
 1. **MAE** <br> 실제 값과 예측 값의 차이
 2. **Anomaly Detection** <br> 이상 데이터 감지
