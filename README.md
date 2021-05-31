@@ -7,7 +7,7 @@
 
 ### 메뉴
 1. **메뉴 구조: 공장->라인->공정**
-<img width="600" src="https://user-images.githubusercontent.com/37472764/120144184-77388e00-c21c-11eb-889f-f5a56e3a44cd.png">
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120148907-e49bed00-c223-11eb-98f4-7d370ecfb319.png">
 
 2. **공정 별 가동 현황 및 AI를 활용한 부하량 예측 (추후 개발 예정)**
 3. **특정 공정에 접근 시, 선택한 공정의 위치 표시**
