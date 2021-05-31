@@ -17,10 +17,8 @@
 일간, 주간, 월간 누적 생산량 확인
 
 3. **Cycle Time** <br> 최근 5개의 cycle time 평균
-<br> 
-
 **- Cycle time history**  
-
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120143326-e57c5100-c21a-11eb-8538-2e724ffd87db.PNG">
 최근 10개의 cycle time 그래프, 최근 100개의 cycle time 값
 #### AI를 통한 판정 값
 1. **MAE** <br> 실제 값과 예측 값의 차이
