@@ -18,7 +18,7 @@ export default {
     alert: function(){
       this.anomalyAlarm();
     },
-    AD: function(res) {
+    anomalyDetection: function(res) {
       this.anomalyState = res;
     }
   },
