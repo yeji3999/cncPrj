@@ -29,15 +29,24 @@
 <img width="600" src="https://user-images.githubusercontent.com/37472764/120143326-e57c5100-c21a-11eb-8538-2e724ffd87db.PNG">
 
 #### AI를 통한 판정 값
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120145376-5cffaf80-c21e-11eb-831e-31bd3ca1a760.png">
+
 1. **MAE** <br> 실제 값과 예측 값의 차이
 2. **Anomaly Detection** <br> 이상 데이터 감지
 ### 부하량 및 로스율 차트
 #### Chart Interval Setting
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120146558-3e021d00-c220-11eb-8ac5-30143d49c457.png">
+
 1. **데이터를 확인할 time range 설정**
 2. **time range 기준으로 시간 줌 아웃**
+
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120146600-4b1f0c00-c220-11eb-9a6a-98bf035d629e.png">
+
 3. **대시보드 리프레시**
 4. **리프레시 간격 설정**
 #### Chart
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120146150-9be23500-c21f-11eb-85a0-8629073432d0.png">
+
 1. **Load Trands & AI Predict** <br> 실제 부하량과 AI를 통한 예측 부하량
 2. **Real vs Predict Loss (MAE)** <br> 실제 로스율과 예측 로스율 차이
 3. **Real Time Spindle Load** <br> 실시간 부하량
