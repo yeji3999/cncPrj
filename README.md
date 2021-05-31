@@ -75,6 +75,50 @@ vue --version
 ```
 vue create <project-name>
 ```
+
+#### **프로젝트 구조**
+ + /public <br> index.html이나 favicon과 같이 정적 파일들이 보관되는 폴더
+ + /src <br> 대부분의 프로젝트에서 코딩한 내용들은 이 폴더에서 작성하며, 컴포넌트나 컴포넌트에 들어갈 어셋, 라우터, store들을 보관하는 폴더
+
+#### **생성할 컴포넌트 위치**
+
+src/components 폴더에 vue 확장자로 원하는 컴포넌트를 만든다.
+
+#### **컴포넌트 기본 구조**
+```
+<template>
+  <div></div>
+</template>
+
+<script>
+  export default {};
+</script>
+
+<style scoped></style>
+```
+#### **컴포넌트 연결**
+```
+<template>
+  <div id="app">
+    <AIPanel></AIPanel>
+  </div>
+</template>
+
+<script>
+  import AIPanel from "./components/AIPanel";
+
+  export default {
+    name: "app",
+    components: {
+      AIPanel
+    }
+  };
+</script>
+
+<style></style>
+```
+만약 구현한 컴포넌트 이름이 AIPanel 이라면, 위와 같이 script에서 import한 뒤 components 옵션으로 등록하고 커스텀 태그를 등록.
+
 ### Compiles and hot-reloads for development
 
 ```
