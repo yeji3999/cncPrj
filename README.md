@@ -4,10 +4,17 @@
 **타이틀, 메뉴, 가동 현황 및 AI 판정 값, 부하량 및 오차율 차트**
 
 ### 메뉴
-1. **공장->라인->공정**
-2. **특정 공정에 접근 시, 선택한 공정의 위치 표시**
+1. **메뉴 구조: 공장->라인->공정**
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120144184-77388e00-c21c-11eb-889f-f5a56e3a44cd.png">
+
+2. **메뉴 닫힘, 펼침 기능**
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120144184-77388e00-c21c-11eb-889f-f5a56e3a44cd.png">
+
 3. **공정 별 가동 현황 및 AI를 활용한 부하량 예측 (추후 개발 예정)**
-4. **메뉴 닫힘, 펼침 기능**
+<img width="600" src="https://user-images.githubusercontent.com/37472764/120143571-4ad04200-c21b-11eb-9784-2cd3dc610694.png">
+
+4. **특정 공정에 접근 시, 선택한 공정의 위치 표시**
+
 ### 공정의 가동 현황 및 AI 판정 값
 #### 공정의 가동 현황
 1. **Running status** <br> 공정의 가동 상태 여부
@@ -20,6 +27,7 @@
 **- Cycle time history**  
 <img width="600" src="https://user-images.githubusercontent.com/37472764/120143326-e57c5100-c21a-11eb-8538-2e724ffd87db.PNG">
 최근 10개의 cycle time 그래프, 최근 100개의 cycle time 값
+
 #### AI를 통한 판정 값
 1. **MAE** <br> 실제 값과 예측 값의 차이
 2. **Anomaly Detection** <br> 이상 데이터 감지
