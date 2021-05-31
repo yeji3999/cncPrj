@@ -57,3 +57,42 @@
 1. **Load Trands & AI Predict** <br> 실제 부하량과 AI를 통한 예측 부하량
 2. **Real vs Predict Loss (MAE)** <br> 실제 로스율과 예측 로스율 차이
 3. **Real Time Spindle Load** <br> 실시간 부하량
+
+
+## Project Setup
+```
+npm install
+```
+### vue cli install
+
+```
+npm install -g @vue/cli
+vue --version
+```
+
+### vue project create
+
+```
+vue create <project-name>
+```
+### Compiles and hot-reloads for development
+
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+
+```
+npm run build
+```
+
+### dependencies
+
+    "vue": "^2.6.12"
+    "vuex": "^3.6.2"
+    "chart.js": "^2.9.4"
+
+### devDependencies
+
+    "@vue/cli": "^4.5.12"
