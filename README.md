@@ -58,6 +58,8 @@
 2. **Real vs Predict Loss (MAE)** <br> 실제 로스율과 예측 로스율 차이
 3. **Real Time Spindle Load** <br> 실시간 부하량
 
+--- 
+--- 
 
 ## Project Setup
 ```
