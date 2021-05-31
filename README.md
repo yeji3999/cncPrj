@@ -136,9 +136,34 @@ npm run build
 ### dependencies
 
     "vue": "^2.6.12"
+    "@vue/cli": "^4.5.12"
     "vuex": "^3.6.2"
     "chart.js": "^2.9.4"
+    "node": "^14.16.1"
+    "npm": "^6.14.12"
 
-### devDependencies
+--- 
+--- 
 
-    "@vue/cli": "^4.5.12"
+## Socket 이벤트
+
+### CT 이벤트
+1. **cycleTimeMean** <br> CT 평균 데이터 호출
+2. **cycleTimeHistory** <br> CT history 100개 데이터 호출
+3. **ctChart** <br> CT history bar chart 생성을 위해 CT history 10개 데이터 호출
+
+### Total Production
+1. **count** <br> 공정에서 발생한 생산량 토탈 카운트 데이터 호출
+2. **days** <br> 일간 누적 생산량 데이터 호출
+3. **weeklys** <br> 주간 누적 생산량 데이터 호출
+4. **monthlys** <br> 월간 누적 생산량 데이터 호출
+
+### Running Status
+1. **isWork** <br> 공정의 가동, 비가동 여부를 알리는 데이터 호출
+
+### MAE
+1. **loss** <br> MAE 데이터 호출
+
+### Anomaly Detection
+1. **anomalyDetection** <br> 이상 데이터 판정 여부 호출
+
