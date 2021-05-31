@@ -43,9 +43,6 @@ export default {
     this.$socket.emit('setMeanCycleTime');
     this.$socket.emit('setCycleTimeList');
   },
-  props:{
-
-  },
   sockets: {
     cycleTimeMean: function(miliTime) {
       let avgTime = this.numToMS(miliTime);

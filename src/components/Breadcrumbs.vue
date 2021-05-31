@@ -37,8 +37,5 @@ export default {
     padding-right: 10px;
     border-right: 1px dashed rgba(255,255,255,0.3);
   }
-  .Breadcrumbs{
-   
-  }
 
 </style>
