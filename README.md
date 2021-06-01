@@ -24,7 +24,7 @@
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120144184-77388e00-c21c-11eb-889f-f5a56e3a44cd.png">
 
 ### 공정의 가동 현황 및 AI 판정 값
-+ #### 공정의 가동 현황
++ ### 공정의 가동 현황
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120170777-48321480-c23c-11eb-9b54-a8ac955820f7.png">
 
 1. **Running status** <br> 공정의 가동 상태 여부
@@ -36,20 +36,20 @@
 **- Cycle time history** <br>최근 10개의 cycle time 그래프, 최근 100개의 cycle time 값
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120171178-b676d700-c23c-11eb-8bd0-35e3e970c6fd.PNG">
 
-+ #### AI를 통한 판정 값
-<img width="1000" src="**https://user-images.githubusercontent.com/37472764/120145376-5cffaf80-c21e-11eb-831e-31bd3ca1a760.png**">
++ ### AI를 통한 판정 값
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/120251145-87537a80-c2bb-11eb-951f-df0ff9084dc0.png">
 
 1. **MAE** <br> 실제 값과 예측 값의 차이
 2. **Anomaly Detection** <br> 이상 데이터 감지
 ### 부하량 및 로스율 차트
-+ #### Chart Interval Setting
++ ### Chart Interval Setting
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120174285-e2478c00-c23f-11eb-8da9-ef9e540aae1b.png">
 
 1. **데이터를 확인할 time range 설정**
 2. **time range 기준으로 시간 줌 아웃**
 3. **대시보드 리프레시**
 4. **리프레시 간격 설정**
-+ #### Chart
++ ### Chart
 
 1. **Load Trands & AI Predict** <br> 실제 부하량과 AI를 통한 예측 부하량
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120173027-98aa7180-c23e-11eb-95b1-234930cc31c4.png">
