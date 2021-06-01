@@ -61,8 +61,8 @@ export default {
     },
     ctChart: function(history) {
       let tmp = this.$store.state.ctLineData
-      tmp.data.labels = history[0].slice(-10);
-      tmp.data.datasets[0].data = history[1].slice(-10);
+      tmp.data.labels = history[0];
+      tmp.data.datasets[0].data = history[1];
       for (var i = 0 ; i < tmp.data.labels.length; i++) {
         if (typeof(tmp.data.labels[i]) != 'undefined') {
           tmp.data.labels[i] = tmp.data.labels[i].split(' ')[1];
