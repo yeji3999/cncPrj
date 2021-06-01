@@ -1,6 +1,6 @@
 # 가공설비(CNC) 툴 모니터링 시스템
 ## Project description
-**CNC 툴 부하 모니터링 GUI**
+**CNC 툴 부하 모니터링 UI**
 ## 전체 화면
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120403329-f04ff680-c37e-11eb-8ac4-bc2f6cca4de4.PNG">
 
