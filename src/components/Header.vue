@@ -12,7 +12,7 @@ export default {
   name: 'Header',
     data(){
     return {
-     headerTitle: "HN Inc CNC 툴 부하 모니터링 솔루션"
+     headerTitle: "CNC 툴 부하 모니터링"
     }
   }
 }
