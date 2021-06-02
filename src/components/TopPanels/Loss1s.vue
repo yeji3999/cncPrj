@@ -78,7 +78,8 @@ export default {
 }
 #loss1sVal{
   font-size: 38px;
-  margin-top: 16px;
+  /* margin-top: 16px; */
+  line-height: 70px;
   font-weight: bold;
   color: white;
 }

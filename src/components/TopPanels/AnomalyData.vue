@@ -73,7 +73,8 @@ export default {
 }
 #anomalyState{
   font-size: 38px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  line-height: 70px;
   font-weight: bold;
   color: white;
 
