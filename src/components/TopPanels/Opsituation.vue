@@ -6,25 +6,27 @@
 </template>
 
 <script>
+var aTime = 0;
 export default {
   name: 'opsituation',
   created() {
     this.$socket.emit('setWork');
   },
   sockets: {
-    isWork: function(work) {
-      if (work == "start") {
-        this.op = "가동";
-        // this.stateColor = "#C0D8FF";
-        this.stateColor = "#465942";
+    isWork: function() {
+      var today = new Date();
+      aTime = today.getTime();
+      this.op = "가동";
+      this.stateColor = "#465942";
 
-      }
-      else {
+      setTimeout(() => {
+        var today = new Date();
+        let bTime = today.getTime();
+        if (bTime - aTime >= 3000) {
         this.op = "비가동";
-        // this.stateColor = "#E02F44";
         this.stateColor = "#C4162A";
-
-      }
+          }
+      }, 3000);
     }
   },
   data(){
