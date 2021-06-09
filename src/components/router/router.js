@@ -7,6 +7,7 @@ import Op2Main from '../OpMain/Op2Main.vue'
 import Op3Main from '../OpMain/Op3Main.vue'
 import Op4Main from '../OpMain/Op4Main.vue'
 import Op5Main from '../OpMain/Op5Main.vue'
+import Login from '../../components/Login.vue'
 
 Vue.use(Router)
 
@@ -15,8 +16,8 @@ export default new Router({
     routes: [
         {
             path: "/", // 경로
-            name: "Op1Main", // 해당 경로의 이름 
-            component: Op1Main, // 이동할 컴포넌트
+            name: "Login", // 해당 경로의 이름 
+            component: Login, // 이동할 컴포넌트
         },
         {
             path: "/op1", // 경로
