@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import VueSocketIO from "vue-socket.io";
 import vuetify from './plugins/vuetify'
 import VueMoment from 'vue-moment'
-import App from './Main.vue'
+import App from './App.vue'
 import router from "./components/router/router"
 
 Vue.use(VueMoment)
