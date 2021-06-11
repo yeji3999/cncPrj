@@ -17,6 +17,7 @@ export default new Router({
             path: "/", // 경로
             name: "Op1Main", // 해당 경로의 이름 
             component: Op1Main, // 이동할 컴포넌트
+
         },
         {
             path: "/op1", // 경로
