@@ -5,7 +5,6 @@
        <span> PW </span><input type="password" id="loginPw">
       <button id="loginBtn">Login</button>
     </div>
-
 </div>
     
 </template>
