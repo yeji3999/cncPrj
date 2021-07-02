@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Header @modalAdmin="modalAdminEvt"></Header>
+    <Header></Header>
     <Menu @closeNav="closeNavEvt" ></Menu>
     <div id="content" :style="{padding: mainPpadding}">
-      <HeaderMenu @closeOP="openEvt" @closePR="openEvt" @closeCT="openEvt" @closeMae="openEvt" @closeAnomal="openEvt" @closeChart="openEvt" @closeRealChart="openEvt" @openAllMenu="openEvt" @openAllChartMenu="openEvt"></HeaderMenu>
+      <HeaderMenu @modalAdmin="modalAdminEvt" @closeOP="openEvt" @closePR="openEvt" @closeCT="openEvt" @closeMae="openEvt" @closeAnomal="openEvt" @closeChart="openEvt" @closeRealChart="openEvt" @openAllMenu="openEvt" @openAllChartMenu="openEvt"></HeaderMenu>
     <div class="Breadcrumbs">
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
