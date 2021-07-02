@@ -1,7 +1,6 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-
 import Op1Main from '../OpMain/Op1Main.vue'
 import Op2Main from '../OpMain/Op2Main.vue'
 import Op3Main from '../OpMain/Op3Main.vue'
@@ -9,6 +8,7 @@ import Op4Main from '../OpMain/Op4Main.vue'
 import Op5Main from '../OpMain/Op5Main.vue'
 import Unauthorized from '../OpMain/Unauthorized.vue'
 import Index from '../OpMain/IndexPage.vue'
+
 
 Vue.use(Router)
 
@@ -21,6 +21,7 @@ const router =  new Router({
             component: Index, // 이동할 컴포넌트
             meta: {isAuthenticated: false}
         },
+
         {
             path: "/op1", // 경로
             name: "Op1Main", // 해당 경로의 이름 

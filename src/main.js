@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import App from './App.vue'
 import Vuex from 'vuex'
 import VueSocketIO from "vue-socket.io";
 import vuetify from './plugins/vuetify'
 import VueMoment from 'vue-moment'
+import App from './App.vue'
 import router from "./components/router/router"
 import VueSmartWidget from 'vue-smart-widget'
 import authentication from "/home/rnd02/Desktop/yeji/cnc-sprint2-cy-update/src/plugins/authentication.js "
