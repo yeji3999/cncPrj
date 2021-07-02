@@ -4,8 +4,7 @@
       <img alt="logo" src="../assets/logo.png">
     </router-link>
     <div id="headerTitle">{{ headerTitle }}</div>
-    <button v-on:click="loginOutEvt" id="loginout">{{signinOut}}</button>  
-    <!-- <button @click="modalAdmin" id="modelChange" v-if="isAdmin"><i class="fa fa-cog fa-lg"></i></button>     -->
+    <button v-on:click="loginOutEvt" id="loginout">{{signinOut}}</button>
   </div>
 </template>
 
@@ -17,14 +16,12 @@ export default {
       this.signinOut = 'Login';
     } else {
       this.signinOut = 'Logout';
-      this.isAdmin = this.checkAdmin();
     }
   },
   data(){
     return {
      headerTitle: "CNC 툴 부하 모니터링",
      signinOut: 'Login',
-     isAdmin: false
     }
   },
     methods:{
@@ -35,17 +32,6 @@ export default {
           this.$keycloak.logout();
         }
       },
-
-      checkAdmin() {
-        console.log("check?")
-        if (this.$keycloak.authenticated) {
-          if (this.$keycloak.hasRealmRole('HNAdmin')) {
-            return true;
-          }
-        }
-        return false;
-        
-      }
     }
 }
 </script>

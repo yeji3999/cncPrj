@@ -2,8 +2,7 @@
     <div class="topComponentMenu" style="z-index:9999">
         <button @click="menuDownEvt" style="margin-left:5px; margin-right: 30px;"><i class="fa fa-th-large fa-2x" aria-hidden="true"></i></button>
         <button @click="chartmenuDownEvt" style="margin-right: 30px;"><i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i></button>
-        <button @click="modalAdmin" id="modelChange" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> 
-        <!-- v-if="isAdmin" -->
+        <button @click="modalAdmin" id="modelChange" v-if="isAdmin" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> 
         <div style="background:white; position:fixed; border-radius:10px" :style="{display:menuShow}">
             <ul>
                 <!-- <li @click="openAllMenu">All</li> -->
@@ -28,9 +27,27 @@
 export default({
 data:() =>({
     menuShow:"none",
-    chartmenuShow:"none"
+    chartmenuShow:"none",
+    isAdmin: false
 }),
+created() { 
+    if(this.$keycloak.authenticated) {
+      this.isAdmin = this.checkAdmin();
+    } else {
+        this.isAdmin = false;
+    }
+  },
 methods:{
+    checkAdmin() {
+        console.log("check?")
+        if (this.$keycloak.authenticated) {
+          if (this.$keycloak.hasRealmRole('HNAdmin')) {
+            return true;
+          }
+        }
+        return false;
+        
+    },
     chartmenuDownEvt(){
         if(this.chartmenuShow == "block"){
             this.chartmenuShow = "none";

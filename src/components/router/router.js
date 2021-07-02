@@ -26,7 +26,7 @@ const router =  new Router({
             path: "/op1", // 경로
             name: "Op1Main", // 해당 경로의 이름 
             component: Op1Main, // 이동할 컴포넌트
-            meta: {isAuthenticated: true, roles: ['HNAdmin']}
+            meta: {isAuthenticated: true, roles: ['HNAdmin', 'HNUser']}
         },
         {
             path: "/op2", // 경로
@@ -69,8 +69,6 @@ router.beforeEach((to, from, next) => {
         // let tmp = url.split('/')
         // Vue.$keycloak.login({ redirectUri: 'http://'+tmp[2] + to.path })
       } else if (roleCheck(to.meta.roles)) {
-        console.log(to.meta.roles)
-        console.log(roleCheck(to.meta.roles))
         // The user was authenticated, and has the app role
         Vue.$keycloak.updateToken(70)
           .then(() => {
@@ -92,7 +90,6 @@ router.beforeEach((to, from, next) => {
 
 const roleCheck = function(roles) {
     for(let i=0; i < roles.length; i++) {
-      console.log(Vue.$keycloak)
       if(Vue.$keycloak.hasRealmRole(roles[i])) {
         return true;
       }
