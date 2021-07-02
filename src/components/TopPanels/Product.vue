@@ -1,146 +1,41 @@
 <template>
   <div>
-    <div class="Product"  @keyup.esc="showModal = false">
-    <span id = "productTitle">Total Production </span>
-    <div style="float: right; margin-right: 10px; margin-top: 3.5px;">
-      <button @click="modalShow" id="productEvt"><img src="../../assets/info.png" style="width:16px; z-index: 8;"></button>
-    </div>
-    <p id="totalproductVal">{{productVal}}</p>
+    <div class="Product">
+      <div style="text-align:center">
+      <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closePR"><i class="fa fa-times"></i></button>
+      <span id = "productTitle">Total Production</span>
+      </div>
+      <p id="totalproductVal">{{productVal}} <button @click="modalPr" id="productEvt"><img class="infoImg" src="../../assets/info.png"></button></p> 
   </div>
-  
-  <Modal v-if="showModal" @close="showModal = false">
-    <h3 slot="header">
-      <span style="margin-left:15px">Production History</span>
-      <i class="fa fa-times closeModalBtn" @click="showModal = false" style="float:right; font-size:23px; cursor:point"></i>
-    </h3>
-    <div slot="body">
-      <v-card dark >
-        <v-tabs fixed-tabs>
-          <v-tab>
-            일간 누적 생산량
-          </v-tab>
-          <v-tab>
-            주간 누적 생산량
-          </v-tab>
-          <v-tab>
-            월간 누적 생산량
-          </v-tab>
-          
-          <v-tab-item>
-            <v-card flat>
-              <v-data-table
-                :headers="headers"
-                :items="day"
-                class="elevation-1"
-                dark
-                hide-default-footer
-                disable-pagination
-                :sort-by="['date', 'count']"
-                :sort-desc="['true', 'false']"
-              ></v-data-table>
-            </v-card>
-          </v-tab-item>
 
-          <v-tab-item>
-            <v-card flat>
-              <v-data-table
-                :headers="headers"
-                :items="weekly"
-                class="elevation-2"
-                dark
-                hide-default-footer
-                disable-pagination
-              ></v-data-table>
-            </v-card>
-          </v-tab-item>
-
-          <v-tab-item>
-            <v-card flat>
-              <v-data-table
-                :headers="headers"
-                :items="monthly"
-                class="elevation-3"
-                dark
-                hide-default-footer
-                disable-pagination
-              ></v-data-table>
-            </v-card>
-          </v-tab-item>
-
-      </v-tabs>
-    </v-card>
-
-  </div>
-</Modal>
 </div>
 </template>
 
 <script>
-import Modal from "./Modal";
 export default {
-  components: {
-    Modal,
-  },
   created(){
-    this.$socket.emit('setCount1Day')
-    this.$socket.emit('setCount1Week')
-    this.$socket.emit('setCount1Month')
     this.$socket.emit('setCount')
   },
   sockets: {
     count: function(cnt) {
       this.productVal = cnt;
-    },
-    days: function(d) {
-      if (typeof(d) == 'number') {
-        this.day[this.day.length-1].count = d;
-        this.weekly[this.weekly.length-1].count++;
-        this.monthly[this.monthly.length-1].count++;
-      } else {
-        this.day = d;
-      }
-      this.$socket.emit('setMeanCycleTime');
-      this.$socket.emit('setCycleTimeList');
-    },
-    weeklys: function(w) {
-      this.weekly = w;
-    },
-    monthlys: function(m) {
-      this.monthly = m;
-    }
+    },  
   },
   data: function () {
     return {
       productVal:"-",
-      startlist:"",
-      endlist:"",
-      doItem: "",
-      showModal: false,
-      headers: [
-          {
-            text: 'Date',
-            align: 'start',
-            sortable: false,
-            value: 'date',
-          },
-          { text: 'Count', value: 'count' },
-      ],
-      day: '',
-      weekly: '',
-      monthly: ''
-    }
-    
+    }  
   },
   methods: {
     productEvt(){
       this.productVal = 'result'
     },
-    modalShow() {
-      this.showModal = true;
+    modalPr() {
+      this.$emit("modalPr","true")
     },
-    clearInput() {
-      this.doItem = "";
-    },
+    closePR(){
+      this.$emit("closePR",1)
+    }
   },
 };
 </script>
@@ -148,17 +43,18 @@ export default {
 <style>
 
 .Product{
-  height: 100px;
-  color : #c7d0d9;
-  background: #465942;
+  height: 100%;
+  text-align: center;
 }
 #productTitle{
-  margin-left:20px;
+  margin-left: 20px;
   line-height: 28px;
   font-weight: bold;
+  color: #c7d0d9;
+
 }
 #totalproductVal{
-  font-size: 38px;
+  font-size: 2.3em;
   /* margin-top: 16px; */
   line-height: 70px;
   font-weight: bold;
@@ -203,5 +99,10 @@ export default {
 .v-tab--active{
   background: #2E8B57;
   color: white;
+}
+.infoImg{
+  width: 16px;
+  position: relative;
+  bottom: 5px;
 }
 </style>

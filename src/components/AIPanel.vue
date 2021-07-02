@@ -1,20 +1,20 @@
 <template>
 <div class="AIPanel">
     <div id="panel">
-    <div id="loss1s"><Loss1s></Loss1s></div>
+    <div id="loss1s"><MAE></MAE></div>
     <div id="anomalyData"><AnomalyData></AnomalyData></div> 
 </div>
 </div>    
 </template>
 
 <script>
-import Loss1s from './TopPanels/Loss1s.vue'
+import MAE from './TopPanels/Mae.vue'
 import AnomalyData from './TopPanels/AnomalyData.vue'
 
 export default {
   name: 'AIPanel',
     components: {
-        Loss1s,
+        MAE,
         AnomalyData
   }
 }

@@ -3,25 +3,25 @@
     <Header></Header>
     <Menu @closeNav="closeNavEvt" ></Menu>
     <router-view></router-view>
+    
   </div>
 </template>
 
 <script>
-import Header from './Header.vue'
-import Menu from './Menu.vue'
+import Header from './components/Header.vue'
+import Menu from './components/Menu.vue'
 
 export default {
-  name: 'Main',
+  name: 'App',
   components: {
    Header,
-   Menu
+   Menu,
   },
   
   data(){
     return {
-      mainPpadding:"80px 30px 30px 250px",
-      stateMessage : false,
-    }
+      mainPpadding:"80px 30px 30px 250px"
+      }
   },
     methods: {
       closeNavEvt: function(message) {
@@ -34,6 +34,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style>

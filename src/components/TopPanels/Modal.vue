@@ -1,6 +1,6 @@
 <template>
   <div id="modal">
-    <div id="mask" @click="$emit('close')"></div>
+    <div id="mask" @click="closeModal"></div>
     <div class="modal-mask" > 
       <div class="modal-wrapper">
         <div class="modal-container">
@@ -11,15 +11,6 @@
           <div class="modal-body">
             <slot name="body"> default body </slot>
           </div>
-
-          <!-- <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')" style="color:black">
-                close
-              </button>
-            </slot>
-          </div> -->
         </div>
       </div>
     </div>
@@ -27,7 +18,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    closeModal(){
+      this.$emit("closeModal","false")
+    }
+  }
+};
 </script>
 
 <style>
@@ -56,7 +53,7 @@ export default {};
   width: 100%; 
   height: 100%;
 }
-.modal-header h3 {
+.modal-header {
   margin-top: 0;
   color: #38e09a;
   font-size: 25px;

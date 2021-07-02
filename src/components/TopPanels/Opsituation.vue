@@ -1,6 +1,7 @@
 <template>
 <div class="opsituation" :style="{background:stateColor}">
-<p id = "opsituationTitle">Running Status</p>
+<button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeOP"><i class="fa fa-times"></i></button>
+<span id = "opsituationTitle">Running Status</span>
 <p id="opsituationState">{{op}}</p>
 </div>
 </template>
@@ -34,26 +35,32 @@ export default {
       op:"비가동",
       stateColor:"#C4162A"
     }
+  },
+  methods:{
+    closeOP(){
+      this.$emit("closeOP",0)
+    }
   }
 }
 </script>
 
 <style>
 .opsituation{
-    height: 100px;
-    color : #c7d0d9;
+  height: 100%;
+  color : #c7d0d9;
+  text-align: center;
 }
 #opsituationTitle{
-    margin:0px;
-    line-height: 28px;
-    font-weight: bold;
+  line-height: 28px;
+  font-weight: bold;
+  margin-left: 20px;
+  color: #c7d0d9;
 }
 #opsituationState{
-    font-size: 38px;
-    /* margin-top: 10px; */
-    line-height: 70px;
-    font-weight: bold;
-    color: white;
+  font-size: 2.3em;
+  line-height: 70px;
+  font-weight: bold;
+  color: white;
 }
 
 </style>

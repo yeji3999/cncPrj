@@ -3,18 +3,41 @@
     <router-link to="/">
       <img alt="logo" src="../assets/logo.png">
     </router-link>
-    <div id="headerTitle">{{ headerTitle }}</div>    
+    <div id="headerTitle">{{ headerTitle }}</div>
+    <button v-on:click="loginOutEvt" id="loginout">{{signinOut}}</button>  
+    <button @click="modalAdmin" id="modelChange"><i class="fa fa-cog fa-lg"></i></button>    
   </div>
 </template>
 
 <script>
 export default {
   name: 'Header',
-    data(){
-    return {
-     headerTitle: "CNC 툴 부하 모니터링"
+  created() { 
+    console.log(this.$keycloak.authenticated, " @@@@@@@@@@@@@@@@@@@@@@@@")
+    if(!this.$keycloak.authenticated) {
+      this.signinOut = 'Login';
+    } else {
+      this.signinOut = 'Logout';
     }
-  }
+  },
+  data(){
+    return {
+     headerTitle: "CNC 툴 부하 모니터링",
+     signinOut: 'Login'
+    }
+  },
+    methods:{
+      loginOutEvt(){
+        if (this.signinOut == 'Login') {
+          this.$keycloak.login();
+        } else if(this.signinOut == 'Logout'){
+          this.$keycloak.logout();
+        }
+      },
+      modalAdmin(){
+        this.$emit("modalAdmin","true")
+      }
+    }
 }
 </script>
 
@@ -43,5 +66,16 @@ export default {
       font-size: 25px;
       font-weight: bold;
       color:white;
+    }
+    #loginout{
+      float:right;
+      color:white;
+      line-height: 60px;
+    }
+    #modelChange{
+      color: white;
+      float: right;
+      line-height: 55px;
+      margin-right: 10px;
     }
 </style>

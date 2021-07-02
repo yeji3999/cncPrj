@@ -120,12 +120,12 @@ export default {
       if(this.navPosition == "0px"){
       this.navPosition = "-200px";
       this.closePosition = "0px";
-      this.$emit('closeNav', 'true');
+      this.$emit('closeNav', true);
       }
       else{
       this.navPosition = "0px";
       this.closePosition = "200px";
-      this.$emit('closeNav', 'false');
+      this.$emit('closeNav', false);
       }
     }
   }

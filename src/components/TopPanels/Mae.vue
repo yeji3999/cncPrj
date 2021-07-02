@@ -1,6 +1,8 @@
 <template>
 <div class="Loss1s" :style="{background:lossStateColor}">
-    <p id = "loss1sTitle">MAE(s)</p>
+    <span id = "loss1sTitle">MAE(s)</span>
+    <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeMae"><i class="fa fa-times"></i></button>
+
   <p id="loss1sVal" :style="{color:lossTxtColor}">{{loss}}</p>
 </div>
 </template>
@@ -10,7 +12,7 @@ var aTime = 0;
 export default {
   name: 'Loss1s',
   sockets: {
-    loss: function(res) {
+    realtimeLoss: function(res) {
       if (res.includes('n')) {
         this.loss = "-"
       } else {
@@ -61,6 +63,9 @@ export default {
           }
       }, 2000);
       this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage }) 
+    },
+    closeMae(){
+      this.$emit("closeMae",3)
     }
   },
 }
@@ -68,17 +73,18 @@ export default {
 <style>
 
 #loss1sTitle{
-  margin:0px;
   line-height: 28px;
   font-weight: bold;
+  margin-left: 20px;
+  color: #c7d0d9;
 }
 .Loss1s{
-  height: 100px;
+  height: 100%;
   color : #c7d0d9;
+  text-align: center;
 }
 #loss1sVal{
-  font-size: 38px;
-  /* margin-top: 16px; */
+  font-size: 2.3em;
   line-height: 70px;
   font-weight: bold;
   color: white;

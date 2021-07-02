@@ -1,6 +1,7 @@
 <template>
-<div class="anomalyData" :style="{background:stateColor}">  
-<p id = "anomalyTitle">Anomaly Detection</p>
+<div class="anomalyData" :style="{background:stateColor}">
+<button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeAnomal"><i class="fa fa-times"></i></button> 
+<span id = "anomalyTitle">Anomaly Detection</span>
 <!-- <div id="circle"></div> -->
 <!-- <span id="anomalyState" :style="{color:stateTxt}">{{anomalyState}}</span> -->
 <p id="anomalyState" :style="{color:stateTxt}">{{anomalyState}}</p>
@@ -56,6 +57,9 @@ export default {
           }
       }, 2000);
       this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage }) 
+    },
+    closeAnomal(){
+      this.$emit("closeAnomal",4)
     }
   },
 }
@@ -63,17 +67,18 @@ export default {
 
 <style>
 .anomalyData{
-  height: 100px;
+  height: 100%;
   color : #c7d0d9;
+  text-align: center;
 }
 #anomalyTitle{
-  margin:0px;
   line-height: 28px;
   font-weight: bold;
+  margin-left: 20px;
+  color: #c7d0d9;
 }
 #anomalyState{
-  font-size: 38px;
-  /* margin-top: 10px; */
+  font-size: 2.3em;
   line-height: 70px;
   font-weight: bold;
   color: white;
