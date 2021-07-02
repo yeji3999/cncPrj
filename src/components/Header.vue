@@ -5,7 +5,7 @@
     </router-link>
     <div id="headerTitle">{{ headerTitle }}</div>
     <button v-on:click="loginOutEvt" id="loginout">{{signinOut}}</button>  
-    <button @click="modalAdmin" id="modelChange" v-if="isAdmin"><i class="fa fa-cog fa-lg"></i></button>    
+    <!-- <button @click="modalAdmin" id="modelChange" v-if="isAdmin"><i class="fa fa-cog fa-lg"></i></button>     -->
   </div>
 </template>
 
@@ -35,9 +35,7 @@ export default {
           this.$keycloak.logout();
         }
       },
-      modalAdmin(){
-        this.$emit("modalAdmin","true")
-      },
+
       checkAdmin() {
         console.log("check?")
         if (this.$keycloak.authenticated) {
@@ -83,10 +81,5 @@ export default {
       color:white;
       line-height: 60px;
     }
-    #modelChange{
-      color: white;
-      float: right;
-      line-height: 55px;
-      margin-right: 10px;
-    }
+
 </style>

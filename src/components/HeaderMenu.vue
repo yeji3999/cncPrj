@@ -1,7 +1,9 @@
 <template>
     <div class="topComponentMenu" style="z-index:9999">
         <button @click="menuDownEvt" style="margin-left:5px; margin-right: 30px;"><i class="fa fa-th-large fa-2x" aria-hidden="true"></i></button>
-        <button @click="chartmenuDownEvt"><i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i></button>
+        <button @click="chartmenuDownEvt" style="margin-right: 30px;"><i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i></button>
+        <button @click="modalAdmin" id="modelChange" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> 
+        <!-- v-if="isAdmin" -->
         <div style="background:white; position:fixed; border-radius:10px" :style="{display:menuShow}">
             <ul>
                 <!-- <li @click="openAllMenu">All</li> -->
@@ -73,6 +75,9 @@ methods:{
       this.$emit("closeChart",6)
       this.chartmenuShow = "none"; 
     },
+    modalAdmin(){
+      this.$emit("modalAdmin","true")
+    },
     // openAllMenu(){
     //   this.$emit("openAllMenu","allmenu")
     //   this.menuShow = "none";  
@@ -113,4 +118,10 @@ li{
 li:hover{
     background: lightblue;
 }
+    #modelChange{
+      color: white;
+      float: right;
+      /* line-height: 55px;
+      margin-right: 10px; */
+    }
 </style>

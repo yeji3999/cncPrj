@@ -6,7 +6,7 @@ import VueMoment from 'vue-moment'
 import App from './App.vue'
 import router from "./components/router/router"
 import VueSmartWidget from 'vue-smart-widget'
-import authentication from "/home/rnd03/workspace/source/WAS/cncPrj/src/plugins/authentication.js "
+import authentication from "/home/rnd02/Desktop/yeji/cnc-sprint2-cy-update/src/plugins/authentication.js "
 
 Vue.use(VueSmartWidget)
 

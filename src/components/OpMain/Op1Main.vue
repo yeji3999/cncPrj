@@ -111,8 +111,8 @@ export default {
       { x: 4, y: 0, w: 2, h: 2, i: "2" },
       { x: 6, y: 0, w: 3, h: 2, i: "3" },
       { x: 9, y: 0, w: 3, h: 2, i: "4" },
-      { x: 0, y: 0, w: 12, h: 6, i: "5" },
-      { x: 0, y: 0, w: 12, h: 5, i: "6" }
+      { x: 0, y: 0, w: 12, h: 5, i: "5" },
+      { x: 0, y: 0, w: 12, h: 6, i: "6" }
       ]
     }),
     methods: {
@@ -217,7 +217,7 @@ export default {
               x: 0,
               y: 13,
               w: 12,
-              h: 6,
+              h: 5,
               i: id,
           });
           break;
@@ -226,7 +226,7 @@ export default {
               x: 0,
               y: 13,
               w: 12,
-              h: 5,
+              h: 6,
               i: id,
           });
           break;
@@ -256,8 +256,10 @@ export default {
   font-weight: 500;
 }
 .Breadcrumbs{
-  line-height: 45px;
+  line-height: 30px;
   margin-left: 7px;
+  position: relative;
+  top: 8px;
 }
 .widget-body__content{
   padding: 0px;
