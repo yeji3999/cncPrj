@@ -5,7 +5,7 @@
     </router-link>
     <div id="headerTitle">{{ headerTitle }}</div>
     <button v-on:click="loginOutEvt" id="loginout">{{signinOut}}</button>  
-    <button @click="modalAdmin" id="modelChange"><i class="fa fa-cog fa-lg"></i></button>    
+    <button @click="modalAdmin" id="modelChange" v-if="isAdmin"><i class="fa fa-cog fa-lg"></i></button>    
   </div>
 </template>
 
@@ -13,17 +13,18 @@
 export default {
   name: 'Header',
   created() { 
-    console.log(this.$keycloak.authenticated, " @@@@@@@@@@@@@@@@@@@@@@@@")
     if(!this.$keycloak.authenticated) {
       this.signinOut = 'Login';
     } else {
       this.signinOut = 'Logout';
+      this.isAdmin = this.checkAdmin();
     }
   },
   data(){
     return {
      headerTitle: "CNC 툴 부하 모니터링",
-     signinOut: 'Login'
+     signinOut: 'Login',
+     isAdmin: false
     }
   },
     methods:{
@@ -36,6 +37,16 @@ export default {
       },
       modalAdmin(){
         this.$emit("modalAdmin","true")
+      },
+      checkAdmin() {
+        console.log("check?")
+        if (this.$keycloak.authenticated) {
+          if (this.$keycloak.hasRealmRole('HNAdmin')) {
+            return true;
+          }
+        }
+        return false;
+        
       }
     }
 }
