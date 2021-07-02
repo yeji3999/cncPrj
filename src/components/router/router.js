@@ -62,12 +62,12 @@ const router =  new Router({
 router.beforeEach((to, from, next) => {
     if (to.meta.isAuthenticated) {
       if (!Vue.$keycloak.authenticated) {
-        router.push({ path: '/Unauthorized' });
-        // Vue.$keycloak.login();
-        // // The page is protected and the user is not authenticated. Force a login.
-        // let url = window.location.toString()
-        // let tmp = url.split('/')
-        // Vue.$keycloak.login({ redirectUri: 'http://'+tmp[2] + to.path })
+        // router.push({ path: '/Unauthorized' });
+        Vue.$keycloak.login();
+        // The page is protected and the user is not authenticated. Force a login.
+        let url = window.location.toString()
+        let tmp = url.split('/')
+        Vue.$keycloak.login({ redirectUri: 'http://'+tmp[2] + to.path })
       } else if (roleCheck(to.meta.roles)) {
         // The user was authenticated, and has the app role
         Vue.$keycloak.updateToken(70)
