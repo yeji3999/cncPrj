@@ -9,7 +9,6 @@
           <PlanetChart style="margin-bottom:15px"></PlanetChart>
           <p id="ct100">Cycle Time(Latest 100)</p>
           <v-data-table
-          :sort-by="['start', 'end', 'ct']"
           :sort-desc="['true', 'false', 'false']"
           :headers="headers"
           :items="ctAvgVal"
@@ -76,7 +75,7 @@ export default {
           {
             text: 'Start Time',
             align: 'start',
-            sortable: false,
+            sortable: true,
             value: 'start',
           },
           { text: 'End Time', value: 'end' },
@@ -98,15 +97,11 @@ export default {
       }
       return avgTime;
     },
-    addTodo() {
-      this.showModal = true
-    },
     modalCT() {
-      this.showCTModal = false;
+      // this.showCTModal = false;
       this.$emit("modalCT","false")
       },
     closeModalEvt:function(message){
-      alert("22")
       if(message == "false"){
       this.$emit("modalCT","false")
       }

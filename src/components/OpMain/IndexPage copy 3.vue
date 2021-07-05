@@ -2,11 +2,11 @@
   <div>
     <Header></Header>
     <!-- <Menu @closeNav="closeNavEvt" ></Menu> -->
-    <div style="padding: 100px 30px 30px 40px; background:#101c26" >
+    <div style="padding: 100px 30px 30px 40px;" >
       <div style="width: 100%;">
-        <!-- <div id="indexHeader">
+        <div id="indexHeader">
           <h1>HN 브레이크 패드 부품 공장 모니터링 시스템</h1>
-        </div> -->
+        </div>
         <div class="indexContent">
           <div id="indexBody">
             <tree :data="treeData" class="tree" @node:selected="onSelected"></tree>
@@ -33,7 +33,7 @@ export default {
     tree
   },
   data: () => ({
-    factoryImg: "https://images.unsplash.com/photo-1613077639458-948512cbb9f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1481&q=80",
+    factoryImg: "https://images.unsplash.com/photo-1587637885537-bb61f9741cff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     treeData: [
         { text: '제 1공장', state: { expanded: true, selected: true }, data: { icon: '../../assets/factory_defalut.png' }, children: [
             { text: '1라인', children: [
@@ -60,10 +60,10 @@ export default {
           this.$router.push({ path: node.id })
         }
         else if(node.text == ("제 1공장")){
-          this.factoryImg = "https://images.unsplash.com/photo-1613077639458-948512cbb9f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1481&q=80"
+          this.factoryImg = "https://images.unsplash.com/photo-1587637885537-bb61f9741cff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
         }
         else if(node.text == ("제 2공장")){
-          this.factoryImg = "https://images.unsplash.com/photo-1599728613885-bc908f9d6d04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+          this.factoryImg = "https://images.unsplash.com/photo-1587638289018-e8f17dfaa23f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
         }
       },
 
@@ -108,7 +108,7 @@ export default {
   }
   #indexBody {
     margin-top: 20px;
-    height: 80vh;
+    height: 700px;
     font-size: 25px;
     width: 30%;
   }
@@ -119,7 +119,7 @@ export default {
   }
   .factory_pic {
     width: 100%;
-    height: 80vh;
+    height: 700px;
     background-repeat:no-repeat;
     /* background-image: url('../../assets/factory2.jpg'); */
     background-size:cover;

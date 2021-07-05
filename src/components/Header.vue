@@ -66,6 +66,7 @@ export default {
       float:right;
       color:white;
       line-height: 60px;
+      font-weight: 600;
     }
 
 </style>

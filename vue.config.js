@@ -5,7 +5,7 @@ module.exports = {
   indexPath: path.resolve(__dirname, '/home/rnd03/workspace/source/WAS/sprint1/public/index.html'),
   devServer: {
     overlay: false,
-    port:8082,
+    port:8083,
     host: '9.8.100.152'
   }
 };

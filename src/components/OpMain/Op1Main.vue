@@ -1,14 +1,14 @@
 <template>
   <div>
     <Header></Header>
-    <Menu @closeNav="closeNavEvt" ></Menu>
+    <Menu @closeNav="closeNavEvt"></Menu>
     <div id="content" :style="{padding: mainPpadding}">
       <HeaderMenu @modalAdmin="modalAdminEvt" @closeOP="openEvt" @closePR="openEvt" @closeCT="openEvt" @closeMae="openEvt" @closeAnomal="openEvt" @closeChart="openEvt" @closeRealChart="openEvt" @openAllMenu="openEvt" @openAllChartMenu="openEvt"></HeaderMenu>
     <div class="Breadcrumbs">
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
-  
-  <div style="height:800px">
+
+  <div style="margin-top:25px">
     <div class="grid-widget">
     <smart-widget-grid :layout="layout">
       <smart-widget slot="0" simple title="Running Status" id="opWidget" :style="{background:stateColor}"  >
@@ -65,17 +65,16 @@ import Product from '../TopPanels/Product.vue'
 import CycleTime from '../TopPanels/CycleTime.vue'
 import Mae from '../TopPanels/Mae.vue'
 import AnomalyData from '../TopPanels/AnomalyData.vue'
-import ModalTP from "../TopPanels/ProductionHistory.vue";
-import ModalCT from "../TopPanels/CtHistory.vue";
-import ModalAdmin from "../TopPanels/ModalAdmin.vue";
-import HeaderMenu from '../HeaderMenu.vue';
-import ChartArea from '../ChartArea.vue';
+import ModalTP from "../TopPanels/ProductionHistory.vue"
+import ModalCT from "../TopPanels/CtHistory.vue"
+import ModalAdmin from "../TopPanels/ModalAdmin.vue"
+import HeaderMenu from '../HeaderMenu.vue'
+import ChartArea from '../ChartArea.vue'
 import RealTimeChart from '../RealTime.vue'
 
 export default {
   components: {
-    Header, Menu, Opsituation,Product,CycleTime,AnomalyData,Mae,ModalTP,ModalCT,ModalAdmin,
-    HeaderMenu,ChartArea,RealTimeChart
+    Header, Menu, Opsituation,Product,CycleTime,AnomalyData,Mae,ModalTP,ModalCT,ModalAdmin,HeaderMenu,ChartArea,RealTimeChart
   },
   created() {
     this.$socket.emit('setWork');
@@ -149,12 +148,9 @@ export default {
         }
       },
       closeEvt: function(id){
-        // alert(id)
         for(var j = 0; j< this.layout.length; j++){
           if(this.layout[j].i == id){
              this.layout.splice(j,1)
-            this.$store.dispatch('callLayoutChanage', { layoutChange: this.layout })
-
           }
         }
       },

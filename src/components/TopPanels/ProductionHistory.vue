@@ -5,6 +5,7 @@
       <span class="ModalTitle">Production History</span>
       <i class="fa fa-times closeModalBtn" @click="modalPr" style="float:right; font-size:23px; cursor:point"></i>
     </h3>
+    
     <div slot="body">
       <v-card dark >
         <v-tabs fixed-tabs>
@@ -26,9 +27,8 @@
                 class="elevation-1"
                 dark
                 hide-default-footer
+                disable-filtering
                 disable-pagination
-                :sort-by="['date', 'count']"
-                :sort-desc="['true', 'false']"
               ></v-data-table>
             </v-card>
           </v-tab-item>
@@ -42,6 +42,7 @@
                 dark
                 hide-default-footer
                 disable-pagination
+                disable-filtering
               ></v-data-table>
             </v-card>
           </v-tab-item>
@@ -55,6 +56,7 @@
                 dark
                 hide-default-footer
                 disable-pagination
+                disable-filtering
               ></v-data-table>
             </v-card>
           </v-tab-item>
@@ -79,12 +81,12 @@ export default({
     this.$socket.emit('setCount1Day')
     this.$socket.emit('setCount1Week')
     this.$socket.emit('setCount1Month')
-    this.$socket.emit('setCount')
+    // this.$socket.emit('setCount')
   },
   sockets: {
-    count: function(cnt) {
-      this.productVal = cnt;
-    },
+    // count: function(cnt) {
+    //   this.productVal = cnt;
+    // },
     days: function(d) {
       if (typeof(d) == 'number') {
         this.day[this.day.length-1].count = d;
@@ -105,15 +107,15 @@ export default({
   },
   data: function () {
     return {
-      productVal:"-",
+      // productVal:"-",
       startlist:"",
       endlist:"",
       doItem: "",
       headers: [
           {
             text: 'Date',
-            align: 'start',
-            sortable: false,
+            align: 'end',
+            // sortable: true,
             value: 'date',
           },
           { text: 'Count', value: 'count' },
@@ -127,7 +129,7 @@ export default({
   },
   methods: {
     modalPr() {
-      this.showPRModal = false;
+      // this.showPRModal = false;
       this.$emit("modalPr","false")
       },
     closeModalEvt:function(message){
