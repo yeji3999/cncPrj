@@ -17,36 +17,12 @@ export default {
       let avgTime = this.numToMS(miliTime);
       this.cycleTimeVal = avgTime;
       //this.$socket.emit('setCycleTimeList');
-    },
-    cycleTimeHistory: function(history) {
-      // console.log(history)
-      //this.ctAvgVal = history
-      let tmp = []
-      for (let i =0; i<history.length; i++) {
-        if(typeof(history[i]) != 'undefined') {
-          tmp.push(history[i])
-        }
-      }
-      this.ctAvgVal = tmp
-    },
-    ctChart: function(history) {
-      let tmp = this.$store.state.ctLineData
-      tmp.data.labels = history[0];
-      tmp.data.datasets[0].data = history[1];
-      for (var i = 0 ; i < tmp.data.labels.length; i++) {
-        if (typeof(tmp.data.labels[i]) != 'undefined') {
-          tmp.data.labels[i] = tmp.data.labels[i].split(' ')[1];
-        }
-      }
-      this.$store.dispatch('callCTHistory', { ctHistory: tmp }) 
     }
-
   },
   data(){
       return {
       cycleTimeVal:"-",
       ctAvgVal : "-",
-      doItem: "",
       showModal: false,
       headers: [
           {
@@ -96,7 +72,7 @@ export default {
 }
 #cycleVal{
   font-size: 2.3em;
-  line-height: 55px;
+  line-height: 70px;
   font-weight: bold;
   color: white;
 }

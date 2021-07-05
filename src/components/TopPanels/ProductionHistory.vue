@@ -120,9 +120,9 @@ export default({
           },
           { text: 'Count', value: 'count' },
       ],
-      day: '',
-      weekly: '',
-      monthly: '',
+      day: [],
+      weekly: [],
+      monthly: [],
       showPRModal: true
     }
     

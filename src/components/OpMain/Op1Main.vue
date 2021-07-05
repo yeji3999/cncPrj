@@ -149,7 +149,6 @@ export default {
       }
     },
       modalPrEvt: function(message){
-        console.log(message)
         if(message == "true"){
           this.showPRModal = true;
         }else if (message == "false"){
@@ -157,7 +156,6 @@ export default {
         }
       },
       modalCTEvt: function(message){
-        console.log(message)
         if(message == "true"){
           this.showCTModal = true;
         }else if (message == "false"){
@@ -165,7 +163,6 @@ export default {
         }
       },
       modalAdminEvt: function(message){
-        console.log(message)
         if(message == "true"){
           this.showAdminModal = true;
         }else if (message == "false"){

@@ -33,16 +33,9 @@ export default {
     PlanetChart
   },
   name: 'CycleTime',
-  created() { 
-    this.$socket.emit('setMeanCycleTime');
-  },
   sockets: {
-    cycleTimeMean: function(miliTime) {
-      let avgTime = this.numToMS(miliTime);
-      this.cycleTimeVal = avgTime;
-      //this.$socket.emit('setCycleTimeList');
-    },
     cycleTimeHistory: function(history) {
+      console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
       // console.log(history)
       //this.ctAvgVal = history
       let tmp = []
@@ -54,6 +47,7 @@ export default {
       this.ctAvgVal = tmp
     },
     ctChart: function(history) {
+      console.log("cccccccccccccccccccccc")
       let tmp = this.$store.state.ctLineData
       tmp.data.labels = history[0];
       tmp.data.datasets[0].data = history[1];
@@ -64,11 +58,10 @@ export default {
       }
       this.$store.dispatch('callCTHistory', { ctHistory: tmp }) 
     }
-
   },
   data(){
       return {
-      ctAvgVal : "-",
+      ctAvgVal : [],
       doItem: "",
       showCTModal: true,
       headers: [
@@ -84,19 +77,6 @@ export default {
       }
   },
   methods:{
-    numToMS: function(miliTime) {
-      let sec = miliTime/1000;
-      let min = parseInt(sec / 60);
-      sec = sec % 60;
-      let avgTime = '';
-      if (min > 0) {
-        avgTime = parseInt(min) + '분';
-      }
-      if (sec > 0 ) {
-        avgTime = avgTime + ' ' + parseInt(sec) + '초';
-      }
-      return avgTime;
-    },
     modalCT() {
       // this.showCTModal = false;
       this.$emit("modalCT","false")
