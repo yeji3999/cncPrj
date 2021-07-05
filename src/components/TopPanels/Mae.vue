@@ -13,6 +13,7 @@ export default {
   name: 'Loss1s',
   sockets: {
     realtimeLoss: function(res) {
+      // console.log(res)
       if (res.includes('n')) {
         this.loss = "-"
       } else {

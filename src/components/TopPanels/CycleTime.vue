@@ -10,13 +10,37 @@
 export default {
   name: 'CycleTime',
   created() { 
-    this.$socket.emit('setMeanCycleTime');
+    this.$socket.emit('setCycleTimeList');
   },
   sockets: {
     cycleTimeMean: function(miliTime) {
       let avgTime = this.numToMS(miliTime);
       this.cycleTimeVal = avgTime;
       //this.$socket.emit('setCycleTimeList');
+    },
+    ctHistory: function(history) {
+      console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+      console.log(history)
+      //this.ctAvgVal = history
+      let tmp = []
+      for (let i =0; i<history.length; i++) {
+        if(typeof(history[i]) != 'undefined') {
+          tmp.push(history[i])
+        }
+      }
+      this.ctAvgVal = tmp
+    },
+    ctChart: function(history) {
+      console.log("cccccccccccccccccccccc")
+      let tmp = this.$store.state.ctLineData
+      tmp.data.labels = history[0];
+      tmp.data.datasets[0].data = history[1];
+      for (var i = 0 ; i < tmp.data.labels.length; i++) {
+        if (typeof(tmp.data.labels[i]) != 'undefined') {
+          tmp.data.labels[i] = tmp.data.labels[i].split(' ')[1];
+        }
+      }
+      this.$store.dispatch('callCTHistory', { ctHistory: tmp }) 
     }
   },
   data(){

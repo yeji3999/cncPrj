@@ -39,7 +39,6 @@ created() {
   },
 methods:{
     checkAdmin() {
-        console.log("check?")
         if (this.$keycloak.authenticated) {
           if (this.$keycloak.hasRealmRole('HNAdmin')) {
             return true;
