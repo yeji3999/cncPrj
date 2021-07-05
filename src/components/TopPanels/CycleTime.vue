@@ -19,19 +19,15 @@ export default {
       //this.$socket.emit('setCycleTimeList');
     },
     ctHistory: function(history) {
-      console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
-      console.log(history)
-      //this.ctAvgVal = history
       let tmp = []
       for (let i =0; i<history.length; i++) {
         if(typeof(history[i]) != 'undefined') {
           tmp.push(history[i])
         }
       }
-      this.ctAvgVal = tmp
+      this.$store.dispatch('callCTAvgVal', { ctAvgVal: tmp })
     },
     ctChart: function(history) {
-      console.log("cccccccccccccccccccccc")
       let tmp = this.$store.state.ctLineData
       tmp.data.labels = history[0];
       tmp.data.datasets[0].data = history[1];
@@ -40,13 +36,12 @@ export default {
           tmp.data.labels[i] = tmp.data.labels[i].split(' ')[1];
         }
       }
-      this.$store.dispatch('callCTHistory', { ctHistory: tmp }) 
+      this.$store.dispatch('callCTHistory', { ctHistory: tmp}) 
     }
   },
   data(){
       return {
       cycleTimeVal:"-",
-      ctAvgVal : "-",
       showModal: false,
       headers: [
           {

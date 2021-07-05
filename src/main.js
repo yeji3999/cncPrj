@@ -27,7 +27,9 @@ var store = new Vuex.Store({
     interval: "5s",
     refresh: false,
     ctLineData: { type: "bar", data: { labels: [], datasets: [{ label: "Cycle Time(Latest 10)", data: [], backgroundColor: "#465942", borderColor: "#465942", borderWidth: 1}] }, options: { legend: {display:true, position:'top',align:'end'}, responsive: true, lineTension: 1, scales: { yAxes: [{ scaleLabel: { display: true, labelString: 'sec' },ticks: { beginAtZero: true, padding: 25}}]}}},
-    logined: false
+    logined: false,
+    ctAvg: []
+    
   },
   mutations: { 
     changeAnomalyState(state, anomalyState) {
@@ -38,6 +40,9 @@ var store = new Vuex.Store({
     },
     changeCTHistory(state, ctHistory) {
       state.ctLineData = ctHistory;
+    },
+    changeAvgVal(state, ctAvgVal) {
+      state.ctAvg = ctAvgVal;
     },
     changeLogined(state, loginedState) {
       state.logined = loginedState;
@@ -55,7 +60,10 @@ var store = new Vuex.Store({
     },
     callLogined({ commit }, { loginedState }) {
       commit('changeLogined', loginedState);
-    }
+    },
+    callCTAvgVal({ commit }, { ctAvgVal }) {
+      commit('changeAvgVal', ctAvgVal);
+    },
   }
 });
 

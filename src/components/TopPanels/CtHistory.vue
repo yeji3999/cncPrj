@@ -11,7 +11,7 @@
           <v-data-table
           :sort-desc="['true', 'false', 'false']"
           :headers="headers"
-          :items="ctAvgVal"
+          :items="this.$store.state.ctAvg"
           class="elevation-1"
           dark
           hide-default-footer
@@ -34,16 +34,16 @@ export default {
   },
   name: 'CycleTime',
   sockets: {
+
   },
   data(){
       return {
       ctAvgVal : [],
-      doItem: "",
       showCTModal: true,
       headers: [
           {
             text: 'Start Time',
-            align: 'start',
+            align: 'center',
             sortable: true,
             value: 'start',
           },
