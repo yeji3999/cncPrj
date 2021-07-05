@@ -56,7 +56,7 @@ export default {
 #totalproductVal{
   font-size: 2.3em;
   /* margin-top: 16px; */
-  line-height: 70px;
+  line-height: 55px;
   font-weight: bold;
   color: white;
 }

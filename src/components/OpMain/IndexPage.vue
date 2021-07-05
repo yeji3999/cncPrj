@@ -2,7 +2,7 @@
   <div>
     <Header></Header>
     <!-- <Menu @closeNav="closeNavEvt" ></Menu> -->
-    <div style="padding: 100px 30px 30px 40px; background:#101c26" >
+    <div id ="indexPageBack">
       <div style="width: 100%;">
         <!-- <div id="indexHeader">
           <h1>HN 브레이크 패드 부품 공장 모니터링 시스템</h1>
@@ -80,42 +80,34 @@ export default {
 </script>
 
 <style scoped>
+  #indexPageBack{
+    padding: 100px 30px 30px 40px;
+    background:#1b2329;
+    height: 100vh;
+  }
   .indexContent {
     width: 100%;
   }
   #indexBody, #info_pic{
     display: inline-block; 
-    /* width: 50%; */
     vertical-align: top;
   }
   #info_pic {
     padding: 21px 2px 12px 20px; /*위 오른쪽 아래 왼쪽*/
     float: right;  
-    width: 70%;
+    width: 80%; 
   }
-  #indexHeader, #indexBody{
-    color: rgb(201, 209, 217);
-    padding: 10px 20px 10px 20px; /*위 오른쪽 아래 왼쪽*/
-    background-color: #1E1E1E;
-    border-radius: 7px;
-    border: 0.5px solid #3b3d3e;
-  }
-  #indexHeader {
-    width: 100%;
-    height: 70px;
-    line-height: 50px;
-    text-align: center; 
-  }
+
   #indexBody {
     margin-top: 20px;
     height: 80vh;
     font-size: 25px;
-    width: 30%;
-  }
-  .headerTitleTxt{
-    padding-left: 10px;
-    padding-right: 10px;
-    border-right: 1px dashed rgba(255,255,255,0.3);
+    width: 20%;
+    background-color: #1E1E1E;
+    color: rgb(201, 209, 217);
+    padding: 10px 20px 10px 20px; /*위 오른쪽 아래 왼쪽*/
+    border-radius: 7px;
+    border: 2px solid #616161;
   }
   .factory_pic {
     width: 100%;
@@ -124,6 +116,6 @@ export default {
     /* background-image: url('../../assets/factory2.jpg'); */
     background-size:cover;
     border-radius: 7px;
-    
+    border: 2px solid #616161;
   }
 </style>

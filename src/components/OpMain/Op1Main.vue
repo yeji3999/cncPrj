@@ -1,13 +1,14 @@
 <template>
   <div>
     <Header></Header>
-    <Menu @closeNav="closeNavEvt"></Menu>
+    <Menu @closeNav="closeNavEvt" ></Menu>
     <div id="content" :style="{padding: mainPpadding}">
       <HeaderMenu @modalAdmin="modalAdminEvt" @closeOP="openEvt" @closePR="openEvt" @closeCT="openEvt" @closeMae="openEvt" @closeAnomal="openEvt" @closeChart="openEvt" @closeRealChart="openEvt" @openAllMenu="openEvt" @openAllChartMenu="openEvt"></HeaderMenu>
     <div class="Breadcrumbs">
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
-
+  <button class="layoutChange" @click="layout1Change">Ver1</button>
+  <button class="layoutChange" @click="layout2Change">Ver2</button>
   <div style="margin-top:25px">
     <div class="grid-widget">
     <smart-widget-grid :layout="layout">
@@ -104,7 +105,7 @@ export default {
     showAdminModal: false,
     close: "none",
     mainPpadding:"80px 30px 30px 230px",
-    layout: [
+  layout: [
       { x: 0, y: 0, w: 2, h: 2, i: "0" },
       { x: 2, y: 0, w: 2, h: 2, i: "1" },
       { x: 4, y: 0, w: 2, h: 2, i: "2" },
@@ -112,9 +113,33 @@ export default {
       { x: 9, y: 0, w: 3, h: 2, i: "4" },
       { x: 0, y: 0, w: 12, h: 5, i: "5" },
       { x: 0, y: 0, w: 12, h: 6, i: "6" }
-      ]
-    }),
+     ]
+  }),
     methods: {
+      layout1Change(){
+        this.layout = []
+        this.layout.push(    
+      { x: 0, y: 0, w: 2, h: 2, i: "0" },
+      { x: 2, y: 0, w: 2, h: 2, i: "1" },
+      { x: 4, y: 0, w: 2, h: 2, i: "2" },
+      { x: 6, y: 0, w: 3, h: 2, i: "3" },
+      { x: 9, y: 0, w: 3, h: 2, i: "4" },
+      { x: 0, y: 0, w: 12, h: 5, i: "5" },
+      { x: 0, y: 0, w: 12, h: 6, i: "6" }   
+      );
+      },
+      layout2Change(){
+        this.layout = []
+        this.layout.push(    
+      { x: 0, y: 0, w: 2, h: 2, i: "0" },
+      { x: 0, y: 0, w: 2, h: 2, i: "1" },
+      { x: 0, y: 0, w: 2, h: 2, i: "2" },
+      { x: 0, y: 0, w: 2, h: 2, i: "3" },
+      { x: 0, y: 0, w: 2, h: 2, i: "4" },
+      { x: 2, y: 0, w: 5, h: 10, i: "5" },
+      { x: 7, y: 0, w: 5, h: 10, i: "6" }
+      );
+      },
       closeNavEvt: function(message) {
       if(message===true){
         this.mainPpadding = "80px 30px 30px 40px";
@@ -270,5 +295,13 @@ export default {
 .vue-grid-item, .vue-resizable{
   overflow: hidden;
 }
-
+.layoutChange{
+  color: white;
+  background: slategray;
+  width: 60px;
+  margin-right: 10px;
+  font-weight: 600;
+  border-radius: 5px;
+  height: 30px;
+}
 </style>

@@ -96,7 +96,7 @@ export default {
 }
 #cycleVal{
   font-size: 2.3em;
-  line-height: 70px;
+  line-height: 55px;
   font-weight: bold;
   color: white;
 }
