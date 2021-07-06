@@ -9,28 +9,27 @@
         <div id="predicModelChange" style="width:100%">
             <div class="modalSubTitle">예측 모델 변경</div>
             <div id="changemodel1">
-            <input type="radio" name="changeModel" value="Model1" v-model="changeModelValues">
-            <p class="ModelChangeTitle">Model1</p>
-            <p class="ModelProcess">Number of processes</p>
-             <select v-model="selected">
-              <option value="1">"1"</option>
-              <option value="2">"2"</option>
-              <option value="3">"3"</option>
-              <option value="4">"4"</option>
-              <option value="5">"5"</option>
-              <option value="6">"6"</option>
-              <option value="7">"7"</option>
-              <option value="8">"8"</option>
-              <option value="9">"9"</option>
-              <option value="10">"10"</option>
+            <input type="radio" name="changeModel" value="Model1" :checked="checkModel == 'bi'">
+            <p class="ModelChangeTitle">BI_LSTM</p>
+            <p class="ModelProcess">Number of processes
+             <select v-model="selectProcessNum" style="width:50px; background:white">
+              <option :value="1">1</option>
+              <option :value="2">2</option>
+              <option :value="3">3</option>
+              <option :value="4">4</option>
+              <option :value="5">5</option>
+              <option :value="6">6</option>
+              <option :value="7">7</option>
+              <option :value="8">8</option>
+              <option :value="9">9</option>
+              <option :value="10">10</option>
             </select>
-            <span>{{selected}}</span>
+            </p>
             </div>
 
             <div id="changemodel2">
-            <input type="radio" name="changeModel" value="Model2" v-model="changeModelValues">
-            <p class="ModelChangeTitle">Model2</p>
-            <p class="ModelPredicRate">예상 예측률: {{Model2predicionRate}}</p>
+            <input type="radio" name="changeModel" value="Model2" :checked="checkModel == 'conv2d'">
+            <p class="ModelChangeTitle">CONV2D_LSTM</p>
             </div>
         </div>
         <div style="text-align:center;">
@@ -51,21 +50,26 @@ export default({
   components: {
     Modal
   },
-    created(){
-    console.log(this.modelInUse)
+  created(){
+    // this.checkModel = 'conv2d'
+    // this.selectProcessNum = "3"
+    this.$socket.emit('currentModelInfo');
   },
   sockets: {
+    nowModelInfo: function(data) {
+      alert("Sssssssssssssss")
+      alert(data.model,data.processCnt)
+    },
 
   },
   data: function () {
     return {
+      checkModel: "",
+      selectProcessNum: "",
       showPRModal: true,
-      modelInUse: "Model1",
-      Model1predicionRate: "0.11",
-      Model2predicionRate: "0.123",
+      modelInUse: "",
       changeModelValues: "",
     }
-    
   },
   methods: {
     modalAdmin() {
