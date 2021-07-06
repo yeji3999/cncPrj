@@ -1,57 +1,50 @@
 <template>
   <div>
     <Header></Header>
-    <Menu @closeNav="closeNavEvt"></Menu>
+    <Menu @closeNav="closeNavEvt" ></Menu>
     <div id="content" :style="{padding: mainPpadding}">
-      <HeaderMenu @modalAdmin="modalAdminEvt"></HeaderMenu>
+      <HeaderMenu @modalAdmin="modalAdminEvt" @closeOP="openEvt" @closePR="openEvt" @closeCT="openEvt" @closeMae="openEvt" @closeAnomal="openEvt" @closeChart="openEvt" @closeRealChart="openEvt" @openAllMenu="openEvt" @openAllChartMenu="openEvt"></HeaderMenu>
     <div class="Breadcrumbs">
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
   <!-- <button class="layoutChange" @click="layout1Change">Ver1</button>
   <button class="layoutChange" @click="layout2Change">Ver2</button> -->
-  <div style="margin-top:10px">
+  <div style="margin-top:25px">
     <div class="grid-widget">
-    <!-- <smart-widget-grid :layout="layout" :resizable="false" :draggable="false"> -->
-          <smart-widget-grid :layout="layout" :resizable="false" :draggable="false">
-
+    <smart-widget-grid :layout="layout">
       <smart-widget slot="0" simple title="Running Status" id="opWidget" :style="{background:stateColor}"  >
         <div class="layout-center">
-          <Opsituation></Opsituation>
+          <Opsituation @closeOP="closeEvt"></Opsituation>
         </div>
       </smart-widget>
       <smart-widget slot="1" simple title="Total Production" id="prWidget" style="background: #465942;">
         <div class="layout-center">
-          <Product @modalPr="modalPrEvt"></Product>
+          <Product @modalPr="modalPrEvt" @closePR="closeEvt"></Product>
         </div>
       </smart-widget>
       <smart-widget slot="2" simple title="Full Screen" id="ctWidget"  style="background: #465942;">
         <div class="layout-center">
-          <CycleTime @modalCT="modalCTEvt"></CycleTime>
+          <CycleTime @modalCT="modalCTEvt" @closeCT="closeEvt"></CycleTime>
         </div>
       </smart-widget>
       <smart-widget slot="3" simple title="Full Screen" id="maeWidget" style="background: #3F6164;">
         <div class="layout-center">
-          <Mae></Mae>
+          <Mae @closeMae="closeEvt"></Mae>
         </div>
       </smart-widget>
       <smart-widget slot="4" simple title="Full Screen" id="anomalWidget" style="background: #3F6164;">
         <div class="layout-center">
-           <AnomalyData></AnomalyData>
+           <AnomalyData @closeAnomal="closeEvt"></AnomalyData>
         </div>
       </smart-widget>
       <smart-widget slot="5" simple title="Full Screen" id="realTimeWidget" style="background: #111217;">
         <div class="layout-center">
-           <RealTimeChart></RealTimeChart>
+           <RealTimeChart @closeRealChart="closeEvt"></RealTimeChart>
         </div>
       </smart-widget>
       <smart-widget slot="6" simple title="Full Screen" id="chartWidget" style="background: #111217;">
         <div class="layout-center">
-           <ChartArea></ChartArea>
-        </div>
-      </smart-widget>
-      <smart-widget slot="7" simple title="Full Screen" id="realTimeWidget" style="background: #111217;">
-        <div class="layout-center">
-           <RealTimeChart></RealTimeChart>
+           <ChartArea @closeChart="closeEvt"></ChartArea>
         </div>
       </smart-widget>
     </smart-widget-grid>
@@ -113,61 +106,40 @@ export default {
     close: "none",
     mainPpadding:"80px 30px 30px 230px",
   layout: [
-      { x: 0, y: 0, w: 1, h: 2, i: "0" },
-      { x: 1, y: 0, w: 1, h: 2, i: "1" },
-      { x: 2, y: 0, w: 2, h: 2, i: "2" },
-      { x: 4, y: 0, w: 2, h: 2, i: "3" },
-      { x: 6, y: 0, w: 2, h: 2, i: "4" },
-      { x: 0, y: 0, w: 8, h: 7, i: "5" },
-      { x: 8, y: 0, w: 4, h: 16, i: "6" },
-      { x: 0, y: 0, w: 8, h: 7, i: "7" }
+      { x: 0, y: 0, w: 2, h: 2, i: "0" },
+      { x: 2, y: 0, w: 2, h: 2, i: "1" },
+      { x: 4, y: 0, w: 2, h: 2, i: "2" },
+      { x: 6, y: 0, w: 3, h: 2, i: "3" },
+      { x: 9, y: 0, w: 3, h: 2, i: "4" },
+      { x: 0, y: 0, w: 12, h: 5, i: "5" },
+      { x: 0, y: 0, w: 12, h: 6, i: "6" }
      ]
   }),
     methods: {
-      changeLayoutEvt(num){
-        switch(num){
-          case 1:
-            this.layout = []
-            this.layout.push(
-              { x: 0, y: 0, w: 1, h: 2, i: "0" },
-              { x: 1, y: 0, w: 1, h: 2, i: "1" },
-              { x: 2, y: 0, w: 2, h: 2, i: "2" },
-              { x: 4, y: 0, w: 2, h: 2, i: "3" },
-              { x: 6, y: 0, w: 2, h: 2, i: "4" },
-              { x: 0, y: 0, w: 8, h: 7, i: "5" },
-              { x: 8, y: 0, w: 4, h: 16, i: "6" },
-              { x: 0, y: 0, w: 8, h: 7, i: "7" }
-            );
-            break;
-          case 2:
-            this.layout = []
-            this.layout.push(
-              { x: 0, y: 0, w: 2, h: 2, i: "0" },
-              { x: 2, y: 0, w: 2, h: 2, i: "1" },
-              { x: 4, y: 0, w: 2, h: 2, i: "2" },
-              { x: 6, y: 0, w: 3, h: 2, i: "3" },
-              { x: 9, y: 0, w: 3, h: 2, i: "4" },
-              { x: 0, y: 0, w: 6, h: 6, i: "5" },
-              { x: 0, y: 0, w: 12, h: 8, i: "6" },
-              { x: 6, y: 0, w: 6, h: 6, i: "7" }
-            );
-            break;
-        case 3:
-          this.layout = []
-          this.layout.push(    
-              { x: 0, y: 0, w: 1, h: 2, i: "0" },
-              { x: 1, y: 0, w: 1, h: 2, i: "1" },
-              { x: 0, y: 0, w: 2, h: 2, i: "2" },
-              { x: 0, y: 0, w: 1, h: 2, i: "3" },
-              { x: 1, y: 0, w: 1, h: 2, i: "4" },
-              { x: 2, y: 0, w: 5, h: 6, i: "5" },
-              { x: 0, y: 0, w: 12, h: 9, i: "6" },
-              { x: 7, y: 0, w: 5, h: 6, i: "7" }
-            );
-            break;
-          }
-        },
-      
+      layout1Change(){
+        this.layout = []
+        this.layout.push(    
+      { x: 0, y: 0, w: 2, h: 2, i: "0" },
+      { x: 2, y: 0, w: 2, h: 2, i: "1" },
+      { x: 4, y: 0, w: 2, h: 2, i: "2" },
+      { x: 6, y: 0, w: 3, h: 2, i: "3" },
+      { x: 9, y: 0, w: 3, h: 2, i: "4" },
+      { x: 0, y: 0, w: 12, h: 5, i: "5" },
+      { x: 0, y: 0, w: 12, h: 6, i: "6" }   
+      );
+      },
+      layout2Change(){
+        this.layout = []
+        this.layout.push(    
+      { x: 0, y: 0, w: 2, h: 2, i: "0" },
+      { x: 0, y: 0, w: 2, h: 2, i: "1" },
+      { x: 0, y: 0, w: 2, h: 2, i: "2" },
+      { x: 0, y: 0, w: 2, h: 2, i: "3" },
+      { x: 0, y: 0, w: 2, h: 2, i: "4" },
+      { x: 2, y: 0, w: 5, h: 10, i: "5" },
+      { x: 7, y: 0, w: 5, h: 10, i: "6" }
+      );
+      },
       closeNavEvt: function(message) {
       if(message===true){
         this.mainPpadding = "80px 30px 30px 40px";
@@ -196,7 +168,90 @@ export default {
         }else if (message == "false"){
         this.showAdminModal = false;
         }
-      } 
+      },
+      closeEvt: function(id){
+        for(var j = 0; j< this.layout.length; j++){
+          if(this.layout[j].i == id){
+             this.layout.splice(j,1)
+          }
+        }
+      },
+      openEvt:function(id){
+        for(var j = 0; j< this.layout.length; j++){
+          if(this.layout[j].i == id){
+             alert("이미 존재하는 컴포넌트 입니다.")
+            return false
+          }
+          this.$store.dispatch('callLayoutChanage', { layoutChange: this.layout })
+        }
+        switch(id){         
+          case (0):
+            this.layout.push({
+              x: 0,
+              y: 13,
+              w: 2,
+              h: 2,
+              i: id,
+            });
+          break;
+          case (1):
+            this.layout.push({
+              x: 2,
+              y: 13,
+              w: 2,
+              h: 2,
+              i: id,
+            });
+          break;
+          case (2):
+            this.layout.push({
+              x: 4,
+              y: 13,
+              w: 2,
+              h: 2,
+              i: id,
+            });
+          break;
+          case (3):
+            this.layout.push({
+              x: 6,
+              y: 13,
+              w: 3,
+              h: 2,
+              i: id,
+            });
+          break;
+          case (4):
+            this.layout.push({
+              x: 9,
+              y: 13,
+              w: 3,
+              h: 2,
+              i: id,
+            });
+          break;
+        case (5):
+            this.layout.push({
+              x: 0,
+              y: 13,
+              w: 12,
+              h: 5,
+              i: id,
+          });
+          break;
+        case (6):
+            this.layout.push({
+              x: 0,
+              y: 13,
+              w: 12,
+              h: 6,
+              i: id,
+          });
+          break;
+        default:
+          alert("NNNNN")
+        }      
+      }   
     } 
   }
 </script>

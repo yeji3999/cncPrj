@@ -1,6 +1,6 @@
 <template>
 <div class="CycleTime">
-  <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeCT"><i class="fa fa-times"></i></button>
+  <!-- <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeCT"><i class="fa fa-times"></i></button> -->
   <span id = "cycleTimeTitle">Cycle Time(Latest 5) </span>
   <p id="cycleVal">{{cycleTimeVal}} <button @click="modalCT" id="productEvt"><img class="infoImg" src="../../assets/info.png"></button></p>
 </div>
@@ -84,14 +84,13 @@ export default {
   text-align: center;
 }
 #cycleTimeTitle{
-  line-height: 28px;
   font-weight: bold;
-  margin-left: 20px;
   color: #c7d0d9;
+  font-size: 14px;
 }
 #cycleVal{
-  font-size: 2.3em;
-  line-height: 70px;
+  font-size: 30px;
+  line-height: 60px;
   font-weight: bold;
   color: white;
 }

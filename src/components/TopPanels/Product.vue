@@ -2,7 +2,7 @@
   <div>
     <div class="Product">
       <div style="text-align:center">
-      <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closePR"><i class="fa fa-times"></i></button>
+      <!-- <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closePR"><i class="fa fa-times"></i></button> -->
       <span id = "productTitle">Total Production</span>
       </div>
       <p id="totalproductVal">{{productVal}} <button @click="modalPr" id="productEvt"><img class="infoImg" src="../../assets/info.png"></button></p> 
@@ -47,16 +47,13 @@ export default {
   text-align: center;
 }
 #productTitle{
-  margin-left: 20px;
-  line-height: 28px;
   font-weight: bold;
   color: #c7d0d9;
-
+  font-size: 14px;
 }
 #totalproductVal{
-  font-size: 2.3em;
-  /* margin-top: 16px; */
-  line-height: 55px;
+  font-size: 30px;
+  line-height: 60px;
   font-weight: bold;
   color: white;
 }

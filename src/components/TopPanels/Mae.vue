@@ -1,7 +1,7 @@
 <template>
 <div class="Loss1s" :style="{background:lossStateColor}">
     <span id = "loss1sTitle">MAE(s)</span>
-    <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeMae"><i class="fa fa-times"></i></button>
+    <!-- <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeMae"><i class="fa fa-times"></i></button> -->
 
   <p id="loss1sVal" :style="{color:lossTxtColor}">{{loss}}</p>
 </div>
@@ -74,10 +74,9 @@ export default {
 <style>
 
 #loss1sTitle{
-  line-height: 28px;
   font-weight: bold;
-  margin-left: 20px;
   color: #c7d0d9;
+  font-size: 14px;
 }
 .Loss1s{
   height: 100%;
@@ -85,8 +84,8 @@ export default {
   text-align: center;
 }
 #loss1sVal{
-  font-size: 2.3em;
-  line-height: 55px;
+  font-size: 30px;
+  line-height: 60px;
   font-weight: bold;
   color: white;
 }

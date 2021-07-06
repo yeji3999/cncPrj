@@ -1,6 +1,6 @@
 <template>
 <div class="opsituation" :style="{background:stateColor}">
-<button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeOP"><i class="fa fa-times"></i></button>
+<!-- <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeOP"><i class="fa fa-times"></i></button> -->
 <span id = "opsituationTitle">Running Status</span>
 <p id="opsituationState">{{op}}</p>
 </div>
@@ -51,14 +51,13 @@ export default {
   text-align: center;
 }
 #opsituationTitle{
-  line-height: 28px;
   font-weight: bold;
-  margin-left: 20px;
   color: #c7d0d9;
+  font-size: 14px;
 }
 #opsituationState{
-  font-size: 2.3em;
-  line-height: 55px;
+  font-size: 30px;
+  line-height: 60px;
   font-weight: bold;
   color: white;
 }
