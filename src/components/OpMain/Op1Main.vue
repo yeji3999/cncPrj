@@ -3,7 +3,7 @@
     <Header></Header>
     <Menu @closeNav="closeNavEvt"></Menu>
     <div id="content" :style="{padding: mainPpadding}">
-      <HeaderMenu @modalAdmin="modalAdminEvt"></HeaderMenu>
+      <HeaderMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"></HeaderMenu>
     <div class="Breadcrumbs">
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
@@ -196,7 +196,7 @@ export default {
         }else if (message == "false"){
         this.showAdminModal = false;
         }
-      } 
+      },
     } 
   }
 </script>
