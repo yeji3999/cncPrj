@@ -57,10 +57,8 @@ export default({
   },
   sockets: {
     nowModelInfo: function(data) {
-      alert("Sssssssssssssss")
-      alert(data.model,data.processCnt)
+      console.log("sssssssssssssssssss ",data.model, data.processCnt);
     },
-
   },
   data: function () {
     return {
