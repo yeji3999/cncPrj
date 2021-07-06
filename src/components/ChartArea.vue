@@ -10,7 +10,8 @@ export default {
   name: 'ChartArea',
     data(){
     return {
-      iframeSource: "http://9.8.100.156:3000/d/-Vt3X0qGk/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv",
+      iframeSource: "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv",
+      
     }
   },
   methods:{

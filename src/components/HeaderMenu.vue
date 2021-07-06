@@ -18,7 +18,6 @@
 export default({
 data:() =>({
     menuShow:"none",
-    chartmenuShow:"none",
     isAdmin: false,
     layout1Icon: require("../../src/assets/click_layout1.png"),
     layout2Icon: require("../../src/assets/layout2.png"),
@@ -31,7 +30,7 @@ created() {
         this.isAdmin = false;
     }
   },
-  props:['layoutMenu'],
+  props:['layoutMenuShow'],
 methods:{
   layout1(){
     this.layout1Icon = require("../../src/assets/click_layout1.png")

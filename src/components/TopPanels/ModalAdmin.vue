@@ -6,31 +6,34 @@
       <i class="fa fa-times closeModalBtn" @click="modalAdmin" style="float:right; font-size:23px; cursor:point"></i>
     </h3>
     <div slot="body">
-        <div id="predicModelStatus" style="width:100%">
-          <div class="modalSubTitle">예측 모델 현황</div>
-            <div style=" display:inline-block; width:50%; position:relative; bottom: 75px">  
-            <span class="modalsubText">현재 {{modelInUse}} 모델 사용 중 입니다. </span>
-            </div>
-            <div style=" display:inline-block">   
-              <iframe v-bind:src="realTimeIframe" width="100%" height="90%" frameborder="1"></iframe> 
-            </div>
-        </div>
-
-        <div id="predicModelChange">
+        <div id="predicModelChange" style="width:100%">
             <div class="modalSubTitle">예측 모델 변경</div>
             <div id="changemodel1">
             <input type="radio" name="changeModel" value="Model1" v-model="changeModelValues">
-            <span class="ModelChangeTitle">Model1</span>
-            <span class="ModelPredicRate">예상 예측률: {{Model1predicionRate}}</span>
+            <p class="ModelChangeTitle">Model1</p>
+            <p class="ModelProcess">Number of processes</p>
+             <select v-model="selected">
+              <option value="1">"1"</option>
+              <option value="2">"2"</option>
+              <option value="3">"3"</option>
+              <option value="4">"4"</option>
+              <option value="5">"5"</option>
+              <option value="6">"6"</option>
+              <option value="7">"7"</option>
+              <option value="8">"8"</option>
+              <option value="9">"9"</option>
+              <option value="10">"10"</option>
+            </select>
+            <span>{{selected}}</span>
             </div>
 
             <div id="changemodel2">
             <input type="radio" name="changeModel" value="Model2" v-model="changeModelValues">
-            <span class="ModelChangeTitle">Model2</span>
-            <span class="ModelPredicRate">예상 예측률: {{Model2predicionRate}}</span>
+            <p class="ModelChangeTitle">Model2</p>
+            <p class="ModelPredicRate">예상 예측률: {{Model2predicionRate}}</p>
             </div>
         </div>
-        <div style="text-align:center">
+        <div style="text-align:center;">
         <button id="modelChangeSubmit" @click="modelChangeVal">Submit</button>
         </div>
   
@@ -61,7 +64,6 @@ export default({
       Model1predicionRate: "0.11",
       Model2predicionRate: "0.123",
       changeModelValues: "",
-      realTimeIframe: "http://9.8.100.152:8083/realTime.html",
     }
     
   },
@@ -84,23 +86,20 @@ export default({
 </script>
 
 <style scoped>
-#predicModelStatus, #predicModelChange{
-    margin-bottom: 30px;
-}
+
 .modalSubTitle{
-    color: white;
     margin: 15px 0px;
-}
-.modalSubTitle{
     font-size: 20px;
     font-weight: bold;
     color: rgb(221, 221, 221)
 }
 .ModelChangeTitle{
     margin-left:10px;
-    color: rgb(221, 221, 221)
+    color: rgb(221, 221, 221);
+    font-size: 1.5em;
+    font-weight: 600;
 }
-.ModelPredicRate{
+.ModelProcess{
    margin-left: 20px;
    color: rgb(221, 221, 221)
 }
@@ -111,8 +110,22 @@ export default({
     height: 30px;
     width: 90px;
     border-radius: 5px;
+    margin-top: 30px;
 }
 .modalsubText{
   color: rgb(221, 221, 221)
+}
+#changemodel1{
+  float: left;
+}
+#changemodel2{
+  float: right;
+}
+#changemodel1, #changemodel2{
+  width:47%;
+  display:inline-block;
+  margin: 10px;
+  background: #414141;
+  height: 200px;
 }
 </style>

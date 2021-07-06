@@ -2,18 +2,15 @@
   <div>
     <Header></Header>
     <Menu @closeNav="closeNavEvt"></Menu>
-    <div id="content" :style="{padding: mainPpadding}">
+    <div id="content" :style="{padding: mainPpadding}" @click="layoutMenuShow=false">
       <HeaderMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"></HeaderMenu>
     <div class="Breadcrumbs">
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
-  <!-- <button class="layoutChange" @click="layout1Change">Ver1</button>
-  <button class="layoutChange" @click="layout2Change">Ver2</button> -->
+
   <div style="margin-top:10px">
     <div class="grid-widget">
-    <!-- <smart-widget-grid :layout="layout" :resizable="false" :draggable="false"> -->
-          <smart-widget-grid :layout="layout" :resizable="false" :draggable="false">
-
+    <smart-widget-grid :layout="layout" :resizable="false" :draggable="false">
       <smart-widget slot="0" simple title="Running Status" id="opWidget" :style="{background:stateColor}"  >
         <div class="layout-center">
           <Opsituation></Opsituation>
@@ -124,6 +121,9 @@ export default {
      ]
   }),
     methods: {
+      layoutMenuShow(){
+        alert("SSSSSSSSS")
+      },
       changeLayoutEvt(num){
         switch(num){
           case 1:
