@@ -12,7 +12,8 @@
             <input type="radio" name="modelSelRadio" value="prediction_bi" @click="changeModelBi" class="changeModelRadio" :checked="checkModel == 'prediction_bi'">
             <p class="ModelChangeTitle">BI_LSTM</p>
             <p class="ModelProcess">Number of processes :
-             <select v-model="selectBIProcessNum" class ="modelSelOption">
+            <vue-slider v-model="value" v-bind="options" />
+            <!-- <select v-model="selectBIProcessNum" class ="modelSelOption">
               <option :value="1">1</option>
               <option :value="2">2</option>
               <option :value="3">3</option>
@@ -23,7 +24,7 @@
               <option :value="8">8</option>
               <option :value="9">9</option>
               <option :value="10">10</option>
-            </select>
+            </select> -->
             </p>
             <p class="modelState">Model State: {{biState}}</p>
             </div>
@@ -65,11 +66,14 @@
 
 <script>
 import Modal from "./Modal.vue";
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/antd.css'
 
 
 export default({
   components: {
-    Modal
+    Modal,
+    VueSlider
   },
   created(){
     this.$socket.emit('currentModelInfo'); 
@@ -111,6 +115,14 @@ export default({
   },
   data: function () {
     return {
+      value: 0,
+      options: {
+        dotSize: 10,
+        min:0,
+        max: 10,
+        width: 300,
+        height: 4
+      },
       checkModel: "",
       currentProcessCnt: "",
       selectBIProcessNum: "",
