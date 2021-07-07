@@ -9,7 +9,6 @@ import VueSmartWidget from 'vue-smart-widget'
 import authentication from "./plugins/authentication.js "
 
 Vue.use(VueSmartWidget)
-
 Vue.use(VueMoment)
 // import VueSocketIO from "vue-socket.io";
 Vue.prototype.$socket = new VueSocketIO({

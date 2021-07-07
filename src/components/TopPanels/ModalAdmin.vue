@@ -12,11 +12,13 @@
             <input type="radio" name="modelSelRadio" value="prediction_bi" @click="changeModelBi" class="changeModelRadio" :checked="checkModel == 'prediction_bi'">
             <p class="ModelChangeTitle">BI_LSTM</p>
             <p class="ModelProcess">Number of processes :
-            <vue-slider v-model="value" v-bind="options" />
+
+            <vue-slider v-model="selectBIProcessNum" v-bind="options" :tooltip="'always'" :disabled="isBiActive" style="display:inline-block; padding: 5px 10px"/>
             <!-- <select v-model="selectBIProcessNum" class ="modelSelOption">
+
               <option :value="1">1</option>
               <option :value="2">2</option>
-              <option :value="3">3</option>
+              <option :value="3">3(권장)</option>
               <option :value="4">4</option>
               <option :value="5">5</option>
               <option :value="6">6</option>
@@ -33,10 +35,12 @@
             <input type="radio" name="modelSelRadio" value="prediction_conv2d" @click="changeModelConv2d"  class="changeModelRadio" :checked="checkModel == 'prediction_conv2d'">
             <p class="ModelChangeTitle">CONV2D_LSTM</p>
             <p class="ModelProcess">Number of processes :
-             <select v-model="selectConv2dProcessNum" class ="modelSelOption">
+            <vue-slider v-model="selectConv2dProcessNum" v-bind="options" :tooltip="'always'" :disabled="isConv2dActive" style="display:inline-block; padding: 5px 10px"/>
+
+             <!-- <select v-model="selectConv2dProcessNum" class ="modelSelOption">
               <option :value="1">1</option>
               <option :value="2">2</option>
-              <option :value="3">3</option>
+              <option :value="3">3(권장)</option>
               <option :value="4">4</option>
               <option :value="5">5</option>
               <option :value="6">6</option>
@@ -44,7 +48,7 @@
               <option :value="8">8</option>
               <option :value="9">9</option>
               <option :value="10">10</option>
-            </select>
+            </select> -->
             </p>
             <p class="modelState">Model State: {{con2dState}}</p>
             </div>
@@ -74,6 +78,7 @@ export default({
   components: {
     Modal,
     VueSlider
+
   },
   created(){
     this.$socket.emit('currentModelInfo'); 
@@ -89,24 +94,35 @@ export default({
         this.selectBIProcessNum = data.processCnt
         this.currentProcessCnt = this.selectBIProcessNum
         this.biState = "Running"
-
+        this.selectConv2dProcessNum = 0
+        this.isBiActive = true
+        this.isConv2dActive = false
       }else if(this.checkModel=="prediction_conv2d"){
         this.selectConv2dProcessNum = data.processCnt
         this.currentProcessCnt = this.selectConv2dProcessNum
         this.con2dState = "Running"
+        this.selectBIProcessNum = 0
+        this.isBiActive = false
+        this.isConv2dActive = true
       }
     },
     modelChangeRes: function(msg){
       console.log(msg)
-      
       if(msg.state == "Model Changed"){
         this.currentModel = this.changeModel
         this.modelChangeMsg = "Done"
-
+        this.applyState = "gray"
+        this.modelChangeBtn = true
         if(this.currentModel == "prediction_bi" ){
           this.biState = "Running"
+          this.selectConv2dProcessNum = 0
+          this.isBiActive = true
+          this.isConv2dActive = false
         }else if(this.currentModel == "prediction_conv2d"){
           this.con2dState = "Running"
+          this.selectBIProcessNum = 0
+          this.isBiActive = false
+          this.isConv2dActive = true
         }
       }else{
       this.modelChangeMsg = "Fail"
@@ -115,18 +131,17 @@ export default({
   },
   data: function () {
     return {
-      value: 0,
       options: {
         dotSize: 10,
-        min:0,
+        min: 0,
         max: 10,
-        width: 300,
+        width: 100,
         height: 4
       },
       checkModel: "",
       currentProcessCnt: "",
-      selectBIProcessNum: "",
-      selectConv2dProcessNum: "",
+      selectBIProcessNum: 0,
+      selectConv2dProcessNum: 0,
       showPRModal: true,
       modelInUse: "",
       changeModelValues: "",
@@ -138,50 +153,60 @@ export default({
       modelChangeMsg: "",
       biState:"killed",
       con2dState:"killed",
-      modelChangeSuccess: ""
+      modelChangeSuccess: "",
+      isBiActive: true,
+      isConv2dActive: true
     }
   },
   methods: {
     changeModelBi(){
       this.changeModel = "prediction_bi"
-      if(this.currentModel == this.checkModel){
+      if(this.currentModel == this.changeModel){
         this.applyState = "gray"
         this.modelChangeBtn = true
-      }
+      }else{
         this.applyState = "#38e09a"
         this.modelChangeBtn = false
+      }
     },
     changeModelConv2d(){
       this.changeModel = "prediction_conv2d"
-        if(this.currentModel == this.checkModel){
+        if(this.currentModel == this.changeModel){
         this.applyState = "gray"
         this.modelChangeBtn = true
-      }
+      }else{
         this.applyState = "#38e09a"
         this.modelChangeBtn = false
+      }
     },
     modalAdmin() {
       this.showAdminModal = false;
       this.$emit("modalAdmin","false")
       },
     modelChangeEvt(){
-        if (this.changeModel == 'prediction_bi') {
-          this.updateProcessCnt = this.selectBIProcessNum
-          this.modelChangeMsg = "Change~~~"
-          this.con2dState = "killed"
-
-        } else if (this.changeModel == 'prediction_conv2d') {
-          this.updateProcessCnt = this.selectConv2dProcessNum
-          this.modelChangeMsg = "Change~~~"
-          this.biState = "killed"
-        }  
-        if(this.updateProcessCnt == ""){
+      if (this.changeModel == 'prediction_bi') {
+        this.updateProcessCnt = this.selectBIProcessNum
+        if(this.updateProcessCnt == 0){
             alert("Please select the number of processes")
             return false
-          }
-        this.$socket.emit('changeModel', {model:this.changeModel, processCnt: this.updateProcessCnt}); 
+        }else{
+          this.modelChangeMsg = "Change~~~"
+          this.con2dState = "killed"
+        }
+      } else if (this.changeModel == 'prediction_conv2d') {
+        this.updateProcessCnt = this.selectConv2dProcessNum
+        if(this.updateProcessCnt == 0){
+            alert("Please select the number of processes")
+            return false
+        }else{
+          this.modelChangeMsg = "Change~~~"
+          this.biState = "killed"
+        }
+      } 
+      this.$socket.emit('changeModel', {model:this.changeModel, processCnt: this.updateProcessCnt}); 
+
         // this.$emit("modalAdmin","false")
-      },
+    },
     closeModalEvt:function(message){
         if(message == "false"){
           this.$emit("modalAdmin","false")
@@ -192,6 +217,9 @@ export default({
 </script>
 
 <style scoped>
+select{
+  text-align: center;
+}
 #modelChangeComment{
   font-size: 2em;
   color: #fff;
@@ -199,7 +227,9 @@ export default({
   text-align: center;
 }
 .modelSelOption{
-  width: 50px;
+  width: 70px;
+  height: 25px;
+  line-height: 25px;
   background: white;
 }
 .modalSubTitle{
@@ -219,6 +249,7 @@ export default({
    color: rgb(221, 221, 221);
    font-weight: 500;
    font-size: 1.2em;
+   line-height: 30px;
 }
 #modelChangeSubmit{
     color: black;
