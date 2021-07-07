@@ -7,7 +7,7 @@
     </h3>
     <div slot="body">
         <div id="predicModelChange" style="width:100%">
-            <div class="modalSubTitle">예측 모델 변경</div>
+            <div class="modalSubTitle">Change predict model</div>
             <div id="changemodel1">
             <input type="radio" name="modelSelRadio" value="prediction_bi" @click="changeModelBi" class="changeModelRadio" :checked="checkModel == 'prediction_bi'">
             <p class="ModelChangeTitle">BI_LSTM</p>
@@ -28,7 +28,7 @@
               <option :value="10">10</option>
             </select> -->
             </p>
-            <p class="modelState">Model State: {{biState}}</p>
+            <p class="modelState">Model State: <span style="font-weight:600" :style="{color:biStateColor}"> {{biState}}</span></p>
             </div>
 
             <div id="changemodel2">
@@ -50,10 +50,10 @@
               <option :value="10">10</option>
             </select> -->
             </p>
-            <p class="modelState">Model State: {{con2dState}}</p>
+            <p class="modelState">Model State: <span style="font-weight:600" :style="{color:con2dStateColor}">{{con2dState}}</span></p>
             </div>
 
-            <div>
+            <div style="margin-top:10px">
               <p id="modelChangeComment">{{modelChangeMsg}}</p>
             </div>
         </div>
@@ -94,6 +94,8 @@ export default({
         this.selectBIProcessNum = data.processCnt
         this.currentProcessCnt = this.selectBIProcessNum
         this.biState = "Running"
+        this.biStateColor = "#38e09a"
+        this.con2dStateColor = "#e04c38"
         this.selectConv2dProcessNum = 0
         this.isBiActive = true
         this.isConv2dActive = false
@@ -101,6 +103,8 @@ export default({
         this.selectConv2dProcessNum = data.processCnt
         this.currentProcessCnt = this.selectConv2dProcessNum
         this.con2dState = "Running"
+        this.con2dStateColor = "#38e09a"
+        this.biStateColor = "#e04c38"
         this.selectBIProcessNum = 0
         this.isBiActive = false
         this.isConv2dActive = true
@@ -110,7 +114,7 @@ export default({
       console.log(msg)
       if(msg.state == "Model Changed"){
         this.currentModel = this.changeModel
-        this.modelChangeMsg = "Done"
+        this.modelChangeMsg = "Predict model is changed."
         this.applyState = "gray"
         this.modelChangeBtn = true
         if(this.currentModel == "prediction_bi" ){
@@ -118,11 +122,14 @@ export default({
           this.selectConv2dProcessNum = 0
           this.isBiActive = true
           this.isConv2dActive = false
+          this.biStateColor = "#38e09a"
+
         }else if(this.currentModel == "prediction_conv2d"){
           this.con2dState = "Running"
           this.selectBIProcessNum = 0
           this.isBiActive = false
           this.isConv2dActive = true
+          this.con2dStateColor = "#38e09a"
         }
       }else{
       this.modelChangeMsg = "Fail"
@@ -151,11 +158,13 @@ export default({
       updateProcessCnt :"",
       currentModel: "",
       modelChangeMsg: "",
-      biState:"killed",
-      con2dState:"killed",
+      biState:"Killed",
+      con2dState:"Killed",
       modelChangeSuccess: "",
       isBiActive: true,
-      isConv2dActive: true
+      isConv2dActive: true,
+      biStateColor:"#e04c38",
+      con2dStateColor: "#e04c38"
     }
   },
   methods: {
@@ -190,8 +199,9 @@ export default({
             alert("Please select the number of processes")
             return false
         }else{
-          this.modelChangeMsg = "Change~~~"
-          this.con2dState = "killed"
+          this.modelChangeMsg = "Predict model is being applied"
+          this.con2dState = "Killed"
+          this.con2dStateColor = "#e04c38"
         }
       } else if (this.changeModel == 'prediction_conv2d') {
         this.updateProcessCnt = this.selectConv2dProcessNum
@@ -199,8 +209,10 @@ export default({
             alert("Please select the number of processes")
             return false
         }else{
-          this.modelChangeMsg = "Change~~~"
-          this.biState = "killed"
+          this.modelChangeMsg = "Predict model is being applied"
+          this.biState = "Killed"
+          this.biStateColor = "#e04c38"
+
         }
       } 
       this.$socket.emit('changeModel', {model:this.changeModel, processCnt: this.updateProcessCnt}); 
@@ -257,7 +269,7 @@ select{
     height: 30px;
     width: 90px;
     border-radius: 5px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 #modelChangeCancel{
     background: #e04c38;
@@ -266,7 +278,7 @@ select{
     height: 30px;
     width: 90px;
     border-radius: 5px;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 30px;
 }
 .modalsubText{
