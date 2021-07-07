@@ -20,7 +20,17 @@ export default {
       this.anomalyAlarm();
     },
     anomalyDetection: function(res) {
+      let today = new Date();
+      aTime = today.getTime();
+
       this.anomalyState = res;
+      setTimeout(() => {
+        let today = new Date();
+        let bTime = today.getTime();
+        if (bTime - aTime >= 3000) {
+          this.anomalyState = '-';
+        }
+      }, 3000);
     }
   },
   data(){

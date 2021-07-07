@@ -15,19 +15,19 @@ export default {
   },
   sockets: {
     isWork: function() {
-      var today = new Date();
+      let today = new Date();
       aTime = today.getTime();
       this.op = "가동";
       this.stateColor = "#465942";
 
       setTimeout(() => {
-        var today = new Date();
+        let today = new Date();
         let bTime = today.getTime();
         if (bTime - aTime >= 3000) {
         this.op = "비가동";
         this.stateColor = "#C4162A";
           }
-      }, 3000);
+      }, 5000);
     }
   },
   data(){

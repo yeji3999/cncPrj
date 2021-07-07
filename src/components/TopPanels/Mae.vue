@@ -13,18 +13,21 @@ export default {
   name: 'Loss1s',
   sockets: {
     realtimeLoss: function(res) {
+      let today = new Date();
+      aTime = today.getTime();
       // console.log(res)
       if (res.includes('n')) {
         this.loss = "-"
       } else {
         this.loss = parseFloat(res).toFixed(4)
       }
-      //if (typeof(res) == 'string') {
-      //  this.loss = res.toFixed(4)
-     // }
-     // else {
-     //   this.loss = '-'
-     // }
+      setTimeout(() => {
+        let today = new Date();
+        let bTime = today.getTime();
+        if (bTime - aTime >= 3000) {
+          this.loss = '-';
+        }
+      }, 3000);
     },
     alert: function(){
       this.anomalyAlarm();
