@@ -11,12 +11,13 @@ export default {
   name: 'CycleTime',
   created() { 
     this.$socket.emit('setCycleTimeList');
+    this.$socket.emit('setMeanCycleTime');
   },
   sockets: {
     cycleTimeMean: function(miliTime) {
+      console.log(miliTime, " whwhwhwhwhy")
       let avgTime = this.numToMS(miliTime);
       this.cycleTimeVal = avgTime;
-      //this.$socket.emit('setCycleTimeList');
     },
     ctHistory: function(history) {
       let tmp = []
