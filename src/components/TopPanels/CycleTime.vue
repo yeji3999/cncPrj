@@ -15,7 +15,6 @@ export default {
   },
   sockets: {
     cycleTimeMean: function(miliTime) {
-      console.log(miliTime, " whwhwhwhwhy")
       let avgTime = this.numToMS(miliTime);
       this.cycleTimeVal = avgTime;
     },
