@@ -53,7 +53,7 @@
             <p class="modelState">Model State: <span style="font-weight:600" :style="{color:con2dStateColor}">{{con2dState}}</span></p>
             </div>
 
-            <div style="margin-top:10px">
+            <div style="width:100%; margin-top:10px">
               <p id="modelChangeComment">{{modelChangeMsg}}</p>
             </div>
         </div>
