@@ -45,7 +45,7 @@ export default {
   methods:{
     anomalyAlarm () {
       this.stateMessage = false;
-      var today = new Date();
+      let today = new Date();
       aTime = today.getTime();
       // this.alertView = "block";
       //this.anomalyState = "이상";
@@ -56,7 +56,7 @@ export default {
         this.stateTxt = "#ff0500"
       }, 300);
       setTimeout(() => {
-        var today = new Date();
+        let today = new Date();
         let bTime = today.getTime();
         if (bTime - aTime >= 2000) {
           //this.anomalyState = "정상";

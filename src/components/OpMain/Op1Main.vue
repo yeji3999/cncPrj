@@ -43,7 +43,7 @@
       </smart-widget>
       <smart-widget slot="6" simple title="Full Screen" id="chartWidget" style="background: #111217;">
         <div class="layout-center">
-           <ChartArea></ChartArea>
+           <ChartArea :iframeSource="grafanaURL"></ChartArea>
         </div>
       </smart-widget>
       <smart-widget slot="7" simple title="Full Screen" id="realTimeWidget" style="background: #111217;">
@@ -110,6 +110,7 @@ export default {
     showAdminModal: false,
     close: "none",
     mainPpadding:"80px 30px 30px 230px",
+    grafanaURL: "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv",
   layout: [
       { x: 0, y: 0, w: 1, h: 2, i: "0" },
       { x: 1, y: 0, w: 1, h: 2, i: "1" },
@@ -134,6 +135,7 @@ export default {
       { x: 0, y: 0, w: 8, h: 13, i: "5" },
       { x: 8, y: 0, w: 4, h: 15, i: "6" },
             );
+            this.grafanaURL = "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv";
             break;
           case 2:
             this.layout = []
@@ -146,6 +148,7 @@ export default {
               { x: 0, y: 0, w: 12, h: 6, i: "5" },
               { x: 0, y: 0, w: 12, h: 7, i: "6" },
             );
+            this.grafanaURL = "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv"
             break;
         case 3:
           this.layout = []
@@ -158,6 +161,7 @@ export default {
               { x: 2, y: 0, w: 10, h: 6, i: "5" },
               { x: 0, y: 0, w: 12, h: 9, i: "6" }
             );
+            this.grafanaURL = "http://9.8.100.156:3000/d/JQjsnRm7k/for-height?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv"
             break;
           }
         },
