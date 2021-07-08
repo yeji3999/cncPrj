@@ -2,7 +2,7 @@
   <div>
     <Header></Header>
     <Menu @closeNav="closeNavEvt"></Menu>
-    <div id="content" :style="{padding: mainPpadding}" @click="layoutMenuShow=false">
+    <div id="content" :style="{padding: mainPpadding}">
       <HeaderMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"></HeaderMenu>
     <div class="Breadcrumbs">
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
@@ -57,6 +57,7 @@
     <ModalTP v-if="showPRModal"  @modalPr="modalPrEvt"></ModalTP>
     <ModalCT v-if="showCTModal" @modalCT="modalCTEvt"></ModalCT>
     <ModalAdmin v-if="showAdminModal" @modalAdmin="modalAdminEvt"></ModalAdmin>
+    
    </div>
   </div>
 </template>
@@ -120,9 +121,6 @@ export default {
      ]
   }),
     methods: {
-      layoutMenuShow(){
-        alert("SSSSSSSSS")
-      },
       changeLayoutEvt(num){
         switch(num){
           case 1:

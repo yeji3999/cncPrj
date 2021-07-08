@@ -23,19 +23,14 @@ Vue.use(Vuex)
 var store = new Vuex.Store({
   state: {
     anomaly: true,
-    interval: "5s",
     refresh: false,
     ctLineData: { type: "bar", data: { labels: [], datasets: [{ label: "Cycle Time(Latest 10)", data: [], backgroundColor: "#465942", borderColor: "#465942", borderWidth: 1}] }, options: { legend: {display:true, position:'top',align:'end'}, responsive: true, lineTension: 1, scales: { yAxes: [{ scaleLabel: { display: true, labelString: 'sec' },ticks: { beginAtZero: true, padding: 25}}]}}},
     logined: false,
-    ctAvg: []
-    
+    ctAvg: [],
   },
   mutations: { 
     changeAnomalyState(state, anomalyState) {
       state.anomaly = anomalyState;
-    },
-    changeInterval(state, selInterval) {
-      state.interval = selInterval;
     },
     changeCTHistory(state, ctHistory) {
       state.ctLineData = ctHistory;
@@ -51,9 +46,6 @@ var store = new Vuex.Store({
     callAnomaly({ commit }, { anomalyState }) {
       commit('changeAnomalyState', anomalyState);
     },
-    callInterval({ commit }, { selInterval }) {
-      commit('changeInterval', selInterval);
-    },
     callCTHistory({ commit }, { ctHistory }) {
       commit('changeCTHistory', ctHistory);
     },
@@ -62,7 +54,7 @@ var store = new Vuex.Store({
     },
     callCTAvgVal({ commit }, { ctAvgVal }) {
       commit('changeAvgVal', ctAvgVal);
-    },
+    }
   }
 });
 

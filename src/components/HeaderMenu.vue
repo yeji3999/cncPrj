@@ -3,7 +3,7 @@
         <button @click="menuDownEvt" style="margin-left:5px; margin-right: 30px;"><i class="fa fa-th-large fa-2x" aria-hidden="true"></i></button>
         <button @click="modalAdmin" id="modelChange" v-if="isAdmin" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button>
 
-        <div id="layoutBtn" :style="{display:menuShow}">
+        <div id="layoutBtn" :style="{display:layoutshow}">
         <!-- <button style="margin-left:5px"><img src="../../src/assets/layout1.png" style="width:30px" alt=""></button> -->
         <button @click="layout1" style="margin-left:5px"><img :src="layout1Icon" style="width:30px" alt=""></button>
 
@@ -17,7 +17,7 @@
 <script>
 export default({
 data:() =>({
-    menuShow:"none",
+    layoutshow:"none",
     isAdmin: false,
     layout1Icon: require("../../src/assets/click_layout1.png"),
     layout2Icon: require("../../src/assets/layout2.png"),
@@ -30,25 +30,27 @@ created() {
         this.isAdmin = false;
     }
   },
-  props:['layoutMenuShow'],
 methods:{
   layout1(){
     this.layout1Icon = require("../../src/assets/click_layout1.png")
     this.layout2Icon = require("../../src/assets/layout2.png")  
     this.layout3Icon = require("../../src/assets/layout3.png")
-    this.$emit("changeLayout",1);    
+    this.$emit("changeLayout",1);
+    this.layoutshow = "none"  
   },
   layout2(){
     this.layout1Icon = require("../../src/assets/layout1.png")
     this.layout2Icon = require("../../src/assets/click_layout2.png")  
     this.layout3Icon = require("../../src/assets/layout3.png")
-    this.$emit("changeLayout",2);    
+    this.$emit("changeLayout",2)
+    this.layoutshow = "none"   
   },
   layout3(){
     this.layout1Icon = require("../../src/assets/layout1.png")
     this.layout2Icon = require("../../src/assets/layout2.png")  
     this.layout3Icon = require("../../src/assets/click_layout3.png")
-    this.$emit("changeLayout",3);    
+    this.$emit("changeLayout",3);
+    this.layoutshow = "none"  
   },
     checkAdmin() {
         if (this.$keycloak.authenticated) {
@@ -59,11 +61,11 @@ methods:{
         return false;    
     },
     menuDownEvt(){
-        if(this.menuShow == "block"){
-            this.menuShow = "none";
-        }else if(this.menuShow == "none"){
-            this.menuShow = "block";
-            this.chartmenuShow = "none";
+        if(this.layoutshow == "block"){
+            this.layoutshow = "none";
+        }else if(this.layoutshow == "none"){
+            this.layoutshow = "block";
+            this.chartmenuShow = "none";``
         }  
     },
     modalAdmin(){
@@ -81,6 +83,7 @@ methods:{
   padding: 7px;
   position: fixed;
   width: 137px;
+  z-index: 999;
 }
 button{
     color: #fff;
