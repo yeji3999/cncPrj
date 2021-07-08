@@ -8,13 +8,14 @@
 </template>
 
 <script>
-var aTime = 0;
+var dTime = 0
+var aTime = 0
 export default {
   name: 'Loss1s',
   sockets: {
     realtimeLoss: function(res) {
       let today = new Date();
-      aTime = today.getTime();
+      dTime = today.getTime();
       // console.log(res)
       if (res.includes('n')) {
         this.loss = "-"
@@ -23,8 +24,8 @@ export default {
       }
       setTimeout(() => {
         let today = new Date();
-        let bTime = today.getTime();
-        if (bTime - aTime >= 3000) {
+        let cTime = today.getTime();
+        if (cTime - dTime >= 3000) {
           this.loss = '-';
         }
       }, 3000);

@@ -11,7 +11,8 @@
 
 <script>
 
-var aTime = 0;
+var dTime = 0
+var aTime = 0
 export default {
 
   name: 'anomalyData',
@@ -21,13 +22,13 @@ export default {
     },
     anomalyDetection: function(res) {
       let today = new Date();
-      aTime = today.getTime();
+      dTime = today.getTime();
 
       this.anomalyState = res;
       setTimeout(() => {
         let today = new Date();
-        let bTime = today.getTime();
-        if (bTime - aTime >= 3000) {
+        let cTime = today.getTime();
+        if (cTime - dTime >= 3000) {
           this.anomalyState = '-';
         }
       }, 3000);
