@@ -144,6 +144,7 @@ export default {
     background: url('../assets/close_nav.png') no-repeat;
     background-size: 100% 100%;
     cursor: pointer;
+        transition: all .5s
     }
 .navigation {
       background: #1E1E1E;
@@ -152,6 +153,7 @@ export default {
       bottom: 0px;
       z-index: 9999;
       position: fixed;
-      font-size: 23px
-}
+      font-size: 23px;
+      transition: all .5s
+      }
 </style>

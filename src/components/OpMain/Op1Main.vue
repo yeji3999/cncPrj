@@ -3,11 +3,11 @@
     <Header></Header>
     <Menu @closeNav="closeNavEvt"></Menu>
     <div id="content" :style="{padding: mainPpadding}">
-      <HeaderMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"></HeaderMenu>
-    <div class="Breadcrumbs">
+      <HeaderMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"  ></HeaderMenu>
+    <div class="Breadcrumbs" >
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
-
+  
   <div style="margin-top:10px">
     <div class="grid-widget">
     <smart-widget-grid :layout="layout" :resizable="false" :draggable="false">
@@ -53,10 +53,12 @@
       </smart-widget>
     </smart-widget-grid>
   </div>
+
   </div>
     <ModalTP v-if="showPRModal"  @modalPr="modalPrEvt"></ModalTP>
     <ModalCT v-if="showCTModal" @modalCT="modalCTEvt"></ModalCT>
-    <ModalAdmin v-if="showAdminModal" @modalAdmin="modalAdminEvt"></ModalAdmin>
+    <ModalAdmin v-if="showAdminModal" @modalAdmin="modalAdminEvt" :adminPosition="adminPositionValue"></ModalAdmin>
+
     
    </div>
   </div>
@@ -109,6 +111,8 @@ export default {
     showCTModal: false,
     showAdminModal: false,
     close: "none",
+    adminPositionValue:"600px",
+    display: "none",
     mainPpadding:"80px 30px 30px 230px",
     grafanaURL: "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv",
   layout: [
@@ -122,6 +126,7 @@ export default {
      ]
   }),
     methods: {
+
       changeLayoutEvt(num){
         switch(num){
           case 1:
@@ -189,10 +194,12 @@ export default {
         }
       },
       modalAdminEvt: function(message){
-        if(message == "true"){
-          this.showAdminModal = true;
-        }else if (message == "false"){
-        this.showAdminModal = false;
+        if(message == "open"){
+          this.adminPositionValue = "0px"
+          this.showAdminModal = true
+        }else if(message == "close"){
+          this.adminPositionValue = "600px"
+          this.showAdminModal = false
         }
       },
     } 
@@ -221,6 +228,7 @@ export default {
   margin-left: 7px;
   position: relative;
   top: 8px;
+  width: 500px;
 }
 .widget-body__content{
   padding: 0px;

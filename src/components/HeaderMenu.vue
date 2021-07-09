@@ -1,5 +1,5 @@
 <template>
-    <div class="topComponentMenu" style="z-index:9999">
+    <div class="topComponentMenu">
         <button @click="menuDownEvt" style="margin-left:5px; margin-right: 30px;"><i class="fa fa-th-large fa-2x" aria-hidden="true"></i></button>
         <button @click="modalAdmin" id="modelChange" v-if="isAdmin" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button>
 
@@ -19,6 +19,7 @@
 
 <script>
 export default({
+
 data:() =>({
     layoutshow:"none",
     isAdmin: false,
@@ -75,7 +76,7 @@ methods:{
         }  
     },
     modalAdmin(){
-      this.$emit("modalAdmin","true")
+      this.$emit("modalAdmin","open")
     }
 }
 })
