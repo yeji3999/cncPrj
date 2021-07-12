@@ -129,6 +129,7 @@ export default {
 
       if(this.adminmodelSubmit.modelState == "Stop"){
         if(this.modalChangeSubmitTxt == "Stop"){
+          alert("현재 동작 중인 모델을 종료 해주세요.")
           return false
         }else{
           this.adminmodelSubmit.modelState = 'Running'
