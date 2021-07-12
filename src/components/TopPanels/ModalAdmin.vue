@@ -5,35 +5,36 @@
       <div class="admin-panel-wrapper">
         <div class="admin-panel-container" :style="{left: adminPosition}">
           <div class="admin-panel-header">
-            <slot name="header"> <span id="adminModelChangeTitle" >Admin Model Change</span> </slot>
+            <slot name="header"> <span id="adminModelChangeTitle">Admin Model Change</span> </slot>
             <i class="fa fa-times" @click="adminPanelClose" style="float:right; font-size:23px; cursor:point"></i>
           </div>
-
           <div class="admin-panel-body">
-            {{selected}}
-
-                        <v-data-table
-    v-model="selected"
-    :headers="headers"
-    :items="modelInfo"
-    :single-select="singleSelect"
-    item-key="name"
-    show-select
-    class="elevation-1"
-    dark
-    hide-default-footer
-    disable-pagination
-  >
-    <template >
-      <v-switch
-        v-model="singleSelect"
-        class="pa-3"
-      ></v-switch>
+            <v-data-table
+              v-model="adminModelSelected"
+              :headers="headers"
+              :items="adminModelList"
+              :single-select="singleSelect"
+              item-key="model"
+              show-select
+              class="elevation-1"
+              dark
+              hide-default-footer
+              disable-pagination
+            >
+    <template v-slot:[`item.modelState`]="{item}">
+      <v-chip
+        :color="getColor(item.modelState)"
+        dark
+      >
+        {{ item.modelState }}
+      </v-chip>
     </template>
-  </v-data-table>
-
 
             
+            </v-data-table>
+            <div id="modelChangeSbmitArea">
+            <button id="modelChangeSubmit" @click="modelChangeEvt" :disabled="modelChangeBtn" :style="{background:applyState}"><p>{{modalChangeSubmitTxt}}</p></button>
+          </div>
           </div>
         </div>
       </div>
@@ -49,45 +50,124 @@ export default {
   props: {
     adminPosition: String
   },
+  created(){
+    this.$socket.emit('currentModelInfo'); 
+  },
+    sockets: {
+    nowModelInfo: function(data) {
+      this.currentModel = data.model
+      this.checkModel = data.model
+      if(data != null){
+          this.applyState = "#e04c38"
+          this.modalChangeSubmitTxt = "Stop"
+      }
+      // this.adminModelList.push({model:"1"})
+      if(this.checkModel=="prediction_bi"){
+        this.adminModelList[0].modelState = "Running"
+        this.adminModelList[1].modelState = "Stop"
+        this.adminModelSelected.push(this.adminModelList[0])
+      }else if(this.checkModel == "prediction_conv2d"){
+        this.adminModelList[1].modelState = "Running"
+        this.adminModelList[0].modelState = "Stop"
+        this.adminModelSelected.push(this.adminModelList[1])
+      }
+    }
+    },
    data: function () {
      return{
-       singleSelect:true,
-       selected:[],
-              headers: [
+       message:"",
+       modelChangeBtn: false,
+       currentModel:"",
+       checkModel : "",
+       modalChangeSubmitTxt:"Apply",
+       applyState: "#38e09a",
+       singleSelect: true,
+       adminmodelSubmit:[],
+       adminModelSelected: [],
+        headers: [
           {
             text: 'Model',
             align: 'start',
-            value: 'modelName',
+            sortable: false,
+            value: 'model',
           },
-          { text: 'Process', value: 'processNum' },
-          { text: 'State', value: 'processState' },
+          { text: 'Processes', value: 'processCnt' },
+          { text: 'Model State', value: 'modelState' },
         ],
-        modelInfo: [
+        adminModelList: [
           {
-            modelName: 'Frozen Yogurt',
-            processNum: 1,
-            processState: 6.0
+            model: 'BI_LSTM',
+            processCnt: 1,
+            modelState: "Stop"
           },
-                  {
-            modelName: 'TESTSET',
-            processNum: 2,
-            processState: 5.0
+          {
+            model: 'CONV2D_LSTM',
+            processCnt: 3,
+            modelState: "Stop"
           }
         ],
      }
-
   },
   methods:{
+      getColor(modelState) {
+        if (modelState == "Stop") return '#de2a33'
+        else return '#32a852'
+    },
     adminPanelClose(){
       this.adminPosition = "600px"
       this.$emit("modalAdmin","close")
+    },
+    modelChangeEvt(){
+      this.adminmodelSubmit = this.adminModelSelected[0]
+      
+        if(this.adminmodelSubmit.model == "BI_LSTM"){
+        this.currentModel = 'prediction_bi'
+        }else if(this.adminmodelSubmit.model == "CONV2D_LSTM"){
+        this.currentModel = 'prediction_conv2d'
+        }
+        // alert(this.currentModel)
+
+      if(this.adminmodelSubmit.modelState == "Stop"){
+        if(this.modalChangeSubmitTxt == "Stop"){
+          return false
+        }else{
+          this.adminmodelSubmit.modelState = 'Running'
+          console.log(this.adminmodelSubmit)
+          this.applyState = "#e04c38"
+          this.modalChangeSubmitTxt = "Stop"
+          this.$socket.emit('modelStart', this.currentModel)
+          }
+        
+      }else if(this.adminmodelSubmit.modelState == "Running"){
+        this.adminmodelSubmit.modelState = 'Stop'
+         this.applyState = "#38e09a"
+         this.modalChangeSubmitTxt = "Apply"
+         this.adminModelSelected = []
+        this.$socket.emit('modelStop', this.currentModel); 
+
+
+      }
     }
 
   }
-};
+}
+
 </script>
 
 <style>
+#modelChangeSbmitArea{
+  text-align: center;
+  margin-top: 30px
+}
+#modelChangeSubmit{
+  width: 60%;
+  height: 35px;
+  margin: auto;
+  color:#fff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
+}
 #adminModelChangeTitle{
   color: #38e09a;
   font-size: 30px;
@@ -158,7 +238,7 @@ export default {
   display:none
 }
 .v-data-table__wrapper {
-  height: 300px;
+  height: 200px;
   margin: 10px;
   overflow-x: hidden;
   overflow-y: scroll;
