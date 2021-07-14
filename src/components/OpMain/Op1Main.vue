@@ -202,7 +202,7 @@ export default {
           setTimeout(() => {
           this.adminPositionValue = "0px"
           this.closeModelAdminValue = "600px"
-          }, 150);
+          }, 100);
         }else if(message == "close"){
           this.adminPositionValue = "800px"
           this.closeModelAdminValue = "-30px"
