@@ -1,9 +1,9 @@
 <template>
 <div>
-  <div id="admin-panel">
-    <div class="admin-panel-mask" > 
-      <div class="admin-panel-wrapper">
-        <div class="admin-panel-container" :style="{left: adminPosition}">
+  <div id="admin-panel" :style="{display:adminDisplay}">
+    <!-- <div class="admin-panel-mask" >  -->
+      <div class="admin-panel-wrapper" style="float:right">
+        <div class="admin-panel-container" :style="{left: adminPosition}" style="float:right">
           <div class="admin-panel-header">
             <slot name="header"> <span id="adminModelChangeTitle">Admin Model Change</span> </slot>
             <i class="fa fa-times" @click="adminPanelClose" style="float:right; font-size:23px; cursor:point"></i>
@@ -21,16 +21,14 @@
               hide-default-footer
               disable-pagination
             >
-    <template v-slot:[`item.modelState`]="{item}">
-      <v-chip
-        :color="getColor(item.modelState)"
-        dark
-      >
-        {{ item.modelState }}
-      </v-chip>
-    </template>
-
-            
+            <template v-slot:[`item.modelState`]="{item}">
+              <v-chip
+              :color="getColor(item.modelState)"
+              dark
+              >
+              {{ item.modelState }}
+              </v-chip>
+            </template>
             </v-data-table>
             <div id="modelChangeSbmitArea">
             <button id="modelChangeSubmit" @click="modelChangeEvt" :disabled="modelChangeBtn" :style="{background:applyState}"><p>{{modalChangeSubmitTxt}}</p></button>
@@ -38,7 +36,9 @@
           </div>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
+                <div id="closeModelAdmin" :style="{right: closeModelAdmin }" @click="adminPanelClose" ></div>
+
   </div>
     
 </div>
@@ -48,10 +48,13 @@
 export default {
 
   props: {
-    adminPosition: String
+    adminPosition: String,
+    closeModelAdmin: String,
+    adminDisplay: String
   },
   created(){
     this.$socket.emit('currentModelInfo'); 
+    // this.adminPosition = "800px"
   },
     sockets: {
     nowModelInfo: function(data) {
@@ -87,7 +90,6 @@ export default {
         headers: [
           {
             text: 'Model',
-            align: 'start',
             sortable: false,
             value: 'model',
           },
@@ -97,6 +99,7 @@ export default {
         adminModelList: [
           {
             model: 'BI_LSTM',
+            
             processCnt: 1,
             modelState: "Stop"
           },
@@ -114,7 +117,8 @@ export default {
         else return '#32a852'
     },
     adminPanelClose(){
-      this.adminPosition = "600px"
+      // this.adminPosition = "800px"
+      // this.adminTop = "150px"
       this.$emit("modalAdmin","close")
     },
     modelChangeEvt(){
@@ -156,6 +160,19 @@ export default {
 </script>
 
 <style>
+#closeModelAdmin{
+    position: fixed;
+    top: 50%;
+    margin-top: -26px;
+    width: 26px;
+    height: 52px;
+    /* right: 600px; */
+    z-index: 9999;
+    background: url('../../assets/close_modal.jpg') no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+    /* transition: all .5s */
+}
 #modelChangeSbmitArea{
   text-align: center;
   margin-top: 30px
@@ -170,17 +187,18 @@ export default {
   font-size: 20px;
 }
 #adminModelChangeTitle{
-  color: #38e09a;
+  color: #fff;
   font-size: 30px;
   line-height: 25px;
   font-weight: 800;
 }
 #admin-panel{
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   position: fixed;
-  left: 0;
-  top: 0;
+  /* left: 0; */
+  top: 50px;
+  right:0
 }
 
 .admin-panel-mask {
@@ -194,12 +212,12 @@ export default {
 .admin-panel-wrapper {
   display: table-cell;
   vertical-align: middle;
-  width: 100%; 
+  /* width: 100%;  */
   height: 100%;
 }
 .admin-panel-header {
   margin-top: 30px;
-  color: #38e09a;
+  color: #fff;
   font-size: 25px;
   line-height: 25px;
 }
@@ -232,7 +250,7 @@ export default {
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
-  z-index: 999;
+  z-index: 0;
   position: relative;
 }
 .v-data-footer__select{

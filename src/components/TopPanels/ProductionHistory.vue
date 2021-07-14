@@ -3,7 +3,7 @@
     <Modal v-if="showPRModal" @closeModal="closeModalEvt">
     <h3 slot="header">
       <span class="ModalTitle">Production History</span>
-      <i class="fa fa-times closeModalBtn" @click="modalPr" style="float:right; font-size:23px; cursor:point"></i>
+      <button style="float:right; font-size:23px; cursor:pointer"><i class="fa fa-times closeModalBtn" @click="modalPr"></i></button>
     </h3>
     
     <div slot="body">

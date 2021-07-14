@@ -57,7 +57,8 @@
   </div>
     <ModalTP v-if="showPRModal"  @modalPr="modalPrEvt"></ModalTP>
     <ModalCT v-if="showCTModal" @modalCT="modalCTEvt"></ModalCT>
-    <ModalAdmin v-if="showAdminModal" @modalAdmin="modalAdminEvt" ></ModalAdmin>
+    <!-- <ModalAdmin v-if="showAdminModal" @modalAdmin="modalAdminEvt" ></ModalAdmin> -->
+    <ModalAdmin  @modalAdmin="modalAdminEvt" :adminPosition="adminPositionValue" :adminDisplay="adminDisplayValue" :closeModelAdmin="closeModelAdminValue"></ModalAdmin>
 
     
    </div>
@@ -111,8 +112,10 @@ export default {
     showCTModal: false,
     showAdminModal: false,
     close: "none",
-    adminPositionValue:"600px",
-    display: "none",
+    adminPositionValue:"800px",
+    // adminTopValue:"150px",
+    closeModelAdminValue: "-30px",
+    adminDisplayValue:"none",
     mainPpadding:"80px 30px 30px 230px",
     grafanaURL: "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv",
   layout: [
@@ -195,11 +198,17 @@ export default {
       },
       modalAdminEvt: function(message){
         if(message == "open"){
+          this.adminDisplayValue = "block"
+          setTimeout(() => {
           this.adminPositionValue = "0px"
-          this.showAdminModal = true
+          this.closeModelAdminValue = "600px"
+          }, 150);
         }else if(message == "close"){
-          this.adminPositionValue = "600px"
-          this.showAdminModal = false
+          this.adminPositionValue = "800px"
+          this.closeModelAdminValue = "-30px"
+          setTimeout(() => {
+          this.adminDisplayValue = "none"
+          }, 500);
         }
       },
     } 

@@ -3,7 +3,7 @@
         <Modal v-if="showCTModal" @closeModal="closeModalEvt">
         <h3 slot="header" style="margin-top:20px">
          <span class="ModalTitle">Cycle Time History</span>
-          <i class="fa fa-times closeModalBtn" @click="modalCT" style="float:right; font-size:23px cursor:pointer"></i>
+         <button style="float:right; font-size:23px; cursor:pointer"><i class="fa fa-times closeModalBtn" @click="modalCT" ></i></button>
         </h3>
         <div slot="body">
           <PlanetChart style="margin-bottom:15px"></PlanetChart>
