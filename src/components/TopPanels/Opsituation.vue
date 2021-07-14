@@ -17,22 +17,22 @@ export default {
     isWork: function() {
       let today = new Date();
       aTime = today.getTime();
-      this.op = "가동";
+      this.op = "Running";
       this.stateColor = "#465942";
 
       setTimeout(() => {
         let today = new Date();
         let bTime = today.getTime();
         if (bTime - aTime >= 3000) {
-        this.op = "비가동";
+        this.op = "Stop";
         this.stateColor = "#C4162A";
           }
-      }, 5000);
+      }, 3500);
     }
   },
   data(){
     return {
-      op:"비가동",
+      op:"Stop",
       stateColor:"#C4162A"
     }
   },
@@ -56,7 +56,7 @@ export default {
   font-size: 14px;
 }
 #opsituationState{
-  font-size: 30px;
+  font-size: 28px;
   line-height: 60px;
   font-weight: bold;
   color: white;

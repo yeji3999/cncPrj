@@ -21,9 +21,9 @@ export default {
   },
   data: () => ({
     mainPpadding:"80px 30px 30px 250px",
-    headerFac:"제 1 공장",
-     headerLine: "2 라인",
-     headerOP: "공정 4"
+    headerFac:"Workshop 1",
+    headerLine: "Line 2",
+    headerOP: "Operation 4",
     }),
     methods: {
     closeNavEvt: function(message) {

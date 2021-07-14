@@ -6,7 +6,7 @@
         <div class="admin-panel-container" :style="{left: adminPosition}" style="float:right">
           <div class="admin-panel-header">
             <slot name="header"> <span id="adminModelChangeTitle">Admin Model Change</span> </slot>
-            <i class="fa fa-times" @click="adminPanelClose" style="float:right; font-size:23px; cursor:point"></i>
+            <button style="float:right; font-size:23px; cursor:pointer"><i class="fa fa-times" @click="adminPanelClose"></i></button>
           </div>
           <div class="admin-panel-body">
             <v-data-table
@@ -99,13 +99,12 @@ export default {
         adminModelList: [
           {
             model: 'BI_LSTM',
-            
-            processCnt: 1,
+            processCnt: 3,
             modelState: "Stop"
           },
           {
             model: 'CONV2D_LSTM',
-            processCnt: 3,
+            processCnt: 6,
             modelState: "Stop"
           }
         ],

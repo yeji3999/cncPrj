@@ -10,13 +10,13 @@
       <v-card dark >
         <v-tabs fixed-tabs>
           <v-tab>
-            일간 누적 생산량
+            Daily
           </v-tab>
           <v-tab>
-            주간 누적 생산량
+            Weekly
           </v-tab>
           <v-tab>
-            월간 누적 생산량
+            Monthly
           </v-tab>
           
           <v-tab-item>

@@ -35,19 +35,19 @@ export default {
   data: () => ({
     factoryImg: "https://images.unsplash.com/photo-1613077639458-948512cbb9f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1481&q=80",
     treeData: [
-        { text: '제 1공장', state: { expanded: true, selected: true }, data: { icon: '../../assets/factory_defalut.png' }, children: [
-            { text: '1라인', children: [
-             { text: '공정1', id: '/op1' },
-             { text: '공정2', id: '/op2' } 
+        { text: 'Workshop 1', state: { expanded: true, selected: true }, data: { icon: '../../assets/factory_defalut.png' }, children: [
+            { text: 'Line 1', children: [
+             { text: 'Operation 1', id: '/op1' },
+             { text: 'Operation 2', id: '/op2' } 
             ]},
-            { text: '2라인', children: [
-              { text: '공정3', id: '/op3' },
-              { text: '공정4', id: '/op4' }
+            { text: 'Line 2', children: [
+              { text: 'Operation 3', id: '/op3' },
+              { text: 'Operation 4', id: '/op4' }
             ]}
           ]},
-          { text: '제 2공장', data: { icon: '../../assets/factory_defalut.png' }, children: [
-            { text: '3라인', children: [
-             { text: '공정5', id: '/op5' }
+          { text: 'Workshop 2', data: { icon: '../../assets/factory_defalut.png' }, children: [
+            { text: 'Line 3', children: [
+             { text: 'Operation 5', id: '/op5' }
             ]}
           ]}
     ]

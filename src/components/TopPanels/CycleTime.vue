@@ -62,10 +62,10 @@ export default {
       sec = sec % 60;
       let avgTime = '';
       if (min > 0) {
-        avgTime = parseInt(min) + '분';
+        avgTime = parseInt(min) + 'm';
       }
       if (sec > 0 ) {
-        avgTime = avgTime + ' ' + parseInt(sec) + '초';
+        avgTime = avgTime + ' ' + parseInt(sec) + 's';
       }
       return avgTime;
     },

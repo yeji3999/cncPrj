@@ -100,13 +100,13 @@ export default {
         if (bTime - aTime >= 3000) {
         this.stateColor = "#C4162A";
           }
-      }, 3000);
+      }, 3500);
     }
   },
   data: () => ({
-    headerFac:"제 1 공장",
-    headerLine: "1 라인",
-    headerOP: "공정 1",
+    headerFac:"Workshop 1",
+    headerLine: "Line 1",
+    headerOP: "Operation 1",
     stateColor:"#C4162A",
     showPRModal: false,
     showCTModal: false,

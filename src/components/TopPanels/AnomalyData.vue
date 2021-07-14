@@ -23,8 +23,12 @@ export default {
     anomalyDetection: function(res) {
       let today = new Date();
       dTime = today.getTime();
-
-      this.anomalyState = res;
+      if(res=="정상"){
+        this.anomalyState = "Nomal"
+      }else if(res=="비정상"){
+        this.anomalyState = "Abnormal"
+      }
+      // this.anomalyState = res;
       setTimeout(() => {
         let today = new Date();
         let cTime = today.getTime();

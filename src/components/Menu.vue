@@ -86,28 +86,28 @@ export default {
       navPosition:"0px",
       closePosition : "200px",
         items: [
-          { title: '제 1 공장',
+          { title: 'Workshop 1',
             items:[
-              { title: '1 라인',
+              { title: 'Line 1',
                 items:[
-                  { icon: 'mdi-factory',  title: '공정 1', route: '/op1' },
-                  { icon: 'mdi-factory',  title: '공정 2', route: '/op2' }
+                  { icon: 'mdi-factory',  title: 'Operation 1', route: '/op1' },
+                  { icon: 'mdi-factory',  title: 'Operation 2', route: '/op2' }
 
                 ]
               },
-              { title: '2 라인',
+              { title: 'Line 2',
                 items:[
-                  { icon: 'mdi-factory',  title: '공정 3', route: '/op3' },
-                  { icon: 'mdi-factory',  title: '공정 4', route: '/op4' }
+                  { icon: 'mdi-factory',  title: 'Operation 3', route: '/op3' },
+                  { icon: 'mdi-factory',  title: 'Operation 4', route: '/op4' }
                 ]
               },
             ]
           },
-          { title: '제 2 공장',
+          { title: 'Workshop 2',
             items:[
-              { title: '3 라인',
+              { title: 'Line 3',
                 items:[
-                  { icon: 'mdi-factory',  title: '공정 5', route: '/op5' }
+                  { icon: 'mdi-factory',  title: 'Operation 5', route: '/op5' }
                 ]
               }
             ]

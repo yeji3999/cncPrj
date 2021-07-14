@@ -20,7 +20,7 @@ export default {
   },
   data(){
     return {
-     headerTitle: "CNC 툴 부하 모니터링",
+     headerTitle: "CNC Tool Load Monitoring",
      signinOut: 'Login',
     }
   },
