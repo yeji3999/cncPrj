@@ -3,7 +3,7 @@
     <Header></Header>
     <Menu @closeNav="closeNavEvt"></Menu>
     <div id="content" :style="{padding: mainPpadding}">
-      <HeaderMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"  ></HeaderMenu>
+      <TopMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"  ></TopMenu>
     <div class="Breadcrumbs" >
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
@@ -77,13 +77,13 @@ import AnomalyData from '../TopPanels/AnomalyData.vue'
 import ModalTP from "../TopPanels/ProductionHistory.vue"
 import ModalCT from "../TopPanels/CtHistory.vue"
 import ModalAdmin from "../TopPanels/ModalAdmin.vue"
-import HeaderMenu from '../HeaderMenu.vue'
+import TopMenu from '../TopMenu.vue'
 import ChartArea from '../ChartArea.vue'
 import RealTimeChart from '../RealTime.vue'
 
 export default {
   components: {
-    Header, Menu, Opsituation,Product,CycleTime,AnomalyData,Mae,ModalTP,ModalCT,ModalAdmin,HeaderMenu,ChartArea,RealTimeChart
+    Header, Menu, Opsituation,Product,CycleTime,AnomalyData,Mae,ModalTP,ModalCT,ModalAdmin,TopMenu,ChartArea,RealTimeChart
   },
   created() {
     this.$socket.emit('setWork');

@@ -135,25 +135,25 @@ export default {
 <style>
 #closeNav{
   position: fixed;
-    top: 50%;
-    margin-top: -26px;
-    width: 26px;
-    height: 52px;
-    left: 200px;
-    z-index: 9999;
-    background: url('../assets/close_nav.png') no-repeat;
-    background-size: 100% 100%;
-    cursor: pointer;
-        transition: all .5s
-    }
+  top: 50%;
+  margin-top: -26px;
+  width: 26px;
+  height: 52px;
+  left: 200px;
+  z-index: 9999;
+  background: url('../assets/close_nav.png') no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+  transition: all .5s
+}
 .navigation {
-      background: #1E1E1E;
-      width: 200px;
-      height: calc(100% - 60px);
-      bottom: 0px;
-      z-index: 9999;
-      position: fixed;
-      font-size: 23px;
-      transition: all .5s
-      }
+  background: #1E1E1E;
+  width: 200px;
+  height: calc(100% - 60px);
+  bottom: 0px;
+  z-index: 9999;
+  position: fixed;
+  font-size: 23px;
+  transition: all .5s
+}
 </style>
