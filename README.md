@@ -2,7 +2,7 @@
 ## Project description
 **CNC 툴 부하 모니터링 UI**
 ## 전체 화면
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/120403329-f04ff680-c37e-11eb-8ac4-bc2f6cca4de4.PNG">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729692-9d84829b-8092-4f06-a626-4ce7e024f5f1.png">
 
 ## 레이아웃 구성
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120174561-2f2b6280-c240-11eb-92e6-27b5d535601d.png">
@@ -21,18 +21,23 @@
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/125713829-fa5c16f6-f24e-48c6-8825-bce0afba7f08.png">
 
 4. **메뉴 닫힘, 펼침**
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/120403625-8421c280-c37f-11eb-86dd-67674afd8ec4.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729786-0f6bcaca-7b6c-430f-a22a-c4aba128c6e2.png">
 
 ### 상단 메뉴
 1. **레이아웃 변경**
 <img width="500" src="https://user-images.githubusercontent.com/37472764/125729103-c4cc5df9-4cfa-4063-b5f9-b2f8e6bad536.PNG">
-+ ### 레이아웃1
+
+**- 레이아웃1**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/125729255-c77a1131-7bc2-418f-b8f9-f9461be218da.png">
-+ ### 레이아웃2
+
+**- 레이아웃2**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/125729295-f0e0b7e8-69c3-4444-a706-477168148517.png">
-+ ### 레이아웃3
+
+**- 레이아웃3**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/125729325-acacc45c-e2b4-4a95-bcbc-6f816651dd99.png">
+
 3. **학습 모델 변경(Admin User)**
+<img width="500" src="https://user-images.githubusercontent.com/37472764/125730156-bc444e63-e4b3-4642-87a0-bf61e7f44d8c.png">
 
 ### 공정의 가동 현황 및 AI 판정 값
 + ### 공정의 가동 현황
