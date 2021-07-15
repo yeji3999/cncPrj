@@ -30,11 +30,11 @@
 1. **Running status** <br> 공정의 가동 상태 여부
 2. **Total production** <br> 실시간 데이터를 이용해 산출한 공정의 제품 총 생산량<br>
 **- Production history** <br> 일간, 주간, 월간 누적 생산량 확인
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/120171129-a8c15180-c23c-11eb-8f16-f5d3e83ae4b2.PNG">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125715526-8b9bbd50-4ab1-4c41-8e28-c156058715da.png">
 
 3. **Cycle Time** <br> 최근 5개의 cycle time 평균<br>
 **- Cycle time history** <br>최근 10개의 cycle time 그래프, 최근 100개의 cycle time 값
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/120171178-b676d700-c23c-11eb-8bd0-35e3e970c6fd.PNG">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125715418-540da10e-2f8f-4482-832c-e507d243db9a.png">
 
 + ### AI를 통한 판정 값
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120251145-87537a80-c2bb-11eb-951f-df0ff9084dc0.png">
