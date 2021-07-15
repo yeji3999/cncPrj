@@ -256,7 +256,7 @@ export default {
   display:none
 }
 .v-data-table__wrapper {
-  height: 200px;
+  /* height: 200px; */
   margin: 10px;
   overflow-x: hidden;
   overflow-y: scroll;
