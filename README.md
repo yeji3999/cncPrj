@@ -13,12 +13,12 @@
 
 
 ### 메뉴
-1. **메뉴 구조: 공장->라인->공정**
-<img width="300" src="https://user-images.githubusercontent.com/37472764/120170247-bd511a00-c23b-11eb-9c97-64f56518d457.png">
+1. **메뉴 구조: Workshop->Line->Operation**
+<img width="300" src="https://user-images.githubusercontent.com/37472764/125712270-da576522-9a22-4380-a673-54f15e1242e8.png">
 
 2. **공정 별 가동 현황 및 AI를 활용한 부하량 예측 (추후 개발 예정)**
 3. **특정 공정에 접근 시, 선택한 공정의 위치 표시**
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/120403652-9439a200-c37f-11eb-86a1-6abe82fcc3d5.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125713829-fa5c16f6-f24e-48c6-8825-bce0afba7f08.png">
 
 4. **메뉴 닫힘, 펼침**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120403625-8421c280-c37f-11eb-86dd-67674afd8ec4.png">
