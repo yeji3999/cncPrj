@@ -23,6 +23,10 @@
 4. **메뉴 닫힘, 펼침**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120403625-8421c280-c37f-11eb-86dd-67674afd8ec4.png">
 
+### 상단 메뉴
+1. **레이아웃 변경**
+2. **학습 모델 변경(Admin User)**
+
 ### 공정의 가동 현황 및 AI 판정 값
 + ### 공정의 가동 현황
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120170777-48321480-c23c-11eb-9b54-a8ac955820f7.png">
@@ -59,6 +63,8 @@
 
 3. **Real Time Spindle Load** <br> 실시간 부하량
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120173208-c5f71f80-c23e-11eb-9cb8-c119aa8f6c7c.png">
+
+
 
 --- 
 --- 
@@ -143,6 +149,7 @@ npm run build
     "chart.js": "^2.9.4"
     "node": "^14.16.1"
     "npm": "^6.14.12"
+    
 
 --- 
 --- 
@@ -169,3 +176,5 @@ npm run build
 ### Anomaly Detection
 1. **anomalyDetection** <br> 이상 데이터 판정 여부 호출
 
+### Admin Model Change
+1. **nowModelInfo** <br> 현재 동작중인 모델 정보 호출
