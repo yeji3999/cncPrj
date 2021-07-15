@@ -25,7 +25,14 @@
 
 ### 상단 메뉴
 1. **레이아웃 변경**
-2. **학습 모델 변경(Admin User)**
+<img width="500" src="https://user-images.githubusercontent.com/37472764/125729103-c4cc5df9-4cfa-4063-b5f9-b2f8e6bad536.PNG">
++ ### 레이아웃1
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729255-c77a1131-7bc2-418f-b8f9-f9461be218da.png">
++ ### 레이아웃2
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729295-f0e0b7e8-69c3-4444-a706-477168148517.png">
++ ### 레이아웃3
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729325-acacc45c-e2b4-4a95-bcbc-6f816651dd99.png">
+3. **학습 모델 변경(Admin User)**
 
 ### 공정의 가동 현황 및 AI 판정 값
 + ### 공정의 가동 현황
