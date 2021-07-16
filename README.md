@@ -67,15 +67,17 @@
 4. **리프레시 간격 설정**
 + ### Chart
 
-1. **Load Trands & AI Predict** <br> 실제 부하량과 AI를 통한 예측 부하량
+1. **Real Time Load Trands, MAE, Spindle Load Chart** <br> 실제 부하량과 AI를 통한 예측 부하량 + 실제 로스율과 예측 로스율의 차이 + 실시간 부하량
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125899438-283b3f4a-14a4-435f-8b5e-f31f0614bb7a.png">
+
+2. **Load Trands & AI Predict** <br> 실제 부하량과 AI를 통한 예측 부하량
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120173027-98aa7180-c23e-11eb-95b1-234930cc31c4.png">
 
-2. **Real vs Predict Loss (MAE)** <br> 실제 로스율과 예측 로스율 차이
+3. **Real vs Predict Loss (MAE)** <br> 실제 로스율과 예측 로스율 차이
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120173125-ae1f9b80-c23e-11eb-8f11-157c13112170.png">
 
-3. **Real Time Spindle Load** <br> 실시간 부하량
+4. **Real Time Spindle Load** <br> 실시간 부하량
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120173208-c5f71f80-c23e-11eb-9cb8-c119aa8f6c7c.png">
-
 
 
 --- 
