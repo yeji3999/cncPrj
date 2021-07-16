@@ -37,11 +37,11 @@
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/125729325-acacc45c-e2b4-4a95-bcbc-6f816651dd99.png">
 
 3. **학습 모델 변경(Admin User)**
-<img width="500" src="https://user-images.githubusercontent.com/37472764/125730156-bc444e63-e4b3-4642-87a0-bf61e7f44d8c.png">
+<img width="500" src="https://user-images.githubusercontent.com/37472764/125897349-1378edb9-b5b5-46c5-8591-8ac98c172c20.png">
 
 ### 공정의 가동 현황 및 AI 판정 값
 + ### 공정의 가동 현황
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/120170777-48321480-c23c-11eb-9b54-a8ac955820f7.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125896958-512a0fb0-a57b-4d02-94f7-2138431377a5.png">
 
 1. **Running status** <br> 공정의 가동 상태 여부
 2. **Total production** <br> 실시간 데이터를 이용해 산출한 공정의 제품 총 생산량<br>
@@ -53,7 +53,7 @@
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/125715418-540da10e-2f8f-4482-832c-e507d243db9a.png">
 
 + ### AI를 통한 판정 값
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/120251145-87537a80-c2bb-11eb-951f-df0ff9084dc0.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/125896819-4051a916-6fe2-4e91-81de-b7b49912e437.png">
 
 1. **MAE** <br> MAE 수치 확인
 2. **Anomaly Detection** <br> 이상 데이터 확인
