@@ -2,15 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VueSocketIO from "vue-socket.io";
 import vuetify from './plugins/vuetify'
-import VueMoment from 'vue-moment'
 import App from './App.vue'
 import router from "./components/router/router"
 import VueSmartWidget from 'vue-smart-widget'
 import authentication from "./plugins/authentication.js "
 
 Vue.use(VueSmartWidget)
-Vue.use(VueMoment)
-// import VueSocketIO from "vue-socket.io";
 Vue.prototype.$socket = new VueSocketIO({
   debug: false,
   connection: 'http://9.8.100.153:8082',

@@ -20,18 +20,18 @@ export default {
     Menu,
   },
   data: () => ({
-    mainPpadding:"80px 30px 30px 250px",
+    mainPpadding:"80px 30px 30px 230px",
     headerFac:"Workshop 1",
     headerLine: "Line 2",
     headerOP: "Operation 4",
     }),
     methods: {
     closeNavEvt: function(message) {
-      if(message =="true"){
+      if(message===true){
         this.mainPpadding = "80px 30px 30px 40px";
       }
-      else if(message =="false"){
-        this.mainPpadding = "80px 30px 30px 240px";
+      else{
+        this.mainPpadding = "80px 30px 30px 230px";
       }
     }
   }

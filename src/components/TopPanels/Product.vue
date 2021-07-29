@@ -43,13 +43,15 @@ export default {
 <style>
 
 .Product{
-  height: 100%;
+  /* height: 100%; */
   text-align: center;
 }
 #productTitle{
   font-weight: bold;
   color: #c7d0d9;
   font-size: 14px;
+  position: relative;
+  left: 10px
 }
 #totalproductVal{
   font-size: 30px;

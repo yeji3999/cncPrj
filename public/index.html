@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="TemplateData/style.css">
 
   <title>HN Inc</title>
   <style>
@@ -27,4 +28,16 @@
 <body>
   <div id="app"></div>
 </body>
+<script src="TemplateData/UnityProgress.js"></script>
+<script src="Build/UnityLoader.js"></script>
+<script>
+  UnityLoader.instantiate("gameContainer", "Build/Build_Web.json", { onProgress: UnityProgress });
+  function Change_StepNumber(number) {
+             // 받은 넘버에 따라 버튼 이벤트가 실행되는 함수 호출
+             // 받은 넘버에 따라 현재 스텝정보를 출력하는 함수 호출
+             // alert(number); // 일단은 받은 넘버를 확인 출력
+             document.getElementById("chkTest").innerText = number
+             
+         }
+ </script>
 </html>

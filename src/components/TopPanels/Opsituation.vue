@@ -46,7 +46,7 @@ export default {
 
 <style>
 .opsituation{
-  height: 100%;
+  /* height: 100%; */
   color : #c7d0d9;
   text-align: center;
 }
@@ -54,6 +54,8 @@ export default {
   font-weight: bold;
   color: #c7d0d9;
   font-size: 14px;
+  position: relative;
+  left: 10px
 }
 #opsituationState{
   font-size: 28px;

@@ -6,9 +6,18 @@ import Op2Main from '../OpMain/Op2Main.vue'
 import Op3Main from '../OpMain/Op3Main.vue'
 import Op4Main from '../OpMain/Op4Main.vue'
 import Op5Main from '../OpMain/Op5Main.vue'
+import Op6Main from '../OpMain/Op6Main.vue'
+import Op7Main from '../OpMain/Op7Main.vue'
+import Op8Main from '../OpMain/Op8Main.vue'
+import Op9Main from '../OpMain/Op9Main.vue'
+import Op10Main from '../OpMain/Op10Main.vue'
+import Op11Main from '../OpMain/Op11Main.vue'
+import Op12Main from '../OpMain/Op12Main.vue'
 import Unauthorized from '../OpMain/Unauthorized.vue'
 import Index from '../OpMain/IndexPage.vue'
+// import viewAll from '../Workshop/AllWorkshop.vue'
 
+import UnityView from '../Line/Line1.vue'
 
 Vue.use(Router)
 
@@ -21,7 +30,56 @@ const router =  new Router({
             component: Index, // 이동할 컴포넌트
             meta: {isAuthenticated: false}
         },
-
+        {
+          path: "/viewAll", // 경로
+          name: "viewAll", // 해당 경로의 이름 
+          component: UnityView, // 이동할 컴포넌트
+        },
+        {
+          path: "/workshop1", // 경로
+          name: "workshop1", // 해당 경로의 이름 
+          component: UnityView, // 이동할 컴포넌트
+        },
+        {
+          path: "/workshop2", // 경로
+          name: "workshop2", // 해당 경로의 이름 
+          component: UnityView, // 이동할 컴포넌트
+        },
+        {
+          path: "/workshop3", // 경로
+          name: "workshop3", // 해당 경로의 이름 
+          component: UnityView, // 이동할 컴포넌트
+        }, 
+        {
+          path: "/line1", // 경로
+          name: "line1", // 해당 경로의 이름 
+          component: UnityView, // 이동할 컴포넌트
+        },      
+        {
+          path: "/line2", // 경로
+          name: "line2", // 해당 경로의 이름 
+          component: UnityView, // 이동할 컴포넌트
+        }, 
+        {
+          path: "/line3", // 경로
+          name: "line3", // 해당 경로의 이름 
+          component: UnityView, // 이동할 컴포넌트
+        },
+        {
+          path: "/line4", // 경로
+          name: "line4", // 해당 경로의 이름 
+          component: UnityView, // 이동할 컴포넌트
+        }, 
+        {
+          path: "/line5", // 경로
+          name: "line5", // 해당 경로의 이름 
+          component: UnityView, // 이동할 컴포넌트
+        },
+        {
+          path: "/line6", // 경로
+          name: "line6", // 해당 경로의 이름 
+          component: UnityView, // 이동할 컴포넌트
+        }, 
         {
             path: "/op1", // 경로
             name: "Op1Main", // 해당 경로의 이름 
@@ -50,6 +108,41 @@ const router =  new Router({
             path: "/op5", // 경로
             name: "Op5Main", // 해당 경로의 이름 
             component: Op5Main, // 이동할 컴포넌트
+        },
+        {
+          path: "/op6", // 경로
+          name: "Op6Main", // 해당 경로의 이름 
+          component: Op6Main, // 이동할 컴포넌트
+        },
+        {
+            path: "/op7", // 경로
+            name: "Op7Main", // 해당 경로의 이름 
+            component: Op7Main, // 이동할 컴포넌트
+        },
+        {
+            path: "/op8", // 경로
+            name: "Op8Main", // 해당 경로의 이름 
+            component: Op8Main, // 이동할 컴포넌트
+        },
+        {
+            path: "/op9", // 경로
+            name: "Op9Main", // 해당 경로의 이름 
+            component: Op9Main, // 이동할 컴포넌트
+        },
+        {
+            path: "/op10", // 경로
+            name: "Op10Main", // 해당 경로의 이름 
+            component: Op10Main, // 이동할 컴포넌트
+        },
+        {
+            path: "/op11", // 경로
+            name: "Op11Main", // 해당 경로의 이름 
+            component: Op11Main, // 이동할 컴포넌트
+        },
+        {
+            path: "/op12", // 경로
+            name: "Op12Main", // 해당 경로의 이름 
+            component: Op12Main, // 이동할 컴포넌트
         },
         {
             path: "/Unauthorized",

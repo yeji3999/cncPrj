@@ -83,13 +83,15 @@ export default {
   cursor: pointer;
 }
 .CycleTime{
-  height: 100%; 
+  /* height: 100%;  */
   text-align: center;
 }
 #cycleTimeTitle{
   font-weight: bold;
   color: #c7d0d9;
   font-size: 14px;
+  position: relative;
+  left: 10px
 }
 #cycleVal{
   font-size: 30px;
