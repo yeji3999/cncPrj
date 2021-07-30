@@ -57,7 +57,6 @@
   </div>
     <ModalTP v-if="showPRModal"  @modalPr="modalPrEvt"></ModalTP>
     <ModalCT v-if="showCTModal" @modalCT="modalCTEvt"></ModalCT>
-    <!-- <ModalAdmin v-if="showAdminModal" @modalAdmin="modalAdminEvt" ></ModalAdmin> -->
     <ModalAdmin  @modalAdmin="modalAdminEvt" :adminPosition="adminPositionValue" :adminDisplay="adminDisplayValue" :closeModelAdmin="closeModelAdminValue"></ModalAdmin>
 
     
