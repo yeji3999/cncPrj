@@ -77,7 +77,7 @@ export default({
   components: {
     Modal
   },
-    created(){
+  created(){
     this.$socket.emit('setCount1Day')
     this.$socket.emit('setCount1Week')
     this.$socket.emit('setCount1Month')

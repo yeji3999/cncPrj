@@ -15,7 +15,7 @@
               <v-icon>{{item.icon}}</v-icon>
             </v-list-item-icon>
 
-            <v-list-item-title @click="menuWorkshop(item.action)">{{item.title}}</v-list-item-title>
+            <v-list-item-title @click="menuStepInfo(item.action)">{{item.title}}</v-list-item-title>
           </v-list-item>
         </div>
         <v-list-group
@@ -30,7 +30,7 @@
             :to="item.route"
             >
             <!-- workshop -->
-            <v-list-item-title @click="menuWorkshop(item.action)">{{item.title}}</v-list-item-title>
+            <v-list-item-title @click="menuStepInfo(item.action)">{{item.title}}</v-list-item-title>
             </v-list-item>          
           </template>
 
@@ -50,7 +50,7 @@
                 <v-list-item 
                   :to="item.route"
                 >
-                <v-list-item-title @click="menuLine(item.action)">{{item.title}}</v-list-item-title>
+                <v-list-item-title @click="menuStepInfo(item.action)">{{item.title}}</v-list-item-title>
                 </v-list-item>                 
                 </v-list-item-content>
               </template>
@@ -62,7 +62,7 @@
                 :to="item.route"
               >
               <!-- op -->
-                <v-list-item-title @click="menuActionClick(item.action)">{{item.title}}</v-list-item-title>
+                <v-list-item-title @click="menuStepInfo(item.action)">{{item.title}}</v-list-item-title>
                 <v-list-item-icon>
                   <v-icon>{{item.icon}}</v-icon>
                 </v-list-item-icon>
@@ -94,55 +94,56 @@ export default {
       navPosition:"0px",
       closePosition : "200px",
         items: [
-          { title: 'View All', route: '/viewAll', action: "0"
+          { title: 'View All', route: '/viewAll', action: 0
           },
-          { title: 'Workshop 1', route: '/workshop1', action: "1",
+          { title: 'Workshop 1', route: '/workshop1', action: 1,
             items:[
-              { title: 'Line 1', route: '/line1', action: "11",
+              { title: 'Line 1', route: '/line1', action: 11,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 1', route: '/op1', action: "111"},
-                  { icon: 'mdi-factory',  title: 'Operation 2', route: '/op2', action: "112" }
+                  { icon: 'mdi-factory',  title: 'Operation 1', route: '/op1', action: 111},
+                  { icon: 'mdi-factory',  title: 'Operation 2', route: '/op2', action: 112 }
 
                 ]
               },
-              { title: 'Line 2',route: '/line2', action: "12",
+              { title: 'Line 2',route: '/line2', action: 12,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 3', route: '/op3', action: "121" },
-                  { icon: 'mdi-factory',  title: 'Operation 4', route: '/op4', action: "122"  }
+                  { icon: 'mdi-factory',  title: 'Operation 3', route: '/op3', action: 121 },
+                  { icon: 'mdi-factory',  title: 'Operation 4', route: '/op4', action: 122  }
                 ]
               },
             ]
           },
-          { title: 'Workshop 2', route: '/workshop2', action: "2",
+          { title: 'Workshop 2', route: '/workshop2', action: 2,
             items:[
-              { title: 'Line 3', route: '/line3', action: "21" ,
+              { title: 'Line 3', route: '/line3', action: 21 ,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 5', route: '/op5', action: "211"},
-                  { icon: 'mdi-factory',  title: 'Operation 6', route: '/op6', action: "212"}
+                  { icon: 'mdi-factory',  title: 'Operation 5', route: '/op5', action: 211 },
+                  { icon: 'mdi-factory',  title: 'Operation 6', route: '/op6', action: 212 }
 
                 ]
               },
               { title: 'Line 4',route: '/line4', action: "22" ,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 7', route: '/op7', action: "221"},
-                  { icon: 'mdi-factory',  title: 'Operation 8', route: '/op8', action: "222"}
+                  { icon: 'mdi-factory',  title: 'Operation 7', route: '/op7', action: 221},
+                  { icon: 'mdi-factory',  title: 'Operation 8', route: '/op8', action: 222}
                 ]
               },
             ]
           },
-          { title: 'Workshop 3', route: '/workshop3', action: "3",
+          { title: 'Workshop 3', route: '/workshop3', action: 3,
             items:[
-              { title: 'Line 5', route: '/line5', action: "31",
+              { title: 'Line 5', route: '/line5', action: 31,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 9', route: '/op9', action: "311"},
-                  { icon: 'mdi-factory',  title: 'Operation 10', route: '/op10', action: "312"}
+                  { icon: 'mdi-factory',  title: 'Operation 9', route: '/op9', action: 311
+                  },
+                  { icon: 'mdi-factory',  title: 'Operation 10', route: '/op10', action: 312 }
 
                 ]
               },
-              { title: 'Line 6',route: '/line6', action: "32",
+              { title: 'Line 6',route: '/line6', action: 32 ,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 11', route: '/op11', action: "321"},
-                  { icon: 'mdi-factory',  title: 'Operation 12', route: '/op12', action: "322"}
+                  { icon: 'mdi-factory',  title: 'Operation 11', route: '/op11', action: 321},
+                  { icon: 'mdi-factory',  title: 'Operation 12', route: '/op12', action: 322}
                 ]
               },
             ]
@@ -163,13 +164,8 @@ export default {
       this.$emit('closeNav', false);
       }
     },
-    menuWorkshop(title){
-      this.$emit('menuWorkshop', title);
-      this.$emit('menuline', "");
-
-    },
-    menuLine(title){
-      this.$emit('menuline', title);
+    menuStepInfo(action){
+      this.$emit('menuStepInfo', action);
     }
   }
 }

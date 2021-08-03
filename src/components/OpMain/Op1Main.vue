@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <Menu @closeNav="closeNavEvt"></Menu>
+    <Menu @closeNav="closeNavEvt" @menuStepInfo ="menuStepInfoEvt"></Menu>
     <div id="content" :style="{padding: mainPpadding}">
     <!-- <div id="content"> -->
       <TopMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"  ></TopMenu>
@@ -56,48 +56,6 @@
           </pane>
 </div>
       </smart-widget>
-      <!-- <smart-widget slot="1" simple title="Running Status">
-        <splitpanes class="default-theme" horizontal >
-          <pane v-if="!hideOpTp">
-            <splitpanes>
-              <pane id="opWidget" :style="{background:stateColor}" v-if="!hideOp">
-                <div class="paneContent">
-                  <button class="paneCloseBtn" @click="hideEvt('op')"><i class="fa fa-times"></i></button>
-                  <Opsituation></Opsituation>
-                </div>
-              </pane>
-              <pane id="prWidget" style="background: #465942;"  v-if="!hideTp">
-                <div class="paneContent">
-                  <button class="paneCloseBtn" @click="hideEvt('tp')"><i class="fa fa-times"></i></button>
-                  <Product @modalPr="modalPrEvt"></Product>
-                </div>
-              </pane>
-            </splitpanes>
-          </pane>
-          <pane id="ctWidget"  style="background: #465942;" v-if="!hideCt">
-            <div class="paneContent">
-              <button class="paneCloseBtn" @click="hideEvt('ct')"><i class="fa fa-times"></i></button>
-              <CycleTime @modalCT="modalCTEvt"></CycleTime>
-            </div>
-          </pane>
-          <pane v-if="!hideMaeAnomal">
-            <splitpanes>
-              <pane id="maeWidget"  style="background: #3F6164;" v-if="!hideMae">
-                <div class="paneContent">
-                  <button class="paneCloseBtn" @click="hideEvt('mae')"><i class="fa fa-times"></i></button>
-                  <Mae></Mae>
-                </div>
-              </pane>
-              <pane id="anomalyWidget"  style="background: #3F6164;" v-if="!hideAnomaly">
-                <div class="paneContent">
-                  <button class="paneCloseBtn" @click="hideEvt('anomaly')"><i class="fa fa-times"></i></button>
-                  <AnomalyData></AnomalyData>
-                </div>
-             </pane>
-            </splitpanes>
-          </pane>
-        </splitpanes>
-      </smart-widget> -->
       <smart-widget slot="1" simple >
       <div ref="leftDragElement" class="topDragElements">
           <pane id="opWidget" :style="{background:stateColor}" v-if="!hideOp">
@@ -220,8 +178,8 @@ export default {
 
   mounted(){ const {topDragElement} = this.$refs; 
   dragula([ topDragElement//어디서 어디로 옮기는지 
-  ])
-  } ,
+])
+  },
 
   beforeUpdate(){
     if(this.hideOp){

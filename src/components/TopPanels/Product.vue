@@ -19,7 +19,8 @@ export default {
   sockets: {
     count: function(cnt) {
       this.productVal = cnt;
-    },  
+    },
+
   },
   data: function () {
     return {
