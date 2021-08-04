@@ -24,31 +24,31 @@ const router =  new Router({
             meta: {isAuthenticated: false}
         },
         {
-            path: "/op1", // 경로
+            path: "/op111", // 경로
             name: "Op1Main", // 해당 경로의 이름 
             component: Op1Main, // 이동할 컴포넌트
             meta: {isAuthenticated: true, roles: ['HNAdmin', 'HNUser']}
         },
         {
-            path: "/op2", // 경로
+            path: "/op112", // 경로
             name: "Op2Main", // 해당 경로의 이름 
             component: Op2Main, // 이동할 컴포넌트
             meta: {isAuthenticated: true, roles: ['HNAdmin']}
         },
         {
-            path: "/op3", // 경로
+            path: "/op113", // 경로
             name: "Op3Main", // 해당 경로의 이름 
             component: Op3Main, // 이동할 컴포넌트
             meta: {isAuthenticated: true, roles: ['HNUser']}
         },
         {
-            path: "/op4", // 경로
+            path: "/op121", // 경로
             name: "Op4Main", // 해당 경로의 이름 
             component: Op4Main, // 이동할 컴포넌트
             meta: {isAuthenticated: true, roles: ['HNUser']}
         },
         {
-            path: "/op5", // 경로
+            path: "/op122", // 경로
             name: "Op5Main", // 해당 경로의 이름 
             component: Op5Main, // 이동할 컴포넌트
         },

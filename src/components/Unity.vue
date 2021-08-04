@@ -1,9 +1,9 @@
 <template>
 <div class="unity">
     <!-- <iframe v-bind:src="unityTest" width="100%" height="100%" frameborder="0"></iframe> -->
-    <!-- <div id="gameContainer" :style="{display:Test}"></div> -->
-  <unity src="../../../Build/Build_Web.json" width="1000" height="600" unityLoader="../../../Build/UnityLoader.js" ref="gameInstance"></unity>  
-<button @click="yjonClick">btn</button>
+    <!-- <div id="gameContainer"></div> -->
+  <unity src="../../../Build/Build_Web.json" unityLoader="../../../Build/UnityLoader.js" ref="gameInstance" id="gameContainer"></unity>  
+<!-- <button @click="yjonClick">btn</button> -->
 </div>
 </template>
 
@@ -14,6 +14,7 @@ export default {
   components: { Unity },
   data(){
     return {
+      inputFacNum:""
     }
   },
   props:{
@@ -22,24 +23,16 @@ export default {
   // created(){alert(this.stepNum)},
   watch: {
     'stepNum': function(){
-      this.stepNum  = Number(this.stepNum)
-    this.$refs.gameInstance.gameInstance.SendMessage("MainController", "Get_StepNumberFromWebPage", this.stepNum);
+      this.inputFacNum  = Number(this.stepNum)
+      this.$refs.gameInstance.gameInstance.SendMessage("MainController", "Get_StepNumberFromWebPage", this.inputFacNum);
   }
   },
 
   methods: {
-
-      yjonClick () {
-        console.log(this.$refs.gameInstance.gameInstance.SendMessage)
-    }
   }
 }
 </script>
 <style scoped>
-.gameContainer{
-  position: absolute; 
-  top: 50%; 
-  left: 50%;
-}
+
 
 </style>

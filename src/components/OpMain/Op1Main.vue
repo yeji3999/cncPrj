@@ -1,7 +1,8 @@
 <template>
   <div>
     <Header></Header>
-    <Menu @closeNav="closeNavEvt" @menuStepInfo ="menuStepInfoEvt"></Menu>
+    <Menu @closeNav="closeNavEvt"></Menu>
+    <!-- <Menu @closeNav="closeNavEvt" @menuStepInfo ="menuStepInfoEvt"></Menu> -->
     <div id="content" :style="{padding: mainPpadding}">
     <!-- <div id="content"> -->
       <TopMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"  ></TopMenu>
@@ -23,7 +24,10 @@
     <div class="grid-widget">
     <smart-widget-grid :layout="layout" :resizable="false" :draggable="false">
       <smart-widget slot="0" simple title="Running Status">
+
       <div ref="topDragElement" class="topDragElements">
+                        <splitpanes>
+
           <pane id="opWidget" :style="{background:stateColor}" v-if="!hideOp">
             <div class="paneContent">
               <button class="paneCloseBtn" @click="hideEvt('op')"><i class="fa fa-times"></i></button>
@@ -54,7 +58,9 @@
               <AnomalyData></AnomalyData>
             </div>
           </pane>
+</splitpanes>
 </div>
+
       </smart-widget>
       <smart-widget slot="1" simple >
       <div ref="leftDragElement" class="topDragElements">

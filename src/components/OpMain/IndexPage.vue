@@ -9,6 +9,8 @@
       <div style="width: 100%;">
         <div class="indexContent">
           <div id="indexBody">
+            <!-- <p id="treeDataVal" style="color:white" ref="test">0{{treeDataVal}}</p> -->
+            <!-- <button @click="testClick">btn</button> -->
             <tree :data="treeData" class="tree" @node:selected="onSelected"></tree>
           </div>
           <div id="info_pic">
@@ -31,31 +33,88 @@ export default {
     Header, tree, Unity
   },
   data: () => ({
-    clickFacNum:0,
-    num: 0,
+    treeDataVal:"",
+    clickFacNum: "0",
     factoryImg: "https://images.unsplash.com/photo-1613077639458-948512cbb9f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1481&q=80",
     treeData: [
-        { text: 'View All Workshop', id: '0', state: { expanded: true, selected: true }, data: { icon: '../../assets/factory_defalut.png' }},
-        { text: 'Workshop 1', id: 1, data: { icon: '../../assets/factory_defalut.png' }, children: [
-            { text: 'Line 1', id: 11, children: [
-             { text: 'Operation 1', id: '/op1' },
-             { text: 'Operation 2', id: '/op2' } 
+        { text: 'View All Workshop', id: "0" , state: { expanded: false, selected: false }, data: { icon: '../../assets/factory_defalut.png' }},
+        { text: 'Workshop 1',  state: { expanded: false, selected: false }, id: "1", data: { icon: '../../assets/factory_defalut.png' }, children: [
+            { text: 'Line 1', id: "11", children: [
+             { text: 'Operation 1', id: "111" },
+             { text: 'Operation 2', id: "112"},
+             { text: 'Operation 3', id: "113"},
             ]},
-            { text: 'Line 2', id: 12, children: [
-              { text: 'Operation 3', id: '/op3' },
-              { text: 'Operation 4', id: '/op4' }
+            { text: 'Line 2', id: "12", state: { expanded: false, selected: false }, children: [
+             { text: 'Operation 4', id: "121"},
+             { text: 'Operation 5', id: "122"},
+             { text: 'Operation 6', id: "123"},
             ]}
           ]},
-          { text: 'Workshop 2', id: 2, data: { icon: '../../assets/factory_defalut.png' }, children: [
-            { text: 'Line 3', id: 21, children: [
-             { text: 'Operation 5', id: '/op5' }
+        { text: 'Workshop 2',  state: { expanded: false, selected: false }, id: "2", data: { icon: '../../assets/factory_defalut.png' }, children: [
+            { text: 'Line 1', id: "21", children: [
+             { text: 'Operation 1', id: "211"},
+             { text: 'Operation 2', id: "211"},
+             { text: 'Operation 3', id: "213"},
+            ]},
+            { text: 'Line 2', id: "22", state: { expanded: false, selected: false }, children: [
+             { text: 'Operation 4', id: "221"},
+             { text: 'Operation 5', id: "222"},
+             { text: 'Operation 6', id: "223"},
             ]}
-          ]}
+          ]},
+        { text: 'Workshop 3',  state: { expanded: false, selected: false }, id: "3", data: { icon: '../../assets/factory_defalut.png' }, children: [
+            { text: 'Line 1', id: "31", children: [
+             { text: 'Operation 1', id: "311"},
+             { text: 'Operation 2', id: "311"},
+             { text: 'Operation 3', id: "313"},
+            ]},
+            { text: 'Line 2', id: "32", state: { expanded: false, selected: false }, children: [
+             { text: 'Operation 4', id: "321"},
+             { text: 'Operation 5', id: "322"},
+             { text: 'Operation 6', id: "323"},
+            ]}
+          ]},
     ]
     }),
-
+    beforeUpdate(){
+      // alert(this.treeData)
+      // this.treeData
+    },
+    update(){
+      alert("update")
+    },
     methods: {
-      onSelected: function(node) {
+//       testClick(){
+//         this.treeDataVal = Number(this.$refs.test.innerText)
+//         this.opVal = this.$refs.test.innerText.length
+// if(this.opVal==3){
+//   alert("FEFEF")
+// }
+//         for(let i = 0; i < this.treeData.length; i++){
+
+//           if( this.treeData[i].id == this.treeDataVal){
+//             // this.treeData[i].state.selected = true
+//             // this.treeData[i].state.expanded = true
+//             this.$set(this.treeData[i].state, "selected", true);
+//             this.$set(this.treeData[i].state, "expanded", true);
+//             console.log(this.treeData)
+//                                         alert(this.treeData[i].id)
+
+//           }else{
+//             // this.treeData[i].state.selected = false
+//             // this.treeData[i].state.expanded = false
+//             this.$set(this.treeData[i].state, "selected", false);
+//             this.$set(this.treeData[i].state, "expanded", false);
+//             // this.treeData[i].unselect()
+//           }
+//         if(( this.opVal == 3) && (this.treeDataVal == this.treeData[i].id)){
+//           alert("SSSSSSSSSS")
+//         }
+
+
+//         }
+//       },
+      onSelected: function(node) {       
       this.clickFacNum = node.id
       switch(node.id){
         case 0:
@@ -91,14 +150,8 @@ export default {
         default:
           document.getElementById("headerFacInfo").innerText = "View All Factory"
         }
-        if( node.id.includes('/') ) {
-          this.$router.push({ path: node.id })
-        }
-        else if(node.text == ("Workshop 1")){
-          this.factoryImg = "https://images.unsplash.com/photo-1613077639458-948512cbb9f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1481&q=80"
-        }
-        else if(node.text == ("Workshop 2")){
-          this.factoryImg = "https://images.unsplash.com/photo-1599728613885-bc908f9d6d04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+        if( String(node.id).length == 3 ) {
+          this.$router.push({ path: "/op" + node.id })
         }
       },
   }
@@ -158,5 +211,8 @@ export default {
     padding-left: 10px;
     padding-right: 10px;
     /* border-right: 1px dashed rgba(255,255,255,0.3); */
+  }
+  .tree{
+    overflow: hidden;
   }
 </style>
