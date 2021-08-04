@@ -53,7 +53,7 @@ export default {
         { text: 'Workshop 2',  state: { expanded: false, selected: false }, id: "2", data: { icon: '../../assets/factory_defalut.png' }, children: [
             { text: 'Line 1', id: "21", children: [
              { text: 'Operation 1', id: "211"},
-             { text: 'Operation 2', id: "211"},
+             { text: 'Operation 2', id: "212"},
              { text: 'Operation 3', id: "213"},
             ]},
             { text: 'Line 2', id: "22", state: { expanded: false, selected: false }, children: [
@@ -65,7 +65,7 @@ export default {
         { text: 'Workshop 3',  state: { expanded: false, selected: false }, id: "3", data: { icon: '../../assets/factory_defalut.png' }, children: [
             { text: 'Line 1', id: "31", children: [
              { text: 'Operation 1', id: "311"},
-             { text: 'Operation 2', id: "311"},
+             { text: 'Operation 2', id: "312"},
              { text: 'Operation 3', id: "313"},
             ]},
             { text: 'Line 2', id: "32", state: { expanded: false, selected: false }, children: [
@@ -117,34 +117,34 @@ export default {
       onSelected: function(node) {       
       this.clickFacNum = node.id
       switch(node.id){
-        case 0:
+        case "0":
           document.getElementById("headerFacInfo").innerText = "View All Factory"               
           break;
-        case 1:
+        case "1":
           document.getElementById("headerFacInfo").innerText = "Workshop 1"               
           break;
-        case 2 :
+        case "2" :
           document.getElementById("headerFacInfo").innerText  = "Workshop 2"
           break;
-        case 3 :
+        case "3" :
           document.getElementById("headerFacInfo").innerText  = "Workshop 3"
           break;
-        case 11 :
+        case "11" :
           document.getElementById("headerFacInfo").innerText = "Workshop 1  |  Line "
           break;
-        case 12 :
+        case "12" :
           document.getElementById("headerFacInfo").innerText  = "Workshop 1  |  Line 2"
           break;
-        case 21 :
+        case "21" :
           document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 1"
           break;
-        case 22 :
+        case "22" :
           document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 2"
           break;
-        case 31 :
+        case "31" :
           document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 1"
           break;
-        case 32 :
+        case "32" :
           document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 2"
           break;
         default:

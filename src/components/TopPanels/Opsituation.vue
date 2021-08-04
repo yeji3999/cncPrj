@@ -46,7 +46,7 @@ export default {
 
 <style>
 .opsituation{
-  /* height: 100%; */
+  margin-top: 20px; 
   color : #c7d0d9;
   text-align: center;
 }

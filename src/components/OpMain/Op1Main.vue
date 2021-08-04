@@ -9,56 +9,54 @@
     <div class="Breadcrumbs" >
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
-
-
   <div style="margin-top:15px">
-    <div style="  display: flex;">
-    <button class="hideShowBtn" :style="{display:hideOpShow}" @click="hideOp = !hideOp"> Running Status</button>
-    <button class="hideShowBtn" :style="{display:hideTpShow}" @click="hideTp = !hideTp"> Total Production</button>
-    <button class="hideShowBtn" :style="{display:hideCtShow}" @click="hideCt = !hideCt"> Cycle Time</button>
-    <button class="hideShowBtn" :style="{display:hideMaeShow}" @click="hideMae = !hideMae"> Mae</button>
-    <button class="hideShowBtn" :style="{display:hideAnomalyShow}" @click="hideAnomaly = !hideAnomaly"> Anomaly Detection</button>
-    <button class="hideChartBtn" :style="{display:hideRealtimeChartShow}" @click="hideRealtimeChart = !hideRealtimeChart">RealTime Load and Ai Predict Chart</button>
-    <button class="hideChartBtn" :style="{display:hideMaeChartShow}" @click="hideMaeChart = !hideMaeChart">Mae Chart</button>
+    <div style="display: flex;">
+    <button class="hideShowBtn" :style="{display:hideOpShow}" @click="hideOp = !hideOp; topPaneNum++"> Running Status</button>
+    <button class="hideShowBtn" :style="{display:hideTpShow}" @click="hideTp = !hideTp; topPaneNum++"> Total Production</button>
+    <button class="hideShowBtn" :style="{display:hideCtShow}" @click="hideCt = !hideCt; topPaneNum++"> Cycle Time</button>
+    <button class="hideShowBtn" :style="{display:hideMaeShow}" @click="hideMae = !hideMae; topPaneNum++"> Mae</button>
+    <button class="hideShowBtn" :style="{display:hideAnomalyShow}" @click="hideAnomaly = !hideAnomaly; topPaneNum++"> Anomaly Detection</button>
+    <!-- <button class="hideChartBtn" :style="{display:hideRealtimeChartShow}" @click="hideRealtimeChart = !hideRealtimeChart">RealTime Load and Ai Predict Chart</button>
+    <button class="hideChartBtn" :style="{display:hideMaeChartShow}" @click="hideMaeChart = !hideMaeChart">Mae Chart</button> -->
     </div>
     <div class="grid-widget">
     <smart-widget-grid :layout="layout" :resizable="false" :draggable="false">
       <smart-widget slot="0" simple title="Running Status">
 
       <div ref="topDragElement" class="topDragElements">
-                        <splitpanes>
+                        <!-- <splitpanes> -->
 
-          <pane id="opWidget" :style="{background:stateColor}" v-if="!hideOp">
+          <div id="opWidget" :style="{background:stateColor, width:topPaneWidth}" v-if="!hideOp">
             <div class="paneContent">
               <button class="paneCloseBtn" @click="hideEvt('op')"><i class="fa fa-times"></i></button>
               <Opsituation></Opsituation>
             </div>
-          </pane>
-          <pane id="prWidget" style="background: #465942;"  v-if="!hideTp">
+          </div>
+          <div id="prWidget" style="background: #465942;"  v-if="!hideTp" :style="{width:topPaneWidth}">
             <div class="paneContent">
               <button class="paneCloseBtn" @click="hideEvt('tp')"><i class="fa fa-times"></i></button>
               <Product @modalPr="modalPrEvt"></Product>
             </div>
-          </pane>
-          <pane id="ctWidget"  style="background: #465942;" v-if="!hideCt">
+          </div>
+          <div id="ctWidget"  style="background: #465942;" v-if="!hideCt" :style="{width:topPaneWidth}">
             <div class="paneContent">
               <button class="paneCloseBtn" @click="hideEvt('ct')"><i class="fa fa-times"></i></button>
               <CycleTime @modalCT="modalCTEvt"></CycleTime>
             </div>
-          </pane>
-          <pane id="maeWidget"  style="background: #3F6164;" v-if="!hideMae">
+          </div>
+          <div id="maeWidget"  style="background: #3F6164;" v-if="!hideMae" :style="{width:topPaneWidth}">
             <div class="paneContent">
               <button class="paneCloseBtn" @click="hideEvt('mae')"><i class="fa fa-times"></i></button>
               <Mae></Mae>
             </div>
-          </pane>
-          <pane id="anomalyWidget"  style="background: #3F6164;" v-if="!hideAnomaly">
+          </div>
+          <div id="anomalyWidget"  style="background: #3F6164;" v-if="!hideAnomaly" :style="{width:topPaneWidth}">
             <div class="paneContent">
               <button class="paneCloseBtn" @click="hideEvt('anomaly')"><i class="fa fa-times"></i></button>
               <AnomalyData></AnomalyData>
             </div>
-          </pane>
-</splitpanes>
+          </div>
+<!-- </splitpanes> -->
 </div>
 
       </smart-widget>
@@ -104,13 +102,13 @@
         <splitpanes class="default-theme" horizontal>
           <pane id="realTimeWidget" style="background: #111217;" v-if="!hideRealtimeChart">
             <div class="paneContent" style="height:90%">
-              <button class="paneCloseBtn" @click="hideEvt('realtimeChart')"><i class="fa fa-times"></i></button>
+              <!-- <button class="paneCloseBtn" @click="hideEvt('realtimeChart')"><i class="fa fa-times"></i></button> -->
               <RealTimeChart></RealTimeChart>
             </div>
           </pane>
           <pane style="background: #111217;" v-if="!hideMaeChart">
             <div class="paneContent" style="height:90%">
-              <button class="paneCloseBtn" @click="hideEvt('maeChart')"><i class="fa fa-times"></i></button>
+              <!-- <button class="paneCloseBtn" @click="hideEvt('maeChart')"><i class="fa fa-times"></i></button> -->
               <RealTimeChart></RealTimeChart>
             </div>          
           </pane>
@@ -128,13 +126,13 @@
         <splitpanes class="default-theme" >
           <pane id="realTimeWidget" style="background: #111217;" v-if="!hideRealtimeChart">
             <div class="paneContent" style="height:90%">
-              <button class="paneCloseBtn" @click="hideEvt('realtimeChart')"><i class="fa fa-times"></i></button>
+              <!-- <button class="paneCloseBtn" @click="hideEvt('realtimeChart')"><i class="fa fa-times"></i></button> -->
               <RealTimeChart></RealTimeChart>
             </div>
           </pane>
           <pane style="background: #111217;" v-if="!hideMaeChart">
             <div class="paneContent" style="height:90%">
-              <button class="paneCloseBtn" @click="hideEvt('maeChart')"><i class="fa fa-times"></i></button>
+              <!-- <button class="paneCloseBtn" @click="hideEvt('maeChart')"><i class="fa fa-times"></i></button> -->
               <RealTimeChart></RealTimeChart>
             </div>          
           </pane>
@@ -142,7 +140,6 @@
       </smart-widget>
     </smart-widget-grid>
   </div>
-
   </div>
     <ModalTP v-if="showPRModal"  @modalPr="modalPrEvt"></ModalTP>
     <ModalCT v-if="showCTModal" @modalCT="modalCTEvt"></ModalCT>
@@ -172,7 +169,7 @@ import dragula from 'dragula'
 import ProductQuality from '../ProductQuality.vue'
 
 
-// var a = true
+var a = true
 // var b = true
 export default {
   components: {
@@ -213,24 +210,24 @@ export default {
     }else if(!this.hideAnomaly){
       this.hideAnomalyShow = "none"
     }
-    if(this.hideRealtimeChart){
-      this.hideRealtimeChartShow = "block"
-    }else if(!this.hideRealtimeChart){
-      this.hideRealtimeChartShow = "none"
-    }
-    if(this.hideMaeChart){
-      this.hideMaeChartShow = "block"
-    }else if(!this.hideMaeChart){
-      this.hideMaeChartShow = "none"
-    }
-    // if(this.hideOp && this.hideTp && this.hideCt && this.hideMae && this.hideAnomaly){
-    //   this.last =  this.layout.shift()
-    //   a=false
-    //  console.log(this.last)
-    // }else if(a==false){
-    //   a= true
-    //   this.layout.unshift(this.last)
+    // if(this.hideRealtimeChart){
+    //   this.hideRealtimeChartShow = "block"
+    // }else if(!this.hideRealtimeChart){
+    //   this.hideRealtimeChartShow = "none"
     // }
+    // if(this.hideMaeChart){
+    //   this.hideMaeChartShow = "block"
+    // }else if(!this.hideMaeChart){
+    //   this.hideMaeChartShow = "none"
+    // }
+    if(this.hideOp && this.hideTp && this.hideCt && this.hideMae && this.hideAnomaly){
+      this.last =  this.layout.shift()
+      a=false
+     console.log(this.last)
+    }else if(a==false){
+      a= true
+      this.layout.unshift(this.last)
+    }
     // if(this.hideMaeChart && this.hideRealtimeChart){
     //   this.chartLayout =  this.layout.pop()
     //   console.log("ssssssssssssssssssss",this.chartLayout)
@@ -239,11 +236,12 @@ export default {
     //   b=true
     //   this.layout.push(this.chartLayout)
     // }
+    this.topPaneWidth = "calc(100%/"+this.topPaneNum+")"
   },
   updated(){
   this.$nextTick(function () {
     // 전체 화면내용이 다시 렌더링된 후에 아래의 코드가 실행됩니다. 
-    console.log(this.layout)
+    // console.log(this.layout)
   })
   },
   sockets: {
@@ -262,12 +260,10 @@ export default {
     }
   },
   data: () => ({
-       list1: [
-        { name: "John", id: 1 },
-        { name: "Joao", id: 2 },
-      ],
-      last :"",
-chartLayout:"",
+    topPaneNum: 5,
+    topPaneWidth: "calc(100%/5)",
+    last :"",
+    chartLayout:"",
     hideOp:false,
     hideTp:false,
     hideCt:false,
@@ -309,25 +305,32 @@ chartLayout:"",
         switch(name){
           case "op":
             this.hideOp = true
+            this.topPaneNum--
             break;
           case "tp":
             this.hideTp = true
+            this.topPaneNum--
             break;
           case "ct":
             this.hideCt = true
+            this.topPaneNum--
             break;
           case "mae":
             this.hideMae = true
+            this.topPaneNum--
             break;
           case "anomaly":
             this.hideAnomaly = true
+            this.topPaneNum--
             break;
-          case "realtimeChart":
-            this.hideRealtimeChart = true
-            break;
-          case "maeChart":
-            this.hideMaeChart = true
-            break; 
+          // case "realtimeChart":
+          //   this.hideRealtimeChart = true
+          //   break;
+          // case "maeChart":
+          //   this.hideMaeChart = true
+          //   break;
+          default:
+
         }
         
       },
@@ -358,8 +361,8 @@ chartLayout:"",
           this.layout.push(    
               { x: 0, y: 0, w: 5, h: 2, i: "0" },
               { x: 0, y: 0, w: 5, h: 6, i: "2" },
-              { x: 0, y: 0, w: 12, h: 8, i: "6" },
-              { x: 5, y: 0, w: 7, h: 8, i: "7" },
+              { x: 0, y: 6, w: 12, h: 8, i: "6" },
+              { x: 5, y: 0, w: 7, h: 8, i: "5" },
             );
             this.grafanaURL = "http://9.8.100.156:3000/d/JQjsnRm7k/for-height?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv"
             break;
@@ -432,7 +435,7 @@ chartLayout:"",
   width: 500px;
 }
 
-#opWidget, #prWidget, #ctWidget, #maeWidget, #anomalWidget, #chartWidget, #realTimeWidget{
+#opWidget, #prWidget, #ctWidget, #maeWidget, #anomalyWidget, #chartWidget, #realTimeWidget{
   border: 1px solid #454545;
   overflow: hidden;
 }
@@ -464,16 +467,16 @@ chartLayout:"",
   position: relative;
   float: right;
   right: 10px;
-  bottom: 10px;
+  bottom: 17px;
 }
 .paneContent{
   width: 100%;
 }
 .hideShowBtn{
   border-radius: 5px;
-  border: 1px solid rgb(175, 174, 174);
+  border: 1px solid rgb(122, 167, 167);
   background: #454545;
-  color: rgb(223, 223, 223);
+  color: rgb(141, 253, 253);
   padding: 7px;
   margin-left: 9px;
   font-weight: 500;
