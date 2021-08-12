@@ -210,32 +210,14 @@ export default {
     }else if(!this.hideAnomaly){
       this.hideAnomalyShow = "none"
     }
-    // if(this.hideRealtimeChart){
-    //   this.hideRealtimeChartShow = "block"
-    // }else if(!this.hideRealtimeChart){
-    //   this.hideRealtimeChartShow = "none"
-    // }
-    // if(this.hideMaeChart){
-    //   this.hideMaeChartShow = "block"
-    // }else if(!this.hideMaeChart){
-    //   this.hideMaeChartShow = "none"
-    // }
     if(this.hideOp && this.hideTp && this.hideCt && this.hideMae && this.hideAnomaly){
       this.last =  this.layout.shift()
       a=false
      console.log(this.last)
-    }else if(a==false){
-      a= true
+    }else if(a===false){
+      a = true
       this.layout.unshift(this.last)
     }
-    // if(this.hideMaeChart && this.hideRealtimeChart){
-    //   this.chartLayout =  this.layout.pop()
-    //   console.log("ssssssssssssssssssss",this.chartLayout)
-    //   b = false
-    // }else if(b==false){
-    //   b=true
-    //   this.layout.push(this.chartLayout)
-    // }
     this.topPaneWidth = "calc(100%/"+this.topPaneNum+")"
   },
   updated(){
