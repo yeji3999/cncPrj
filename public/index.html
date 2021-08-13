@@ -36,16 +36,8 @@
 </body>
 
 <script>
-window.onload = function(){
-
-var treeChild = document.getElementsByClassName("tree-children")
-for(let i = 0; i < treeChild.length; i++){
-  treeChild[i].className += ' closed'
-}
-}
 
 function stepNum(number){
-  // document.getElementById("treeDataVal").innerText = number
   switch(number){
     case 1 :
       document.getElementById("headerFacInfo").innerText  = "Workshop1"
@@ -114,9 +106,7 @@ function selectFac(number){
 
     }else if(number != treeNode[i].dataset.id){
       treeNode[i].classList.remove('selected')
-      // console.log(treeNode[i].children[1])
-    }
-    
+    }  
   }
 }
 function selectLine(number){

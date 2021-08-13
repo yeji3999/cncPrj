@@ -3,6 +3,9 @@
     <router-link to="/">
       <img alt="logo" src="../assets/logo.png">
     </router-link>
+    <!-- <span @click="indexMove">
+      <img alt="logo" src="../assets/logo.png">
+    </span> -->
     <div id="headerTitle">{{ headerTitle }}</div>
     <button v-on:click="loginOutEvt" id="loginout">{{signinOut}}</button>
   </div>
@@ -25,6 +28,9 @@ export default {
     }
   },
     methods:{
+      indexMove(){
+        location.href = '/'
+      },
       loginOutEvt(){
         if (this.signinOut == 'Login') {
           this.$keycloak.login();

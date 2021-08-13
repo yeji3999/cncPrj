@@ -32,17 +32,17 @@ export default {
   components: {
     Header, tree, Unity
   },
-created(){
-// var treeChild = document.getElementsByClassName("tree-children")
-// console.log("llllllllllll",treeChild.length)
-// for(let i = 0; i < treeChild.length; i++){
-//   treeChild[i].className += ' closed';
-// }
-},
+  created(){
+    setTimeout(() => {
+      var treeChild = document.getElementsByClassName("tree-children")
+      for(let i = 0; i < treeChild.length; i++){
+        treeChild[i].className += ' closed'
+      }
+    }, 0);
+  },
   data: () => ({
     treeDataVal:"",
     clickFacNum: "0",
-    // factoryImg: "https://images.unsplash.com/photo-1613077639458-948512cbb9f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1481&q=80",
     treeData: [
         { text: 'View All Workshop', id: "0" , state: { expanded: true, selected: true }, data: { icon: '../../assets/factory_defalut.png' }},
         { text: 'Workshop 1',  state: { expanded: true, selected: false }, id: "1", data: { icon: '../../assets/factory_defalut.png' }, children: [
@@ -207,4 +207,5 @@ created(){
   .tree{
     overflow: hidden;
   }
+  
 </style>

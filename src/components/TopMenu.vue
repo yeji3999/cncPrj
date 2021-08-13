@@ -1,6 +1,8 @@
 <template>
   <div class="topComponentMenu">
-    <button @click="pageBackEvt" id="pageBackBtn" style="margin-left:5px; margin-right: 30px;"><i class="fa fa-undo fa-2x" aria-hidden="true"></i></button>
+    <router-link to="/">
+      <button @click="pageBackEvt" id="pageBackBtn" style="margin-left:5px; margin-right: 30px;"><i class="fa fa-undo fa-2x" aria-hidden="true"></i></button>
+    </router-link>
     <button @click="menuDownEvt" class="topComponentBtn" style="margin-left:5px; margin-right: 30px;"><i class="fa fa-th-large fa-2x" aria-hidden="true"></i></button>
     <button @click="modalAdmin" id="modelChange" v-if="isAdmin" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button>
     
