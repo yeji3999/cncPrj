@@ -3,19 +3,21 @@
     <Header></Header>
     <div id ="indexPageBack">
       <div class="Breadcrumbs">
-        <p id="chkTest"></p>
-        <div id="headerTitle"> <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px">View All Factory</span></div>    
+        <p id="nowFacNum" style="display:none"></p>
+        <div id="headerTitle">
+          <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px">View All Factory</span>
+          <button @click="unityRefreshBtn" id="pageBackBtn" style="margin-left:5px; margin-right: 10px; float:right"><i class="fa fa-retweet fa-lg" aria-hidden="true"></i></button>  
+          <button @click="allFactroyBtn" id="pageBackBtn" style="margin-left:5px; margin-right: 10px; float:right"><i class="fa fa-industry fa-lg" aria-hidden="true"></i></button> 
+          </div>
       </div>
       <div style="width: 100%;">
         <div class="indexContent">
           <div id="indexBody">
-            <!-- <p id="treeDataVal" style="color:white" ref="test">0{{treeDataVal}}</p> -->
-            <!-- <button @click="testClick">btn</button> -->
             <tree :data="treeData" class="tree" @node:selected="onSelected"></tree>
           </div>
           <div id="info_pic">
             <div class="factory_pic">
-              <Unity :stepNum="clickFacNum"></Unity>
+              <Unity :stepNum="clickFacNum" ref="Unity"></Unity>
             </div>
           </div>
         </div>
@@ -41,7 +43,9 @@ export default {
     }, 0);
   },
   data: () => ({
+    saveUnityClickNum:"0",
     treeDataVal:"",
+    saveNodeId: "0",
     clickFacNum: "0",
     treeData: [
         { text: 'View All Workshop', id: "0" , state: { expanded: true, selected: true }, data: { icon: '../../assets/factory_defalut.png' }},
@@ -85,17 +89,62 @@ export default {
     }),
 
     methods: {
+      unityRefreshBtn(){
+        this.saveNodeId = document.getElementById("nowFacNum").innerText
+        this.clickFacNum = this.saveNodeId
+        // console.log("uni",this.clickFacNum)
+        // console.log("1111111111111122222222222222223333333333333",this.$refs.Unity)
+        this.$refs.Unity.unityRefreshEvt(); 
+      },
+      allFactroyBtn(){
+        this.clickFacNum = "0"
+        console.log("al",this.clickFacNum)
+        document.getElementById("nowFacNum").innerText = "0"
+        this.$refs.Unity.unityRefreshEvt();
+        let treeNode  = document.getElementsByClassName('tree-node')
+        for(let i = 0; i<treeNode.length; i++){     
+          if(treeNode[i].classList.contains("selected")){
+            treeNode[i].classList.remove("selected")
+            treeNode[0].classList.add("selected")
+          }
+        }
+      },
       onSelected: function(node) { 
         let treeNode  = document.getElementsByClassName('tree-node')
-        for(let i = 0; i<treeNode.length; i++){
+        document.getElementById("nowFacNum").innerText = node.id
+        
+        this.clickFacNum = node.id
+        this.$refs.Unity.unityRefreshEvt();
+        console.log("onsel",document.getElementById("nowFacNum").innerText)
+
+        if( String(this.clickFacNum).length == 3 ) {
+            this.$router.push({ path: "/op" + this.clickFacNum })
+          }
+
+        for(let i = 0; i<treeNode.length; i++){      
           if(node.id == treeNode[i].dataset.id){
             treeNode[i].className += ' selected';
-          }else{
+                  if(treeNode[i].children[1].className == "tree-children closed"){
+        treeNode[i].children[1].className+= ' opened'
+        treeNode[i].children[1].classList.remove("closed") 
+       }
+          }else if(node.id != treeNode[i].dataset.id){
             treeNode[i].classList.remove('selected')
           }
         }
 
-        this.clickFacNum = node.id
+  //         for(let i = 0; i<treeNode.length; i++){
+  //   if(number == treeNode[i].dataset.id){
+  //     treeNode[i].className += ' selected';
+  //     if(treeNode[i].children[1].className == "tree-children closed"){
+  //       treeNode[i].children[1].className+= ' opened'
+  //       treeNode[i].children[1].classList.remove("closed") 
+  //      }
+  //   }else if(number != treeNode[i].dataset.id){
+  //     treeNode[i].classList.remove('selected')
+  //   }  
+  // }
+       
         switch(node.id){
           case "0":
             document.getElementById("headerFacInfo").innerText = "View All Factory"               
@@ -130,10 +179,8 @@ export default {
           default:
             document.getElementById("headerFacInfo").innerText = "View All Factory"
           }
-          if( String(node.id).length == 3 ) {
-            this.$router.push({ path: "/op" + node.id })
-          }
-        },
+
+        }
       }
     }
 </script>
@@ -154,13 +201,13 @@ export default {
   #info_pic {
     padding: 21px 2px 12px 20px; /*위 오른쪽 아래 왼쪽*/
     float: right;  
-    width: 80%; 
+    width: 80%;
+    overflow: hidden;
   }
-
   #indexBody {
     margin-top: 20px;
     height: 80vh;
-    font-size: 25px;
+    font-size: 20px;
     width: 20%;
     background-color: #1E1E1E;
     color: rgb(201, 209, 217);

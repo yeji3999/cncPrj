@@ -38,6 +38,7 @@
 <script>
 
 function stepNum(number){
+  
   switch(number){
     case 1 :
       document.getElementById("headerFacInfo").innerText  = "Workshop1"
@@ -73,12 +74,15 @@ function stepNum(number){
 
 function Change_StepNumber(number) {
   if(number==""){
-    console.log("null")
+    // console.log("null")
   }
   stepNum(number) // 받은 넘버에 따라 현재 스텝정보를 출력하는 함수 호출
+  document.getElementById("nowFacNum").innerText = String(number)
   let opStep = String(number).length
+  
   if(opStep == 1){
     selectFac(number)
+    
   }else if(opStep == 2){
     selectLine(number)
   }else if(opStep == 3){
@@ -89,21 +93,15 @@ function opPageMove(number){
   location.href = "op" + number
 }
 function selectFac(number){
+  
   let treeNode  = document.getElementsByClassName('tree-node')
   for(let i = 0; i<treeNode.length; i++){
-
     if(number == treeNode[i].dataset.id){
-      // console.log("sdfsfefefwfe",a[i].children[1].className == "tree-children")
       treeNode[i].className += ' selected';
-      // console.log("22222222222222222222222222222222",treeNode[i].children[1].className == "tree-children closed")
       if(treeNode[i].children[1].className == "tree-children closed"){
         treeNode[i].children[1].className+= ' opened'
         treeNode[i].children[1].classList.remove("closed") 
-        //다른 열려있는거 닫기
-      // }else if(treeNode[i].children[1].className == "tree-children opened"){
-      //   alert("FFFSFWF")
        }
-
     }else if(number != treeNode[i].dataset.id){
       treeNode[i].classList.remove('selected')
     }  
@@ -112,7 +110,6 @@ function selectFac(number){
 function selectLine(number){
   let treeNode  = document.getElementsByClassName('tree-node')
   for(let i = 0; i<treeNode.length; i++){
-    // console.log(a[i].dataset.id)
     if(number == treeNode[i].dataset.id){
       treeNode[i].className += ' selected';
       if(treeNode[i].children[1].className == "tree-children closed"){
