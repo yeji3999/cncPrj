@@ -274,12 +274,12 @@ export default {
     closeModelAdminValue: "-30px",
     adminDisplayValue:"none",
     mainPpadding:"80px 30px 30px 230px",
-    grafanaURL: "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv",
+    grafanaURL: "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv",
     layout: [
       { x: 0, y: 0, w: 8, h: 2, i: "0" },
       { x: 8, y: 0, w: 4, h: 5, i: "2" },
-      { x: 8, y: 0, w: 4, h: 11, i: "6" },
-      { x: 0, y: 0, w: 8, h: 14, i: "5" },
+      { x: 8, y: 0, w: 4, h: 13, i: "6" },
+      { x: 0, y: 0, w: 8, h: 16, i: "5" },
      ]
   }),
     methods: {
@@ -323,30 +323,30 @@ export default {
             this.layout.push(
               { x: 0, y: 0, w: 8, h: 2, i: "0" },
               { x: 8, y: 0, w: 4, h: 5, i: "2" },
-              { x: 8, y: 0, w: 4, h: 11, i: "6" },
-              { x: 0, y: 0, w: 8, h: 14, i: "5" },
+              { x: 8, y: 0, w: 4, h: 13, i: "6" },
+              { x: 0, y: 0, w: 8, h: 16, i: "5" },
             );
-            this.grafanaURL = "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv";
+            this.grafanaURL = "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv";
             break;
           case 2:
             this.layout = []
             this.layout.push(
               { x: 0, y: 0, w: 12, h: 2, i: "0" },
               { x: 0, y: 0, w: 3, h: 6, i: "2" },
-              { x: 0, y: 0, w: 12, h: 8, i: "6" },
+              { x: 0, y: 0, w: 12, h: 10, i: "6" },
               { x: 3, y: 0, w: 9, h: 6, i: "7" },
             );
-            this.grafanaURL = "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv"
+            this.grafanaURL = "http://9.8.100.156:3000/d/JQjsnRm7k/for-height?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv"
             break;
         case 3:
           this.layout = []
           this.layout.push(    
               { x: 0, y: 0, w: 5, h: 2, i: "0" },
               { x: 0, y: 0, w: 5, h: 6, i: "2" },
-              { x: 0, y: 6, w: 12, h: 8, i: "6" },
+              { x: 0, y: 6, w: 12, h: 10, i: "6" },
               { x: 5, y: 0, w: 7, h: 8, i: "5" },
             );
-            this.grafanaURL = "http://9.8.100.156:3000/d/JQjsnRm7k/for-height?orgId=1&from=now-30m&to=now&refresh=5s&kiosk=tv"
+            this.grafanaURL = "http://9.8.100.156:3000/d/JQjsnRm7k/for-height?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv"
             break;
           }
         },

@@ -6,11 +6,11 @@
         <p id="nowFacNum" style="display:none"></p>
         <div id="headerTitle">
           <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px">View All Factory</span>
-          <button @click="unityRefreshBtn" id="pageBackBtn" style="margin-left:5px; margin-right: 10px; float:right"><i class="fa fa-retweet fa-lg" aria-hidden="true"></i></button>  
-          <button @click="allFactroyBtn" id="pageBackBtn" style="margin-left:5px; margin-right: 10px; float:right"><i class="fa fa-industry fa-lg" aria-hidden="true"></i></button> 
+          <button @click="unityRefreshBtn" id="pageBackBtn" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-retweet fa-2x" aria-hidden="true"></i></button>  
+          <button @click="allFactroyBtn" id="pageBackBtn" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-industry fa-2x" aria-hidden="true"></i></button> 
           </div>
       </div>
-      <div style="width: 100%;">
+      <div style="width: 100%; margin-top:10px">
         <div class="indexContent">
           <div id="indexBody">
             <tree :data="treeData" class="tree" @node:selected="onSelected"></tree>
@@ -118,7 +118,11 @@ export default {
         console.log("onsel",document.getElementById("nowFacNum").innerText)
 
         if( String(this.clickFacNum).length == 3 ) {
+          if(this.clickFacNum == 111){
             this.$router.push({ path: "/op" + this.clickFacNum })
+          }else{
+            return false
+          }
           }
 
         for(let i = 0; i<treeNode.length; i++){      
@@ -174,10 +178,7 @@ export default {
             document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 1"
             break;
           case "32" :
-            document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 2"
-            break;
-          default:
-            document.getElementById("headerFacInfo").innerText = "View All Factory"
+            document.getElementById("headerFac100%Info").innerText = "View All Factory"
           }
 
         }
@@ -206,7 +207,7 @@ export default {
   }
   #indexBody {
     margin-top: 20px;
-    height: 80vh;
+    height: 85vh;
     font-size: 20px;
     width: 20%;
     background-color: #1E1E1E;
@@ -229,7 +230,7 @@ export default {
   }
   .factory_pic {
     width: 100%;
-    height: 80vh;
+    height: 85vh;
     background-repeat:no-repeat;
     /* background-image: url('../../assets/factory2.jpg'); */
     background-size:cover;

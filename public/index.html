@@ -90,7 +90,13 @@ function Change_StepNumber(number) {
   }
 }
 function opPageMove(number){
-  location.href = "op" + number
+  if(number == 111){
+    location.href = "op" + number
+    console.log("opopop",number)
+    console.log("opopop", typeof(number))
+  }else{
+    return false;
+  }
 }
 function selectFac(number){
   
