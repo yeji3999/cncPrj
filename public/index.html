@@ -10,7 +10,7 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
+  <!-- <link rel="stylesheet" href="//fontsh.googleapis.com/earlyaccess/nanumgothic.css"> -->
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="TemplateData/style.css">
   <title>HN Inc</title>
@@ -27,27 +27,30 @@
     .closed{
       display: none;
     }
-
   </style>
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">
+  </div>
 </body>
 
 <script>
-
 function stepNum(number){
-  
+  var treeOpen = document.getElementsByClassName("tree-content")
+  console.log(treeOpen)
   switch(number){
     case 1 :
       document.getElementById("headerFacInfo").innerText  = "Workshop1"
+      treeOpen[1].click()
       break;
     case 2 :
       document.getElementById("headerFacInfo").innerText  = "Workshop2"
+      treeOpen[10].click()
       break;
     case 3 :
       document.getElementById("headerFacInfo").innerText  = "Workshop3"
+      treeOpen[19].click()
       break;
     case 11 :
       document.getElementById("headerFacInfo").innerText  = "Workshop1  |  Line1"
@@ -82,36 +85,64 @@ function Change_StepNumber(number) {
   
   if(opStep == 1){
     selectFac(number)
-    
+    // document.getElementById("fac"+number).style.display = "block"
   }else if(opStep == 2){
-    selectLine(number)
+    selectFac(number)
+    // document.getElementById("line"+number).style.display = "block"
   }else if(opStep == 3){
-    opPageMove(number) // 받은 넘버에 따라 버튼 이벤트가 실행되는 함수 호출
+    if(number == 111){
+      opPageMove(number) // 받은 넘버에 따라 버튼 이벤트가 실행되는 함수 호출
+    }
   }
 }
 function opPageMove(number){
-  if(number == 111){
-    location.href = "op" + number
-    console.log("opopop",number)
-    console.log("opopop", typeof(number))
-  }else{
-    return false;
-  }
+  location.href = "op" + number
 }
 function selectFac(number){
-  
   let treeNode  = document.getElementsByClassName('tree-node')
   for(let i = 0; i<treeNode.length; i++){
-    if(number == treeNode[i].dataset.id){
-      treeNode[i].className += ' selected';
-      if(treeNode[i].children[1].className == "tree-children closed"){
-        treeNode[i].children[1].className+= ' opened'
-        treeNode[i].children[1].classList.remove("closed") 
-       }
-    }else if(number != treeNode[i].dataset.id){
+    if(treeNode[i].children[1]){
+      if(number == treeNode[i].dataset.id){
+        treeNode[i].className += ' selected';
+        console.log(treeNode[i].classList.contains("tree-children"))
+        if(treeNode[i].children[1].className == "tree-children closed"){
+          treeNode[i].children[1].className+= ' opened'
+          treeNode[i].children[1].classList.remove("closed") 
+        }
+      }else if(number != treeNode[i].dataset.id){
+        treeNode[i].classList.remove('selected')
+      }
+    }
+    else{
+      // location.href = "/"
       treeNode[i].classList.remove('selected')
-    }  
+    }
+
+
+    
+    // if(number == treeNode[i].dataset.id){
+    //   treeNode[i].className += ' selected';
+    //   console.log(treeNode[i].classList.contains("tree-children"))
+    //   if(treeNode[i].children[1].className == "tree-children closed"){
+    //     treeNode[i].children[1].className+= ' opened'
+        
+    //     treeNode[i].children[1].classList.remove("closed") 
+    //    }
+    // }else if(number != treeNode[i].dataset.id){
+    //   treeNode[i].classList.remove('selected')
+    // }
   }
+  // let clickNode = document.getElementById(number)
+  // let saveNode = ""
+  // console.log(clickNode.id)
+  // if(clickNode.id == number){
+  //   clickNode.children[0].className += " opened"
+  //   console.log(clickNode.children[0])
+  // }else if(clickNode.id == document.getElementById("nowFacNum").innerText ){
+  //   clickNode.className += " closed"
+  // }
+
+  // 
 }
 function selectLine(number){
   let treeNode  = document.getElementsByClassName('tree-node')

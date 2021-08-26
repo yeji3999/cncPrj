@@ -24,7 +24,6 @@
       <smart-widget slot="0" simple title="Running Status">
 
       <div ref="topDragElement" class="topDragElements">
-                        <!-- <splitpanes> -->
 
           <div id="opWidget" :style="{background:stateColor, width:topPaneWidth}" v-if="!hideOp">
             <div class="paneContent">
@@ -56,11 +55,10 @@
               <AnomalyData></AnomalyData>
             </div>
           </div>
-<!-- </splitpanes> -->
 </div>
 
       </smart-widget>
-      <smart-widget slot="1" simple >
+      <!-- <smart-widget slot="1" simple >
       <div ref="leftDragElement" class="topDragElements">
           <pane id="opWidget" :style="{background:stateColor}" v-if="!hideOp">
             <div class="paneContent">
@@ -93,51 +91,49 @@
             </div>
           </pane>
 </div>
-      </smart-widget>
-      <smart-widget slot="2" simple style="height:100%">
+      </smart-widget> -->
+      <smart-widget slot="1" simple style="height:100%">
         <ProductQuality></ProductQuality>
       </smart-widget>
 
-      <smart-widget slot="5" simple>
-        <splitpanes class="default-theme" horizontal>
-          <pane id="realTimeWidget" style="background: #111217;" v-if="!hideRealtimeChart">
-            <div class="paneContent" style="height:90%">
+      <smart-widget slot="2" simple>
+        <!-- <splitpanes class="default-theme" horizontal> -->
+          <!-- <pane id="realTimeWidget" style="background: #111217;" v-if="!hideRealtimeChart"> -->
+            <div class="paneContent" style="height:100%; background: #111217;" v-if="!hideRealtimeChart">
               <!-- <button class="paneCloseBtn" @click="hideEvt('realtimeChart')"><i class="fa fa-times"></i></button> -->
               <RealTimeChart></RealTimeChart>
             </div>
-          </pane>
-          <pane style="background: #111217;" v-if="!hideMaeChart">
+          <!-- </pane> -->
+          <!-- <pane style="background: #111217;" v-if="!hideMaeChart">
             <div class="paneContent" style="height:90%">
-              <!-- <button class="paneCloseBtn" @click="hideEvt('maeChart')"><i class="fa fa-times"></i></button> -->
               <RealTimeChart></RealTimeChart>
             </div>          
           </pane>
-        </splitpanes>
+        </splitpanes> -->
 
       </smart-widget>
 
-      <smart-widget slot="6" simple id="chartWidget" style="background: #111217;">
+      <smart-widget slot="3" simple id="chartWidget" style="background: #111217;">
         <div class="layout-center">
            <ChartArea :iframeSource="grafanaURL"></ChartArea>
         </div>
       </smart-widget>
 
-      <smart-widget slot="7" simple>
+      <!-- <smart-widget slot="7" simple>
         <splitpanes class="default-theme" >
           <pane id="realTimeWidget" style="background: #111217;" v-if="!hideRealtimeChart">
             <div class="paneContent" style="height:90%">
-              <!-- <button class="paneCloseBtn" @click="hideEvt('realtimeChart')"><i class="fa fa-times"></i></button> -->
+              <button class="paneCloseBtn" @click="hideEvt('realtimeChart')"><i class="fa fa-times"></i></button>
               <RealTimeChart></RealTimeChart>
             </div>
           </pane>
           <pane style="background: #111217;" v-if="!hideMaeChart">
             <div class="paneContent" style="height:90%">
-              <!-- <button class="paneCloseBtn" @click="hideEvt('maeChart')"><i class="fa fa-times"></i></button> -->
               <RealTimeChart></RealTimeChart>
             </div>          
           </pane>
         </splitpanes>
-      </smart-widget>
+      </smart-widget> -->
     </smart-widget-grid>
   </div>
   </div>
@@ -163,7 +159,6 @@ import ModalAdmin from "../TopPanels/ModalAdmin.vue"
 import TopMenu from '../TopMenu.vue'
 import ChartArea from '../ChartArea.vue'
 import RealTimeChart from '../RealTime.vue'
-import { Splitpanes, Pane } from 'splitpanes'
 import 'splitpanes/dist/splitpanes.css'
 import dragula from 'dragula'
 import ProductQuality from '../ProductQuality.vue'
@@ -173,7 +168,7 @@ var a = true
 // var b = true
 export default {
   components: {
-    Header, Menu, Opsituation,Product,CycleTime,AnomalyData,Mae,ModalTP,ModalCT,ModalAdmin,TopMenu,ProductQuality,ChartArea,RealTimeChart,Splitpanes,Pane
+    Header, Menu, Opsituation,Product,CycleTime,AnomalyData,Mae,ModalTP,ModalCT,ModalAdmin,TopMenu,ProductQuality,ChartArea,RealTimeChart
  },
   created() {
     this.$socket.emit('setWork');
@@ -277,9 +272,9 @@ export default {
     grafanaURL: "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv",
     layout: [
       { x: 0, y: 0, w: 8, h: 2, i: "0" },
-      { x: 8, y: 0, w: 4, h: 5, i: "2" },
-      { x: 8, y: 0, w: 4, h: 13, i: "6" },
-      { x: 0, y: 0, w: 8, h: 16, i: "5" },
+      { x: 8, y: 0, w: 4, h: 5, i: "1" },
+      { x: 8, y: 0, w: 4, h: 12, i: "3" },
+      { x: 0, y: 0, w: 8, h: 15, i: "2" },
      ]
   }),
     methods: {
@@ -322,9 +317,9 @@ export default {
             this.layout = []
             this.layout.push(
               { x: 0, y: 0, w: 8, h: 2, i: "0" },
-              { x: 8, y: 0, w: 4, h: 5, i: "2" },
-              { x: 8, y: 0, w: 4, h: 13, i: "6" },
-              { x: 0, y: 0, w: 8, h: 16, i: "5" },
+              { x: 8, y: 0, w: 4, h: 5, i: "1" },
+              { x: 8, y: 0, w: 4, h: 12, i: "3" },
+              { x: 0, y: 0, w: 8, h: 15, i: "2" },
             );
             this.grafanaURL = "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv";
             break;
@@ -332,9 +327,9 @@ export default {
             this.layout = []
             this.layout.push(
               { x: 0, y: 0, w: 12, h: 2, i: "0" },
-              { x: 0, y: 0, w: 3, h: 6, i: "2" },
-              { x: 0, y: 0, w: 12, h: 10, i: "6" },
-              { x: 3, y: 0, w: 9, h: 6, i: "7" },
+              { x: 0, y: 0, w: 3, h: 6, i: "1" },
+              { x: 0, y: 0, w: 12, h: 9, i: "3" },
+              { x: 3, y: 0, w: 9, h: 6, i: "2" },
             );
             this.grafanaURL = "http://9.8.100.156:3000/d/JQjsnRm7k/for-height?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv"
             break;
@@ -342,9 +337,9 @@ export default {
           this.layout = []
           this.layout.push(    
               { x: 0, y: 0, w: 5, h: 2, i: "0" },
-              { x: 0, y: 0, w: 5, h: 6, i: "2" },
-              { x: 0, y: 6, w: 12, h: 10, i: "6" },
-              { x: 5, y: 0, w: 7, h: 8, i: "5" },
+              { x: 0, y: 0, w: 5, h: 6, i: "1" },
+              { x: 0, y: 6, w: 12, h: 9, i: "3" },
+              { x: 5, y: 0, w: 7, h: 8, i: "2" },
             );
             this.grafanaURL = "http://9.8.100.156:3000/d/JQjsnRm7k/for-height?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv"
             break;

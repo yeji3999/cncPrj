@@ -99,48 +99,53 @@ export default {
               { title: 'Line 1', action: 11,
                 items:[
                   { icon: 'mdi-factory',  title: 'Operation 1', route: '/op111', action: 111},
-                  { icon: 'mdi-factory',  title: 'Operation 2', route: '/op121', action: 112 }
-
+                  { icon: 'mdi-factory',  title: 'Operation 2', action: 112},
+                  { icon: 'mdi-factory',  title: 'Operation 3', action: 113}
                 ]
               },
               { title: 'Line 2', action: 12,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 3', route: '/op121', action: 121 },
-                  { icon: 'mdi-factory',  title: 'Operation 4', route: '/op122', action: 122  }
+                  { icon: 'mdi-factory',  title: 'Operation 1', action: 121},
+                  { icon: 'mdi-factory',  title: 'Operation 2', action: 122},
+                  { icon: 'mdi-factory',  title: 'Operation 3', action: 123}
                 ]
               },
             ]
           },
           { title: 'Workshop 2', action: 2,
             items:[
-              { title: 'Line 3', action: 21 ,
+              { title: 'Line 1', action: 21 ,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 5', route: '/op211', action: 211 },
-                  { icon: 'mdi-factory',  title: 'Operation 6', route: '/op212', action: 212 }
+                  { icon: 'mdi-factory',  title: 'Operation 1', action: 211},
+                  { icon: 'mdi-factory',  title: 'Operation 2', action: 212},
+                  { icon: 'mdi-factory',  title: 'Operation 3', action: 213}
 
                 ]
               },
-              { title: 'Line 4', action: "22" ,
+              { title: 'Line 2', action: "22" ,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 7', route: '/op221', action: 221},
-                  { icon: 'mdi-factory',  title: 'Operation 8', route: '/op222', action: 222}
+                  { icon: 'mdi-factory',  title: 'Operation 1', action: 221},
+                  { icon: 'mdi-factory',  title: 'Operation 2', action: 222},
+                  { icon: 'mdi-factory',  title: 'Operation 3', action: 223}
                 ]
               },
             ]
           },
           { title: 'Workshop 3', action: 3,
             items:[
-              { title: 'Line 5', action: 31,
+              { title: 'Line 1', action: 31,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 9', route: '/op311', action: 311},
-                  { icon: 'mdi-factory',  title: 'Operation 10', route: '/op312', action: 312 }
+                  { icon: 'mdi-factory',  title: 'Operation 1', action: 311},
+                  { icon: 'mdi-factory',  title: 'Operation 2', action: 312},
+                  { icon: 'mdi-factory',  title: 'Operation 3', action: 313}
 
                 ]
               },
-              { title: 'Line 6', action: 32 ,
+              { title: 'Line 2', action: 32 ,
                 items:[
-                  { icon: 'mdi-factory',  title: 'Operation 11', route: '/op321', action: 321},
-                  { icon: 'mdi-factory',  title: 'Operation 12', route: '/op322', action: 322}
+                  { icon: 'mdi-factory',  title: 'Operation 1', action: 321},
+                  { icon: 'mdi-factory',  title: 'Operation 2', action: 322},
+                  { icon: 'mdi-factory',  title: 'Operation 3', action: 323}
                 ]
               },
             ]

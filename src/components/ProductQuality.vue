@@ -19,6 +19,10 @@ export default {
     // start가 오면 로딩중 이미지, 예측중입니다 텍스트, 이전 예측 결과 text 숨기거나 지우기
     // end가 오면 시리얼 넘ㅂㅓ, 결과 이미지 url 다운, 품질 정보(13개 중 한 개), 예측 정확도-acc(소수 셋째 자리 까지) 띄우기
     // 이미지 상대경로 public 밑에
+    created(){
+        this.$socket.emit('recentlyPredictInfo')
+        console.log("recentlyPredictInforecentlyPredictInforecentlyPredictInforecentlyPredictInforecentlyPredictInforecentlyPredictInforecentlyPredictInfo")
+    },
     sockets:{
         qualityPredictStart: function(startInfo){
             console.log("sssssssssssssssssssstartInfo",startInfo)
@@ -123,6 +127,7 @@ export default {
   },
   data(){
   return {
+      abnormalColor: "",
       abnormalTxtShow:"none",
       abnormalTxt:"",
       fnName:"",

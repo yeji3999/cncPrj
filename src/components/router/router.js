@@ -21,7 +21,7 @@ const router =  new Router({
             path: "/", // 경로
             name: "Main", // 해당 경로의 이름 
             component: Index, // 이동할 컴포넌트
-            meta: {isAuthenticated: false}
+            meta: {isAuthenticated: true, roles: ['HNAdmin', 'HNUser']}
         },
         {
             path: "/op111", // 경로
@@ -33,19 +33,19 @@ const router =  new Router({
             path: "/op112", // 경로
             name: "Op2Main", // 해당 경로의 이름 
             component: Op2Main, // 이동할 컴포넌트
-            meta: {isAuthenticated: true, roles: ['HNAdmin']}
+            // meta: {isAuthenticated: true, roles: ['HNAdmin']}
         },
         {
             path: "/op113", // 경로
             name: "Op3Main", // 해당 경로의 이름 
             component: Op3Main, // 이동할 컴포넌트
-            meta: {isAuthenticated: true, roles: ['HNUser']}
+            // meta: {isAuthenticated: true, roles: ['HNUser']}
         },
         {
             path: "/op121", // 경로
             name: "Op4Main", // 해당 경로의 이름 
             component: Op4Main, // 이동할 컴포넌트
-            meta: {isAuthenticated: true, roles: ['HNUser']}
+            // meta: {isAuthenticated: true, roles: ['HNUser']}
         },
         {
             path: "/op122", // 경로
