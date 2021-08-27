@@ -21,12 +21,12 @@
       margin: 0;
       font-family: 'Nanum Gothic', sans-serif
     }
-    .opened{
+    /* .opened{
       display: block;
     }
     .closed{
       display: none;
-    }
+    } */
   </style>
 </head>
 
@@ -99,11 +99,7 @@ function Change_StepNumber(number) {
     }
   }
 
-  if(opStep == 1){
-    selectFac(number)
-  }else if(opStep == 2){
-    selectFac(number)
-  }else if(opStep == 3){
+if(opStep == 3){
     if(number == 111){
       opPageMove(number) // 받은 넘버에 따라 버튼 이벤트가 실행되는 함수 호출
     }
@@ -112,64 +108,6 @@ function Change_StepNumber(number) {
 function opPageMove(number){
   location.href = "op" + number
 }
-function selectFac(number){
-  let treeNode  = document.getElementsByClassName('tree-node')
-  for(let i = 0; i<treeNode.length; i++){
-    if(treeNode[i].children[1]){
-      if(number == treeNode[i].dataset.id){
-        treeNode[i].className += ' selected';
-        if(treeNode[i].children[1].className == "tree-children closed"){
-          treeNode[i].children[1].className+= ' opened'
-          treeNode[i].children[1].classList.remove("closed") 
-        }
-      }else if(number != treeNode[i].dataset.id){
-        treeNode[i].classList.remove('selected')
-      }
-    }
-    else{
-      // location.href = "/"
-      treeNode[i].classList.remove('selected')
-    }
 
-
-    
-    // if(number == treeNode[i].dataset.id){
-    //   treeNode[i].className += ' selected';
-    //   console.log(treeNode[i].classList.contains("tree-children"))
-    //   if(treeNode[i].children[1].className == "tree-children closed"){
-    //     treeNode[i].children[1].className+= ' opened'
-        
-    //     treeNode[i].children[1].classList.remove("closed") 
-    //    }
-    // }else if(number != treeNode[i].dataset.id){
-    //   treeNode[i].classList.remove('selected')
-    // }
-  }
-  // let clickNode = document.getElementById(number)
-  // let saveNode = ""
-  // console.log(clickNode.id)
-  // if(clickNode.id == number){
-  //   clickNode.children[0].className += " opened"
-  //   console.log(clickNode.children[0])
-  // }else if(clickNode.id == document.getElementById("nowFacNum").innerText ){
-  //   clickNode.className += " closed"
-  // }
-
-  // 
-}
-function selectLine(number){
-  let treeNode  = document.getElementsByClassName('tree-node')
-  for(let i = 0; i<treeNode.length; i++){
-    if(number == treeNode[i].dataset.id){
-      treeNode[i].className += ' selected';
-      if(treeNode[i].children[1].className == "tree-children closed"){
-        treeNode[i].children[1].className+= ' opened'
-        treeNode[i].children[1].classList.remove("closed")
-      }
-    }else{
-      treeNode[i].classList.remove('selected')
-    }
-  }
-}
  </script>
 </html>

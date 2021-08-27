@@ -15,26 +15,6 @@
         <div class="indexContent">
           <div id="indexBody">
             <tree :data="treeData" class="tree" @node:selected="onSelected"></tree>
-            <!-- <ul>
-              <li id="1" class="fac" @click="[workshop1ClickEvt(),unityMove($event)]"><p>workshop1</p>
-                <ul id="fac1" style="display:none">
-                  <li id="11" class="line" @click="[line11ClickEvt(),unityMove($event)]"><p>line1</p>
-                    <ul id="line11" style="display:none">
-                      <li id="111" class="op" @click="unityMove($event)" ><p>Operation1</p></li>
-                      <li id="112" class="op" @click="unityMove($event)"><p>Operation2</p></li>
-                      <li id="113" class="op" @click="unityMove($event)"><p>Operation3</p></li>
-                      </ul>
-                  </li>
-                  <li id="12" class="line"  @click="[line12ClickEvt(),unityMove($event)]"><p>line2</p>
-                    <ul id="line12" style="display:none">
-                      <li id="121" class="op" @click="unityMove($event)"><p>Operation1</p></li>
-                      <li id="122" class="op" @click="unityMove($event)"><p>Operation2</p></li>
-                      <li id="123" class="op" @click="unityMove($event)"><p>Operation3</p></li>
-                      </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul> -->
           </div>
           <div id="info_pic">
             <div class="factory_pic">
@@ -55,14 +35,6 @@ export default {
   components: {
     Header,  Unity
     ,tree,
-  },
-  created(){
-    setTimeout(() => {
-      var treeChild = document.getElementsByClassName("tree-children")
-      for(let i = 0; i < treeChild.length; i++){
-        treeChild[i].className += ' closed'
-      }
-    }, 0);
   },
   data: () => ({
     saveUnityClickNum:"0",
@@ -121,31 +93,6 @@ export default {
       //   this.clickFacNum = targetId 
       //   this.$refs.Unity.unityRefreshEvt();
       // },
-      // line11ClickEvt(){
-      //   let line11ClickShow = document.getElementById("line11")
-      //   line11ClickShow.style.display = "block"
-      //   // alert(line11ClickShow.id)
-      // },
-      // line12ClickEvt(){
-      //   let line12ClickShow = document.getElementById("line12")
-      //   line12ClickShow.style.display = "block"
-      //   // alert(line12ClickShow.id)
-
-      //   // if (line12ClickShow.style.display === "none") {
-      //   //   line12ClickShow.style.display = "block";
-      //   // } else {
-      //   //   line12ClickShow.style.display = "none";
-      //   // }java
-      // },
-      // workshop1ClickEvt(){
-      //   let workshop1Show = document.getElementById("fac1")
-      //   workshop1Show.style.display = "block"
-      //   // if (workshop1Show.style.display === "none") {
-      //   //   workshop1Show.style.display = "block";
-      //   // } else {
-      //   //   workshop1Show.style.display = "none";
-      //   // }
-      // },
       unityRefreshBtn(){
         this.saveNodeId = document.getElementById("nowFacNum").innerText
         this.clickFacNum = this.saveNodeId
@@ -157,13 +104,6 @@ export default {
         document.getElementById("nowFacNum").innerText = "0"
         this.$refs.Unity.unityRefreshEvt();
         document.getElementById("headerFacInfo").innerText = "View All Factory"
-        let treeNode  = document.getElementsByClassName('tree-node')
-        for(let i = 0; i<treeNode.length; i++){     
-          if(treeNode[i].classList.contains("selected")){
-            treeNode[i].classList.remove("selected")
-            treeNode[0].classList.add("selected")
-          }
-        }
       },
       // unityBeforeStepBtn(){ 
       //   var clickNum = document.getElementById("nowFacNum").innerText
@@ -187,20 +127,6 @@ export default {
             this.$router.push({ path: "/op" + this.clickFacNum })
           }else{
             return false
-          }
-        }
-
-        for(let i = 0; i<treeNode.length; i++){      
-          if(node.id == treeNode[i].dataset.id){
-            treeNode[i].className += ' selected';
-            if(treeNode[i].children[1]){
-              if(treeNode[i].children[1].className == "tree-children closed"){
-                treeNode[i].children[1].className+= ' opened'
-                treeNode[i].children[1].classList.remove("closed")
-              }
-            }
-          }else if(node.id != treeNode[i].dataset.id){
-            treeNode[i].classList.remove('selected')
           }
         }
 
