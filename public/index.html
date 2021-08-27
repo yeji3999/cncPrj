@@ -37,20 +37,15 @@
 
 <script>
 function stepNum(number){
-  var treeOpen = document.getElementsByClassName("tree-content")
-  console.log(treeOpen)
   switch(number){
     case 1 :
       document.getElementById("headerFacInfo").innerText  = "Workshop1"
-      treeOpen[1].click()
       break;
     case 2 :
       document.getElementById("headerFacInfo").innerText  = "Workshop2"
-      treeOpen[10].click()
       break;
     case 3 :
       document.getElementById("headerFacInfo").innerText  = "Workshop3"
-      treeOpen[19].click()
       break;
     case 11 :
       document.getElementById("headerFacInfo").innerText  = "Workshop1  |  Line1"
@@ -76,19 +71,38 @@ function stepNum(number){
   }
 
 function Change_StepNumber(number) {
-  if(number==""){
-    // console.log("null")
-  }
   stepNum(number) // 받은 넘버에 따라 현재 스텝정보를 출력하는 함수 호출
   document.getElementById("nowFacNum").innerText = String(number)
   let opStep = String(number).length
-  
+  var treeOpen = document.getElementsByClassName("tree-content")
+  var treeId = document.getElementsByClassName("tree-node")
+
+  for(let i = 0; i<treeId.length; i++){
+    if(treeId[i].attributes[0].value == 1 && number == 1){
+      treeOpen[i].click();
+    }else if(treeId[i].attributes[0].value == 2 && number == 2){
+      treeOpen[i].click();
+    }else if(treeId[i].attributes[0].value == 3 && number == 3){
+      treeOpen[i].click();
+    }else if(treeId[i].attributes[0].value == 11 && number == 11){
+      treeOpen[i].click();
+    }else if(treeId[i].attributes[0].value == 12 && number == 12){
+      treeOpen[i].click();
+    }else if(treeId[i].attributes[0].value == 21 && number == 21){
+      treeOpen[i].click();
+    }else if(treeId[i].attributes[0].value == 22 && number == 22){
+      treeOpen[i].click();
+    }else if(treeId[i].attributes[0].value == 31 && number == 31){
+      treeOpen[i].click();
+    }else if(treeId[i].attributes[0].value == 32 && number == 32){
+      treeOpen[i].click();
+    }
+  }
+
   if(opStep == 1){
     selectFac(number)
-    // document.getElementById("fac"+number).style.display = "block"
   }else if(opStep == 2){
     selectFac(number)
-    // document.getElementById("line"+number).style.display = "block"
   }else if(opStep == 3){
     if(number == 111){
       opPageMove(number) // 받은 넘버에 따라 버튼 이벤트가 실행되는 함수 호출
@@ -104,7 +118,6 @@ function selectFac(number){
     if(treeNode[i].children[1]){
       if(number == treeNode[i].dataset.id){
         treeNode[i].className += ' selected';
-        console.log(treeNode[i].classList.contains("tree-children"))
         if(treeNode[i].children[1].className == "tree-children closed"){
           treeNode[i].children[1].className+= ' opened'
           treeNode[i].children[1].classList.remove("closed") 

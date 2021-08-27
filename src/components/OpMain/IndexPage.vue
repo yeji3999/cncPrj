@@ -73,38 +73,38 @@ export default {
     op11Show: true,
     op12Show: true,
     treeData: [
-        { text: 'View All Workshop', id: "0" , state: { expanded: true, selected: true }, data: { icon: '../../assets/factory_defalut.png' }},
-        { text: 'Workshop 1',  state: { expanded: true, selected: false }, id: "1", data: { icon: '../../assets/factory_defalut.png' }, children: [
-            { text: 'Line 1', id: "11", state: { expanded: true, selected: false }, options:{autoCheckChildren:true}, children: [
+        { text: 'View All Workshop', id: "0" , state: { expanded: false, selected: true }, data: { icon: '../../assets/factory_defalut.png' }},
+        { text: 'Workshop 1',  state: { expanded: false, selected: false }, id: "1", data: { icon: '../../assets/factory_defalut.png' }, children: [
+            { text: 'Line 1', id: "11", state: { expanded: false, selected: false }, options:{autoCheckChildren:true}, children: [
              { text: 'Operation 1', id: "111" },
              { text: 'Operation 2', id: "112" , state:{disabled: true}},
              { text: 'Operation 3', id: "113" , state:{disabled: true}},
             ]},
-            { text: 'Line 2', id: "12", state: { expanded: true, selected: false }, children: [
+            { text: 'Line 2', id: "12", state: { expanded: false, selected: false }, children: [
              { text: 'Operation 4', id: "121" , state:{disabled: true}},
              { text: 'Operation 5', id: "122" , state:{disabled: true}},
              { text: 'Operation 6', id: "123" , state:{disabled: true}},
             ]}
           ]},
-        { text: 'Workshop 2',  state: { expanded: true, selected: false }, id: "2", data: { icon: '../../assets/factory_defalut.png' }, children: [
-            { text: 'Line 1', id: "21", state: { expanded: true, selected: false }, children: [
+        { text: 'Workshop 2',  state: { expanded: false, selected: false }, id: "2", data: { icon: '../../assets/factory_defalut.png' }, children: [
+            { text: 'Line 1', id: "21", state: { expanded: false, selected: false }, children: [
              { text: 'Operation 1', id: "211" , state:{disabled: true}},
              { text: 'Operation 2', id: "212" , state:{disabled: true}},
              { text: 'Operation 3', id: "213" , state:{disabled: true}},
             ]},
-            { text: 'Line 2', id: "22", state: { expanded: true, selected: false }, children: [
+            { text: 'Line 2', id: "22", state: { expanded: false, selected: false }, children: [
              { text: 'Operation 4', id: "221" , state:{disabled: true}},
              { text: 'Operation 5', id: "222" , state:{disabled: true}},
              { text: 'Operation 6', id: "223" , state:{disabled: true}},
             ]}
           ]},
-        { text: 'Workshop 3',  state: { expanded: true, selected: false }, id: "3", data: { icon: '../../assets/factory_defalut.png' }, children: [
-            { text: 'Line 1', id: "31", state: { expanded: true, selected: false }, children: [
+        { text: 'Workshop 3',  state: { expanded: false, selected: false }, id: "3", data: { icon: '../../assets/factory_defalut.png' }, children: [
+            { text: 'Line 1', id: "31", state: { expanded: false, selected: false }, children: [
              { text: 'Operation 1', id: "311" , state:{disabled: true}},
              { text: 'Operation 2', id: "312" , state:{disabled: true}},
              { text: 'Operation 3', id: "313" , state:{disabled: true}},
             ]},
-            { text: 'Line 2', id: "32", state: { expanded: true, selected: false }, children: [
+            { text: 'Line 2', id: "32", state: { expanded: false, selected: false }, children: [
              { text: 'Operation 4', id: "321" , state:{disabled: true}},
              { text: 'Operation 5', id: "322" , state:{disabled: true}},
              { text: 'Operation 6', id: "323" , state:{disabled: true}},
