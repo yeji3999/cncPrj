@@ -10,6 +10,7 @@
     </div>
     <div id="productQualityTxt">
         <p class="productqualityTxt" :style="{color:abnormalColor}">{{productQualityTxt}} {{productQualityPercentage}}</p>
+
     </div>
 </div>
 </template>
@@ -19,13 +20,13 @@ export default {
     // start가 오면 로딩중 이미지, 예측중입니다 텍스트, 이전 예측 결과 text 숨기거나 지우기
     // end가 오면 시리얼 넘ㅂㅓ, 결과 이미지 url 다운, 품질 정보(13개 중 한 개), 예측 정확도-acc(소수 셋째 자리 까지) 띄우기
     // 이미지 상대경로 public 밑에
+
     created(){
         this.$socket.emit('recentlyPredictInfo')
-        console.log("recentlyPredictInforecentlyPredictInforecentlyPredictInforecentlyPredictInforecentlyPredictInforecentlyPredictInforecentlyPredictInfo")
     },
+
     sockets:{
         qualityPredictStart: function(startInfo){
-            console.log("sssssssssssssssssssstartInfo",startInfo)
             this.loadingShow = "block"
             this.frequencyShow = "none"
             this.noImgShow = "none"
@@ -34,9 +35,9 @@ export default {
             this.productQualityTxt = "Predicting..."
             this.productQualityPercentage = ""
             this.abnormalColor = "#ffffff"
+
       },
         qualityPredictEnd: function(endInfo){
-            console.log("eeeeeeeeeeeeeeeeeeeeeendInfo",endInfo)
             this.loadingShow = "none"
             this.frequencyShow = "block"
             this.noImgShow = "none"
@@ -45,7 +46,6 @@ export default {
             try{
                 console.log("132131316548965213",this.fnName)
                 this.frequencyImageSrc = 'http://9.8.100.153:8082/predictImg/' + this.fnName
- 
             }catch(error){
                 console.log(error)
                 this.loadingShow = "none"
@@ -114,16 +114,12 @@ export default {
                         break;
                 }
 
-                
-
             }else if(endInfo.predict=="0"){
                 this.abnormalTxtShow = "none"
                 this.productQualityTxt = "Normal"
                 this.abnormalColor = "#ffffff"
             }
-
-      },
-      
+      }, 
   },
   data(){
   return {
