@@ -238,15 +238,8 @@ export default {
   .tree{
     overflow: hidden;
   }
-  li{
-    text-decoration: none;
-    list-style: none;
-  }
-  .line, .op{
-    padding-left: 10px;
-  }
-  p:hover{
-    background: gray;
-  }
+  button:hover{
+    color: lightblue;
+}
 
 </style>
