@@ -2,10 +2,8 @@
   <div>
     <Header></Header>
     <Menu @closeNav="closeNavEvt"></Menu>
-    <!-- <Menu @closeNav="closeNavEvt" @menuStepInfo ="menuStepInfoEvt"></Menu> -->
     <div id="content" :style="{padding: mainPpadding}">
-    <!-- <div id="content"> -->
-      <TopMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"  ></TopMenu>
+      <TopMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"></TopMenu>
     <div class="Breadcrumbs" >
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
@@ -16,15 +14,12 @@
     <button class="hideShowBtn" :style="{display:hideCtShow}" @click="hideCt = !hideCt; topPaneNum++"> Cycle Time</button>
     <button class="hideShowBtn" :style="{display:hideMaeShow}" @click="hideMae = !hideMae; topPaneNum++"> Mae</button>
     <button class="hideShowBtn" :style="{display:hideAnomalyShow}" @click="hideAnomaly = !hideAnomaly; topPaneNum++"> Anomaly Detection</button>
-    <!-- <button class="hideChartBtn" :style="{display:hideRealtimeChartShow}" @click="hideRealtimeChart = !hideRealtimeChart">RealTime Load and Ai Predict Chart</button>
-    <button class="hideChartBtn" :style="{display:hideMaeChartShow}" @click="hideMaeChart = !hideMaeChart">Mae Chart</button> -->
     </div>
     <div class="grid-widget">
     <smart-widget-grid :layout="layout" :resizable="false" :draggable="false">
+
       <smart-widget slot="0" simple title="Running Status">
-
       <div ref="topDragElement" class="topDragElements">
-
           <div id="opWidget" :style="{background:stateColor, width:topPaneWidth}" v-if="!hideOp">
             <div class="paneContent">
               <button class="paneCloseBtn" @click="hideEvt('op')"><i class="fa fa-times"></i></button>
@@ -55,62 +50,17 @@
               <AnomalyData></AnomalyData>
             </div>
           </div>
-</div>
-
+      </div>
       </smart-widget>
-      <!-- <smart-widget slot="1" simple >
-      <div ref="leftDragElement" class="topDragElements">
-          <pane id="opWidget" :style="{background:stateColor}" v-if="!hideOp">
-            <div class="paneContent">
-              <button class="paneCloseBtn" @click="hideEvt('op')"><i class="fa fa-times"></i></button>
-              <Opsituation></Opsituation>
-            </div>
-          </pane>
-          <pane id="prWidget" style="background: #465942;"  v-if="!hideTp">
-            <div class="paneContent">
-              <button class="paneCloseBtn" @click="hideEvt('tp')"><i class="fa fa-times"></i></button>
-              <Product @modalPr="modalPrEvt"></Product>
-            </div>
-          </pane>
-          <pane id="ctWidget"  style="background: #465942;" v-if="!hideCt">
-            <div class="paneContent">
-              <button class="paneCloseBtn" @click="hideEvt('ct')"><i class="fa fa-times"></i></button>
-              <CycleTime @modalCT="modalCTEvt"></CycleTime>
-            </div>
-          </pane>
-          <pane id="maeWidget"  style="background: #3F6164;" v-if="!hideMae">
-            <div class="paneContent">
-              <button class="paneCloseBtn" @click="hideEvt('mae')"><i class="fa fa-times"></i></button>
-              <Mae></Mae>
-            </div>
-          </pane>
-          <pane id="anomalyWidget"  style="background: #3F6164;" v-if="!hideAnomaly">
-            <div class="paneContent">
-              <button class="paneCloseBtn" @click="hideEvt('anomaly')"><i class="fa fa-times"></i></button>
-              <AnomalyData></AnomalyData>
-            </div>
-          </pane>
-</div>
-      </smart-widget> -->
+     
       <smart-widget slot="1" simple style="height:100%">
         <ProductQuality></ProductQuality>
       </smart-widget>
 
       <smart-widget slot="2" simple>
-        <!-- <splitpanes class="default-theme" horizontal> -->
-          <!-- <pane id="realTimeWidget" style="background: #111217;" v-if="!hideRealtimeChart"> -->
-            <div class="paneContent" style="height:100%; background: #111217;" v-if="!hideRealtimeChart">
-              <!-- <button class="paneCloseBtn" @click="hideEvt('realtimeChart')"><i class="fa fa-times"></i></button> -->
-              <RealTimeChart></RealTimeChart>
-            </div>
-          <!-- </pane> -->
-          <!-- <pane style="background: #111217;" v-if="!hideMaeChart">
-            <div class="paneContent" style="height:90%">
-              <RealTimeChart></RealTimeChart>
-            </div>          
-          </pane>
-        </splitpanes> -->
-
+        <div class="paneContent" style="height:100%; background: #111217;">
+          <RealTimeChart></RealTimeChart>
+        </div>
       </smart-widget>
 
       <smart-widget slot="3" simple id="chartWidget" style="background: #111217;">
@@ -118,22 +68,7 @@
            <ChartArea :iframeSource="grafanaURL"></ChartArea>
         </div>
       </smart-widget>
-
-      <!-- <smart-widget slot="7" simple>
-        <splitpanes class="default-theme" >
-          <pane id="realTimeWidget" style="background: #111217;" v-if="!hideRealtimeChart">
-            <div class="paneContent" style="height:90%">
-              <button class="paneCloseBtn" @click="hideEvt('realtimeChart')"><i class="fa fa-times"></i></button>
-              <RealTimeChart></RealTimeChart>
-            </div>
-          </pane>
-          <pane style="background: #111217;" v-if="!hideMaeChart">
-            <div class="paneContent" style="height:90%">
-              <RealTimeChart></RealTimeChart>
-            </div>          
-          </pane>
-        </splitpanes>
-      </smart-widget> -->
+      
     </smart-widget-grid>
   </div>
   </div>
@@ -208,18 +143,11 @@ export default {
     if(this.hideOp && this.hideTp && this.hideCt && this.hideMae && this.hideAnomaly){
       this.last =  this.layout.shift()
       a=false
-     console.log(this.last)
     }else if(a===false){
       a = true
       this.layout.unshift(this.last)
     }
     this.topPaneWidth = "calc(100%/"+this.topPaneNum+")"
-  },
-  updated(){
-  this.$nextTick(function () {
-    // 전체 화면내용이 다시 렌더링된 후에 아래의 코드가 실행됩니다. 
-    // console.log(this.layout)
-  })
   },
   sockets: {
     isWork: function() {
@@ -300,14 +228,7 @@ export default {
             this.hideAnomaly = true
             this.topPaneNum--
             break;
-          // case "realtimeChart":
-          //   this.hideRealtimeChart = true
-          //   break;
-          // case "maeChart":
-          //   this.hideMaeChart = true
-          //   break;
           default:
-
         }
         
       },
@@ -430,14 +351,6 @@ export default {
   font-weight: 600;
   border-radius: 5px;
   height: 30px;
-}
-.splitpanes__pane {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Helvetica, Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.6);
-  background: gray;
 }
 .paneCloseBtn{
   color: rgb(199, 208, 217);

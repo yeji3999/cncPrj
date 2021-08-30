@@ -5,7 +5,7 @@
       <div class="Breadcrumbs">
         <p id="nowFacNum" style="display:none"></p>
         <div id="headerTitle">
-          <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px">View All Factory</span>
+          <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px; font-weight:500">View All Factory</span>
           <!-- <button @click="unityBeforeStepBtn" id="unityBeforeStep" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i></button>   -->
           <button @click="unityRefreshBtn" id="unityRefresh" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-retweet fa-2x" aria-hidden="true"></i></button>  
           <button @click="allFactroyBtn" id="allFactroy" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-industry fa-2x" aria-hidden="true"></i></button> 
