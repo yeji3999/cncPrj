@@ -91,8 +91,8 @@ export default {
   name: 'navigation',
     data(){
     return {
-      navPosition:"0px",
-      closePosition : "200px",
+      navPosition:"-200px",
+      closePosition : "0px",
         items: [
           { title: 'Workshop 1', action: 1,
             items:[

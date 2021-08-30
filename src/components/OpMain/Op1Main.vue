@@ -268,7 +268,7 @@ export default {
     adminPositionValue:"800px",
     closeModelAdminValue: "-30px",
     adminDisplayValue:"none",
-    mainPpadding:"80px 30px 30px 230px",
+    mainPpadding:"80px 30px 30px 40px",
     grafanaURL: "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv",
     layout: [
       { x: 0, y: 0, w: 8, h: 2, i: "0" },

@@ -99,11 +99,13 @@ export default {
         this.$refs.Unity.unityRefreshEvt();
       },
       allFactroyBtn(){
+        var treeOpen = document.getElementsByClassName("tree-content")
         this.clickFacNum = "0"
-        console.log("al",this.clickFacNum)
         document.getElementById("nowFacNum").innerText = "0"
         this.$refs.Unity.unityRefreshEvt();
         document.getElementById("headerFacInfo").innerText = "View All Factory"
+        treeOpen[0].click();
+
       },
       // unityBeforeStepBtn(){ 
       //   var clickNum = document.getElementById("nowFacNum").innerText
@@ -116,7 +118,6 @@ export default {
       //   this.$refs.Unity.unityRefreshEvt(); 
       // },
       onSelected: function(node) {
-        let treeNode  = document.getElementsByClassName('tree-node')
         document.getElementById("nowFacNum").innerText = node.id
         this.clickFacNum = node.id
         this.$refs.Unity.unityRefreshEvt();
