@@ -6,7 +6,6 @@
         <p id="nowFacNum" style="display:none"></p>
         <div id="headerTitle">
           <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px; font-weight:500">View All Factory</span>
-          <!-- <button @click="unityBeforeStepBtn" id="unityBeforeStep" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i></button>   -->
           <button @click="unityRefreshBtn" id="unityRefresh" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-retweet fa-2x" aria-hidden="true"></i></button>  
           <button @click="allFactroyBtn" id="allFactroy" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-industry fa-2x" aria-hidden="true"></i></button> 
           </div>
@@ -191,7 +190,7 @@ export default {
   }
   #indexBody {
     margin-top: 20px;
-    height: 85vh;
+    height: 82vh;
     font-size: 20px;
     width: 20%;
     background-color: #1E1E1E;
@@ -214,7 +213,7 @@ export default {
   }
   .factory_pic {
     width: 100%;
-    height: 85vh;
+    height: 82vh;
     background-repeat:no-repeat;
     /* background-image: url('../../assets/factory2.jpg'); */
     background-size:cover;

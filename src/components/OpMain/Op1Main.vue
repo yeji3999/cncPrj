@@ -201,8 +201,8 @@ export default {
     layout: [
       { x: 0, y: 0, w: 8, h: 2, i: "0" },
       { x: 8, y: 0, w: 4, h: 5, i: "1" },
-      { x: 8, y: 0, w: 4, h: 12, i: "3" },
-      { x: 0, y: 0, w: 8, h: 15, i: "2" },
+      { x: 8, y: 0, w: 4, h: 11, i: "3" },
+      { x: 0, y: 0, w: 8, h: 14, i: "2" },
      ]
   }),
     methods: {
@@ -239,8 +239,8 @@ export default {
             this.layout.push(
               { x: 0, y: 0, w: 8, h: 2, i: "0" },
               { x: 8, y: 0, w: 4, h: 5, i: "1" },
-              { x: 8, y: 0, w: 4, h: 12, i: "3" },
-              { x: 0, y: 0, w: 8, h: 15, i: "2" },
+              { x: 8, y: 0, w: 4, h: 11, i: "3" },
+              { x: 0, y: 0, w: 8, h: 14, i: "2" },
             );
             this.grafanaURL = "http://9.8.100.156:3000/d/-Vt3X0qKa/hninc-cnc-tul-buha-moniteoring-solrusyeon?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv";
             break;
@@ -249,7 +249,7 @@ export default {
             this.layout.push(
               { x: 0, y: 0, w: 12, h: 2, i: "0" },
               { x: 0, y: 0, w: 3, h: 6, i: "1" },
-              { x: 0, y: 0, w: 12, h: 9, i: "3" },
+              { x: 0, y: 0, w: 12, h: 8, i: "3" },
               { x: 3, y: 0, w: 9, h: 6, i: "2" },
             );
             this.grafanaURL = "http://9.8.100.156:3000/d/JQjsnRm7k/for-height?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv"
@@ -259,7 +259,7 @@ export default {
           this.layout.push(    
               { x: 0, y: 0, w: 5, h: 2, i: "0" },
               { x: 0, y: 0, w: 5, h: 6, i: "1" },
-              { x: 0, y: 6, w: 12, h: 9, i: "3" },
+              { x: 0, y: 6, w: 12, h: 8, i: "3" },
               { x: 5, y: 0, w: 7, h: 8, i: "2" },
             );
             this.grafanaURL = "http://9.8.100.156:3000/d/JQjsnRm7k/for-height?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv"

@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import Router from 'vue-router'
 import Op1Main from '../OpMain/Op1Main.vue'
@@ -8,9 +7,6 @@ import Op4Main from '../OpMain/Op4Main.vue'
 import Op5Main from '../OpMain/Op5Main.vue'
 import Unauthorized from '../OpMain/Unauthorized.vue'
 import Index from '../OpMain/IndexPage.vue'
-// import viewAll from '../Workshop/AllWorkshop.vue'
-
-// import UnityView from '../Line/Line1.vue'
 
 Vue.use(Router)
 
