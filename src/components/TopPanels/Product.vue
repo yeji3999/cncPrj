@@ -45,7 +45,7 @@ export default {
 .Product{
   /* height: 100%; */
   text-align: center;
-  margin-top: 20px; 
+  margin-top: 17px; 
 }
 #productTitle{
   font-weight: bold;

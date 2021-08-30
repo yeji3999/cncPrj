@@ -7,7 +7,7 @@
     <div class="Breadcrumbs" >
     <div id="headerTitle"> <span class="headerTitleTxt" style="padding-left:0px">{{headerFac}}</span> <span class="headerTitleTxt">{{headerLine}}</span> <span class="headerTitleTxt" style="border:none">{{headerOP}}</span></div>    
   </div>
-  <div style="margin-top:15px">
+  <div style="margin-top:5px">
     <div style="display: flex;">
     <button class="hideShowBtn" :style="{display:hideOpShow}" @click="hideOp = !hideOp; topPaneNum++"> Running Status</button>
     <button class="hideShowBtn" :style="{display:hideTpShow}" @click="hideTp = !hideTp; topPaneNum++"> Total Production</button>
@@ -357,7 +357,7 @@ export default {
   position: relative;
   float: right;
   right: 10px;
-  bottom: 17px;
+  bottom: 20px;
 }
 .paneContent{
   width: 100%;
@@ -367,10 +367,10 @@ export default {
   border: 1px solid rgb(122, 167, 167);
   background: #454545;
   color: rgb(141, 253, 253);
-  padding: 7px;
+  padding: 4px;
   margin-left: 9px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
 }
 .hideChartBtn{
   border-radius: 5px;

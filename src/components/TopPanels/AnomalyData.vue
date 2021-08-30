@@ -74,7 +74,7 @@ export default {
   /* height: 100%; */
   color : #c7d0d9;
   text-align: center;
-  margin-top: 20px; 
+  margin-top: 17px; 
 }
 #anomalyTitle{
   font-weight: bold;

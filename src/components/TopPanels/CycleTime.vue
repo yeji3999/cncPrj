@@ -84,7 +84,7 @@ export default {
 .CycleTime{
   /* height: 100%;  */
   text-align: center;
-  margin-top: 20px; 
+  margin-top: 17px; 
 }
 #cycleTimeTitle{
   font-weight: bold;
