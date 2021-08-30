@@ -7,7 +7,6 @@
           <div class="modal-header">
             <slot name="header"> default header </slot>
           </div>
-
           <div class="modal-body">
             <slot name="body"> default body </slot>
           </div>
@@ -111,7 +110,4 @@ export default {
 .v-data-table__wrapper::-webkit-scrollbar-track {
   background-color: #1E1E1E;
 }
-/* .v-data-footer{
-  display: none;
-} */
 </style>

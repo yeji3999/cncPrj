@@ -1,7 +1,6 @@
 <template>
 <div>
   <div id="admin-panel" :style="{display:adminDisplay}">
-    <!-- <div class="admin-panel-mask" >  -->
       <div class="admin-panel-wrapper" style="float:right">
         <div class="admin-panel-container" :style="{left: adminPosition}" style="float:right">
           <div class="admin-panel-header">
@@ -36,9 +35,7 @@
           </div>
         </div>
       </div>
-    <!-- </div> -->
-                <div id="closeModelAdmin" :style="{right: closeModelAdmin }" @click="adminPanelClose" ></div>
-
+      <div id="closeModelAdmin" :style="{right: closeModelAdmin }" @click="adminPanelClose" ></div>
   </div>
     
 </div>
@@ -46,7 +43,6 @@
 
 <script>
 export default {
-
   props: {
     adminPosition: String,
     closeModelAdmin: String,
@@ -116,8 +112,6 @@ export default {
         else return '#32a852'
     },
     adminPanelClose(){
-      // this.adminPosition = "800px"
-      // this.adminTop = "150px"
       this.$emit("modalAdmin","close")
     },
     modelChangeEvt(){
@@ -128,7 +122,6 @@ export default {
         }else if(this.adminmodelSubmit.model == "CONV2D_LSTM"){
         this.currentModel = 'prediction_conv2d'
         }
-        // alert(this.currentModel)
 
       if(this.adminmodelSubmit.modelState == "Stop"){
         if(this.modalChangeSubmitTxt == "Stop"){
@@ -148,8 +141,6 @@ export default {
          this.modalChangeSubmitTxt = "Apply"
          this.adminModelSelected = []
         this.$socket.emit('modelStop', this.currentModel); 
-
-
       }
     }
 
@@ -165,7 +156,6 @@ export default {
     margin-top: -26px;
     width: 26px;
     height: 52px;
-    /* right: 600px; */
     z-index: 9999;
     background: url('../../assets/close_modal.jpg') no-repeat;
     background-size: 100% 100%;
@@ -272,7 +262,4 @@ export default {
 .v-data-table__wrapper::-webkit-scrollbar-track {
   background-color: #1E1E1E;
 }
-/* .v-data-footer{
-  display: none;
-} */
 </style>

@@ -10,7 +10,6 @@
     </div>
     <div id="productQualityTxt">
         <p class="productqualityTxt" :style="{color:abnormalColor}">{{productQualityTxt}} {{productQualityPercentage}}</p>
-
     </div>
 </div>
 </template>
@@ -24,7 +23,6 @@ export default {
     created(){
         this.$socket.emit('recentlyPredictInfo')
     },
-
     sockets:{
         qualityPredictStart: function(startInfo){
             this.loadingShow = "block"
@@ -44,7 +42,6 @@ export default {
             this.productSerialNumber = endInfo.sn
             this.fnName = endInfo.fn
             try{
-                console.log("132131316548965213",this.fnName)
                 this.frequencyImageSrc = 'http://9.8.100.153:8082/predictImg/' + this.fnName
             }catch(error){
                 console.log(error)
@@ -96,7 +93,7 @@ export default {
                     case "9":
                         this.abnormalTxt = "T2020 Broken"
                         break;                        
-                    
+                                                     
                     case "10":
                         this.abnormalTxt = "T6070 Broken"
                         break;                        
@@ -156,6 +153,8 @@ export default {
     height: 60%;
     text-align: center;
     overflow: hidden;
+    border-left: solid 0.8rem #1d1d1d;
+    border-right: solid 0.8rem #1d1d1d;
 }
 #freauencyImg{
     background: rgb(0, 0, 4);

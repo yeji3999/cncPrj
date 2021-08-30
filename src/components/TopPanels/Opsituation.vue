@@ -1,6 +1,5 @@
 <template>
 <div class="opsituation" :style="{background:stateColor}">
-<!-- <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeOP"><i class="fa fa-times"></i></button> -->
 <span id = "opsituationTitle">Running Status</span>
 <p id="opsituationState">{{op}}</p>
 </div>

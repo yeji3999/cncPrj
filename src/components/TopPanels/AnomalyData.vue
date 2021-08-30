@@ -1,12 +1,8 @@
 <template>
-<div class="anomalyData" :style="{background:stateColor}">
-<!-- <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeAnomal"><i class="fa fa-times"></i></button>  -->
-<span id = "anomalyTitle">Anomaly Detection</span>
-<!-- <div id="circle"></div> -->
-<!-- <span id="anomalyState" :style="{color:stateTxt}">{{anomalyState}}</span> -->
-<p id="anomalyState" :style="{color:stateTxt}">{{anomalyState}}</p>
-<!-- <div id="alertBg" :style="{display:alertView}"></div> -->
-</div>
+  <div class="anomalyData" :style="{background:stateColor}">
+    <span id = "anomalyTitle">Anomaly Detection</span>
+    <p id="anomalyState" :style="{color:stateTxt}">{{anomalyState}}</p>
+  </div>
 </template>
 
 <script>
@@ -28,7 +24,6 @@ export default {
       }else if(res=="비정상"){
         this.anomalyState = "Abnormal"
       }
-      // this.anomalyState = res;
       setTimeout(() => {
         let today = new Date();
         let cTime = today.getTime();
@@ -52,20 +47,14 @@ export default {
       this.stateMessage = false;
       let today = new Date();
       aTime = today.getTime();
-      // this.alertView = "block";
-      //this.anomalyState = "이상";
-      // this.stateColor = "#C4162A";
       this.stateTxt = "#ffffff"
       setTimeout(() => {
-        // this.stateColor = "#ffffff";
         this.stateTxt = "#ff0500"
       }, 300);
       setTimeout(() => {
         let today = new Date();
         let bTime = today.getTime();
         if (bTime - aTime >= 2000) {
-          //this.anomalyState = "정상";
-          // this.stateColor = "#3F6164";
           this.stateTxt = "#ffffff"
           this.stateMessage = true;
           this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage })
@@ -100,13 +89,6 @@ export default {
   font-weight: bold;
   color: white;
 }
-/* #alertBg{
-  height: 92px;
-  position: relative;
-  top: -76px;
-  background: red;
-  opacity: 0.8;
-} */
 #circle{
   width: 50px;
   height: 50px;

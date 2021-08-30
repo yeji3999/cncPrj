@@ -1,26 +1,25 @@
 <template>
-<div>
-        <Modal v-if="showCTModal" @closeModal="closeModalEvt">
-        <h3 slot="header" style="margin-top:20px">
-         <span class="ModalTitle">Cycle Time History</span>
-         <button style="float:right; font-size:23px; cursor:pointer"><i class="fa fa-times closeModalBtn" @click="modalCT" ></i></button>
-        </h3>
-        <div slot="body">
-          <PlanetChart style="margin-bottom:15px"></PlanetChart>
+  <div>
+    <Modal v-if="showCTModal" @closeModal="closeModalEvt">
+      <h3 slot="header" style="margin-top:20px">
+        <span class="ModalTitle">Cycle Time History</span>
+        <button style="float:right; font-size:23px; cursor:pointer"><i class="fa fa-times closeModalBtn" @click="modalCT" ></i></button>
+      </h3>
+      <div slot="body">
+        <PlanetChart style="margin-bottom:15px"></PlanetChart>
           <p id="ct100">Cycle Time(Latest 100)</p>
           <v-data-table
-          :sort-desc="['true', 'false', 'false']"
-          :headers="headers"
-          :items="this.$store.state.ctAvg"
-          class="elevation-1"
-          dark
-          hide-default-footer
-          disable-pagination
+            :sort-desc="['true', 'false', 'false']"
+            :headers="headers"
+            :items="this.$store.state.ctAvg"
+            class="elevation-1"
+            dark
+            hide-default-footer
+            disable-pagination
           ></v-data-table>
-        </div>
-      </Modal>
-</div>
-    
+      </div>
+    </Modal>
+  </div>
 </template>
 
 <script>
@@ -54,7 +53,6 @@ export default {
   },
   methods:{
     modalCT() {
-      // this.showCTModal = false;
       this.$emit("modalCT","false")
       },
     closeModalEvt:function(message){

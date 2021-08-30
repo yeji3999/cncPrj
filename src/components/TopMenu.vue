@@ -128,10 +128,8 @@ li{
 li:hover{
     background: lightblue;
 }
-    #modelChange{
-      color: white;
-      float: right;
-      /* line-height: 55px;
-      margin-right: 10px; */
-    }
+#modelChange{
+    color: white;
+    float: right;
+}
 </style>

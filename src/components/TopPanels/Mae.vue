@@ -1,8 +1,6 @@
 <template>
 <div class="Loss1s" :style="{background:lossStateColor}">
-    <span id = "loss1sTitle">MAE(s)</span>
-    <!-- <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeMae"><i class="fa fa-times"></i></button> -->
-
+  <span id = "loss1sTitle">MAE(s)</span>
   <p id="loss1sVal" :style="{color:lossTxtColor}">{{loss}}</p>
 </div>
 </template>
@@ -37,10 +35,8 @@ export default {
     data(){
     return {
       loss: "-",
-      // loss1sValColor:"#7acacd",
       lossStateColor:"#3F6164",
       lossTxtColor:"#ffffff"
-      // lossList:"-" 
     }
   },
     methods:{
@@ -48,9 +44,6 @@ export default {
       this.stateMessage = false;
       var today = new Date();
       aTime = today.getTime();
-      // this.alertView = "block";
-      //this.anomalyState = "이상";
-      // this.lossStateColor = "#C4162A";
       this.lossTxtColor = "#ffffff"
       setTimeout(() => {
         // this.lossStateColor = "#ffffff";
@@ -60,8 +53,6 @@ export default {
         var today = new Date();
         let bTime = today.getTime();
         if (bTime - aTime >= 2000) {
-          //this.anomalyState = "정상";
-          // this.lossStateColor = "#3F6164";
           this.lossTxtColor = "#ffffff"
           this.stateMessage = true;
           this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage })

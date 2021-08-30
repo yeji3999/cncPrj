@@ -1,6 +1,5 @@
 <template>
 <div class="CycleTime">
-  <!-- <button style="float: right; margin-right: 10px; margin-top: 3.5px; color:#c7d0d9;" @click="closeCT"><i class="fa fa-times"></i></button> -->
   <span id = "cycleTimeTitle">Cycle Time <span style="font-size:10.5px">(Latest 5)</span> </span>
   <p id="cycleVal">{{cycleTimeVal}} <button @click="modalCT" id="ctBtn"><img class="infoImg" src="../../assets/info.png"></button></p>
 </div>

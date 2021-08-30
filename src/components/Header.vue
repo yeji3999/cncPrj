@@ -3,9 +3,6 @@
     <router-link to="/">
       <img alt="logo" src="../assets/logo.png">
     </router-link>
-    <!-- <span @click="indexMove">
-      <img alt="logo" src="../assets/logo.png">
-    </span> -->
     <div id="headerTitle">{{ headerTitle }}</div>
     <button v-on:click="loginOutEvt" id="loginout">{{signinOut}}</button>
   </div>
@@ -57,7 +54,6 @@ export default {
       padding-right: 32px;
       margin: 0px;
       font-size: 20px;
-      
     }
     #headerTitle{
       display:inline; 
@@ -72,7 +68,7 @@ export default {
       float:right;
       color:white;
       line-height: 60px;
-      font-weight: 600;
+      font-weight: 800;
     }
 
 </style>

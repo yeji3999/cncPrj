@@ -81,12 +81,8 @@ export default({
     this.$socket.emit('setCount1Day')
     this.$socket.emit('setCount1Week')
     this.$socket.emit('setCount1Month')
-    // this.$socket.emit('setCount')
   },
   sockets: {
-    // count: function(cnt) {
-    //   this.productVal = cnt;
-    // },
     days: function(d) {
       if (typeof(d) == 'number') {
         this.day[this.day.length-1].count = d;
@@ -107,7 +103,6 @@ export default({
   },
   data: function () {
     return {
-      // productVal:"-",
       startlist:"",
       endlist:"",
       doItem: "",
@@ -115,7 +110,6 @@ export default({
           {
             text: 'Date',
             align: 'end',
-            // sortable: true,
             value: 'date',
           },
           { text: 'Count', value: 'count' },
@@ -129,15 +123,14 @@ export default({
   },
   methods: {
     modalPr() {
-      // this.showPRModal = false;
       this.$emit("modalPr","false")
       },
     closeModalEvt:function(message){
-        if(message == "false"){
-         this.$emit("modalPr","false")
-        }
+      if(message == "false"){
+        this.$emit("modalPr","false")
+      }
     }
-    }
+  }
 })
 </script>
 
