@@ -24,6 +24,8 @@
               <v-data-table
                 :headers="headers"
                 :items="day"
+                :sort-by="['date']"
+                :sort-desc="[true]"
                 class="elevation-1"
                 dark
                 hide-default-footer
@@ -38,6 +40,8 @@
               <v-data-table
                 :headers="headers"
                 :items="weekly"
+                :sort-by="['date']"
+                :sort-desc="[true]"
                 class="elevation-2"
                 dark
                 hide-default-footer
@@ -52,6 +56,8 @@
               <v-data-table
                 :headers="headers"
                 :items="monthly"
+                :sort-by="['date']"
+                :sort-desc="[true]"
                 class="elevation-3"
                 dark
                 hide-default-footer

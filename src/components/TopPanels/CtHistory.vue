@@ -9,10 +9,11 @@
         <PlanetChart style="margin-bottom:15px"></PlanetChart>
           <p id="ct100">Cycle Time(Latest 100)</p>
           <v-data-table
-            :sort-desc="['true', 'false', 'false']"
             :headers="headers"
             :items="this.$store.state.ctAvg"
             class="elevation-1"
+            :sort-by="['start']"
+            :sort-desc="[true]"
             dark
             hide-default-footer
             disable-pagination
@@ -63,3 +64,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.text-center, .text-start, .text-end{
+  text-align: center;
+}
+</style>
