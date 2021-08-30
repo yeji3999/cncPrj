@@ -17,7 +17,7 @@
 
 export default {
     // start가 오면 로딩중 이미지, 예측중입니다 텍스트, 이전 예측 결과 text 숨기거나 지우기
-    // end가 오면 시리얼 넘ㅂㅓ, 결과 이미지 url 다운, 품질 정보(13개 중 한 개), 예측 정확도-acc(소수 셋째 자리 까지) 띄우기
+    // end가 오면 시리얼 넘버, 결과 이미지 url 다운, 품질 정보(13개 중 한 개), 예측 정확도-acc(소수 셋째 자리 까지) 띄우기
     // 이미지 상대경로 public 밑에
 
     created(){
@@ -32,8 +32,7 @@ export default {
             this.productSerialNumber = startInfo.sn
             this.productQualityTxt = "Predicting..."
             this.productQualityPercentage = ""
-            this.abnormalColor = "#ffffff"
-
+            this.abnormalColor = "#f5faff"
       },
         qualityPredictEnd: function(endInfo){
             this.loadingShow = "none"
@@ -114,7 +113,7 @@ export default {
             }else if(endInfo.predict=="0"){
                 this.abnormalTxtShow = "none"
                 this.productQualityTxt = "Normal"
-                this.abnormalColor = "#ffffff"
+                this.abnormalColor = "#f5faff"
             }
       }, 
   },
@@ -139,12 +138,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #serialNumber, #productQualityTxt{
     height: 20%;
-    color: #fff;
+    color: #f5faff;
     text-align: center;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.6em;
     background: #1d1d1d;
     overflow: hidden;
@@ -170,6 +169,8 @@ export default {
 #frequencyImg > img{
     height: 100%;
     width: 100%;
+    border-radius: 3px;
+    border: 1px solid #424242;
 }
 #noImgAbnormalTxt{
     display: block;
@@ -191,5 +192,4 @@ export default {
     font-weight: 700;
     font-family: helvetica; 
 }
-
 </style>
