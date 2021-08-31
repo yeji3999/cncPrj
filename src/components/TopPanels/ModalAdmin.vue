@@ -84,25 +84,13 @@ export default {
        adminmodelSubmit:[],
        adminModelSelected: [],
         headers: [
-          {
-            text: 'Model',
-            sortable: false,
-            value: 'model',
-          },
-          { text: 'Processes', value: 'processCnt' },
-          { text: 'Model State', value: 'modelState' },
+          { text: 'Model', value: 'model', sortable: false },
+          { text: 'Processes', value: 'processCnt', sortable: false },
+          { text: 'Model State', value: 'modelState', align: 'start', sortable: false },
         ],
         adminModelList: [
-          {
-            model: 'BI_LSTM',
-            processCnt: 3,
-            modelState: "Stop"
-          },
-          {
-            model: 'CONV2D_LSTM',
-            processCnt: 6,
-            modelState: "Stop"
-          }
+          { model: 'BI_LSTM', processCnt: 3, modelState: "Stop" },
+          { model: 'CONV2D_LSTM', processCnt: 6, modelState: "Stop" }
         ],
      }
   },
