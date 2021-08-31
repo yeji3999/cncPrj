@@ -15,9 +15,11 @@
     <button class="hideShowBtn" :style="{display:hideMaeShow}" @click="hideMae = !hideMae; topPaneNum++"> Mae</button>
     <button class="hideShowBtn" :style="{display:hideAnomalyShow}" @click="hideAnomaly = !hideAnomaly; topPaneNum++"> Anomaly Detection</button>
     </div>
+
     <div class="grid-widget">
     <smart-widget-grid :layout="layout" :resizable="false" :draggable="false">
 
+      <!-- 공정의 가동 현황 및 AI 판정 값 -->
       <smart-widget slot="0" simple title="Running Status">
       <div ref="topDragElement" class="topDragElements">
           <div id="opWidget" :style="{background:stateColor, width:topPaneWidth}" v-if="!hideOp">
@@ -52,17 +54,20 @@
           </div>
       </div>
       </smart-widget>
-     
+
+     <!-- 상품 품질 판정 -->
       <smart-widget slot="1" simple style="height:100%">
         <ProductQuality></ProductQuality>
       </smart-widget>
 
+      <!-- 싸이 차트 -->
       <smart-widget slot="2" simple>
         <div class="paneContent" style="height:100%; background: #111217;">
           <RealTimeChart></RealTimeChart>
         </div>
       </smart-widget>
-
+      
+      <!-- 그라파나 차트 -->
       <smart-widget slot="3" simple id="chartWidget" style="background: #111217;">
         <div class="layout-center">
            <ChartArea :iframeSource="grafanaURL"></ChartArea>
@@ -81,6 +86,7 @@
 
 <script>
 var aTime = 0;
+var topElement = true;
 import Header from '../Header.vue'
 import Menu from '../Menu.vue'
 import Opsituation from '../TopPanels/Opsituation.vue'
@@ -97,10 +103,6 @@ import RealTimeChart from '../RealTime.vue'
 import 'splitpanes/dist/splitpanes.css'
 import dragula from 'dragula'
 import ProductQuality from '../ProductQuality.vue'
-
-
-var a = true
-// var b = true
 export default {
   components: {
     Header, Menu, Opsituation,Product,CycleTime,AnomalyData,Mae,ModalTP,ModalCT,ModalAdmin,TopMenu,ProductQuality,ChartArea,RealTimeChart
@@ -140,11 +142,16 @@ export default {
     }else if(!this.hideAnomaly){
       this.hideAnomalyShow = "none"
     }
+    
     if(this.hideOp && this.hideTp && this.hideCt && this.hideMae && this.hideAnomaly){
-      this.last =  this.layout.shift()
-      a=false
-    }else if(a===false){
-      a = true
+      if(this.layout[0].i == 0){
+        this.last =  this.layout.shift()
+        topElement = false
+      }else{
+        return false
+      }
+    }else if(topElement === false){
+      topElement = true
       this.layout.unshift(this.last)
     }
     this.topPaneWidth = "calc(100%/"+this.topPaneNum+")"

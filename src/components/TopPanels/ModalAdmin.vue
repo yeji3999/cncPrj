@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div id="closeModelAdmin" :style="{right: closeModelAdmin }" @click="adminPanelClose" ></div>
+      <!-- <div id="closeModelAdmin" :style="{right: closeModelAdmin }" @click="adminPanelClose" ></div> -->
   </div>
     
 </div>
@@ -143,10 +143,8 @@ export default {
         this.$socket.emit('modelStop', this.currentModel); 
       }
     }
-
   }
 }
-
 </script>
 
 <style>

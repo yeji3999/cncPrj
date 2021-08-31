@@ -152,8 +152,8 @@ export default {
     height: 60%;
     text-align: center;
     overflow: hidden;
-    border-left: solid 0.8rem #1d1d1d;
-    border-right: solid 0.8rem #1d1d1d;
+    border-left: solid 1em #1d1d1d;
+    border-right: solid 1em #1d1d1d;
 }
 #freauencyImg{
     background: rgb(0, 0, 4);
@@ -170,7 +170,7 @@ export default {
     height: 100%;
     width: 100%;
     border-radius: 3px;
-    border: 1px solid #424242;
+    border: 2px solid #909090;
 }
 #noImgAbnormalTxt{
     display: block;
