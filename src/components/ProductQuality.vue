@@ -41,7 +41,7 @@ export default {
             this.productSerialNumber = endInfo.sn
             this.fnName = endInfo.fn
             try{
-                this.frequencyImageSrc = 'http://9.8.100.153:8082/predictImg/' + this.fnName
+                this.frequencyImageSrc = 'http://hn-dev.com:8082/predictImg/' + this.fnName
             }catch(error){
                 console.log(error)
                 this.loadingShow = "none"
