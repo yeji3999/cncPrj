@@ -264,10 +264,10 @@ export default {
         case 3:
           this.layout = []
           this.layout.push(    
-              { x: 0, y: 0, w: 5, h: 2, i: "0" },
-              { x: 0, y: 0, w: 5, h: 6, i: "1" },
+              { x: 0, y: 0, w: 6, h: 2, i: "0" },
+              { x: 0, y: 0, w: 6, h: 6, i: "1" },
               { x: 0, y: 6, w: 12, h: 8, i: "3" },
-              { x: 5, y: 0, w: 7, h: 8, i: "2" },
+              { x: 6, y: 0, w: 6, h: 8, i: "2" },
             );
             this.grafanaURL = "http://9.8.100.156:3000/d/JQjsnRm7k/for-height?orgId=1&from=now-15m&to=now&refresh=5s&kiosk=tv"
             break;

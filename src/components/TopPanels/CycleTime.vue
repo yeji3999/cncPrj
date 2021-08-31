@@ -1,6 +1,6 @@
 <template>
 <div class="CycleTime">
-  <span id = "cycleTimeTitle">Cycle Time <span style="font-size:10.5px">(Latest 5)</span> </span>
+  <span id = "cycleTimeTitle">Cycle Time <span style="font-size:9px">(Latest 5)</span> </span>
   <p id="cycleVal">{{cycleTimeVal}} <button @click="modalCT" id="ctBtn"><img class="infoImg" src="../../assets/info.png"></button></p>
 </div>
 </template>
