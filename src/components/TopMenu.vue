@@ -1,9 +1,7 @@
 <template>
   <div class="topComponentMenu">
-    <router-link to="/">
-      <button @click="pageBackEvt" id="pageBackBtn" style="margin-left:5px; margin-right: 30px;"><i class="fa fa-undo fa-2x" aria-hidden="true"></i></button>
-    </router-link>
-    <button @click="menuDownEvt" class="topComponentBtn" style="margin-left:5px; margin-right: 30px;"><i class="fa fa-th-large fa-2x" aria-hidden="true"></i></button>
+    <button @click="pageBackEvt" id="pageBackBtn" style="margin-left:5px; margin-right: 25px;"><i class="fa fa-industry fa-2x" aria-hidden="true"></i></button>
+    <button @click="menuDownEvt" class="topComponentBtn" style="margin-left:5px; margin-right: 25px;"><i class="fa fa-th-large fa-2x" aria-hidden="true"></i></button>
     <button @click="modalAdmin" id="modelChange" v-if="isAdmin" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button>
     
     <div id="layoutBtn" :style="{display:layoutshow}">
@@ -38,7 +36,7 @@ created() {
   },
 methods:{
   pageBackEvt(){
-    
+    location.href = "/"
   },
   closeLayoutMenu(){
     this.layoutshow = "none"
@@ -111,9 +109,9 @@ button:hover{
     color: lightblue;
 }
 .topComponentMenu{
-    position: relative;
+    /* position: relative; */
     float: right;
-    right: 10px;
+    /* right: 10px; */
 }
 li{
     list-style: none;

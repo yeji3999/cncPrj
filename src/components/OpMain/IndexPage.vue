@@ -5,8 +5,8 @@
       <div class="Breadcrumbs">
         <p id="nowFacNum" style="display:none"></p>
         <div id="headerTitle">
-          <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px; font-weight:500">View All Factory</span>
-          <button @click="unityRefreshBtn" id="unityRefresh" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-retweet fa-2x" aria-hidden="true"></i></button>  
+          <!-- <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px; font-weight:500">View All Factory</span> -->
+          <button @click="unityRefreshBtn" id="unityRefresh" style="margin-left:5px; margin-right: 5px; float:right"><i class="fa fa-retweet fa-2x" aria-hidden="true"></i></button>  
           <button @click="allFactroyBtn" id="allFactroy" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-industry fa-2x" aria-hidden="true"></i></button> 
           </div>
       </div>
@@ -102,7 +102,7 @@ export default {
         this.clickFacNum = "0"
         document.getElementById("nowFacNum").innerText = "0"
         this.$refs.Unity.unityRefreshEvt();
-        document.getElementById("headerFacInfo").innerText = "View All Factory"
+        // document.getElementById("headerFacInfo").innerText = "View All Factory"
         treeOpen[0].click();
 
       },
@@ -130,40 +130,40 @@ export default {
           }
         }
 
-        switch(node.id){
-          case "0":
-            document.getElementById("headerFacInfo").innerText = "View All Factory"             
-            break;
-          case "1":
-            document.getElementById("headerFacInfo").innerText = "Workshop 1"               
-            break;
-          case "2" :
-            document.getElementById("headerFacInfo").innerText  = "Workshop 2"
-            break;
-          case "3" :
-            document.getElementById("headerFacInfo").innerText  = "Workshop 3"
-            break;
-          case "11" :
-            document.getElementById("headerFacInfo").innerText = "Workshop 1  |  Line 1"
-            break;
-          case "12" :
-            document.getElementById("headerFacInfo").innerText  = "Workshop 1  |  Line 2"
-            break;
-          case "21" :
-            document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 1"
-            break;
-          case "22" :
-            document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 2"
-            break;
-          case "31" :
-            document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 1"
-            break;
-          case "32" :
-            document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 2"
-            break;
-          default:
-            document.getElementById("headerFacInfo").innerText = "View All Factory"
-          }
+        // switch(node.id){
+        //   case "0":
+        //     document.getElementById("headerFacInfo").innerText = "View All Factory"             
+        //     break;
+        //   case "1":
+        //     document.getElementById("headerFacInfo").innerText = "Workshop 1"               
+        //     break;
+        //   case "2" :
+        //     document.getElementById("headerFacInfo").innerText  = "Workshop 2"
+        //     break;
+        //   case "3" :
+        //     document.getElementById("headerFacInfo").innerText  = "Workshop 3"
+        //     break;
+        //   case "11" :
+        //     document.getElementById("headerFacInfo").innerText = "Workshop 1  |  Line 1"
+        //     break;
+        //   case "12" :
+        //     document.getElementById("headerFacInfo").innerText  = "Workshop 1  |  Line 2"
+        //     break;
+        //   case "21" :
+        //     document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 1"
+        //     break;
+        //   case "22" :
+        //     document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 2"
+        //     break;
+        //   case "31" :
+        //     document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 1"
+        //     break;
+        //   case "32" :
+        //     document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 2"
+        //     break;
+        //   default:
+        //     document.getElementById("headerFacInfo").innerText = "View All Factory"
+        //   }
       }
     }
   }
@@ -171,28 +171,29 @@ export default {
 
 <style scoped>
   #indexPageBack{
-    padding: 100px 30px 30px 40px;
+    padding: 80px 20px 20px 30px;
     background:#1b2329;
     height: 100vh;
   }
   .indexContent {
     width: 100%;
+    display: inline-block;
   }
   #indexBody, #info_pic{
     display: inline-block; 
-    vertical-align: top;
+    /* vertical-align: top; */
   }
   #info_pic {
-    padding: 21px 2px 12px 20px; /*위 오른쪽 아래 왼쪽*/
+    padding: 0px 2px 12px 20px; /*위 오른쪽 아래 왼쪽*/
     float: right;  
-    width: 80%;
+    width: 85%;
     overflow: hidden;
   }
   #indexBody {
-    margin-top: 20px;
-    height: 82vh;
+    /* margin-top: 20px; */
+    height: 88vh;
     font-size: 20px;
-    width: 20%;
+    width: 15%;
     background-color: #1E1E1E;
     color: rgb(201, 209, 217);
     padding: 10px 20px 10px 20px; /*위 오른쪽 아래 왼쪽*/
@@ -213,7 +214,7 @@ export default {
   }
   .factory_pic {
     width: 100%;
-    height: 82vh;
+    height: 88vh;
     background-repeat:no-repeat;
     /* background-image: url('../../assets/factory2.jpg'); */
     background-size:cover;

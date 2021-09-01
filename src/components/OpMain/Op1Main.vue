@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <Menu @closeNav="closeNavEvt"></Menu>
+    <!-- <Menu @closeNav="closeNavEvt"></Menu> -->
     <div id="content" :style="{padding: mainPpadding}">
       <TopMenu @modalAdmin="modalAdminEvt" @changeLayout="changeLayoutEvt"></TopMenu>
     <div class="Breadcrumbs" >
@@ -88,7 +88,7 @@
 var aTime = 0;
 var topElement = true;
 import Header from '../Header.vue'
-import Menu from '../Menu.vue'
+// import Menu from '../Menu.vue'
 import Opsituation from '../TopPanels/Opsituation.vue'
 import Product from '../TopPanels/Product.vue'
 import CycleTime from '../TopPanels/CycleTime.vue'
@@ -104,7 +104,8 @@ import dragula from 'dragula'
 import ProductQuality from '../ProductQuality.vue'
 export default {
   components: {
-    Header, Menu, Opsituation,Product,CycleTime,AnomalyData,Mae,ModalTP,ModalCT,ModalAdmin,TopMenu,ProductQuality,ChartArea,RealTimeChart
+    Header, Opsituation,Product,CycleTime,AnomalyData,Mae,ModalTP,ModalCT,ModalAdmin,TopMenu,ProductQuality,ChartArea,RealTimeChart
+    // Menu,
  },
   created() {
     this.$socket.emit('setWork');

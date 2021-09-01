@@ -8,7 +8,7 @@
 export default {
   data(){
   return {
-    realTimeIframe: "http://9.8.100.152:8083/realTime.html",
+    realTimeIframe: "http://hn-dev.com:8082/realTime.html",
     }
   },
   methods:{
