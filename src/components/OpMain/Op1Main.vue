@@ -19,9 +19,9 @@
     <div class="grid-widget">
     <smart-widget-grid :layout="layout" :resizable="false" :draggable="false">
 
-      <!-- 공정의 가동 현황 및 AI 판정 값 -->
+      <!-- 공정의 가동 현황 및 AI 판정 값 --> 
       <smart-widget slot="0" simple title="Running Status">
-      <div ref="topDragElement" class="topDragElements">
+      <div ref="topDragElement" class="topDragElements">  <!-- ref: 뷰에서 특정 DOM이나 컴포넌트의 정보를 접근하기 위해 사용하는 속성 -->
           <div id="opWidget" :style="{background:stateColor, width:topPaneWidth}" v-if="!hideOp">
             <div class="paneContent">
               <button class="paneCloseBtn" @click="hideEvt('op')"><i class="fa fa-times"></i></button>
@@ -100,7 +100,6 @@ import ModalAdmin from "../TopPanels/ModalAdmin.vue"
 import TopMenu from '../TopMenu.vue'
 import ChartArea from '../ChartArea.vue'
 import RealTimeChart from '../RealTime.vue'
-import 'splitpanes/dist/splitpanes.css'
 import dragula from 'dragula'
 import ProductQuality from '../ProductQuality.vue'
 export default {
