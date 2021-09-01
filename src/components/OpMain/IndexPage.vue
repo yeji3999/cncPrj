@@ -198,7 +198,7 @@ export default {
     color: rgb(201, 209, 217);
     padding: 10px 20px 10px 20px; /*위 오른쪽 아래 왼쪽*/
     border-radius: 7px;
-    border: 2px solid #616161;
+    border: 2px solid #9c9c9c;
     overflow: auto;
   }
   ::-webkit-scrollbar {
@@ -219,7 +219,7 @@ export default {
     /* background-image: url('../../assets/factory2.jpg'); */
     background-size:cover;
     border-radius: 7px;
-    border: 2px solid #616161;
+    border: 2px solid #9c9c9c;
   }
 
   #headerTitle{
