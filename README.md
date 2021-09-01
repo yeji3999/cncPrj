@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-ReadME
-=======
 # 가공설비(CNC) 툴 모니터링 시스템
 ## Project description
 **CNC 툴 부하 모니터링 UI**
@@ -195,4 +192,3 @@ npm run build
 
 ### Admin Model Change
 1. **nowModelInfo** <br> 현재 동작중인 모델 정보 호출
->>>>>>> sprint3
