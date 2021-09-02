@@ -78,7 +78,7 @@ export default {
                         break;                        
                     
                     case "6":
-                        this.abnormalTxt = "T1212  Wear"
+                        this.abnormalTxt = "T1212 Wear"
                         break;                        
                     
                     case "7":
@@ -86,7 +86,7 @@ export default {
                         break;                        
                     
                     case "8":
-                        this.abnormalTxt = "T2030 Brokenr"
+                        this.abnormalTxt = "T2030 Broken"
                         break;                        
                     
                     case "9":
