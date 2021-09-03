@@ -42,11 +42,11 @@
 3. **학습 모델 변경(Admin User)**
 <img width="500" src="https://user-images.githubusercontent.com/37472764/125897349-1378edb9-b5b5-46c5-8591-8ac98c172c20.png">
 
-### AI 예측을 통해 품질의 정상 / 비정상 판정
+### AI를 통해 제품의 양품 / 불량품 판정
 
 1. **제품의 시리얼 넘버**
-2. **주파수 이미지**
-3. **정상/비정상 여부 및 퍼센테이지**
+2. **FFT 변환 이미지**
+3. **양품 / 불량품 여부**
 <img width="500" src="https://user-images.githubusercontent.com/37472764/131952053-c1c1321f-57bd-48f0-adda-3ba8a0aa9285.png">
 
 ###### **비정상 시, 툴 부하 또는 툴 마모 여부 확인 가능**
