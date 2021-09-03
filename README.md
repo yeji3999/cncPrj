@@ -4,7 +4,8 @@
 **CNC 툴 부하 모니터링 UI**
 
 ## 인덱스 화면
-
+ **메뉴 구조: Workshop->Line->Operation**
+ 
 1. **전체 공장 화면**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/131939347-498eb22f-eee9-4440-958f-0c6b41d0ae1d.png">
 
@@ -20,27 +21,14 @@
 ## 공정 화면
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/131941274-b50fdcdd-763e-4601-bcb6-97e4441fbfd7.png">
 
-## 레이아웃 구성
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/120174561-2f2b6280-c240-11eb-92e6-27b5d535601d.png">
-
-1. **헤더**
-2. **메뉴**
-3. **콘텐츠 영역**
-
-### 메뉴
-1. **메뉴 구조: Workshop->Line->Operation**
-<img width="300" src="https://user-images.githubusercontent.com/37472764/125712270-da576522-9a22-4380-a673-54f15e1242e8.png">
-
-2. **공정 별 가동 현황 및 AI를 활용한 부하량 예측 (추후 개발 예정)**
-3. **특정 공정에 접근 시, 선택한 공정의 위치 표시**
+**특정 공정에 접근 시, 선택한 공정의 위치 표시**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/125713829-fa5c16f6-f24e-48c6-8825-bce0afba7f08.png">
 
-4. **메뉴 닫힘, 펼침**
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729786-0f6bcaca-7b6c-430f-a22a-c4aba128c6e2.png">
-
 ### 상단 메뉴
-1. **레이아웃 변경**
-<img width="500" src="https://user-images.githubusercontent.com/37472764/125729103-c4cc5df9-4cfa-4063-b5f9-b2f8e6bad536.PNG">
+1. **인덱스 페이지로 이동**
+
+2. **레이아웃 변경**
+<img width="500" src="https://user-images.githubusercontent.com/37472764/131951939-cbe48277-84f8-413b-833d-8ac8915f2e03.PNG">
 
 **- 레이아웃1**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/131941274-b50fdcdd-763e-4601-bcb6-97e4441fbfd7.png">
@@ -53,6 +41,13 @@
 
 3. **학습 모델 변경(Admin User)**
 <img width="500" src="https://user-images.githubusercontent.com/37472764/125897349-1378edb9-b5b5-46c5-8591-8ac98c172c20.png">
+
+### AI 분석을 통해 품질의 정상 / 비정상 판정
+
+1. **제품의 시리얼 넘버**
+2. **주파수 이미지**
+3. **정상/비정상 여부 및 퍼센테이지**
+<img width="500" src="https://user-images.githubusercontent.com/37472764/131952053-c1c1321f-57bd-48f0-adda-3ba8a0aa9285.png">
 
 ### 공정의 가동 현황 및 AI 판정 값
 + ### 공정의 가동 현황
@@ -158,6 +153,12 @@ src/components 폴더에 vue 확장자로 원하는 컴포넌트를 만든다.
 ```
 만약 구현한 컴포넌트 이름이 AIPanel 이라면, 위와 같이 script에서 import한 뒤 components 옵션으로 등록하고 커스텀 태그를 등록.
 
+#### **vue에 unity 연결**
+
+```
+<unity src="../../../Build/Build_Web.json" unityLoader="../../../Build/UnityLoader.js" ref="gameInstance" id="gameContainer"></unity> 
+```
+
 ### Compiles and hot-reloads for development
 
 ```
@@ -178,6 +179,7 @@ npm run build
     "chart.js": "^2.9.4"
     "node": "^14.16.1"
     "npm": "^6.14.12"
+    "vue-unity-webgl": "^1.2.0"
     
 
 --- 
@@ -207,3 +209,7 @@ npm run build
 
 ### Admin Model Change
 1. **nowModelInfo** <br> 현재 동작중인 모델 정보 호출
+
+### Product Quailty
+1. **qualityPredictStart** <br> 품질 예측 시작 호출
+2. **qualityPredictEnd** <br> 품질 예측 종료 호출
