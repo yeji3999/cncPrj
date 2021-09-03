@@ -10,11 +10,11 @@
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/131939347-498eb22f-eee9-4440-958f-0c6b41d0ae1d.png">
 
 2. **공장 선택 후 화면**
- #### 라인 선택 가능
+**라인 선택 가능**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/131939696-396eb487-d586-4e9c-ae13-d7c432ae9c78.png">
 
 3. **라인 선택 후 화면**
- #### 공정 선택 가능
+**공정 선택 가능**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/131940114-90773a89-0315-4824-81c2-a882afe3d7a1.png">
 
 
@@ -49,6 +49,8 @@
 3. **정상/비정상 여부 및 퍼센테이지**
 <img width="500" src="https://user-images.githubusercontent.com/37472764/131952053-c1c1321f-57bd-48f0-adda-3ba8a0aa9285.png">
 
+###### **비정상 시, 툴 부하 또는 툴 마모 여부 확인 가능**
+
 ### 공정의 가동 현황 및 AI 판정 값
 + ### 공정의 가동 현황
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/125896958-512a0fb0-a57b-4d02-94f7-2138431377a5.png">
@@ -75,6 +77,7 @@
 2. **time range 기준으로 시간 줌 아웃**
 3. **대시보드 리프레시**
 4. **리프레시 간격 설정**
+
 + ### Chart
 
 1. **Real Time Load Trands, MAE, Spindle Load Chart** <br> 실제 부하량과 AI를 통한 예측 부하량 + 실제 로스율과 예측 로스율의 차이 + 실시간 부하량
