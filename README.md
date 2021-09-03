@@ -1,8 +1,24 @@
 # 가공설비(CNC) 툴 모니터링 시스템
 ## Project description
+
 **CNC 툴 부하 모니터링 UI**
-## 전체 화면
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729692-9d84829b-8092-4f06-a626-4ce7e024f5f1.png">
+
+## 인덱스 화면
+
+1. **전체 공장 화면**
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131939347-498eb22f-eee9-4440-958f-0c6b41d0ae1d.png">
+
+2. **공장 선택 후 화면**
+ #### 라인 선택 가능
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131939696-396eb487-d586-4e9c-ae13-d7c432ae9c78.png">
+
+3. **라인 선택 후 화면**
+ #### 공정 선택 가능
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131940114-90773a89-0315-4824-81c2-a882afe3d7a1.png">
+
+
+## 공정 화면
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131941274-b50fdcdd-763e-4601-bcb6-97e4441fbfd7.png">
 
 ## 레이아웃 구성
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/120174561-2f2b6280-c240-11eb-92e6-27b5d535601d.png">
@@ -10,7 +26,6 @@
 1. **헤더**
 2. **메뉴**
 3. **콘텐츠 영역**
-
 
 ### 메뉴
 1. **메뉴 구조: Workshop->Line->Operation**
@@ -28,13 +43,13 @@
 <img width="500" src="https://user-images.githubusercontent.com/37472764/125729103-c4cc5df9-4cfa-4063-b5f9-b2f8e6bad536.PNG">
 
 **- 레이아웃1**
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729255-c77a1131-7bc2-418f-b8f9-f9461be218da.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131941274-b50fdcdd-763e-4601-bcb6-97e4441fbfd7.png">
 
 **- 레이아웃2**
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729295-f0e0b7e8-69c3-4444-a706-477168148517.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131941321-fb6ede5d-16d0-48a6-a904-062f75cc4f3d.png">
 
 **- 레이아웃3**
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729325-acacc45c-e2b4-4a95-bcbc-6f816651dd99.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131941352-39cf5d91-97dd-485d-9ec7-7bcfa5ed590c.png">
 
 3. **학습 모델 변경(Admin User)**
 <img width="500" src="https://user-images.githubusercontent.com/37472764/125897349-1378edb9-b5b5-46c5-8591-8ac98c172c20.png">
