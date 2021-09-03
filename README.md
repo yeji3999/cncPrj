@@ -42,7 +42,7 @@
 3. **학습 모델 변경(Admin User)**
 <img width="500" src="https://user-images.githubusercontent.com/37472764/125897349-1378edb9-b5b5-46c5-8591-8ac98c172c20.png">
 
-### AI 분석을 통해 품질의 정상 / 비정상 판정
+### AI 예측을 통해 품질의 정상 / 비정상 판정
 
 1. **제품의 시리얼 넘버**
 2. **주파수 이미지**
@@ -189,7 +189,7 @@ npm run build
 
 ### CT 이벤트
 1. **cycleTimeMean** <br> CT 평균 데이터 호출
-2. **cycleTimeHistory** <br> CT history 100개 데이터 호출
+2. **ctHistory** <br> CT history 100개 데이터 호출
 3. **ctChart** <br> CT history bar chart 생성을 위해 CT history 10개 데이터 호출
 
 ### Total Production
@@ -202,7 +202,7 @@ npm run build
 1. **isWork** <br> 공정의 가동, 비가동 여부를 알리는 데이터 호출
 
 ### MAE
-1. **loss** <br> MAE 데이터 호출
+1. **realtimeLoss** <br> MAE 데이터 호출
 
 ### Anomaly Detection
 1. **anomalyDetection** <br> 이상 데이터 판정 여부 호출
