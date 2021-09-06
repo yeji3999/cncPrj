@@ -1,43 +1,55 @@
 # 가공설비(CNC) 툴 모니터링 시스템
 ## Project description
+
 **CNC 툴 부하 모니터링 UI**
-## 전체 화면
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729692-9d84829b-8092-4f06-a626-4ce7e024f5f1.png">
 
-## 레이아웃 구성
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/120174561-2f2b6280-c240-11eb-92e6-27b5d535601d.png">
+## 인덱스 화면
+ **메뉴 구조: Workshop->Line->Operation**
+ 
+1. **전체 공장 화면**
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131939347-498eb22f-eee9-4440-958f-0c6b41d0ae1d.png">
 
-1. **헤더**
-2. **메뉴**
-3. **콘텐츠 영역**
+2. **공장 선택 후 화면**
+**라인 선택 가능**
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131939696-396eb487-d586-4e9c-ae13-d7c432ae9c78.png">
+
+3. **라인 선택 후 화면**
+**공정 선택 가능**
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131940114-90773a89-0315-4824-81c2-a882afe3d7a1.png">
 
 
-### 메뉴
-1. **메뉴 구조: Workshop->Line->Operation**
-<img width="300" src="https://user-images.githubusercontent.com/37472764/125712270-da576522-9a22-4380-a673-54f15e1242e8.png">
+## 공정 화면
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131941274-b50fdcdd-763e-4601-bcb6-97e4441fbfd7.png">
 
-2. **공정 별 가동 현황 및 AI를 활용한 부하량 예측 (추후 개발 예정)**
-3. **특정 공정에 접근 시, 선택한 공정의 위치 표시**
+**특정 공정에 접근 시, 선택한 공정의 위치 표시**
 <img width="1000" src="https://user-images.githubusercontent.com/37472764/125713829-fa5c16f6-f24e-48c6-8825-bce0afba7f08.png">
 
-4. **메뉴 닫힘, 펼침**
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729786-0f6bcaca-7b6c-430f-a22a-c4aba128c6e2.png">
-
 ### 상단 메뉴
-1. **레이아웃 변경**
-<img width="500" src="https://user-images.githubusercontent.com/37472764/125729103-c4cc5df9-4cfa-4063-b5f9-b2f8e6bad536.PNG">
+1. **인덱스 페이지로 이동**
+
+2. **레이아웃 변경**
+<img width="500" src="https://user-images.githubusercontent.com/37472764/131951939-cbe48277-84f8-413b-833d-8ac8915f2e03.PNG">
 
 **- 레이아웃1**
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729255-c77a1131-7bc2-418f-b8f9-f9461be218da.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131941274-b50fdcdd-763e-4601-bcb6-97e4441fbfd7.png">
 
 **- 레이아웃2**
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729295-f0e0b7e8-69c3-4444-a706-477168148517.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131941321-fb6ede5d-16d0-48a6-a904-062f75cc4f3d.png">
 
 **- 레이아웃3**
-<img width="1000" src="https://user-images.githubusercontent.com/37472764/125729325-acacc45c-e2b4-4a95-bcbc-6f816651dd99.png">
+<img width="1000" src="https://user-images.githubusercontent.com/37472764/131941352-39cf5d91-97dd-485d-9ec7-7bcfa5ed590c.png">
 
 3. **학습 모델 변경(Admin User)**
 <img width="500" src="https://user-images.githubusercontent.com/37472764/125897349-1378edb9-b5b5-46c5-8591-8ac98c172c20.png">
+
+### AI를 통해 제품의 양품 / 불량품 판정
+
+1. **제품의 시리얼 넘버**
+2. **FFT 변환 이미지**
+3. **양품 / 불량품 여부**
+<img width="500" src="https://user-images.githubusercontent.com/37472764/131952053-c1c1321f-57bd-48f0-adda-3ba8a0aa9285.png">
+
+###### **비정상 시, 툴 부하 또는 툴 마모 여부 확인 가능**
 
 ### 공정의 가동 현황 및 AI 판정 값
 + ### 공정의 가동 현황
@@ -65,6 +77,7 @@
 2. **time range 기준으로 시간 줌 아웃**
 3. **대시보드 리프레시**
 4. **리프레시 간격 설정**
+
 + ### Chart
 
 1. **Real Time Load Trands, MAE, Spindle Load Chart** <br> 실제 부하량과 AI를 통한 예측 부하량 + 실제 로스율과 예측 로스율의 차이 + 실시간 부하량
@@ -143,6 +156,12 @@ src/components 폴더에 vue 확장자로 원하는 컴포넌트를 만든다.
 ```
 만약 구현한 컴포넌트 이름이 AIPanel 이라면, 위와 같이 script에서 import한 뒤 components 옵션으로 등록하고 커스텀 태그를 등록.
 
+#### **vue에 unity 연결**
+
+```
+<unity src="../../../Build/Build_Web.json" unityLoader="../../../Build/UnityLoader.js" ref="gameInstance" id="gameContainer"></unity> 
+```
+
 ### Compiles and hot-reloads for development
 
 ```
@@ -163,6 +182,7 @@ npm run build
     "chart.js": "^2.9.4"
     "node": "^14.16.1"
     "npm": "^6.14.12"
+    "vue-unity-webgl": "^1.2.0"
     
 
 --- 
@@ -172,7 +192,7 @@ npm run build
 
 ### CT 이벤트
 1. **cycleTimeMean** <br> CT 평균 데이터 호출
-2. **cycleTimeHistory** <br> CT history 100개 데이터 호출
+2. **ctHistory** <br> CT history 100개 데이터 호출
 3. **ctChart** <br> CT history bar chart 생성을 위해 CT history 10개 데이터 호출
 
 ### Total Production
@@ -185,10 +205,14 @@ npm run build
 1. **isWork** <br> 공정의 가동, 비가동 여부를 알리는 데이터 호출
 
 ### MAE
-1. **loss** <br> MAE 데이터 호출
+1. **realtimeLoss** <br> MAE 데이터 호출
 
 ### Anomaly Detection
 1. **anomalyDetection** <br> 이상 데이터 판정 여부 호출
 
 ### Admin Model Change
 1. **nowModelInfo** <br> 현재 동작중인 모델 정보 호출
+
+### Product Quailty
+1. **qualityPredictStart** <br> 품질 예측 시작 호출
+2. **qualityPredictEnd** <br> 품질 예측 종료 호출
