@@ -5,17 +5,18 @@
       <div class="Breadcrumbs">
         <p id="nowFacNum" style="display:none"></p>
         <div id="headerTitle">
-          <!-- <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px; font-weight:500">View All Factory</span> -->
+          <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px; font-weight:500">View All Factory</span>
           <button @click="unityRefreshBtn" id="unityRefresh" style="margin-left:5px; margin-right: 5px; float:right"><i class="fa fa-retweet fa-2x" aria-hidden="true"></i></button>  
           <button @click="allFactroyBtn" id="allFactroy" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-industry fa-2x" aria-hidden="true"></i></button> 
           </div>
       </div>
       <div style="width: 100%; margin-top:10px">
         <div class="indexContent">
-          <div id="indexBody">
+          <div id="indexBody" :style="{width:indexNavWidth}">
             <tree :data="treeData" class="tree" @node:selected="onSelected"></tree>
+            <div id="closeIndexNav" @click="closeIndexNav" :style="{left:indexNavBtn}"></div>
           </div>
-          <div id="info_pic">
+          <div id="info_pic" :style="{width:infoWidth}">
             <div class="factory_pic">
               <Unity :stepNum="clickFacNum" ref="Unity"></Unity>
             </div>
@@ -43,6 +44,10 @@ export default {
     line1Show: true,
     op11Show: true,
     op12Show: true,
+    indexNavWidth: "15%",
+    indexNavBtn: "14.5%",
+    infoWidth: "85%",
+    indexNav: false,
     treeData: [
         { text: 'View All Workshop', id: "0" , state: { expanded: false, selected: true }, data: { icon: '../../assets/factory_defalut.png' }},
         { text: 'Workshop 1',  state: { expanded: false, selected: false }, id: "1", data: { icon: '../../assets/factory_defalut.png' }, children: [
@@ -92,6 +97,19 @@ export default {
       //   this.clickFacNum = targetId 
       //   this.$refs.Unity.unityRefreshEvt();
       // },
+      closeIndexNav(){
+        if(this.indexNav === false){
+          this.indexNavWidth = "2%"
+          this.indexNavBtn = "2%"
+          this.infoWidth = "97%"
+          this.indexNav = true
+        }else{
+          this.indexNavWidth = "15%"
+          this.indexNavBtn = "14.5%"
+          this.infoWidth = "85%"
+          this.indexNav = false
+        }
+      },
       unityRefreshBtn(){
         this.saveNodeId = document.getElementById("nowFacNum").innerText
         this.clickFacNum = this.saveNodeId
@@ -102,7 +120,7 @@ export default {
         this.clickFacNum = "0"
         document.getElementById("nowFacNum").innerText = "0"
         this.$refs.Unity.unityRefreshEvt();
-        // document.getElementById("headerFacInfo").innerText = "View All Factory"
+        document.getElementById("headerFacInfo").innerText = "View All Factory"
         treeOpen[0].click();
 
       },
@@ -130,40 +148,40 @@ export default {
           }
         }
 
-        // switch(node.id){
-        //   case "0":
-        //     document.getElementById("headerFacInfo").innerText = "View All Factory"             
-        //     break;
-        //   case "1":
-        //     document.getElementById("headerFacInfo").innerText = "Workshop 1"               
-        //     break;
-        //   case "2" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 2"
-        //     break;
-        //   case "3" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 3"
-        //     break;
-        //   case "11" :
-        //     document.getElementById("headerFacInfo").innerText = "Workshop 1  |  Line 1"
-        //     break;
-        //   case "12" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 1  |  Line 2"
-        //     break;
-        //   case "21" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 1"
-        //     break;
-        //   case "22" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 2"
-        //     break;
-        //   case "31" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 1"
-        //     break;
-        //   case "32" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 2"
-        //     break;
-        //   default:
-        //     document.getElementById("headerFacInfo").innerText = "View All Factory"
-        //   }
+        switch(node.id){
+          case "0":
+            document.getElementById("headerFacInfo").innerText = "View All Factory"             
+            break;
+          case "1":
+            document.getElementById("headerFacInfo").innerText = "Workshop 1"               
+            break;
+          case "2" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 2"
+            break;
+          case "3" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 3"
+            break;
+          case "11" :
+            document.getElementById("headerFacInfo").innerText = "Workshop 1  |  Line 1"
+            break;
+          case "12" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 1  |  Line 2"
+            break;
+          case "21" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 1"
+            break;
+          case "22" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 2"
+            break;
+          case "31" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 1"
+            break;
+          case "32" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 2"
+            break;
+          default:
+            document.getElementById("headerFacInfo").innerText = "View All Factory"
+          }
       }
     }
   }
@@ -242,5 +260,17 @@ export default {
   button:hover{
     color: lightblue;
 }
-
+#closeIndexNav{
+  position: fixed;
+  top: 50%;
+  margin-top: -26px;
+  width: 26px;
+  height: 52px;
+  left: 14.5%;
+  z-index: 9999;
+  background: url('../../assets/close_nav.png') no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+  transition: all .5s
+}
 </style>

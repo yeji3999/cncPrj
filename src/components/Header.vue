@@ -5,12 +5,17 @@
     </router-link>
     <div id="headerTitle">{{ headerTitle }}</div>
     <button v-on:click="loginOutEvt" id="loginout">{{signinOut}}</button>
+    <span id="currentTime">{{today}}</span>
   </div>
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 export default {
   name: 'Header',
+  component: { dayjs },
+
   created() { 
     if(!this.$keycloak.authenticated) {
       this.signinOut = 'Login';
@@ -18,13 +23,20 @@ export default {
       this.signinOut = 'Logout';
     }
   },
+  mounted(){
+    setInterval(this.currentTime, 1000)
+  },
   data(){
     return {
      headerTitle: "CNC Tool Load Monitoring",
      signinOut: 'Login',
+     today: dayjs().format("YYYY-MM-DD ddd HH:mm:ss")
     }
   },
     methods:{
+      currentTime(){
+        this.today = dayjs().format("YYYY-MM-DD ddd HH:mm:ss")
+      },
       indexMove(){
         location.href = '/'
       },
@@ -69,6 +81,13 @@ export default {
       color:white;
       line-height: 60px;
       font-weight: 800;
+    }
+    #currentTime{
+      float:right;
+      color:white;
+      line-height: 62px;
+      font-weight: 400;
+      margin-right: 20px;
     }
 
 </style>

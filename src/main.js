@@ -6,7 +6,9 @@ import App from './App.vue'
 import router from "./components/router/router"
 import VueSmartWidget from 'vue-smart-widget'
 import authentication from "./plugins/authentication.js "
+import dayjs from 'dayjs'
 
+Vue.use(dayjs)
 Vue.use(VueSmartWidget)
 Vue.prototype.$socket = new VueSocketIO({
   debug: false,
