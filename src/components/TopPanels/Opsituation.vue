@@ -6,7 +6,7 @@
 </template>
 
 <script>
-var aTime = 0;
+var socketComparisonTime = 0;
 export default {
   name: 'opsituation',
   created() {
@@ -15,14 +15,14 @@ export default {
   sockets: {
     isWork: function() {
       let today = new Date();
-      aTime = today.getTime();
+      socketComparisonTime = today.getTime();
       this.op = "Running";
       this.stateColor = "#465942";
 
       setTimeout(() => {
         let today = new Date();
-        let bTime = today.getTime();
-        if (bTime - aTime >= 3000) {
+        let socketCurrentTime = today.getTime();
+        if (socketCurrentTime - socketComparisonTime >= 3000) {
         this.op = "Stop";
         this.stateColor = "#C4162A";
           }
@@ -33,11 +33,6 @@ export default {
     return {
       op:"Stop",
       stateColor:"#C4162A"
-    }
-  },
-  methods:{
-    closeOP(){
-      this.$emit("closeOP",0)
     }
   }
 }

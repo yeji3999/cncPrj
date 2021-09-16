@@ -7,8 +7,8 @@
 
 <script>
 
-var dTime = 0
-var aTime = 0
+var socketComparisonTime = 0
+var colorChangeComparisonTime = 0
 export default {
 
   name: 'anomalyData',
@@ -18,7 +18,7 @@ export default {
     },
     anomalyDetection: function(res) {
       let today = new Date();
-      dTime = today.getTime();
+      socketComparisonTime = today.getTime();
       if(res=="정상"){
         this.anomalyState = "Nomal"
       }else if(res=="비정상"){
@@ -26,8 +26,8 @@ export default {
       }
       setTimeout(() => {
         let today = new Date();
-        let cTime = today.getTime();
-        if (cTime - dTime >= 3000) {
+        let socketCurrentTime = today.getTime();
+        if (socketCurrentTime - socketComparisonTime >= 3000) {
           this.anomalyState = '-';
         }
       }, 3000);
@@ -38,7 +38,6 @@ export default {
       anomalyState:"-",
       stateColor:"#3F6164",
       stateTxt: "#ffffff"
-      // alertView:"none"
     }
   },
 
@@ -46,15 +45,15 @@ export default {
     anomalyAlarm () {
       this.stateMessage = false;
       let today = new Date();
-      aTime = today.getTime();
+      colorChangeComparisonTime = today.getTime();
       this.stateTxt = "#ffffff"
       setTimeout(() => {
         this.stateTxt = "#ff0500"
       }, 300);
       setTimeout(() => {
         let today = new Date();
-        let bTime = today.getTime();
-        if (bTime - aTime >= 2000) {
+        let colorChangeCurrentTime = today.getTime();
+        if (colorChangeCurrentTime - colorChangeComparisonTime >= 2000) {
           this.stateTxt = "#ffffff"
           this.stateMessage = true;
           this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage })
@@ -62,9 +61,9 @@ export default {
       }, 2000);
       this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage }) 
     },
-    closeAnomal(){
-      this.$emit("closeAnomal",4)
-    }
+    // closeAnomal(){
+    //   this.$emit("closeAnomal",4)
+    // }
   },
 }
 </script>

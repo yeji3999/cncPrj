@@ -9,21 +9,11 @@ export default {
   name: 'ChartArea',
   props: {
     iframeSource: String
-  },
-  methods:{
-    closeChart(){
-      this.$emit("closeChart",6)
-    }
   }
 }
 
 </script>
 <style scoped>
-
-h2{
-  margin-bottom: 10px;
-  margin-top: 0px;
-}
 .ChartArea{
   margin: auto;
 }

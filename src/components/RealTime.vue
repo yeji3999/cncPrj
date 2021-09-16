@@ -10,11 +10,6 @@ export default {
   return {
     realTimeIframe: "http://hn-dev.com:8082/realTime.html",
     }
-  },
-  methods:{
-    closeRealChart(){
-      this.$emit("closeRealChart",5)
-    }
   }
 }
 </script>

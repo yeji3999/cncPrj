@@ -113,7 +113,7 @@ export default {
 
   mounted(){ const {topDragElement} = this.$refs; 
   dragula([ topDragElement//어디서 어디로 옮기는지 
-])
+  ])
   },
 
   beforeUpdate(){

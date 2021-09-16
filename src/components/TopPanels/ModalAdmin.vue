@@ -60,7 +60,6 @@ export default {
           this.applyState = "#e04c38"
           this.modalChangeSubmitTxt = "Stop"
       }
-      // this.adminModelList.push({model:"1"})
       if(this.checkModel=="prediction_bi"){
         this.adminModelList[0].modelState = "Running"
         this.adminModelList[1].modelState = "Stop"
@@ -146,7 +145,6 @@ export default {
     background: url('../../assets/close_modal.jpg') no-repeat;
     background-size: 100% 100%;
     cursor: pointer;
-    /* transition: all .5s */
 }
 #modelChangeSbmitArea{
   text-align: center;
@@ -168,16 +166,13 @@ export default {
   font-weight: 800;
 }
 #admin-panel{
-  /* width: 100%; */
   height: 100%;
   position: fixed;
-  /* left: 0; */
   top: 50px;
   right:0
 }
 
 .admin-panel-mask {
-  /* display: table; */
   position: relative;
   top: 6%;
   margin: auto;
@@ -187,7 +182,6 @@ export default {
 .admin-panel-wrapper {
   display: table-cell;
   vertical-align: middle;
-  /* width: 100%;  */
   height: 100%;
 }
 .admin-panel-header {

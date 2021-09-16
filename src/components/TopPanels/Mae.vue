@@ -6,15 +6,14 @@
 </template>
 
 <script>
-var dTime = 0
-var aTime = 0
+var socketComparisonTime = 0
+var colorChangeComparisonTime = 0
 export default {
   name: 'Loss1s',
   sockets: {
     realtimeLoss: function(res) {
       let today = new Date();
-      dTime = today.getTime();
-      // console.log(res)
+      socketComparisonTime = today.getTime();
       if (res.includes('n')) {
         this.loss = "-"
       } else {
@@ -22,8 +21,8 @@ export default {
       }
       setTimeout(() => {
         let today = new Date();
-        let cTime = today.getTime();
-        if (cTime - dTime >= 3000) {
+        let socketCurrentTime = today.getTime();
+        if (socketCurrentTime - socketComparisonTime >= 3000) {
           this.loss = '-';
         }
       }, 3000);
@@ -43,7 +42,7 @@ export default {
      anomalyAlarm () {
       this.stateMessage = false;
       var today = new Date();
-      aTime = today.getTime();
+      colorChangeComparisonTime = today.getTime();
       this.lossTxtColor = "#ffffff"
       setTimeout(() => {
         // this.lossStateColor = "#ffffff";
@@ -51,17 +50,14 @@ export default {
       }, 300);
       setTimeout(() => {
         var today = new Date();
-        let bTime = today.getTime();
-        if (bTime - aTime >= 2000) {
+        let colorChangeCurrentTime = today.getTime();
+        if (colorChangeCurrentTime - colorChangeComparisonTime >= 2000) {
           this.lossTxtColor = "#ffffff"
           this.stateMessage = true;
           this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage })
           }
       }, 2000);
       this.$store.dispatch('callAnomaly', { anomalyState: this.stateMessage }) 
-    },
-    closeMae(){
-      this.$emit("closeMae",3)
     }
   },
 }

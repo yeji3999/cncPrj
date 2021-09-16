@@ -32,9 +32,6 @@ export default {
     },
     modalPr() {
       this.$emit("modalPr","true")
-    },
-    closePR(){
-      this.$emit("closePR",1)
     }
   },
 };
@@ -43,7 +40,6 @@ export default {
 <style>
 
 .Product{
-  /* height: 100%; */
   text-align: center;
   margin-top: 17px; 
 }
