@@ -60,7 +60,8 @@ export default {
                 switch(endInfo.predict){
                     case "1":
                         this.abnormalTxt = "T8080 Wear"
-                        break;     
+                        break;
+                         
                     case "2":
                         this.abnormalTxt = "T2030 Wear"
                         break;                        

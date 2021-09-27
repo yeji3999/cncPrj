@@ -17,6 +17,7 @@
     </div>
 
     <div class="grid-widget">
+      <!-- 레이아웃 변경을 쉽게 하고자 스마트위젯 라이브러리 사용, slot으로 고유 번호 지정-->
     <smart-widget-grid :layout="layout" :resizable="false" :draggable="false">
 
       <!-- 공정의 가동 현황 및 AI 판정 값 --> 
@@ -154,7 +155,7 @@ export default {
       topElement = true
       this.layout.unshift(this.last)
     }
-    this.topPaneWidth = "calc(100%/"+this.topPaneNum+")"
+    this.topPaneWidth = "calc(100%/"+this.topPaneNum+")" 
   },
   sockets: {
     isWork: function() {

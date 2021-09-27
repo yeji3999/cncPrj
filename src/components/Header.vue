@@ -7,7 +7,7 @@
     <!-- <button v-on:click="loginOutEvt" id="loginout">{{signinOut}}</button> -->
     <button v-on:click="loginOutEvt" id="logout" :style="{display:logOut}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></button>
     <button v-on:click="loginOutEvt" id="login" :style="{display:logIn}"><i class="fa fa-sign-in fa-lg  " aria-hidden="true"></i></button>
-    <span id="currentTime">{{today}}</span>
+    <span id="timeNow">{{currentTime}}</span>
   </div>
 </template>
 
@@ -37,12 +37,12 @@ export default {
       signinOut: 'Login',
       logOut: "block",
       logIn: "none",
-      today: dayjs().format("YYYY-MM-DD ddd HH:mm:ss")
+      currentTime: dayjs().format("YYYY-MM-DD ddd HH:mm:ss")
     }
   },
     methods:{
       getCurrentTime(){
-        this.today = dayjs().format("YYYY-MM-DD ddd HH:mm:ss")
+        this.currentTime = dayjs().format("YYYY-MM-DD ddd HH:mm:ss")
       },
       indexMove(){
         location.href = '/'
@@ -95,7 +95,7 @@ export default {
       line-height: 53px;
       font-weight: 800;
     }
-    #currentTime{
+    #timeNow{
       float:right;
       color: #cedada;
       line-height: 62px;
