@@ -62,29 +62,28 @@ methods:{
     this.$emit("changeLayout",3);
     this.layoutshow = "none"  
   },
-    checkAdmin() {
-        if (this.$keycloak.authenticated) {
-          if (this.$keycloak.hasRealmRole('HNAdmin')) {
-            return true;
-          }
-        }
-        return false;    
-    },
-    menuDownEvt(){
-        if(this.layoutshow == "block"){
-            this.layoutshow = "none";
-        }else if(this.layoutshow == "none"){
-            this.layoutshow = "block";
-            this.chartmenuShow = "none";``
-        }  
-    },
-    modalAdmin(){
-      this.$emit("modalAdmin","open")
+  checkAdmin() {
+    if (this.$keycloak.authenticated) {
+      if (this.$keycloak.hasRealmRole('HNAdmin')) {
+        return true;
+      }
     }
+    return false;    
+  },
+  menuDownEvt(){
+    if(this.layoutshow == "block"){
+      this.layoutshow = "none";
+    }else if(this.layoutshow == "none"){
+      this.layoutshow = "block";
+      this.chartmenuShow = "none";``
+    }  
+  },
+  modalAdmin(){
+    this.$emit("modalAdmin","open")
+  }
 }
 })
 </script>
-
 
 <style scoped>
 #layoutBtnArea{

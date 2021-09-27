@@ -5,17 +5,18 @@
       <div class="Breadcrumbs">
         <p id="nowFacNum" style="display:none"></p>
         <div id="headerTitle">
-          <!-- <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px; font-weight:500">View All Factory</span> -->
+          <span class="headerTitleTxt" id="headerFacInfo" style="padding-left:0px; font-weight:500">View All Factory</span>
           <button @click="unityRefreshBtn" id="unityRefresh" style="margin-left:5px; margin-right: 5px; float:right"><i class="fa fa-retweet fa-2x" aria-hidden="true"></i></button>  
           <button @click="allFactroyBtn" id="allFactroy" style="margin-left:5px; margin-right: 20px; float:right"><i class="fa fa-industry fa-2x" aria-hidden="true"></i></button> 
           </div>
       </div>
       <div style="width: 100%; margin-top:10px">
         <div class="indexContent">
-          <div id="indexBody">
+          <div id="indexNav" :style="{width:indexNavWidth}">
             <tree :data="treeData" class="tree" @node:selected="onSelected"></tree>
+            <div id="closeIndexNav" @click="closeIndexNav" :style="{left:indexNavBtn, transform: indexNavRotate}"></div>
           </div>
-          <div id="info_pic">
+          <div id="indexUnity" :style="{width:infoWidth}">
             <div class="factory_pic">
               <Unity :stepNum="clickFacNum" ref="Unity"></Unity>
             </div>
@@ -32,8 +33,7 @@ import tree from 'liquor-tree'
 import Unity from '../Unity.vue'
 export default {
   components: {
-    Header,  Unity
-    ,tree,
+    Header, Unity ,tree,
   },
   data: () => ({
     saveUnityClickNum:"0",
@@ -43,6 +43,11 @@ export default {
     line1Show: true,
     op11Show: true,
     op12Show: true,
+    indexNavWidth: "15%",
+    indexNavBtn: "15%",
+    infoWidth: "85%",
+    indexNav: false,
+    indexNavRotate : "rotate(0deg)",
     treeData: [
         { text: 'View All Workshop', id: "0" , state: { expanded: false, selected: true }, data: { icon: '../../assets/factory_defalut.png' }},
         { text: 'Workshop 1',  state: { expanded: false, selected: false }, id: "1", data: { icon: '../../assets/factory_defalut.png' }, children: [
@@ -92,6 +97,21 @@ export default {
       //   this.clickFacNum = targetId 
       //   this.$refs.Unity.unityRefreshEvt();
       // },
+      closeIndexNav(){
+        if(this.indexNav === false){
+          this.indexNavWidth = "2%"
+          this.indexNavBtn = "2.5%"
+          this.infoWidth = "97%"
+          this.indexNavRotate = "rotate(180deg)"
+          this.indexNav = true
+        }else{
+          this.indexNavWidth = "15%"
+          this.indexNavBtn = "15%"
+          this.infoWidth = "85%"
+          this.indexNavRotate = "rotate(0deg)"
+          this.indexNav = false
+        }
+      },
       unityRefreshBtn(){
         this.saveNodeId = document.getElementById("nowFacNum").innerText
         this.clickFacNum = this.saveNodeId
@@ -102,7 +122,7 @@ export default {
         this.clickFacNum = "0"
         document.getElementById("nowFacNum").innerText = "0"
         this.$refs.Unity.unityRefreshEvt();
-        // document.getElementById("headerFacInfo").innerText = "View All Factory"
+        document.getElementById("headerFacInfo").innerText = "View All Factory"
         treeOpen[0].click();
 
       },
@@ -121,7 +141,6 @@ export default {
         this.clickFacNum = node.id
         this.$refs.Unity.unityRefreshEvt();
 
-
         if(String(this.clickFacNum).length == 3 ) {
           if(this.clickFacNum == 111){
             this.$router.push({ path: "/op" + this.clickFacNum })
@@ -130,40 +149,40 @@ export default {
           }
         }
 
-        // switch(node.id){
-        //   case "0":
-        //     document.getElementById("headerFacInfo").innerText = "View All Factory"             
-        //     break;
-        //   case "1":
-        //     document.getElementById("headerFacInfo").innerText = "Workshop 1"               
-        //     break;
-        //   case "2" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 2"
-        //     break;
-        //   case "3" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 3"
-        //     break;
-        //   case "11" :
-        //     document.getElementById("headerFacInfo").innerText = "Workshop 1  |  Line 1"
-        //     break;
-        //   case "12" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 1  |  Line 2"
-        //     break;
-        //   case "21" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 1"
-        //     break;
-        //   case "22" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 2"
-        //     break;
-        //   case "31" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 1"
-        //     break;
-        //   case "32" :
-        //     document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 2"
-        //     break;
-        //   default:
-        //     document.getElementById("headerFacInfo").innerText = "View All Factory"
-        //   }
+        switch(node.id){
+          case "0":
+            document.getElementById("headerFacInfo").innerText = "View All Factory"             
+            break;
+          case "1":
+            document.getElementById("headerFacInfo").innerText = "Workshop 1"               
+            break;
+          case "2" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 2"
+            break;
+          case "3" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 3"
+            break;
+          case "11" :
+            document.getElementById("headerFacInfo").innerText = "Workshop 1  |  Line 1"
+            break;
+          case "12" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 1  |  Line 2"
+            break;
+          case "21" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 1"
+            break;
+          case "22" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 2  |  Line 2"
+            break;
+          case "31" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 1"
+            break;
+          case "32" :
+            document.getElementById("headerFacInfo").innerText  = "Workshop 3  |  Line 2"
+            break;
+          default:
+            document.getElementById("headerFacInfo").innerText = "View All Factory"
+          }
       }
     }
   }
@@ -171,7 +190,7 @@ export default {
 
 <style scoped>
   #indexPageBack{
-    padding: 80px 20px 20px 30px;
+    padding: 80px 30px 30px 40px;
     background:#1b2329;
     height: 100vh;
   }
@@ -179,18 +198,16 @@ export default {
     width: 100%;
     display: inline-block;
   }
-  #indexBody, #info_pic{
+  #indexNav, #indexUnity{
     display: inline-block; 
-    /* vertical-align: top; */
   }
-  #info_pic {
+  #indexUnity {
     padding: 0px 2px 12px 20px; /*위 오른쪽 아래 왼쪽*/
     float: right;  
     width: 85%;
     overflow: hidden;
   }
-  #indexBody {
-    /* margin-top: 20px; */
+  #indexNav {
     height: 88vh;
     font-size: 20px;
     width: 15%;
@@ -198,7 +215,9 @@ export default {
     color: rgb(201, 209, 217);
     padding: 10px 20px 10px 20px; /*위 오른쪽 아래 왼쪽*/
     border-radius: 7px;
-    border: 2px solid #9c9c9c;
+    /* border: 2px solid #9c9c9c; */
+    border: 2px solid #90a1ab;
+    /* #90a1ab */
     overflow: auto;
   }
   ::-webkit-scrollbar {
@@ -216,10 +235,10 @@ export default {
     width: 100%;
     height: 88vh;
     background-repeat:no-repeat;
-    /* background-image: url('../../assets/factory2.jpg'); */
     background-size:cover;
     border-radius: 7px;
-    border: 2px solid #9c9c9c;
+    /* border: 2px solid #9c9c9c; */
+    border: 2px solid #90a1ab;
   }
 
   #headerTitle{
@@ -241,6 +260,16 @@ export default {
   }
   button:hover{
     color: lightblue;
-}
-
+  }
+  #closeIndexNav{
+    position: fixed;
+    top: 50%;
+    margin-top: -26px;
+    width: 26px;
+    height: 52px;
+    z-index: 9999;
+    background: url('../../assets/close_nav.png') no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
 </style>
