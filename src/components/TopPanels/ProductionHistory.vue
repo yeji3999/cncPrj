@@ -107,8 +107,7 @@ export default({
       this.monthly = m;
     }
   },
-  data: function () {
-    return {
+  data: () => ({
       startlist:"",
       endlist:"",
       doItem: "",
@@ -124,9 +123,8 @@ export default({
       weekly: [],
       monthly: [],
       showPRModal: true
-    }
-    
-  },
+  }),
+  
   methods: {
     modalPr() {
       this.$emit("modalPr","false")

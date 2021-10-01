@@ -33,14 +33,12 @@ export default {
       }, 3000);
     }
   },
-  data(){
-    return {
+  data: () => ({
       anomalyState:"-",
       stateColor:"#3F6164",
       stateTxt: "#ffffff"
-    }
-  },
-
+  }),
+  
   methods:{
     anomalyAlarm () {
       this.stateMessage = false;

@@ -35,8 +35,7 @@ export default {
   sockets: {
 
   },
-  data(){
-      return {
+  data: () => ({
       ctAvgVal : [],
       showCTModal: true,
       headers: [
@@ -49,8 +48,7 @@ export default {
           { text: 'End Time', value: 'end' },
           { text: 'Cycle Time', value: 'ct' },
         ],
-      }
-  },
+    }),
   methods:{
     modalCT() {
       this.$emit("modalCT","false")

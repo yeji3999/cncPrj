@@ -21,11 +21,10 @@ export default {
     },
 
   },
-  data: function () {
-    return {
+  data: () => ({
       productVal:"-",
-    }  
-  },
+  }),
+  
   methods: {
     productEvt(){
       this.productVal = 'result'

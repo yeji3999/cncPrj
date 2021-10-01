@@ -29,12 +29,10 @@ export default {
       }, 3500);
     }
   },
-  data(){
-    return {
+  data: () => ({
       op:"Stop",
       stateColor:"#C4162A"
-    }
-  }
+  })
 }
 </script>
 

@@ -89,8 +89,7 @@
 <script>
 export default {
   name: 'navigation',
-    data(){
-    return {
+    data: () => ({
       navPosition:"-200px",
       closePosition : "0px",
         items: [
@@ -151,8 +150,8 @@ export default {
             ]
           },
         ],
-    }
-  },
+    }),
+    
   methods:{
     closeNav: function(){
       if(this.navPosition == "0px"){

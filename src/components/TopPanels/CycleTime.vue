@@ -38,8 +38,7 @@ export default {
       this.$store.dispatch('callCTHistory', { ctHistory: tmp}) 
     }
   },
-  data(){
-      return {
+  data: () => ({
       cycleTimeVal:"-",
       showModal: false,
       headers: [
@@ -52,8 +51,8 @@ export default {
           { text: 'End Time', value: 'end' },
           { text: 'Cycle Time', value: 'ct' },
         ],
-      }
-  },
+    }),
+    
   methods:{
     numToMS: function(miliTime) {
       let sec = miliTime/1000;

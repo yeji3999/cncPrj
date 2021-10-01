@@ -6,10 +6,8 @@
 <script>
 
 export default {
-  data(){
-  return {
+  data: () => ({
     realTimeIframe: "http://hn-dev.com:8082/realTime.html",
-    }
-  }
+  })
 }
 </script>

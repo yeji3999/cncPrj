@@ -61,7 +61,7 @@ export default {
                     case "1":
                         this.abnormalTxt = "T8080 Wear"
                         break;
-                         
+
                     case "2":
                         this.abnormalTxt = "T2030 Wear"
                         break;                        
@@ -118,8 +118,7 @@ export default {
             }
       }, 
   },
-  data(){
-  return {
+    data: () => ({
       abnormalColor: "",
       abnormalTxtShow:"none",
       abnormalTxt:"",
@@ -134,8 +133,7 @@ export default {
       loadingImageSrc:require("../../public/productQualityImg/logo.png"),
       frequencyImageSrc:"",
       NoImgSrc:""
-    }
-  }
+    })
 }
 </script>
 

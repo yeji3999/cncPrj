@@ -31,15 +31,13 @@ export default {
   mounted(){
     setInterval(this.getCurrentTime, 1000)
   },
-  data(){
-    return {
-      headerTitle: "CNC Tool Load Monitoring",
+  data: () => ({
+        headerTitle: "CNC Tool Load Monitoring",
       signinOut: 'Login',
       logOut: "block",
       logIn: "none",
       currentTime: dayjs().format("YYYY-MM-DD ddd HH:mm:ss")
-    }
-  },
+    }),
     methods:{
       getCurrentTime(){
         this.currentTime = dayjs().format("YYYY-MM-DD ddd HH:mm:ss")

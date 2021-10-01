@@ -8,11 +8,9 @@
 import Unity from 'vue-unity-webgl'
 export default {
   components: { Unity },
-  data(){
-    return {
+  data: () => ({
       inputFacNum: Number(this.stepNum)
-    }
-  },
+  }),
   props:{
     stepNum : String,
   },

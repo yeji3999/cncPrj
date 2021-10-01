@@ -71,8 +71,7 @@ export default {
       }
     }
     },
-   data: function () {
-     return{
+   data: () => ({
        message:"",
        modelChangeBtn: false,
        currentModel:"",
@@ -91,8 +90,8 @@ export default {
           { model: 'BI_LSTM', processCnt: 3, modelState: "Stop" },
           { model: 'CONV2D_LSTM', processCnt: 6, modelState: "Stop" }
         ],
-     }
-  },
+    }),
+    
   methods:{
       getColor(modelState) {
         if (modelState == "Stop") return '#de2a33'

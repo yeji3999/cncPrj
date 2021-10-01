@@ -31,13 +31,12 @@ export default {
       this.anomalyAlarm();
     }
   },
-    data(){
-    return {
+    data: () => ({
       loss: "-",
       lossStateColor:"#3F6164",
       lossTxtColor:"#ffffff"
-    }
-  },
+    }),
+    
     methods:{
      anomalyAlarm () {
       this.stateMessage = false;
