@@ -112,6 +112,9 @@ vue --version
 ```
 vue create <project-name>
 ```
+### vue smart widget
+ + **vue-smart-widget.common.js 파일 변경 필요**
+ + **/node_modules/vue-smart-widget/lib/vue-smart-widget.common.js의 코드를 public/vue-smart-widget.common.js 의 코드로 변경**
 
 #### **프로젝트 구조**
  + /public <br> index.html이나 favicon과 같이 정적 파일들이 보관되는 폴더
